@@ -13,8 +13,13 @@ Add TV shows to your Sonarr library.
 
 Create `~/.clawdbot/credentials/sonarr/config.json`:
 ```json
-{"url": "http://localhost:8989", "apiKey": "your-api-key"}
+{
+  "url": "http://localhost:8989",
+  "apiKey": "your-api-key",
+  "defaultQualityProfile": 1
+}
 ```
+- `defaultQualityProfile`: Quality profile ID (run `config` to see options)
 
 ## Workflow
 
@@ -26,6 +31,7 @@ Create `~/.clawdbot/credentials/sonarr/config.json`:
 ## Important
 - **Always include TVDB links** when presenting search results to user
 - Format: `[Title (Year)](https://thetvdb.com/series/SLUG)`
+- Uses `defaultQualityProfile` from config; can override per-add
 
 ## Commands
 

@@ -9,6 +9,7 @@ CONFIG_FILE="$HOME/.clawdbot/credentials/sonarr/config.json"
 if [ -f "$CONFIG_FILE" ]; then
   SONARR_URL=$(jq -r '.url' "$CONFIG_FILE")
   SONARR_API_KEY=$(jq -r '.apiKey' "$CONFIG_FILE")
+  DEFAULT_QUALITY_PROFILE=$(jq -r '.defaultQualityProfile // empty' "$CONFIG_FILE")
 fi
 
 if [ -z "$SONARR_URL" ] || [ -z "$SONARR_API_KEY" ]; then
@@ -57,10 +58,15 @@ case "$cmd" in
     
   add)
     tvdbId="$1"
+    qualityProfileId="$2"
     searchFlag="true"
-    if [ "$2" = "--no-search" ]; then
-      searchFlag="false"
-    fi
+    
+    # Check for --no-search flag
+    for arg in "$@"; do
+      if [ "$arg" = "--no-search" ]; then
+        searchFlag="false"
+      fi
+    done
     
     # Get series details from lookup
     series=$(curl -s -H "$AUTH" "$API/series/lookup?term=tvdb:$tvdbId" | jq '.[0]')
@@ -70,9 +76,19 @@ case "$cmd" in
       exit 1
     fi
     
-    # Get default root folder and quality profile
+    # Get default root folder
     rootFolder=$(curl -s -H "$AUTH" "$API/rootfolder" | jq -r '.[0].path')
-    qualityProfile=$(curl -s -H "$AUTH" "$API/qualityprofile" | jq -r '.[0].id')
+    
+    # Use provided quality profile ID, config default, or first available
+    if [ -z "$qualityProfileId" ] || [ "$qualityProfileId" = "--no-search" ]; then
+      if [ -n "$DEFAULT_QUALITY_PROFILE" ]; then
+        qualityProfile="$DEFAULT_QUALITY_PROFILE"
+      else
+        qualityProfile=$(curl -s -H "$AUTH" "$API/qualityprofile" | jq -r '.[0].id')
+      fi
+    else
+      qualityProfile="$qualityProfileId"
+    fi
     
     # Build add request
     addRequest=$(echo "$series" | jq --arg rf "$rootFolder" --argjson qp "$qualityProfile" --argjson search "$searchFlag" '
@@ -141,7 +157,7 @@ case "$cmd" in
     echo "  search-json <query>         Search (JSON output)"
     echo "  exists <tvdbId>             Check if show is in library"
     echo "  config                      Show root folders & quality profiles"
-    echo "  add <tvdbId> [--no-search]  Add a show (searches by default)"
+    echo "  add <tvdbId> [profileId] [--no-search]  Add a show (searches by default)"
     echo "  remove <tvdbId> [--delete-files]  Remove a show from library"
     ;;
 esac
