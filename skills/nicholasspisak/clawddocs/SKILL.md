@@ -1,109 +1,157 @@
 # Clawdbot Documentation Expert
 
-Use this skill when the user wants to learn about Clawdbot features, configuration, or troubleshooting. You become an expert on the Clawdbot documentation.
+You are an expert on Clawdbot documentation. Use this skill to help users navigate, understand, and configure Clawdbot.
 
-## How to Use
+## Quick Start
 
-1. **Fetch the sitemap** to get the current documentation structure
-2. **Present topic categories** to the user
-3. **Read specific docs** based on user interest
-4. **Answer follow-up questions** with documentation references
+When a user asks about Clawdbot, first identify what they need:
 
-## Step 1: Fetch Current Sitemap
+### 🎯 Decision Tree
 
-Always start by fetching the live sitemap to get up-to-date documentation:
+**"How do I set up X?"** → Check providers/ or start/
+- Discord, Telegram, WhatsApp, etc. → `providers/<name>`
+- First time? → `start/getting-started`, `start/setup`
 
+**"Why isn't X working?"** → Check troubleshooting
+- General issues → `debugging`, `gateway/troubleshooting`
+- Provider-specific → `providers/troubleshooting`
+- Browser tool → `tools/browser-linux-troubleshooting`
+
+**"How do I configure X?"** → Check gateway/ or concepts/
+- Main config → `gateway/configuration`, `gateway/configuration-examples`
+- Specific features → relevant concepts/ page
+
+**"What is X?"** → Check concepts/
+- Architecture, sessions, queues, models, etc.
+
+**"How do I automate X?"** → Check automation/
+- Scheduled tasks → `automation/cron-jobs`
+- Webhooks → `automation/webhook`
+- Gmail → `automation/gmail-pubsub`
+
+**"How do I install/deploy?"** → Check install/ or platforms/
+- Docker → `install/docker`
+- Linux server → `platforms/linux`
+- macOS app → `platforms/macos`
+
+## Available Scripts
+
+All scripts are in `./scripts/`:
+
+### Core
 ```bash
-curl -s https://docs.clawd.bot/sitemap.xml | grep -oP '(?<=<loc>)[^<]+' | sort
+./scripts/sitemap.sh              # Show all docs by category
+./scripts/cache.sh status         # Check cache status
+./scripts/cache.sh refresh        # Force refresh sitemap
 ```
 
-## Step 2: Documentation Categories
+### Search & Discovery
+```bash
+./scripts/search.sh discord       # Find docs by keyword
+./scripts/recent.sh 7             # Docs updated in last N days
+./scripts/fetch-doc.sh gateway/configuration  # Get specific doc
+```
 
-The docs are organized into these main sections:
+### Full-Text Index (requires qmd)
+```bash
+./scripts/build-index.sh fetch    # Download all docs
+./scripts/build-index.sh build    # Build search index
+./scripts/build-index.sh search "webhook retry"  # Semantic search
+```
+
+### Version Tracking
+```bash
+./scripts/track-changes.sh snapshot   # Save current state
+./scripts/track-changes.sh list       # Show snapshots
+./scripts/track-changes.sh since 2026-01-01  # Show changes
+```
+
+## Documentation Categories
 
 ### 🚀 Getting Started (`/start/`)
-- getting-started, onboarding, setup, wizard, pairing
-- clawd, hubs, faq, lore, showcase
+First-time setup, onboarding, FAQ, wizard
 
 ### 🔧 Gateway & Operations (`/gateway/`)
-- configuration, configuration-examples, authentication
-- health, heartbeat, logging, troubleshooting
-- remote, tailscale, sandboxing, security
-- doctor, discovery, bonjour, pairing
+Configuration, security, health, logging, tailscale, troubleshooting
 
 ### 💬 Providers (`/providers/`)
-- discord, telegram, whatsapp, slack, signal
-- imessage, msteams, grammy
-- troubleshooting, location
+Discord, Telegram, WhatsApp, Slack, Signal, iMessage, MS Teams
 
 ### 🧠 Core Concepts (`/concepts/`)
-- agent, agent-loop, agent-workspace, multi-agent
-- session, sessions, session-tool, session-pruning
-- messages, group-messages, groups
-- models, model-providers, model-failover
-- queue, retry, streaming, typing-indicators
-- system-prompt, timezone, oauth, presence
-- architecture, compaction, usage-tracking
+Agent, sessions, messages, models, queues, streaming, system-prompt
 
 ### 🛠️ Tools (`/tools/`)
-- bash, browser, skills, skills-config
-- elevated, reactions, slash-commands
-- subagents, thinking, clawdhub, agent-send
+Bash, browser, skills, reactions, subagents, thinking
 
 ### ⚡ Automation (`/automation/`)
-- cron-jobs, webhook, poll
-- gmail-pubsub, auth-monitoring
+Cron jobs, webhooks, polling, Gmail pub/sub
 
 ### 💻 CLI (`/cli/`)
-- gateway, message, sandbox, update
+Gateway, message, sandbox, update commands
 
 ### 📱 Platforms (`/platforms/`)
-- macos, linux, windows, ios, android, hetzner
-- Mac-specific: bundled-gateway, canvas, child-process, webchat, voice-overlay, voicewake, permissions, etc.
+macOS, Linux, Windows, iOS, Android, Hetzner
 
 ### 📡 Nodes (`/nodes/`)
-- camera, audio, images, location-command, talk, voicewake
+Camera, audio, images, location, voice
 
 ### 🌐 Web (`/web/`)
-- webchat, dashboard, control-ui
+Webchat, dashboard, control UI
 
 ### 📦 Install (`/install/`)
-- docker, ansible, bun, nix, updating
+Docker, Ansible, Bun, Nix, updating
 
 ### 📚 Reference (`/reference/`)
-- AGENTS.default, RELEASING, rpc, device-models
-- Templates: AGENTS, BOOTSTRAP, HEARTBEAT, IDENTITY, SOUL, TOOLS, USER
+Templates, RPC, device models
 
-## Step 3: Read Specific Documentation
+## Config Snippets
 
-When the user wants details on a topic, fetch it with the browser:
+See `./snippets/common-configs.md` for ready-to-use configuration patterns:
+- Provider setup (Discord, Telegram, WhatsApp, etc.)
+- Gateway configuration
+- Agent defaults
+- Retry settings
+- Cron jobs
+- Skills configuration
 
-```
-Use pi_browser to navigate to the specific doc URL, then snapshot to read it.
-```
+## Workflow
 
-Example URLs:
-- https://docs.clawd.bot/providers/discord
-- https://docs.clawd.bot/concepts/queue
-- https://docs.clawd.bot/gateway/configuration
-
-## Workflow Example
-
-**User:** "Tell me about Clawdbot"
-
-**You:** Present the high-level categories above and ask which area interests them.
-
-**User:** "I want to learn about Discord setup"
-
-**You:** Navigate to https://docs.clawd.bot/providers/discord, read it, and explain the key points.
-
-**User:** "How do I configure requireMention?"
-
-**You:** Reference the specific section from the Discord docs and provide the config example.
+1. **Identify the need** using the decision tree above
+2. **Search** if unsure: `./scripts/search.sh <keyword>`
+3. **Fetch the doc**: `./scripts/fetch-doc.sh <path>` or use browser
+4. **Reference snippets** for config examples
+5. **Cite the source URL** when answering
 
 ## Tips
 
-- Always cite the specific doc URL when answering
-- If docs have changed, re-fetch the sitemap
-- For complex topics, offer to read multiple related docs
-- Provide code/config examples directly from the docs
+- Always use cached sitemap when possible (1-hour TTL)
+- For complex questions, search the full-text index
+- Check recent.sh to see what's been updated
+- Offer specific config snippets from snippets/
+- Link to docs: `https://docs.clawd.bot/<path>`
+
+## Example Interactions
+
+**User:** "How do I make my bot only respond when mentioned in Discord?"
+
+**You:** 
+1. Fetch `providers/discord` doc
+2. Find the `requireMention` setting
+3. Provide the config snippet:
+```json
+{
+  "discord": {
+    "guilds": {
+      "*": { "requireMention": true }
+    }
+  }
+}
+```
+4. Link: https://docs.clawd.bot/providers/discord
+
+**User:** "What's new in the docs?"
+
+**You:**
+1. Run `./scripts/recent.sh 7`
+2. Summarize recently updated pages
+3. Offer to dive into any specific updates
