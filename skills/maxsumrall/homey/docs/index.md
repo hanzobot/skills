@@ -1,6 +1,6 @@
 # homeycli
 
-Control Athom Homey devices from the command line using the Homey Cloud API.
+Control Athom Homey devices from the command line via local (LAN/VPN) or cloud APIs.
 
 This tool is designed to be called by an LLM/agent (ClawdHub skill), so it prioritizes:
 
@@ -17,17 +17,26 @@ chmod +x bin/homeycli.js
 
 ## Auth
 
-Recommended (safe; avoids shell history):
+Local mode (LAN/VPN):
 
 ```bash
-echo "YOUR_TOKEN" | homeycli auth set-token --stdin
-homeycli auth status --json
+homeycli auth discover-local --save --pick 1
+
+echo "LOCAL_API_KEY" | homeycli auth set-local --stdin
+# or interactive (hidden input): homeycli auth set-local --prompt
 ```
 
-Interactive (hidden input):
+Cloud mode (remote/headless):
 
 ```bash
-homeycli auth set-token --prompt
+echo "CLOUD_TOKEN" | homeycli auth set-token --stdin
+# or interactive (hidden input): homeycli auth set-token --prompt
+```
+
+Check status:
+
+```bash
+homeycli auth status --json
 ```
 
 ## Recommended: snapshot

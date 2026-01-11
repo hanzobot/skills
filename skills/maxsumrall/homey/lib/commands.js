@@ -2,6 +2,7 @@ const chalk = require('chalk');
 const Table = require('cli-table3');
 const HomeyClient = require('./client');
 const config = require('./config');
+const { discoverLocalHomeys, formatCandidates, requireDiscovered } = require('./discover-local');
 
 /**
  * Create Homey client from config
@@ -9,15 +10,73 @@ const config = require('./config');
 const { cliError } = require('./errors');
 
 function createClient() {
-  const token = config.getToken();
-  if (!token) {
+  const conn = config.getConnectionInfo();
+
+  if (conn.modeSelected === 'local') {
+    const missing = [];
+    if (!conn.local.address) missing.push('HOMEY_ADDRESS');
+    if (!conn.local.token) missing.push('HOMEY_LOCAL_TOKEN');
+
+    if (missing.length) {
+      throw cliError(
+        'NO_TOKEN',
+        'local mode selected but local Homey address/token are not configured',
+        {
+          modeWanted: conn.modeWanted,
+          modeSelected: conn.modeSelected,
+          missing,
+          path: conn.path,
+          help:
+            'Local mode (LAN/VPN):\n' +
+            '  1) Generate a local API key in the Homey Web App\n' +
+            '  2) Configure address + token:\n' +
+            '     export HOMEY_MODE=local\n' +
+            '     homeycli auth discover-local --save\n' +
+            '     echo "<LOCAL_API_KEY>" | homeycli auth set-local --stdin\n' +
+            '     # (or set address explicitly: --address http://<homey-ip>)\n\n' +
+            'Cloud mode (remote/headless):\n' +
+            '  1) Create a token in Homey Developer Tools\n' +
+            '  2) Configure token:\n' +
+            '     export HOMEY_MODE=cloud\n' +
+            '     echo "<CLOUD_TOKEN>" | homeycli auth set-token --stdin\n\n' +
+            'OAuth (advanced): https://api.developer.homey.app/',
+        }
+      );
+    }
+
+    return new HomeyClient({
+      mode: 'local',
+      address: conn.local.address,
+      token: conn.local.token,
+    });
+  }
+
+  // Cloud mode
+  if (!conn.cloud.token) {
     throw cliError(
       'NO_TOKEN',
-      'no Homey token found (set HOMEY_TOKEN or write ~/.homey/config.json)',
-      { help: 'Get a token from https://tools.developer.homey.app/api/clients' }
+      'cloud mode selected but no cloud token is configured',
+      {
+        modeWanted: conn.modeWanted,
+        modeSelected: conn.modeSelected,
+        missing: ['HOMEY_TOKEN'],
+        path: conn.path,
+        help:
+          'Cloud mode (remote/headless):\n' +
+          '  1) Create a token in Homey Developer Tools\n' +
+          '  2) Configure token:\n' +
+          '     export HOMEY_MODE=cloud\n' +
+          '     echo "<CLOUD_TOKEN>" | homeycli auth set-token --stdin\n\n' +
+          'Local mode (LAN/VPN):\n' +
+          '  export HOMEY_MODE=local\n' +
+          '  homeycli auth discover-local --save\n' +
+          '  echo "<LOCAL_API_KEY>" | homeycli auth set-local --stdin\n\n' +
+          'OAuth (advanced): https://api.developer.homey.app/',
+      }
     );
   }
-  return new HomeyClient(token);
+
+  return new HomeyClient({ mode: 'cloud', token: conn.cloud.token });
 }
 
 /**
@@ -376,9 +435,10 @@ async function showStatus(options) {
 
   console.log(chalk.bold('\n🏠 Homey Status:\n'));
   console.log(`  ${chalk.cyan('Name:')} ${status.name}`);
-  console.log(`  ${chalk.cyan('Platform:')} ${status.platform} ${status.platformVersion}`);
-  console.log(`  ${chalk.cyan('Hostname:')} ${status.hostname}`);
-  console.log(`  ${chalk.cyan('Cloud ID:')} ${status.cloudId}`);
+  console.log(`  ${chalk.cyan('Connection:')} ${status.connectionMode || '-'}${status.address ? ` (${status.address})` : ''}`);
+  console.log(`  ${chalk.cyan('Platform:')} ${status.platform} ${status.platformVersion ?? ''}`);
+  console.log(`  ${chalk.cyan('Hostname:')} ${status.hostname || '-'}`);
+  console.log(`  ${chalk.cyan('Homey ID:')} ${status.homeyId || status.cloudId || '-'}`);
   console.log(`  ${chalk.cyan('Status:')} ${chalk.green('✓ Connected')}\n`);
 }
 
@@ -394,43 +454,242 @@ async function authSetToken(token, options) {
   config.saveToken(t);
 
   const info = config.getTokenInfo();
-  const data = { saved: true, source: info.source, path: info.path };
+  const data = { saved: true, kind: 'cloud', source: info.source, path: info.path };
 
   if (options.json) {
     output(data, options);
     return;
   }
 
-  console.log(chalk.green('✓ Token saved'));
+  console.log(chalk.green('✓ Cloud token saved'));
   console.log(`  ${chalk.cyan('Path:')} ${info.path}`);
 }
 
 /**
- * Show where token is coming from (never prints the token)
+ * Save local Homey connection settings to config.
  */
-async function authStatus(options) {
-  const info = config.getTokenInfo();
+async function authSetLocal(token, options) {
+  let address = String(options.address || '').trim();
+  if (!address) {
+    address = String(config.getLocalAddressInfo().address || '').trim();
+  }
+  if (!address) {
+    throw cliError(
+      'INVALID_VALUE',
+      'address is required (use --address http://<homey-ip> or run: homeycli auth discover-local --save)'
+    );
+  }
+
+  const t = String(token || '').trim();
+  if (!t) {
+    throw cliError('INVALID_VALUE', 'token is required');
+  }
+
+  config.saveLocalConfig({ address, token: t });
+
+  const info = config.getConnectionInfo();
   const data = {
-    tokenPresent: Boolean(info.token),
-    source: info.source,
+    saved: true,
+    kind: 'local',
+    address,
     path: info.path,
   };
-
-  // Avoid token-derived fields in JSON by default (JSON is commonly logged/collected).
-  const tokenLast4 = info.token ? info.token.slice(-4) : null;
 
   if (options.json) {
     output(data, options);
     return;
   }
 
-  console.log(chalk.bold('\n🔐 Auth Status:\n'));
-  console.log(`  ${chalk.cyan('Token present:')} ${data.tokenPresent ? chalk.green('yes') : chalk.red('no')}`);
-  console.log(`  ${chalk.cyan('Source:')} ${data.source || '-'}`);
-  console.log(`  ${chalk.cyan('Config path:')} ${data.path}`);
-  if (tokenLast4) {
-    console.log(`  ${chalk.cyan('Token last4:')} ${tokenLast4}`);
+  console.log(chalk.green('✓ Local Homey config saved'));
+  console.log(`  ${chalk.cyan('Address:')} ${address}`);
+  console.log(`  ${chalk.cyan('Path:')} ${info.path}`);
+}
+
+/**
+ * Set the preferred connection mode in config (auto|local|cloud).
+ * (Can be overridden by env HOMEY_MODE)
+ */
+async function authSetMode(mode, options) {
+  const m = String(mode || '').trim().toLowerCase();
+  if (!['auto', 'local', 'cloud'].includes(m)) {
+    throw cliError('INVALID_VALUE', "mode must be one of: auto, local, cloud");
   }
+
+  const path = config.saveMode(m);
+  const data = { saved: true, mode: m, path };
+
+  if (options.json) {
+    output(data, options);
+    return;
+  }
+
+  console.log(chalk.green('✓ Mode saved'));
+  console.log(`  ${chalk.cyan('Mode:')} ${m}`);
+  console.log(`  ${chalk.cyan('Path:')} ${path}`);
+}
+
+/**
+ * Discover local Homey address via mDNS and optionally save it.
+ */
+async function authDiscoverLocal(options) {
+  const timeoutMs = Number.isFinite(options.timeout) ? options.timeout : undefined;
+  const save = Boolean(options.save);
+  const pick = Number.isFinite(options.pick) ? options.pick : null;
+  const pickHomeyId = options.homeyId ? String(options.homeyId).trim() : null;
+
+  const found = await discoverLocalHomeys({ timeoutMs });
+  requireDiscovered(found);
+
+  // Dedupe by homeyId if present (else by address).
+  const byId = new Map();
+  for (const c of found) {
+    const key = c.homeyId || c.address;
+    if (!byId.has(key)) byId.set(key, c);
+  }
+  const candidates = Array.from(byId.values()).sort((a, b) => {
+    const aid = a.homeyId || '';
+    const bid = b.homeyId || '';
+    if (aid !== bid) return aid.localeCompare(bid);
+    return String(a.address).localeCompare(String(b.address));
+  });
+
+  if (save) {
+    let chosen = null;
+
+    if (pickHomeyId) {
+      const matches = candidates.filter((c) => c.homeyId === pickHomeyId);
+      if (matches.length === 1) chosen = matches[0];
+      else if (matches.length === 0) {
+        throw cliError('NOT_FOUND', `no discovered local Homey matches homeyId '${pickHomeyId}'`, {
+          candidates: formatCandidates(candidates),
+        });
+      } else {
+        throw cliError('AMBIGUOUS', `multiple discovered candidates match homeyId '${pickHomeyId}'`, {
+          candidates: formatCandidates(matches),
+        });
+      }
+    } else if (pick !== null) {
+      if (!Number.isInteger(pick) || pick < 1 || pick > candidates.length) {
+        throw cliError('INVALID_VALUE', `pick must be an integer between 1 and ${candidates.length}`, {
+          candidates: formatCandidates(candidates),
+        });
+      }
+      chosen = candidates[pick - 1];
+    } else if (candidates.length === 1) {
+      chosen = candidates[0];
+    } else {
+      throw cliError(
+        'AMBIGUOUS',
+        `found ${candidates.length} local Homey candidates; choose one with --pick <n> or --homey-id <id> (or set --address manually)`,
+        { candidates: formatCandidates(candidates) }
+      );
+    }
+
+    const path = config.saveLocalAddress(chosen.address);
+
+    const data = {
+      discovered: true,
+      saved: true,
+      kind: 'local',
+      address: chosen.address,
+      homeyId: chosen.homeyId,
+      path,
+    };
+
+    if (options.json) {
+      output(data, options);
+      return;
+    }
+
+    console.log(chalk.green('✓ Local Homey address discovered and saved'));
+    console.log(`  ${chalk.cyan('Address:')} ${chosen.address}`);
+    if (chosen.homeyId) console.log(`  ${chalk.cyan('Homey ID:')} ${chosen.homeyId}`);
+    console.log(`  ${chalk.cyan('Path:')} ${path}`);
+    return;
+  }
+
+  const data = { discovered: true, candidates: formatCandidates(candidates) };
+  if (options.json) {
+    output(data, options);
+    return;
+  }
+
+  console.log(chalk.bold(`\n🔎 Discovered ${candidates.length} local Homey candidate(s):\n`));
+  for (const c of formatCandidates(candidates)) {
+    console.log(`  [${c.index}] ${c.address}${c.homeyId ? `  (id: ${c.homeyId})` : ''}`);
+  }
+  console.log('');
+}
+
+async function authClearCloud(options) {
+  const path = config.clearCloudToken();
+  const data = { cleared: true, kind: 'cloud', path };
+  if (options.json) return output(data, options);
+  console.log(chalk.green('✓ Cloud token cleared'));
+  console.log(`  ${chalk.cyan('Path:')} ${path}`);
+}
+
+async function authClearLocal(options) {
+  const path = config.clearLocalConfig();
+  const data = { cleared: true, kind: 'local', path };
+  if (options.json) return output(data, options);
+  console.log(chalk.green('✓ Local config cleared'));
+  console.log(`  ${chalk.cyan('Path:')} ${path}`);
+}
+
+/**
+ * Show auth status for local + cloud (never prints full tokens).
+ */
+async function authStatus(options) {
+  const modeInfo = config.getModeInfo();
+  const conn = config.getConnectionInfo();
+  const cloud = config.getCloudTokenInfo();
+  const localToken = config.getLocalTokenInfo();
+  const localAddress = config.getLocalAddressInfo();
+
+  const data = {
+    modeWanted: modeInfo.mode,
+    modeWantedSource: modeInfo.source,
+    modeSelected: conn.modeSelected,
+    path: conn.path,
+    local: {
+      addressPresent: Boolean(localAddress.address),
+      tokenPresent: Boolean(localToken.token),
+      address: localAddress.address,
+      addressSource: localAddress.source,
+      tokenSource: localToken.source,
+    },
+    cloud: {
+      tokenPresent: Boolean(cloud.token),
+      tokenSource: cloud.source,
+    },
+  };
+
+  if (options.json) {
+    output(data, options);
+    return;
+  }
+
+  const localLast4 = localToken.token ? localToken.token.slice(-4) : null;
+  const cloudLast4 = cloud.token ? cloud.token.slice(-4) : null;
+
+  console.log(chalk.bold('\n🔐 Auth Status:\n'));
+  console.log(`  ${chalk.cyan('Mode (wanted):')} ${data.modeWanted} (${data.modeWantedSource})`);
+  console.log(`  ${chalk.cyan('Mode (selected):')} ${data.modeSelected}`);
+  console.log(`  ${chalk.cyan('Config path:')} ${data.path}`);
+
+  console.log(chalk.bold('\n  Local (LAN/VPN):'));
+  console.log(`    ${chalk.cyan('Address:')} ${data.local.address || '-'} (${data.local.addressSource || '-'})`);
+  console.log(`    ${chalk.cyan('Token present:')} ${data.local.tokenPresent ? chalk.green('yes') : chalk.red('no')} (${data.local.tokenSource || '-'})`);
+  if (localLast4) console.log(`    ${chalk.cyan('Token last4:')} ${localLast4}`);
+
+  console.log(chalk.bold('\n  Cloud (remote):'));
+  console.log(`    ${chalk.cyan('Token present:')} ${data.cloud.tokenPresent ? chalk.green('yes') : chalk.red('no')} (${data.cloud.tokenSource || '-'})`);
+  if (cloudLast4) console.log(`    ${chalk.cyan('Token last4:')} ${cloudLast4}`);
+
+  console.log('\n  Setup commands:');
+  console.log('    Local:  echo "<LOCAL_API_KEY>" | homeycli auth set-local --address http://<homey-ip> --stdin');
+  console.log('    Cloud:  echo "<CLOUD_TOKEN>" | homeycli auth set-token --stdin');
   console.log('');
 }
 
@@ -478,6 +737,12 @@ module.exports = {
   listZones,
   showStatus,
   snapshot,
+
   authSetToken,
+  authSetLocal,
+  authDiscoverLocal,
+  authSetMode,
+  authClearCloud,
+  authClearLocal,
   authStatus,
 };

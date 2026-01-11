@@ -10,7 +10,7 @@ const pkg = require('../package.json');
 
 program
   .name('homeycli')
-  .description('Control Athom Homey smart home devices via Cloud API')
+  .description('Control Athom Homey smart home devices via local (LAN/VPN) or cloud APIs')
   .version(pkg.version);
 
 // Global options
@@ -198,31 +198,62 @@ program
 
 // Auth helper commands
 program
-  .command('auth <action> [token]')
-  .description('Authentication helpers (set-token, status)')
+  .command('auth <action> [value]')
+  .description('Authentication helpers (local + cloud)')
   .option('--stdin', 'Read token from stdin (recommended; avoids shell history)')
   .option('--prompt', 'Prompt for token (hidden input)')
-  .action((action, token, maybeCmd) =>
+  .option('--address <url>', 'Homey local address (e.g. http://192.168.1.50)')
+  .option('--save', 'Save discovered local address to config (discover-local)')
+  .option('--pick <n>', 'Pick candidate by index (discover-local --save)', (v) => parseInt(v, 10))
+  .option('--homey-id <id>', 'Pick candidate by Homey id (discover-local --save)')
+  .option('--timeout <ms>', 'Discovery timeout in ms (discover-local)', (v) => parseInt(v, 10))
+  .action((action, value, maybeCmd) =>
     runOrExit(async (opts) => {
       const merged = { ...opts, ...commandOpts(maybeCmd) };
 
-      if (action === 'set-token') {
-        if (merged.stdin && merged.prompt) {
-          throw cliError('INVALID_VALUE', 'use either --stdin or --prompt (not both)');
-        }
+      if (merged.stdin && merged.prompt) {
+        throw cliError('INVALID_VALUE', 'use either --stdin or --prompt (not both)');
+      }
 
-        let t = token;
-        if (merged.stdin) {
-          t = (await readAllStdin()).trim();
-        } else if (merged.prompt) {
-          t = String(await promptHidden('Homey token: ')).trim();
-        }
+      async function readToken(kindLabel) {
+        if (merged.stdin) return (await readAllStdin()).trim();
+        if (merged.prompt) return String(await promptHidden(`${kindLabel} token: `)).trim();
+        return value;
+      }
+
+      if (action === 'discover-local') {
+        return commands.authDiscoverLocal(merged);
+      }
+
+      if (action === 'set-token') {
+        const t = await readToken('Homey cloud');
         return commands.authSetToken(t, merged);
+      }
+
+      if (action === 'set-local') {
+        const t = await readToken('Homey local');
+        return commands.authSetLocal(t, merged);
+      }
+
+      if (action === 'set-mode') {
+        // value = auto|local|cloud
+        return commands.authSetMode(value, merged);
+      }
+
+      if (action === 'clear-token') {
+        return commands.authClearCloud(merged);
+      }
+
+      if (action === 'clear-local') {
+        return commands.authClearLocal(merged);
       }
 
       if (action === 'status') return commands.authStatus(merged);
 
-      throw cliError('INVALID_VALUE', 'invalid auth action. Use: set-token [--stdin|--prompt] <token>, status');
+      throw cliError(
+        'INVALID_VALUE',
+        'invalid auth action. Use: status, discover-local [--save] [--pick <n>|--homey-id <id>] [--timeout <ms>], set-local [--address <url>] [--stdin|--prompt|<token>], set-token [--stdin|--prompt|<token>], set-mode <auto|local|cloud>, clear-local, clear-token'
+      );
     })
   );
 

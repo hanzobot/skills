@@ -63,15 +63,62 @@ homeycli zones --json
 
 ## auth
 
-Recommended (safe; avoids shell history):
+Show current auth/config status:
 
 ```bash
-echo "TOKEN" | homeycli auth set-token --stdin
 homeycli auth status --json
 ```
 
-Interactive (hidden input):
+### Local mode (LAN/VPN)
+
+Save local Homey settings (recommended when the agent runs on your home network):
 
 ```bash
-homeycli auth set-token --prompt
+# 1) discover local address (best effort via mDNS)
+homeycli auth discover-local --json
+
+# save it (if multiple candidates, pick one)
+homeycli auth discover-local --save --pick 1
+# or: homeycli auth discover-local --save --homey-id <id>
+
+# 2) store local API key (address is reused from config if already discovered)
+echo "LOCAL_API_KEY" | homeycli auth set-local --stdin
+# or interactive (hidden input): homeycli auth set-local --prompt
+
+# (or set address explicitly)
+echo "LOCAL_API_KEY" | homeycli auth set-local --address http://<homey-ip> --stdin
 ```
+
+### Cloud mode (remote/headless)
+
+Save cloud token (recommended for VPS/headless hosting):
+
+```bash
+echo "CLOUD_TOKEN" | homeycli auth set-token --stdin
+# or interactive (hidden input): homeycli auth set-token --prompt
+```
+
+### Mode selection
+
+By default, the CLI runs in `auto` mode (prefers local if an address is configured).
+You can force a mode:
+
+```bash
+homeycli auth set-mode auto
+homeycli auth set-mode local
+homeycli auth set-mode cloud
+```
+
+### Clear
+
+```bash
+homeycli auth clear-local
+homeycli auth clear-token
+```
+
+### Env vars (override config)
+
+- `HOMEY_MODE=auto|local|cloud`
+- `HOMEY_ADDRESS=http://...` (local)
+- `HOMEY_LOCAL_TOKEN=...` (local)
+- `HOMEY_TOKEN=...` (cloud)
