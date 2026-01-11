@@ -1,9 +1,7 @@
 ---
 name: mole-mac-cleanup
-version: 1.0.0
-description: Mac cleanup & optimization tool combining CleanMyMac, AppCleaner, DaisyDisk features. Deep cleaning, smart uninstaller, disk insights, and project artifact purge.
-homepage: https://github.com/tw93/Mole
-metadata: {"clawdbot":{"emoji":"🧹","os":["darwin"],"requires":{"bins":["mo"]},"install":[{"id":"brew","kind":"brew","formula":"mole","bins":["mo"],"label":"Install Mole via Homebrew"}]}}
+description: "Mac cleanup & optimization tool combining CleanMyMac, AppCleaner, DaisyDisk features. Deep cleaning, smart uninstaller, disk insights, and project artifact purge."
+metadata: {"version":"1.0.0","homepage":"https://github.com/tw93/Mole","clawdbot":{"emoji":"🧹","os":["darwin"],"requires":{"bins":["mo"]},"install":[{"id":"brew","kind":"brew","formula":"mole","bins":["mo"],"label":"Install Mole via Homebrew"}]}}
 ---
 
 # Mole - Mac Cleanup & Optimization Tool
