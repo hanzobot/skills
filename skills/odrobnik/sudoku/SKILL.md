@@ -14,9 +14,7 @@ metadata:
 
 Fetch, render, and reveal Sudoku puzzles. Use `sudoku.py` to get new puzzles from `sudokuonline.io`, generate printable PDFs or images, and reveal solutions.
 
-## Actions
-
-### Get a Puzzle
+## Get a Puzzle
 
 Fetches a new puzzle and stores it as JSON. Output is JSON by default (use `--text` for human-readable output).
 
@@ -30,7 +28,7 @@ Fetches a new puzzle and stores it as JSON. Output is JSON by default (use `--te
 ./sudoku.py get kids6
 ```
 
-### Render Puzzle
+## Render Puzzle
 
 Render a puzzle as an image or PDF.
 
@@ -49,7 +47,7 @@ Render a puzzle as an image or PDF.
 ./sudoku.py render --id a09f3680
 ```
 
-### Reveal Solution
+## Reveal Solution
 
 Reveal the solution for the latest or specific puzzle.
 
@@ -73,7 +71,7 @@ Reveal the solution for the latest or specific puzzle.
 ./sudoku.py reveal --box 5
 ```
 
-### Share Link
+## Share Link
 
 Generate a share link for a stored puzzle.
 
@@ -85,11 +83,6 @@ Generate a share link for a stored puzzle.
 **Generate an SCL share link:**
 ```bash
 ./sudoku.py share --type scl
-```
-
-**Generate an fpuzzles share link:**
-```bash
-./sudoku.py share --type fpuzzle
 ```
 
 **Telegram Formatting Tip:**
