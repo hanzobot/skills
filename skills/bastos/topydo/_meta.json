@@ -3,9 +3,15 @@
   "slug": "topydo",
   "displayName": "topydo",
   "latest": {
-    "version": "1.0.2",
-    "publishedAt": 1768179671417,
-    "commit": "https://github.com/clawdbot/skills/commit/8e129a173ad96598ee4fbaf66cf447d61a2e5b59"
+    "version": "1.0.3",
+    "publishedAt": 1768186677463,
+    "commit": null
   },
-  "history": []
+  "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1768179671417,
+      "commit": "https://github.com/clawdbot/skills/commit/8e129a173ad96598ee4fbaf66cf447d61a2e5b59"
+    }
+  ]
 }
