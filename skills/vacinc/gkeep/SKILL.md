@@ -51,9 +51,20 @@ Delete (trash):
 gkeep delete <note_id>
 ```
 
+Pin:
+```bash
+gkeep pin <note_id>
+```
+
+Unpin:
+```bash
+gkeep unpin <note_id>
+```
+
 ## Notes
 
 - This uses an unofficial API that reverse-engineers Google Keep
 - Could break if Google changes their internal API
 - Token stored in `~/.config/gkeep/token.json`
+- First run bootstraps a local venv at `skills/gkeep/.venv`
 - Active project with recent updates (as of Jan 2026)
