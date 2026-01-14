@@ -3,6 +3,11 @@ import { z } from 'zod';
 
 const ZOOMIN_API = 'https://servicenow-be-prod.servicenow.com/search';
 
+// Convert Zoomin API URL to public docs.servicenow.com URL
+function toPublicUrl(zoominUrl: string): string {
+  return zoominUrl.replace('servicenow-be-prod.servicenow.com', 'docs.servicenow.com');
+}
+
 interface SearchResult {
   title: string;
   link: string;
@@ -33,7 +38,7 @@ function formatResult(result: SearchResult, index: number): string {
   if (result.shortlabels?.Versions) {
     output += ` (${result.shortlabels.Versions})`;
   }
-  output += `\n   🔗 ${result.link}\n`;
+  output += `\n   🔗 ${toPublicUrl(result.link)}\n`;
   output += `   📅 Updated: ${date}\n`;
 
   return output;
@@ -79,46 +84,58 @@ async function searchDocs(query: string, limit: number = 10, version?: string): 
 // Fetch full article content (simplified - returns metadata and attempts to extract main content)
 async function getArticle(url: string): Promise<string> {
   try {
-    // First fetch the page to get metadata
-    const response = await fetch(url);
+    // Fetch from Zoomin API with proper headers to get JSON with full HTML
+    const response = await fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+      },
+      redirect: 'follow',
+    });
+
     if (!response.ok) {
       return `Error: Failed to fetch article (status ${response.status})`;
     }
 
-    const html = await response.text();
+    const data = await response.json();
 
-    // Extract title from meta tags or og:title
-    const titleMatch = html.match(/<meta[^>]*property="og:title"[^>]*content="([^"]*)"/i) ||
-                       html.match(/<title>([^<]*)<\/title>/i);
-    const title = titleMatch ? titleMatch[1] : 'ServiceNow Documentation';
+    // Extract content from the JSON response
+    const html = data.html || data.content || '';
+    const title = data.title || 'ServiceNow Documentation';
 
-    // Try to extract main content (simplified - full rendering would need browser)
-    const bodyMatch = html.match(/<article[^>]*class="[^"]*topic[^"]*"[^>]*>([\s\S]*?)<\/article>/i) ||
-                      html.match(/<div[^>]*id="main-content"[^>]*>([\s\S]*?)<\/div>/i);
+    if (!html) {
+      return `Error: No content found in article`;
+    }
+
+    // Parse the HTML article content
+    const articleMatch = html.match(/<article[^>]*class="[^"]*dita[^"]*"[^>]*>([\s\S]*?)<\/article>/i) ||
+                        html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i) ||
+                        html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
 
     let content = '';
-    if (bodyMatch) {
-      // Strip HTML tags for plain text
-      content = bodyMatch[1].replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-                           .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-                           .replace(/<[^>]+>/g, ' ')
-                           .replace(/\s+/g, ' ')
-                           .trim();
+    if (articleMatch) {
+      content = articleMatch[1].replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+                               .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+                               .replace(/<[^>]+>/g, ' ')
+                               .replace(/\s+/g, ' ')
+                               .replace(/&nbsp;/g, ' ')
+                               .replace(/&amp;/g, '&')
+                               .replace(/&lt;/g, '<')
+                               .replace(/&gt;/g, '>')
+                               .trim();
+    }
 
-      // Limit content length
-      if (content.length > 2000) {
-        content = content.substring(0, 2000) + '...';
-      }
+    // Limit content length
+    if (content.length > 3000) {
+      content = content.substring(0, 3000) + '...';
     }
 
     let output = `📄 **${title}**\n`;
-    output += `🔗 ${url}\n\n`;
+    output += `🔗 ${toPublicUrl(url)}\n\n`;
 
     if (content) {
-      output += `${content}\n\n`;
-      output += `_Note: Full content may require browser rendering. Use agent-browser for complete article extraction._`;
+      output += `${content}`;
     } else {
-      output += `_Content is dynamically rendered. Use agent-browser or visit the URL directly for full content._`;
+      output += `_Could not extract article content_`;
     }
 
     return output;
@@ -200,7 +217,7 @@ async function getLatestReleaseNotes(): Promise<string> {
   output += `🎯 **${latestVersion}** (Latest Release)\n\n`;
   output += `📄 ${latestResult.title}\n`;
   output += `${latestResult.snippet}\n\n`;
-  output += `🔗 ${latestResult.link}\n`;
+  output += `🔗 ${toPublicUrl(latestResult.link)}\n`;
   output += `📅 Updated: ${date}`;
 
   return output;
