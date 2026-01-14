@@ -3,11 +3,16 @@
   "slug": "weather-pollen",
   "displayName": "Weather Pollen",
   "latest": {
-    "version": "1.0.2",
-    "publishedAt": 1768365911406,
-    "commit": "https://github.com/clawdbot/skills/commit/592054de15282cd7551b3324a97d4bbb7020877e"
+    "version": "1.0.3",
+    "publishedAt": 1768400884123,
+    "commit": null
   },
   "history": [
+    {
+      "version": "1.0.2",
+      "publishedAt": 1768365911406,
+      "commit": "https://github.com/clawdbot/skills/commit/592054de15282cd7551b3324a97d4bbb7020877e"
+    },
     {
       "version": "1.0.1",
       "publishedAt": 1768362973850,

@@ -9,29 +9,16 @@ const WEATHER_LOCATION = process.env.WEATHER_LOCATION || 'Anna, TX';
 // Pollen API using current endpoint which includes trigger types
 async function getPollenData(): Promise<string> {
   try {
-    // First, get a session by visiting the main pollen page
-    const sessionResponse = await fetch('https://www.pollen.com/forecast/current/pollen/75409', {
-      headers: {
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
-      },
-    });
-
-    // Extract cookies from the response
-    const setCookie = sessionResponse.headers.get('set-cookie') || '';
-    const sessionId = setCookie.match(/ASP\.NET_SessionId=([^;]+)/)?.[1] || '';
-
+    // Use a simple agent that follows redirects and includes proper headers
     const response = await fetch(
       'https://www.pollen.com/api/forecast/current/pollen/75409',
       {
         headers: {
-          'accept': 'application/json, text/plain, */*',
-          'accept-language': 'en-US,en;q=0.9',
-          'cache-control': 'no-cache',
-          'pragma': 'no-cache',
+          'accept': 'application/json',
           'referer': 'https://www.pollen.com/forecast/current/pollen/75409',
           'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
-          'cookie': `ASP.NET_SessionId=${sessionId}; search=75409; geo=75409`,
         },
+        redirect: 'follow',
       }
     );
 
