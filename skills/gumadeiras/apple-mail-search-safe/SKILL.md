@@ -16,23 +16,13 @@ Fast SQLite search for Apple Mail.app emails with body content support.
 - **~50ms queries:** SQLite vs 8+ minutes with pure AppleScript
 - **Note:** This tool searches/reads Apple Mail.app only. Use `himalaya` skill to send emails.
 
-## Installation
+## Installation (optional)
 
-**Get the script:** [apple-mail-search-cli/mail-search](https://github.com/gumadeiras/apple-mail-search-cli/blob/main/mail-search)
-
-**Option 1: Copy to PATH (standard)**
+**symlink script (recommended)**
 ```bash
-# Download and copy to your PATH
-cp mail-search /usr/local/bin/
-chmod +x /usr/local/bin/mail-search
-```
-
-**Option 2: Clone and symlink (recommended)**
-```bash
-# Clone the repo and symlink the script
-git clone https://github.com/gumadeiras/apple-mail-search-cli.git
-sudo ln -sf $(pwd)/apple-mail-search-cli/mail-search /usr/local/bin/mail-search
-# Pull updates with: cd apple-mail-search-cli && git pull
+# Symlink the script to make it available globally
+sudo ln -sf ./scripts/mail-search /usr/local/bin/mail-search
+# Pull updates with: clawdhub update
 ```
 
 ## Usage
