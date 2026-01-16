@@ -3,11 +3,16 @@
   "slug": "servicenow-docs",
   "displayName": "Servicenow Docs",
   "latest": {
-    "version": "1.0.3",
-    "publishedAt": 1768415323093,
-    "commit": "https://github.com/clawdbot/skills/commit/4bd06cece4e009d7ca2c50730cbb7a688a0978b7"
+    "version": "1.1.0",
+    "publishedAt": 1768585063121,
+    "commit": null
   },
   "history": [
+    {
+      "version": "1.0.3",
+      "publishedAt": 1768415323093,
+      "commit": "https://github.com/clawdbot/skills/commit/4bd06cece4e009d7ca2c50730cbb7a688a0978b7"
+    },
     {
       "version": "1.0.1",
       "publishedAt": 1768406997662,

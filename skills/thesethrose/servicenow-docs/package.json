@@ -1,6 +1,6 @@
 {
   "name": "servicenow-docs",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Search and fetch ServiceNow documentation",
   "main": "SKILL.md",
   "type": "module",
