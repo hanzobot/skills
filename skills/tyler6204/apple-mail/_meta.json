@@ -3,11 +3,16 @@
   "slug": "apple-mail",
   "displayName": "Apple Mail",
   "latest": {
-    "version": "1.1.0",
-    "publishedAt": 1768477585850,
-    "commit": "https://github.com/clawdbot/skills/commit/8f6ee9e514e59fdaf607eae1ea25ae343fd9f2f0"
+    "version": "1.2.0",
+    "publishedAt": 1768611657854,
+    "commit": null
   },
   "history": [
+    {
+      "version": "1.1.0",
+      "publishedAt": 1768477585850,
+      "commit": "https://github.com/clawdbot/skills/commit/8f6ee9e514e59fdaf607eae1ea25ae343fd9f2f0"
+    },
     {
       "version": "1.0.0",
       "publishedAt": 1768372673149,

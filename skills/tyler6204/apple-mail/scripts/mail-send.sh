@@ -14,9 +14,9 @@ if [ -z "$TO" ] || [ -z "$SUBJECT" ] || [ -z "$BODY" ]; then
     exit 1
 fi
 
-# Escape quotes in body
-BODY_ESCAPED=$(echo "$BODY" | sed 's/"/\\"/g')
-SUBJECT_ESCAPED=$(echo "$SUBJECT" | sed 's/"/\\"/g')
+# Escape quotes in body and trim whitespace
+BODY_ESCAPED=$(printf '%s' "$BODY" | sed 's/"/\\"/g')
+SUBJECT_ESCAPED=$(printf '%s' "$SUBJECT" | sed 's/"/\\"/g')
 
 if [ -n "$FROM_ACCOUNT" ] && [ -n "$ATTACHMENT" ]; then
     osascript <<EOF
