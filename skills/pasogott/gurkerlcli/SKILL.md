@@ -1,6 +1,6 @@
 ---
 name: gurkerlcli
-version: 0.1.0
+version: 0.1.6
 description: Austrian online grocery shopping via gurkerl.at. Use when user asks about "groceries", "Einkauf", "Lebensmittel bestellen", "Gurkerl", shopping cart, or wants to search/order food online in Austria.
 tools: [bash]
 ---
@@ -25,12 +25,21 @@ pipx install gurkerlcli
 **Login required before use:**
 
 ```bash
-gurkerlcli auth login      # Opens browser for login
+gurkerlcli auth login --email user@example.com --password xxx
 gurkerlcli auth whoami     # Check login status
 gurkerlcli auth logout     # Clear session
 ```
 
 Session is stored securely in macOS Keychain.
+
+**Alternative: Environment variables**
+
+```bash
+export GURKERL_EMAIL=your-email@example.com
+export GURKERL_PASSWORD=your-password
+```
+
+Or add to `~/.env.local` for persistence.
 
 ## Commands
 
@@ -47,9 +56,10 @@ gurkerlcli search "brot" --json          # JSON output for scripting
 ```bash
 gurkerlcli cart list                     # View cart contents
 gurkerlcli cart add <product_id>         # Add product
-gurkerlcli cart add <product_id> --quantity 3
+gurkerlcli cart add <product_id> -q 3    # Add with quantity
 gurkerlcli cart remove <product_id>      # Remove product
-gurkerlcli cart clear                    # Empty cart
+gurkerlcli cart clear                    # Empty cart (asks for confirmation)
+gurkerlcli cart clear --force            # Empty cart without confirmation
 ```
 
 ### 📝 Shopping Lists
@@ -94,20 +104,29 @@ Output:
 
 ```bash
 # Find product
-gurkerlcli search "hafermilch" --json
+gurkerlcli search "hafermilch"
 
 # Add to cart (use product ID from search results)
-gurkerlcli cart add 123456 --quantity 2
+gurkerlcli cart add 123456 -q 2
 ```
 
-### Quick Reorder from List
+### Remove Product from Cart
 
 ```bash
-# Check shopping lists
-gurkerlcli lists list
+# List cart to see product IDs
+gurkerlcli cart list --json | jq '.items[].product_id'
 
-# View specific list
-gurkerlcli lists show 12345
+# Remove specific product
+gurkerlcli cart remove 123456
+```
+
+## Debugging
+
+Use `--debug` flag for verbose output:
+
+```bash
+gurkerlcli cart add 12345 --debug
+gurkerlcli cart remove 12345 --debug
 ```
 
 ## Tips
@@ -122,6 +141,11 @@ gurkerlcli lists show 12345
 - ⏳ Checkout not yet implemented (use website)
 - 🇦🇹 Austria only (Vienna, Graz, Linz areas)
 - 🔐 Requires active gurkerl.at account
+
+## Changelog
+
+- **v0.1.6** - Fix cart remove (use DELETE instead of POST)
+- **v0.1.5** - Fix cart add for existing items (use POST instead of PUT)
 
 ## Links
 
