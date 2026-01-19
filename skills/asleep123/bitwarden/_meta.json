@@ -1,0 +1,11 @@
+{
+  "owner": "asleep123",
+  "slug": "bitwarden",
+  "displayName": "Bitwarden",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1768798973352,
+    "commit": null
+  },
+  "history": []
+}
