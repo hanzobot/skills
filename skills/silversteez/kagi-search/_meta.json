@@ -3,11 +3,16 @@
   "slug": "kagi-search",
   "displayName": "Kagi Search",
   "latest": {
-    "version": "1.1.0",
-    "publishedAt": 1768875476695,
-    "commit": "https://github.com/clawdbot/skills/commit/aab729c7dd1e658ae303feb0270554b14f889c4e"
+    "version": "1.2.0",
+    "publishedAt": 1768876498949,
+    "commit": null
   },
   "history": [
+    {
+      "version": "1.1.0",
+      "publishedAt": 1768875476695,
+      "commit": "https://github.com/clawdbot/skills/commit/aab729c7dd1e658ae303feb0270554b14f889c4e"
+    },
     {
       "version": "1.0.5",
       "publishedAt": 1768862276516,

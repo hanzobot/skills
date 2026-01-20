@@ -19,10 +19,41 @@ API_BASE = "https://kagi.com/api/v0/search"
 
 
 def get_api_key() -> str:
+    """
+    Retrieve KAGI_API_KEY from environment or local .env files.
+    
+    Rationale: The exec/shell environment doesn't always source ~/.bashrc or 
+    load user-defined .env files automatically (especially in non-interactive 
+    shells or containerized environments). We check multiple common locations
+    to improve usability without requiring manual env export in every context.
+    """
+    # First check environment variable (handles explicit exports)
     api_key = os.environ.get("KAGI_API_KEY")
-    if not api_key:
-        raise EnvironmentError("KAGI_API_KEY environment variable not set")
-    return api_key
+    if api_key:
+        return api_key
+    
+    # Check common .env file locations
+    env_paths = [
+        "/home/matt/clawd/.env",
+        "/home/matt/.clawdbot/.env",
+    ]
+    
+    for env_path in env_paths:
+        try:
+            with open(env_path, "r") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        key, value = line.split("=", 1)
+                        if key.strip() == "KAGI_API_KEY":
+                            return value.strip().strip('"').strip("'")
+        except FileNotFoundError:
+            continue
+    
+    raise EnvironmentError(
+        "KAGI_API_KEY environment variable not set. "
+        "Set it via export or add to /home/matt/clawd/.env or /home/matt/.clawdbot/.env"
+    )
 
 
 def search(query: str, limit: int = 10, offset: int = 0, json_output: bool = False, 
