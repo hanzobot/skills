@@ -3,11 +3,16 @@
   "slug": "sports-ticker",
   "displayName": "Sports Ticker",
   "latest": {
-    "version": "2.0.1",
-    "publishedAt": 1768939667635,
-    "commit": "https://github.com/clawdbot/skills/commit/68cd2f397a06ffc5e2846c9bc3221e82a5fdbb17"
+    "version": "2.0.2",
+    "publishedAt": 1768947168261,
+    "commit": null
   },
   "history": [
+    {
+      "version": "2.0.1",
+      "publishedAt": 1768939667635,
+      "commit": "https://github.com/clawdbot/skills/commit/68cd2f397a06ffc5e2846c9bc3221e82a5fdbb17"
+    },
     {
       "version": "2.0.0",
       "publishedAt": 1768914050282,
