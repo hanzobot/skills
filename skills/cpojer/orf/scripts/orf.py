@@ -69,7 +69,7 @@ def parse_rss(xml_bytes: bytes) -> list[dict]:
     return items
 
 
-def parse_date(dt_str: str) -> dt.datetime | None:
+def parse_date(dt_str: str):
     if not dt_str:
         return None
 
@@ -87,7 +87,7 @@ def parse_date(dt_str: str) -> dt.datetime | None:
         return None
 
 
-def age_text(published: dt.datetime | None, now: dt.datetime) -> str:
+def age_text(published, now: dt.datetime) -> str:
     if published is None:
         return ""
 
