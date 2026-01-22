@@ -1,6 +1,6 @@
 ---
 name: claude-code-usage
-description: Check Claude Code OAuth usage limits (session & weekly quotas). Use when user asks about Claude Code usage, remaining limits, rate limits, or how much Claude usage they have left. Includes automated monitoring to notify when quotas reset.
+description: Check Claude Code OAuth usage limits (session & weekly quotas). Use when user asks about Claude Code usage, remaining limits, rate limits, or how much Claude usage they have left. Includes automated session refresh reminders and reset detection monitoring.
 metadata:
   clawdbot:
     emoji: "📊"
@@ -127,34 +127,70 @@ echo "Session: $usage"
 ./scripts/claude-usage.sh --json | jq '.session.utilization'
 ```
 
-## Automated Monitoring (New in v1.1.0)
+## Automated Monitoring
 
-Get automatic notifications when your Claude Code quotas reset!
+### Session Refresh Reminders (Recommended)
 
-### Quick Setup
+Get notified exactly when your 5-hour session quota refreshes!
 
-Test the monitor once:
+**Quick Setup:**
 ```bash
-./scripts/monitor-usage.sh
+./scripts/session-reminder.sh
 ```
 
-Setup automated monitoring (runs every 30 minutes):
+This creates a **self-scheduling chain** of cron jobs that:
+1. Checks your current session expiry time
+2. Schedules the next reminder for when your session refreshes
+3. Notifies you with current usage stats
+4. Auto-removes itself (the new cron takes over)
+
+**What You'll Get:**
+```
+🔄 Claude Code Session Status
+
+⏱️  Current usage: 44%
+⏰ Next refresh: 2h 15m
+
+Your 5-hour quota will reset soon! 🦞
+
+✅ Next reminder scheduled for: Jan 22 at 01:22 AM
+```
+
+**How It Works:**
+- Each reminder runs `claude-usage.sh` to find the exact session reset time
+- Schedules a one-time cron for that exact moment
+- Repeats every 5 hours automatically
+- Self-correcting if session times ever drift
+
+**Benefits:**
+- ✅ Accurate to the minute
+- ✅ No manual scheduling needed
+- ✅ Adapts to your actual usage patterns
+- ✅ Minimal API calls (only when needed)
+
+### Reset Detection Monitor (Alternative)
+
+Get automatic notifications when your Claude Code quotas reset by polling usage.
+
+**Quick Setup:**
 ```bash
+# Test once
+./scripts/monitor-usage.sh
+
+# Setup automated monitoring (runs every 30 minutes)
 ./scripts/setup-monitoring.sh
 ```
 
 Or add via Clawdbot directly:
 ```bash
 # Check every 30 minutes
-clawdbot cron add --schedule "*/30 * * * *" \
-  --command "/Users/ali/clawd/skills/claude-code-usage/scripts/monitor-usage.sh" \
-  --label "Claude Code Usage Monitor"
+clawdbot cron add --cron "*/30 * * * *" \
+  --message "cd /Users/ali/clawd/skills/claude-code-usage && ./scripts/monitor-usage.sh" \
+  --name "Claude Code Usage Monitor" \
+  --session isolated --deliver --channel telegram
 ```
 
-### What You'll Get
-
-When your quotas reset, you'll receive notifications like:
-
+**What You'll Get:**
 ```
 🎉 Claude Code Session Reset!
 
@@ -165,28 +201,33 @@ When your quotas reset, you'll receive notifications like:
 Fresh usage available! 🦞
 ```
 
-### How It Works
-
+**How It Works:**
 1. **Monitors usage** every 30 minutes (configurable)
 2. **Detects resets** when usage drops significantly (>10% or <5%)
 3. **Sends notifications** via Telegram when resets occur
 4. **Tracks state** in `/tmp/claude-usage-state.json`
 
-### Customization
-
-Change check interval:
+**Customization:**
 ```bash
-# Every 15 minutes
-clawdbot cron add --schedule "*/15 * * * *" ...
+# Change check interval
+clawdbot cron add --cron "*/15 * * * *" ...  # Every 15 minutes
+clawdbot cron add --cron "0 * * * *" ...      # Every hour
 
-# Every hour
-clawdbot cron add --schedule "0 * * * *" ...
-```
-
-Custom state file location:
-```bash
+# Custom state file location
 STATE_FILE=/path/to/state.json ./scripts/monitor-usage.sh
 ```
+
+### Which Monitoring Method?
+
+| Feature | Session Reminder | Reset Detection |
+|---------|-----------------|-----------------|
+| Accuracy | ✅ Exact minute | ~30min window |
+| API calls | Minimal | Every check |
+| Notification timing | Right on reset | Up to 30min delay |
+| Setup | One command | One command |
+| Maintenance | Self-scheduling | Cron runs forever |
+
+**Recommendation:** Use **Session Reminder** for precise, real-time notifications.
 
 ## Troubleshooting
 

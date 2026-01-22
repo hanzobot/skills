@@ -104,10 +104,14 @@ cat > "$STATE_FILE" <<EOF
 EOF
 
 # Log current status
-if [ "$SESSION_RESET" -eq 1 ] || [ "$WEEKLY_RESET" -eq 1 ]; then
+if [ "$SESSION_RESET" -eq 1 ]; then
   echo "📊 Session: ${SESSION_PREV}% → ${SESSION_NOW}% (RESET)"
-  echo "📊 Weekly: ${WEEKLY_PREV}% → ${WEEKLY_NOW}% (RESET)"
 else
   echo "📊 Session: ${SESSION_PREV}% → ${SESSION_NOW}%"
+fi
+
+if [ "$WEEKLY_RESET" -eq 1 ]; then
+  echo "📊 Weekly: ${WEEKLY_PREV}% → ${WEEKLY_NOW}% (RESET)"
+else
   echo "📊 Weekly: ${WEEKLY_PREV}% → ${WEEKLY_NOW}%"
 fi

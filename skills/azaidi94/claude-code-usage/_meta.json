@@ -3,9 +3,15 @@
   "slug": "claude-code-usage",
   "displayName": "Claude Code Usage",
   "latest": {
-    "version": "1.1.0",
-    "publishedAt": 1768854249379,
-    "commit": "https://github.com/clawdbot/skills/commit/34d22a989a8cb8a6632adf9ba010eb6b37fbef45"
+    "version": "1.2.0",
+    "publishedAt": 1769041163079,
+    "commit": null
   },
-  "history": []
+  "history": [
+    {
+      "version": "1.1.0",
+      "publishedAt": 1768854249379,
+      "commit": "https://github.com/clawdbot/skills/commit/34d22a989a8cb8a6632adf9ba010eb6b37fbef45"
+    }
+  ]
 }

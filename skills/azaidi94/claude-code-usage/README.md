@@ -39,22 +39,34 @@ Just ask:
 
 The skill automatically triggers and provides a formatted response.
 
-## Automated Monitoring (v1.1.0+)
+## Automated Monitoring (v1.2.0+)
 
-Get notified automatically when your quotas reset!
+### Session Refresh Reminders (Recommended)
 
-**Quick setup:**
+Get notified exactly when your 5-hour session quota refreshes!
+
+**One-command setup:**
 ```bash
 cd /Users/ali/clawd/skills/claude-code-usage
-./scripts/monitor-usage.sh  # Test once
+./scripts/session-reminder.sh
 ```
 
-**Configure notifications:**
-See `CRON_SETUP.md` for detailed instructions on setting up automated monitoring via:
-- Clawdbot Gateway config (recommended)
-- System cron (alternative)
+This creates a self-scheduling chain that:
+- Checks when your session refreshes
+- Schedules the next reminder for that exact time
+- Notifies you automatically every 5 hours
+- Runs forever with zero maintenance
 
-You'll receive Telegram notifications when your 5-hour or 7-day quotas reset.
+### Reset Detection (Alternative)
+
+Alternatively, monitor for quota resets by polling:
+
+```bash
+./scripts/monitor-usage.sh  # Test once
+./scripts/setup-monitoring.sh  # Setup automated polling
+```
+
+See `SKILL.md` for detailed comparison and configuration options.
 
 ## Publishing to ClawdHub
 
