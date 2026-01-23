@@ -1,7 +1,7 @@
 ---
 name: unifi
 description: Query and monitor UniFi network via local gateway API (Cloud Gateway Max / UniFi OS). Use when the user asks to "check UniFi", "list UniFi devices", "show who's on the network", "UniFi clients", "UniFi health", "top apps", "network alerts", "UniFi DPI", or mentions UniFi monitoring/status/dashboard.
-version: 1.0.0
+version: 1.0.1
 metadata:
   clawdbot:
     emoji: "📡"
