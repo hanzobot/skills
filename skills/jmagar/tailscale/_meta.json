@@ -1,0 +1,11 @@
+{
+  "owner": "jmagar",
+  "slug": "tailscale",
+  "displayName": "Tailscale",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1769203171843,
+    "commit": null
+  },
+  "history": []
+}
