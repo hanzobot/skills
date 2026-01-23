@@ -1,3 +1,8 @@
+---
+name: claude-oauth-refresher
+description: Keep your Claude access token fresh 24/7. Automatically refreshes OAuth tokens before expiry so you never see authentication failures.
+---
+
 # claude-oauth-refresher
 
 **Automatic OAuth token refresh for Claude Code CLI on macOS**
