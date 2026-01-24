@@ -24,6 +24,11 @@ For **recipe-name → web search**, do it confirm-first using `web_search` + `we
 - Env: `TODOIST_API_TOKEN` for Todoist
 - Bin: `todoist` (todoist-ts-cli)
 
+## Output formatting
+
+- Items are reformatted to start with the **ingredient name**, followed by a parenthetical quantity.
+- The Shopping list is kept **flat** (no Todoist sections/groups).
+
 ## Run
 
 ```bash
