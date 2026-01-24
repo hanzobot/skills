@@ -11,6 +11,8 @@ Source: https://github.com/foeken/clippy
 
 **Note:** Works through the M365 web UI via browser automation (Playwright), not the Graph API. No Azure AD app registration required - just login with your browser.
 
+**UX rule:** Stable IDs are internal only and **must never be shown to the user**. Users act on human-readable lists (numbers, titles, dates). Use IDs only for internal CLI calls.
+
 ## Authentication
 
 ```bash
@@ -77,10 +79,10 @@ clippy delete-event 1 --message "Need to reschedule"
 ### Respond to Invitations
 
 ```bash
-clippy respond                           # List pending
-clippy respond 1 --accept
-clippy respond 1 --decline --message "Conflict"
-clippy respond 1 --tentative
+clippy respond                           # List pending (map numbers to IDs internally)
+clippy respond accept --id <eventId>
+clippy respond decline --id <eventId> --message "Conflict"
+clippy respond tentative --id <eventId>
 ```
 
 ### Find Meeting Times
@@ -108,10 +110,10 @@ clippy mail drafts
 clippy mail archive
 
 # Read email
-clippy mail -r 1
+clippy mail -r <number>
 
 # Download attachments
-clippy mail -d 1 -o ~/Downloads
+clippy mail -d <number> -o ~/Downloads
 ```
 
 ### Send Email
@@ -135,17 +137,17 @@ clippy send \
 ### Reply/Forward
 
 ```bash
-clippy mail --reply 1 --message "Thanks!"
-clippy mail --reply-all 1 --message "Got it"
-clippy mail --forward 1 --to-addr "colleague@example.com"
+clippy mail --reply <number> --message "Thanks!"
+clippy mail --reply-all <number> --message "Got it"
+clippy mail --forward <number> --to-addr "colleague@example.com"
 ```
 
 ### Email Actions
 
 ```bash
-clippy mail --mark-read 1
-clippy mail --flag 1
-clippy mail --move 1 --to archive
+clippy mail --mark-read <number>
+clippy mail --flag <number>
+clippy mail --move <number> --to archive
 ```
 
 ## People/Room Search
