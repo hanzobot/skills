@@ -1,10 +1,31 @@
 ---
 name: workout
-description: Track workouts, log sets, manage exercises and templates with workout-cli. Use when helping users record gym sessions, view history, or analyze strength progression.
+description: Track workouts, log sets, manage exercises and templates with workout-cli. Supports multi-user profiles. Use when helping users record gym sessions, view history, or analyze strength progression.
 metadata: {"clawdbot":{"emoji":"🏋️","requires":{"bins":["workout"]}}}
 ---
 
 # Workout CLI
+
+## Multi-User Profiles
+
+Multiple people can track workouts independently using profiles.
+
+```bash
+workout profile list               # List all profiles
+workout profile create sarah       # Create new profile
+workout profile delete old         # Delete profile
+```
+
+When multiple profiles exist, specify which one:
+```bash
+workout --profile mike start push-day
+workout --profile mike log bench-press 185 8
+workout --profile mike done
+```
+
+- **Single profile**: Commands work without `--profile` (backwards compatible)
+- **Shared exercises**: Exercise library shared across profiles
+- **Per-user data**: Templates, workouts, config are per-profile
 
 ## CRITICAL RULES
 
@@ -41,6 +62,16 @@ workout swap bench-press db-bench  # Swap exercise
 workout done                       # Finish session
 workout cancel                     # Discard
 ```
+
+## Editing & Fixing Logged Sets
+```bash
+workout undo                       # Remove last logged set
+workout undo bench-press           # Remove last set of specific exercise
+workout edit bench-press 2 155 8   # Edit set 2: weight=155, reps=8
+workout edit bench-press 2 --reps 10 --rir 2  # Edit reps and RIR
+workout delete bench-press 3       # Delete set 3 entirely
+```
+Set numbers are 1-indexed. Use these to fix mistakes during a session.
 
 ## Exercises
 ```bash
