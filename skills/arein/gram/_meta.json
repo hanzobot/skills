@@ -1,0 +1,11 @@
+{
+  "owner": "arein",
+  "slug": "gram",
+  "displayName": "Instagram Skill via cyberdrk/gram CLI",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1769334631792,
+    "commit": null
+  },
+  "history": []
+}
