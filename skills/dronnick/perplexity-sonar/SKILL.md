@@ -97,37 +97,19 @@ Available for `sonar-pro` and reasoning models. Controls multi-step tool usage:
 
 ### API Key Configuration
 
-The skill automatically looks for the Perplexity API key in this order:
+The skill requires Perplexity API key via environment variable:
 
-1. **Environment Variable** `PERPLEXITY_API_KEY` (recommended)
-2. **Clawdbot Config** `~/.clawdbot/clawdbot.json` under `auth.profiles.perplexity:default.apiKey`
-
-**To set the environment variable (temporary, per session):**
 ```bash
 export PERPLEXITY_API_KEY="your-key-here"
 ```
 
-**To set it permanently:**
+**To set it permanently (add to ~/.bashrc or ~/.zshrc):**
 ```bash
-# Add to ~/.bashrc or ~/.zshrc
 echo 'export PERPLEXITY_API_KEY="your-key-here"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-**Or add to Clawdbot config:**
-```json
-{
-  "auth": {
-    "profiles": {
-      "perplexity:default": {
-        "provider": "perplexity",
-        "mode": "api_key",
-        "apiKey": "your-key-here"
-      }
-    }
-  }
-}
-```
+**Note:** Do not store API key in Clawdbot config. The skill only reads from environment variable to avoid config conflicts.
 
 ### Dependencies
 

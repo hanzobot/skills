@@ -94,41 +94,23 @@ fi
 # Join remaining arguments as query
 QUERY="$*"
 
-# Get API key from environment or config
+# Get API key from environment variable only
 get_api_key() {
-    # Try environment variable first
+    # Environment variable PERPLEXITY_API_KEY is required
     if [ -n "$PERPLEXITY_API_KEY" ]; then
         echo "$PERPLEXITY_API_KEY"
         return
     fi
 
-    # Try reading from Clawdbot config
-    local config_path="$HOME/.clawdbot/clawdbot.json"
-    if [ -f "$config_path" ]; then
-        python3 -c "
-import json
-import sys
-try:
-    with open('$config_path', 'r') as f:
-        config = json.load(f)
-        profiles = config.get('auth', {}).get('profiles', {})
-        for profile_name, profile in profiles.items():
-            if profile.get('provider') == 'perplexity':
-                print(profile.get('apiKey', ''))
-                sys.exit(0)
-except:
-    pass
-" 2>/dev/null
-        return
-    fi
-
+    # No fallback to config - prevents config conflicts
     echo ""
 }
 
 API_KEY=$(get_api_key)
 
 if [ -z "$API_KEY" ]; then
-    echo "Error: PERPLEXITY_API_KEY environment variable not set and no key found in config" >&2
+    echo "Error: PERPLEXITY_API_KEY environment variable not set." >&2
+    echo "Set it with: export PERPLEXITY_API_KEY='your-key-here'" >&2
     exit 1
 fi
 
