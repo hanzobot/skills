@@ -6,250 +6,94 @@ metadata: {"clawdbot":{"emoji":"🏋️","requires":{"bins":["workout"]}}}
 
 # Workout CLI
 
-CLI for tracking workouts, managing exercises, and analyzing training progress.
+## CRITICAL RULES
 
-## Installation
-
+### 1. Always Add New Exercises First
+If user mentions an exercise not in library, **add it before logging**:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/gricha/workout-cli/main/install.sh | bash
+workout exercises add "Dumbbell RDL" --muscles hamstrings,glutes --type compound --equipment dumbbell
+```
+Never skip this — unknown exercises will fail to log.
+
+### 2. Log Accurate Numbers — Notes Are NOT a Substitute
+Sets require **correct weight and reps**. Numbers feed statistical analysis (PRs, volume, progression).
+- ❌ WRONG: Log 0 lbs then add a note with the real weight
+- ✅ RIGHT: Log the actual weight used
+
+If user doesn't specify weight, **ASK** before logging. Don't assume 0.
+
+### 3. Notes Are Metadata Only
+Use notes for context (injuries, form cues, equipment notes), not to correct bad data:
+```bash
+workout note "Left elbow tender today"
+workout note bench-press "Used close grip"
 ```
 
-Then add to PATH: `export PATH="$HOME/.workout-cli/bin:$PATH"`
-
-## Quick Reference
-
-| Action | Command |
-|--------|---------|
-| Start workout | `workout start --empty` or `workout start <template>` |
-| Log sets | `workout log bench-press 135 8,8,7,6` |
-| Add note | `workout note "Felt strong"` |
-| Swap exercise | `workout swap bench-press dumbbell-bench-press` |
-| Finish | `workout done` |
-| View last | `workout last` |
-| Check PRs | `workout pr` |
-
----
-
-## Workout Sessions
-
-### Start a Workout
-
+## Core Commands
 ```bash
-# Freestyle session (most common)
-workout start --empty
-
-# From template
-workout start push-day
-
-# Resume interrupted
-workout start --continue
+workout start --empty              # Start freestyle session
+workout start push                 # Start from template
+workout log bench-press 135 8      # Log set (weight reps)
+workout log bench-press 135 8,8,7  # Log multiple sets
+workout note "Session note"        # Add note
+workout note bench-press "Note"    # Note on exercise
+workout swap bench-press db-bench  # Swap exercise
+workout done                       # Finish session
+workout cancel                     # Discard
 ```
 
-### Log Sets
-
-```bash
-# Multiple sets at same weight
-workout log bench-press 135 8,8,7,6
-
-# Progressive weights (call multiple times)
-workout log squat 135 10
-workout log squat 185 8
-workout log squat 225 5,5,5
-
-# Relative to last session
-workout log deadlift +10 5
-
-# With RIR tracking
-workout log bench-press 185 8 --rir 2
-```
-
-### Notes
-
-```bash
-# Session-level note
-workout note "Elbow felt tight on pulling movements"
-
-# Exercise-specific note
-workout note lat-pulldown "Dropped weight due to elbow"
-```
-
-### Swap & Add
-
-```bash
-# Swap an exercise (moves logged sets to new exercise)
-workout swap bench-press dumbbell-bench-press
-
-# Add exercise mid-workout
-workout add face-pulls
-```
-
-### Finish or Cancel
-
-```bash
-# Complete and save
-workout done
-# Shows: duration, total sets, volume, muscles worked
-
-# Discard without saving
-workout cancel
-```
-
-### Check Status
-
-```bash
-workout status
-# Shows current exercises, sets logged, and notes
-```
-
----
-
-## Exercise Library
-
-### List Exercises
-
+## Exercises
 ```bash
 workout exercises list
 workout exercises list --muscle chest
-workout exercises list --type compound
+workout exercises add "Name" --muscles biceps --type isolation --equipment cable
 ```
+⚠️ `exercises add` requires: `--muscles`, `--type`, `--equipment`
 
-### Add Custom Exercise
-
-⚠️ **All three options required:**
-
-```bash
-workout exercises add "Bayesian Cable Curl" \
-  --muscles biceps \
-  --type isolation \
-  --equipment cable
-
-workout exercises add "Single Arm Cable Row" \
-  --muscles back,lats \
-  --type compound \
-  --equipment cable
-```
-
-### Show/Edit/Delete
-
-```bash
-workout exercises show bench-press
-workout exercises edit bench-press --notes "Pause at bottom"
-workout exercises delete my-custom-exercise
-```
-
----
+Equipment options: barbell, dumbbell, cable, machine, bodyweight, kettlebell, band, other
 
 ## Templates
-
 ```bash
-# List templates
 workout templates list
-
-# Create template
-workout templates create "Push Day" \
-  -e "bench-press:4x8-12, overhead-press:3x8-10, lateral-raise:3x12-15"
-
-# Show template
-workout templates show push-day
-
-# Delete template
-workout templates delete push-day
+workout templates show push
+workout templates create "Push" --exercises "bench-press:4x8,ohp:3x8"
 ```
 
----
-
-## History & Analytics
-
-### Last Workout
-
+## History & PRs
 ```bash
-workout last
-workout last --full
+workout last                       # Last workout
+workout history bench-press        # Exercise history
+workout pr                         # All PRs
+workout pr bench-press             # Exercise PRs
+workout volume --week              # Weekly volume
+workout progression bench-press    # Progress over time
 ```
 
-### Exercise History
-
-```bash
-workout history bench-press
-workout history squat --last 20
-```
-
-### Personal Records
-
-```bash
-workout pr
-workout pr bench-press
-workout pr --muscle chest
-```
-
-Shows weight × reps with estimated 1RM.
-
-### Volume Analysis
-
-```bash
-workout volume              # Last 4 weeks
-workout volume --week
-workout volume --month
-workout volume --by muscle
-workout volume --by exercise
-```
-
-### Progression
-
-```bash
-workout progression bench-press
-# Shows: date, best set, estimated 1RM, volume over time
-```
-
----
-
-## Typical Session
-
+## Typical Session Flow
 ```bash
 # 1. Start
-workout start --empty
+workout start push
 
-# 2. Log as you go
-workout log lat-pulldown 100 10,10,9,8
-workout note lat-pulldown "Dropped from 120 due to elbow"
-workout log single-arm-cable-row 40 12,12,10
-workout log single-arm-cable-row 45 10,10
+# 2. Log with REAL numbers
+workout log bench-press 135 8
+workout log bench-press 145 8
+workout log bench-press 155 6
 
-# 3. Add session notes
-workout note "Pull day - elbow still recovering"
+# 3. Notes for context only
+workout note bench-press "Felt strong today"
 
 # 4. Finish
 workout done
 ```
 
----
+## Equipment Variants
+Use specific exercises for equipment variants to track properly:
+- `bench-press` (barbell) vs `dumbbell-bench-press`
+- `romanian-deadlift` (barbell) vs `dumbbell-rdl`
+- `shoulder-press` (barbell) vs `dumbbell-shoulder-press`
 
-## Data Storage
-
-```
-~/.workout/
-  exercises.json   # Exercise library
-  workouts/        # Completed sessions
-```
-
-## JSON Output
-
-All commands support `--json`:
-
-```bash
-workout pr --json
-workout last --json
-workout history squat --json
-```
-
-## Gotchas
-
-- **exercises add** requires all three: `--muscles`, `--type`, `--equipment`
-- Weights are in **lbs** by default
-- Multiple calls to `log` at different weights work fine (common pattern)
-- `swap` moves all logged sets to the new exercise
-- `note <exercise> <text>` adds note to specific exercise; `note <text>` adds session note
-
-## References
-
-- Repository: https://github.com/gricha/workout-cli
+## Notes
+- Weights in **lbs**
+- Multiple `log` calls at different weights OK
+- `swap` moves all logged sets to new exercise
+- All commands support `--json`
