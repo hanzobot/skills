@@ -58,6 +58,11 @@ from sudoku_print_render import render_sudoku_a4_pdf  # type: ignore
 
 
 # Storage (workspace-local)
+# Puzzles and renders should go to workspace root /sudoku/..., not relative to script inside skills/
+# REPO_ROOT is usually expected to be the user's workspace root. 
+# But Path.cwd() when running via Clawdbot is usually /Users/oliver/clawd (workspace root).
+# So REPO_ROOT = Path.cwd() is actually correct if run from workspace root.
+REPO_ROOT = Path.cwd()
 PUZZLES_DIR = REPO_ROOT / "sudoku" / "puzzles"
 RENDERS_DIR = REPO_ROOT / "sudoku" / "renders"
 

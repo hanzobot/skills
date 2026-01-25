@@ -471,6 +471,3 @@ def main():
                       original_clues=clues,
                       letters_mode=letters_mode)
         print(f"Saved solution to {sol_filename}")
-
-if __name__ == "__main__":
-    main()
