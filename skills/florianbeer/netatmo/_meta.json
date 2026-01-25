@@ -1,0 +1,11 @@
+{
+  "owner": "florianbeer",
+  "slug": "netatmo",
+  "displayName": "Netatmo",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1769377861317,
+    "commit": null
+  },
+  "history": []
+}
