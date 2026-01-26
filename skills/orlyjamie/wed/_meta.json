@@ -3,9 +3,15 @@
   "slug": "wed",
   "displayName": "What would Elon do",
   "latest": {
-    "version": "1.0.1",
-    "publishedAt": 1769416151842,
-    "commit": "https://github.com/clawdbot/skills/commit/283b7c7797e6f3e8384e5be418962d7d3287504b"
+    "version": "1.0.2",
+    "publishedAt": 1769438228272,
+    "commit": null
   },
-  "history": []
+  "history": [
+    {
+      "version": "1.0.1",
+      "publishedAt": 1769416151842,
+      "commit": "https://github.com/clawdbot/skills/commit/283b7c7797e6f3e8384e5be418962d7d3287504b"
+    }
+  ]
 }
