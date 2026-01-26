@@ -1,0 +1,11 @@
+{
+  "owner": "arein",
+  "slug": "onchain",
+  "displayName": "Onchain CLI",
+  "latest": {
+    "version": "0.1.5",
+    "publishedAt": 1769415191037,
+    "commit": null
+  },
+  "history": []
+}
