@@ -3,11 +3,16 @@
   "slug": "clawd-docs-v2",
   "displayName": "Clawd Docs V2",
   "latest": {
-    "version": "2.1.3",
-    "publishedAt": 1769375813829,
-    "commit": "https://github.com/clawdbot/skills/commit/b7683c5899a84464e73e841395bf07daae5352a1"
+    "version": "2.2.0",
+    "publishedAt": 1769402464206,
+    "commit": null
   },
   "history": [
+    {
+      "version": "2.1.3",
+      "publishedAt": 1769375813829,
+      "commit": "https://github.com/clawdbot/skills/commit/b7683c5899a84464e73e841395bf07daae5352a1"
+    },
     {
       "version": "2.0.0",
       "publishedAt": 1768423508903,
