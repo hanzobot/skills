@@ -248,7 +248,7 @@ Expected performance on M-series Mac:
 
 ## Ready for Production?
 
-Before publishing to ClawdHub:
+Before publishing to Skills:
 
 - [ ] All manual tests pass
 - [ ] Error handling is graceful
@@ -263,10 +263,10 @@ Before publishing to ClawdHub:
 
 Once tested:
 
-1. Test installation via Clawdbot: Install from skill directory
-2. Test AI integration: Ask Clawdbot to control Homey devices
+1. Test installation via Bot: Install from skill directory
+2. Test AI integration: Ask Bot to control Homey devices
 3. Gather feedback: Use for a few days, note issues
-4. Publish to ClawdHub: Submit for community use
+4. Publish to Skills: Submit for community use
 
 ## Support
 

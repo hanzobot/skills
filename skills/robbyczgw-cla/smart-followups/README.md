@@ -1,12 +1,12 @@
 # 💡 Smart Follow-ups
 
-### 🦎 A Clawdbot Skill
+### 🦎 A Bot Skill
 
 > Generate contextual follow-up suggestions for your AI conversations
 
 <p align="center">
-  <a href="https://clawdbot.com"><img src="https://img.shields.io/badge/🦎_Clawdbot-Skill-7c3aed?style=for-the-badge" alt="Clawdbot Skill"></a>
-  <a href="https://clawdhub.com/skills/smart-followups"><img src="https://img.shields.io/badge/ClawdHub-Install-22c55e?style=for-the-badge" alt="ClawdHub"></a>
+  <a href="https://bot.com"><img src="https://img.shields.io/badge/🦎_Bot-Skill-7c3aed?style=for-the-badge" alt="Bot Skill"></a>
+  <a href="https://skills.com/skills/smart-followups"><img src="https://img.shields.io/badge/Skills-Install-22c55e?style=for-the-badge" alt="Skills"></a>
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 ---
 
-**This is a skill for [Clawdbot](https://clawdbot.com)** — the AI assistant that works across Telegram, Discord, Signal, WhatsApp, and more.
+**This is a skill for [Bot](https://bot.com)** — the AI assistant that works across Telegram, Discord, Signal, WhatsApp, and more.
 
 After every AI response, get **3 smart suggestions** for what to ask next:
 
@@ -36,16 +36,16 @@ After every AI response, get **3 smart suggestions** for what to ask next:
 - **🔘 Interactive Buttons** — One tap to ask (Telegram, Discord, Slack)
 - **📝 Text Fallback** — Numbered lists for channels without buttons
 - **⚡ Fast** — ~2 second generation time
-- **🔐 Privacy-First** — Uses your existing Clawdbot auth by default
+- **🔐 Privacy-First** — Uses your existing Bot auth by default
 - **🔧 Flexible** — Multiple provider options (see below)
 
 ---
 
-## 🦎 What is Clawdbot?
+## 🦎 What is Bot?
 
-[Clawdbot](https://clawdbot.com) is a powerful AI assistant that connects Claude to your favorite messaging apps — Telegram, Discord, Signal, WhatsApp, iMessage, and more. Skills extend Clawdbot with new capabilities.
+[Bot](https://bot.com) is a powerful AI assistant that connects Claude to your favorite messaging apps — Telegram, Discord, Signal, WhatsApp, iMessage, and more. Skills extend Bot with new capabilities.
 
-**Not using Clawdbot yet?** Check out [clawdbot.com](https://clawdbot.com) to get started!
+**Not using Bot yet?** Check out [bot.com](https://bot.com) to get started!
 
 ---
 
@@ -54,11 +54,11 @@ After every AI response, get **3 smart suggestions** for what to ask next:
 ### Installation
 
 ```bash
-# Via ClawdHub (recommended)
-clawdhub install smart-followups
+# Via Skills (recommended)
+skills install smart-followups
 
 # Or manually
-cd /path/to/clawdbot/skills
+cd /path/to/bot/skills
 git clone https://github.com/robbyczgw-cla/smart-followups
 cd smart-followups
 npm install
@@ -66,7 +66,7 @@ npm install
 
 ### Usage
 
-Just say **"followups"** (or "give me follow-ups", "suggestions") in any Clawdbot conversation:
+Just say **"followups"** (or "give me follow-ups", "suggestions") in any Bot conversation:
 
 ```
 You: What is Docker?
@@ -82,15 +82,15 @@ Bot: 💡 What would you like to explore next?
 
 Click any button → sends that question automatically!
 
-> **Note:** This works as a keyword the agent recognizes, not as a registered `/slash` command. Clawdbot skills are guidance docs — the agent reads the SKILL.md and knows how to respond when you ask for follow-ups.
+> **Note:** This works as a keyword the agent recognizes, not as a registered `/slash` command. Bot skills are guidance docs — the agent reads the SKILL.md and knows how to respond when you ask for follow-ups.
 
 ---
 
 ## 🔐 Authentication Options
 
-### Option 1: Clawdbot Native (Default) ⭐
+### Option 1: Bot Native (Default) ⭐
 
-**Uses your existing Clawdbot authentication** — same model and login as your current chat.
+**Uses your existing Bot authentication** — same model and login as your current chat.
 
 - ✅ No additional API keys needed
 - ✅ Uses your current session's model (Haiku/Sonnet/Opus)
@@ -100,7 +100,7 @@ Click any button → sends that question automatically!
 {
   "skills": {
     "smart-followups": {
-      "provider": "clawdbot"
+      "provider": "bot"
     }
   }
 }
@@ -146,14 +146,14 @@ Use Anthropic's API directly. Requires API key.
 
 ## ⚙️ Configuration
 
-Add to your `clawdbot.json`:
+Add to your `bot.json`:
 
 ```json
 {
   "skills": {
     "smart-followups": {
       "enabled": true,
-      "provider": "clawdbot",
+      "provider": "bot",
       "model": null,
       "autoTrigger": false
     }
@@ -164,7 +164,7 @@ Add to your `clawdbot.json`:
 | Option | Default | Description |
 |--------|---------|-------------|
 | `enabled` | `true` | Enable/disable the skill |
-| `provider` | `"clawdbot"` | Auth provider: `clawdbot`, `openrouter`, `anthropic` |
+| `provider` | `"bot"` | Auth provider: `bot`, `openrouter`, `anthropic` |
 | `model` | `null` | Model override (null = inherit from session) |
 | `apiKey` | — | API key for openrouter/anthropic providers |
 | `autoTrigger` | `false` | Auto-show follow-ups after every response |
@@ -173,7 +173,7 @@ Add to your `clawdbot.json`:
 
 ## 📱 Channel Support
 
-Works on **every Clawdbot channel** with adaptive formatting:
+Works on **every Bot channel** with adaptive formatting:
 
 | Channel | Mode | Interaction |
 |---------|------|-------------|
@@ -248,9 +248,9 @@ Reply with 1, 2, or 3 to ask that question.
 
 Cleaner UX, especially on mobile. Each category (Quick, Deep, Related) gets one focused suggestion instead of overwhelming you with options.
 
-### Can I use this without Clawdbot?
+### Can I use this without Bot?
 
-Yes! The CLI tool works standalone with OpenRouter or Anthropic API keys. But the best experience is integrated with Clawdbot.
+Yes! The CLI tool works standalone with OpenRouter or Anthropic API keys. But the best experience is integrated with Bot.
 
 ### How does it know what to suggest?
 
@@ -258,17 +258,17 @@ The skill analyzes your last 1-3 message exchanges and generates contextually re
 
 ### Will it work with my custom model?
 
-Yes! With `provider: "clawdbot"` (default), it uses whatever model your current chat is using. With other providers, specify the model in config.
+Yes! With `provider: "bot"` (default), it uses whatever model your current chat is using. With other providers, specify the model in config.
 
 ### Is my conversation data sent anywhere?
 
-**With Clawdbot native:** Same privacy as your normal chat — processed by your configured AI provider.
+**With Bot native:** Same privacy as your normal chat — processed by your configured AI provider.
 
 **With OpenRouter/Anthropic:** Your recent exchanges are sent to generate suggestions. See their respective privacy policies.
 
 ### How much does it cost?
 
-- **Clawdbot native:** Uses your existing chat's API usage
+- **Bot native:** Uses your existing chat's API usage
 - **OpenRouter/Anthropic:** ~$0.001-0.01 per generation depending on model
 
 ---
@@ -279,10 +279,10 @@ Yes! With `provider: "clawdbot"` (default), it uses whatever model your current 
 smart-followups/
 ├── cli/
 │   └── followups-cli.js    # Standalone CLI tool
-├── handler.js              # Clawdbot command handler
+├── handler.js              # Bot command handler
 ├── package.json
 ├── README.md               # This file
-├── SKILL.md                # Clawdbot skill manifest
+├── SKILL.md                # Bot skill manifest
 ├── FAQ.md                  # Frequently asked questions
 ├── INTERNAL.md             # Development notes
 ├── CHANGELOG.md            # Version history
@@ -312,9 +312,9 @@ MIT © [Robby](https://github.com/robbyczgw-cla)
 ## 🙏 Credits
 
 - Inspired by [Chameleon AI Chat](https://github.com/robbyczgw-cla/Chameleon-AI-Chat)'s smart follow-up feature
-- Built for the [Clawdbot](https://clawdbot.com) ecosystem
+- Built for the [Bot](https://bot.com) ecosystem
 - Powered by Claude
 
 ---
 
-**Made with 🦎 by the Clawdbot community**
+**Made with 🦎 by the Bot community**

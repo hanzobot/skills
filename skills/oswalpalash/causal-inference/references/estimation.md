@@ -117,7 +117,7 @@ else:
     print("Effect uncertain — may need more data or user confirmation")
 ```
 
-## Practical Guidelines for Clawdbot
+## Practical Guidelines for Bot
 
 1. **Start with regression** — simple, interpretable, usually sufficient
 2. **Log everything** — you need outcome data to estimate effects

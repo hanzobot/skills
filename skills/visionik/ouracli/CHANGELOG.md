@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Heart rate data and charts
 - `all` command for comprehensive daily view
 - `--ai-help` flag with dashdash-spec v0.2.0 for LLM/agent guidance
-- SKILL.md for Clawdbot integration
+- SKILL.md for Bot integration
 - 92% test coverage with property-based fuzzing (hypothesis)
 - Snapshot tests with real API data fixtures
 

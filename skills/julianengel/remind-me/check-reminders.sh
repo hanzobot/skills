@@ -1,7 +1,7 @@
 #!/bin/bash
 # Check reminders and output due ones (to be sent by the agent)
 
-REMINDERS_FILE="/home/julian/clawd/reminders.md"
+REMINDERS_FILE="/home/julian/bot/reminders.md"
 NOW_EPOCH=$(date +%s)
 
 # Exit if no reminders file

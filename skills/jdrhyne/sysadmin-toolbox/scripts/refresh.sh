@@ -6,7 +6,7 @@ set -e
 
 REPO_URL="https://github.com/trimstray/the-book-of-secret-knowledge.git"
 TEMP_DIR="/tmp/tbsk-refresh-$$"
-SKILL_DIR="${1:-$HOME/clawd-duke-leto/skills/sysadmin-toolbox}"
+SKILL_DIR="${1:-$HOME/bot-duke-leto/skills/sysadmin-toolbox}"
 
 echo "🔄 Refreshing sysadmin-toolbox from upstream..."
 

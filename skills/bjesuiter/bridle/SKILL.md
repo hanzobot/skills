@@ -3,7 +3,7 @@ name: bridle
 description: Unified configuration manager for AI coding assistants. Manage profiles, install skills/agents/commands, and switch configurations across Claude Code, OpenCode, Goose, and Amp.
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 metadata:
-  clawdbot:
+  bot:
     emoji: "🐴"
     os: ["darwin", "linux"]
     requires:

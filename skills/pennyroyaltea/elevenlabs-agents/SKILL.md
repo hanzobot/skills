@@ -1,7 +1,7 @@
 ---
 name: elevenlabs-agents
 description: Create, manage, and deploy ElevenLabs conversational AI agents. Use when the user wants to work with voice agents, list their agents, create new ones, or manage agent configurations.
-metadata: {"clawdbot":{"requires":{"bins":["elevenlabs"]}}}
+metadata: {"bot":{"requires":{"bins":["elevenlabs"]}}}
 ---
 
 # ElevenLabs Agents Management

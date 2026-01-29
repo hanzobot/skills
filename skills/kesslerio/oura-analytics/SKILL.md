@@ -1,7 +1,7 @@
 ---
 name: oura-analytics
 description: Oura Ring data integration and analytics. Fetch sleep scores, readiness, activity, HRV, and trends from the Oura Cloud API. Generate automated reports, correlations with productivity, and trigger-based alerts for low recovery days. Requires OURA_API_TOKEN (get at cloud.ouraring.com).
-metadata: {"clawdbot":{"requires":{"bins":["python3"],"env":["OURA_API_TOKEN"]},"homepage":"https://github.com/kesslerio/oura-analytics-clawdbot-skill"}}
+metadata: {"bot":{"requires":{"bins":["python3"],"env":["OURA_API_TOKEN"]},"homepage":"https://github.com/kesslerio/oura-analytics-bot-skill"}}
 ---
 
 # Oura Analytics
@@ -93,11 +93,11 @@ Optional (used for alerts/reports/timezone/output):
 
 ## Automation (Cron Jobs)
 
-Cron jobs are configured in Clawdbot's gateway, not in this repo. Add these to your Clawdbot setup:
+Cron jobs are configured in Bot's gateway, not in this repo. Add these to your Bot setup:
 
 ### Daily Morning Briefing (8:00 AM)
 ```bash
-clawdbot cron add \
+bot cron add \
   --name "Daily Oura Health Report (Hybrid)" \
   --cron "0 8 * * *" \
   --tz "America/Los_Angeles" \
@@ -111,7 +111,7 @@ clawdbot cron add \
 
 ### Weekly Sleep Report (Sunday 8:00 AM)
 ```bash
-clawdbot cron add \
+bot cron add \
   --name "Weekly Oura Sleep Report" \
   --cron "0 8 * * 0" \
   --tz "America/Los_Angeles" \
@@ -125,7 +125,7 @@ clawdbot cron add \
 
 ### Daily Obsidian Note (8:15 AM)
 ```bash
-clawdbot cron add \
+bot cron add \
   --name "Daily Obsidian Note" \
   --cron "15 8 * * *" \
   --tz "America/Los_Angeles" \

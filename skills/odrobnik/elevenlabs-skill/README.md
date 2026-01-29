@@ -1,4 +1,4 @@
-# ElevenLabs Skill for Clawdbot
+# ElevenLabs Skill for Bot
 
 Core tools for interacting with the ElevenLabs API for sound generation, music, and voice management.
 

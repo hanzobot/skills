@@ -1,7 +1,7 @@
 ---
 name: gotrain
 description: MTA system train departures (NYC Subway, LIRR, Metro-North). Use when the user wants train times, schedules, or service alerts for MTA transit. Covers MTA Subway, LIRR, and Metro-North across the greater New York area.
-metadata: {"clawdbot":{"requires":{"bins":["gotrain"]},"install":[{"id":"node","kind":"node","package":"gotrain-cli","bins":["gotrain"],"label":"Install gotrain CLI (npm)"}]}}
+metadata: {"bot":{"requires":{"bins":["gotrain"]},"install":[{"id":"node","kind":"node","package":"gotrain-cli","bins":["gotrain"],"label":"Install gotrain CLI (npm)"}]}}
 ---
 
 # gotrain

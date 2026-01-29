@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# meshguard-cli.sh — MeshGuard API wrapper for Clawdbot
+# meshguard-cli.sh — MeshGuard API wrapper for Bot
 set -euo pipefail
 
 # Load config if exists

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Clawdbot Sync Handler
-# Synchronize memory and skills between Clawdbot instances
+# Bot Sync Handler
+# Synchronize memory and skills between Bot instances
 # Usage: handler.sh <command> [args...] <workspace>
 
 set -euo pipefail
@@ -15,7 +15,7 @@ shift || true
 
 # Get workspace (always last argument)
 WORKSPACE="${!#:-$(pwd)}"
-DATA_DIR="$WORKSPACE/memory/clawdbot-sync"
+DATA_DIR="$WORKSPACE/memory/bot-sync"
 CONFLICTS_DIR="$DATA_DIR/conflicts"
 
 # Ensure directories exist
@@ -47,7 +47,7 @@ EXCLUDE_PATTERNS=(
     "cache/"
     "node_modules/"
     "*.bak"
-    "clawdbot-sync/"  # Don't sync the sync data itself
+    "bot-sync/"  # Don't sync the sync data itself
 )
 
 # ============================================
@@ -65,7 +65,7 @@ list_peers() {
 
 check_connection() {
     local host="$1"
-    local user="${2:-clawdbot}"
+    local user="${2:-bot}"
     local timeout=5
     
     ssh -o ConnectTimeout=$timeout -o BatchMode=yes -o StrictHostKeyChecking=no \
@@ -113,7 +113,7 @@ case "$CMD" in
             [[ -z "$peer_name" ]] && continue
             peer_data=$(get_peer "$peer_name")
             host=$(echo "$peer_data" | jq -r '.host')
-            user=$(echo "$peer_data" | jq -r '.user // "clawdbot"')
+            user=$(echo "$peer_data" | jq -r '.user // "bot"')
             
             if check_connection "$host" "$user" 2>/dev/null; then
                 conn_status="online"
@@ -157,8 +157,8 @@ case "$CMD" in
     add)
         name="${1:-}"
         host="${2:-}"
-        user="${3:-clawdbot}"
-        remote_path="${4:-/home/clawdbot/clawd}"
+        user="${3:-bot}"
+        remote_path="${4:-/home/bot/bot}"
         
         [[ -z "$name" ]] && { echo '{"status":"error","message":"Peer name required"}'; exit 1; }
         [[ -z "$host" ]] && { echo '{"status":"error","message":"Host required"}'; exit 1; }
@@ -202,8 +202,8 @@ case "$CMD" in
         [[ -z "$peer_data" ]] && { echo '{"status":"error","message":"Peer not found: '"$peer_name"'"}'; exit 1; }
         
         host=$(echo "$peer_data" | jq -r '.host')
-        user=$(echo "$peer_data" | jq -r '.user // "clawdbot"')
-        remote_path=$(echo "$peer_data" | jq -r '.path // "/home/clawdbot/clawd"')
+        user=$(echo "$peer_data" | jq -r '.user // "bot"')
+        remote_path=$(echo "$peer_data" | jq -r '.path // "/home/bot/bot"')
         
         # Build exclude args
         exclude_args=""
@@ -252,8 +252,8 @@ case "$CMD" in
         [[ -z "$peer_data" ]] && { echo '{"status":"error","message":"Peer not found: '"$peer_name"'"}'; exit 1; }
         
         host=$(echo "$peer_data" | jq -r '.host')
-        user=$(echo "$peer_data" | jq -r '.user // "clawdbot"')
-        remote_path=$(echo "$peer_data" | jq -r '.path // "/home/clawdbot/clawd"')
+        user=$(echo "$peer_data" | jq -r '.user // "bot"')
+        remote_path=$(echo "$peer_data" | jq -r '.path // "/home/bot/bot"')
         
         # Build exclude args
         exclude_args=""
@@ -298,8 +298,8 @@ case "$CMD" in
         [[ -z "$peer_data" ]] && { echo '{"status":"error","message":"Peer not found: '"$peer_name"'"}'; exit 1; }
         
         host=$(echo "$peer_data" | jq -r '.host')
-        user=$(echo "$peer_data" | jq -r '.user // "clawdbot"')
-        remote_path=$(echo "$peer_data" | jq -r '.path // "/home/clawdbot/clawd"')
+        user=$(echo "$peer_data" | jq -r '.user // "bot"')
+        remote_path=$(echo "$peer_data" | jq -r '.path // "/home/bot/bot"')
         
         # Build exclude args
         exclude_args=""
@@ -347,8 +347,8 @@ case "$CMD" in
         [[ -z "$peer_data" ]] && { echo '{"status":"error","message":"Peer not found: '"$peer_name"'"}'; exit 1; }
         
         host=$(echo "$peer_data" | jq -r '.host')
-        user=$(echo "$peer_data" | jq -r '.user // "clawdbot"')
-        remote_path=$(echo "$peer_data" | jq -r '.path // "/home/clawdbot/clawd"')
+        user=$(echo "$peer_data" | jq -r '.user // "bot"')
+        remote_path=$(echo "$peer_data" | jq -r '.path // "/home/bot/bot"')
         
         # Check connection first
         if ! check_connection "$host" "$user" 2>/dev/null; then

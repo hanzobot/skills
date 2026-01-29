@@ -1,4 +1,4 @@
-# Hyperliquid Skill (Clawdbot)
+# Hyperliquid Skill (Bot)
 
 Read-only Hyperliquid assistant for market data + account views.
 
@@ -55,7 +55,7 @@ Given an EVM address (master or sub-account), you can view:
 
 Accounts are stored locally in:
 
-- `~/.clawdbot/hyperliquid/config.json`
+- `~/.bot/hyperliquid/config.json`
 
 ### Add / list / remove
 - `hl account add "sub account 1" HL:0x... --default`

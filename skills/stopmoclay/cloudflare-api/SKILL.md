@@ -7,7 +7,7 @@ read_when:
   - User needs to set up Cloudflare tunnels
   - User wants to list their Cloudflare zones
 metadata:
-  clawdbot:
+  bot:
     emoji: "☁️"
     requires:
       bins: ["curl", "jq"]

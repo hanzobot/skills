@@ -3,7 +3,7 @@
 # Stores snapshots and diffs
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-TRACK_DIR="${HOME}/.cache/clawddocs/history"
+TRACK_DIR="${HOME}/.cache/botdocs/history"
 
 mkdir -p "$TRACK_DIR"
 
@@ -41,7 +41,7 @@ diff_dates() {
     new=$(comm -13 "$file1" "$file2")
     if [ -n "$new" ]; then
         echo "➕ Added:"
-        echo "$new" | sed 's|https://docs.clawd.bot/||; s/^/  /'
+        echo "$new" | sed 's|https://docs.hanzo.bot/||; s/^/  /'
         echo ""
     fi
     
@@ -49,7 +49,7 @@ diff_dates() {
     removed=$(comm -23 "$file1" "$file2")
     if [ -n "$removed" ]; then
         echo "➖ Removed:"
-        echo "$removed" | sed 's|https://docs.clawd.bot/||; s/^/  /'
+        echo "$removed" | sed 's|https://docs.hanzo.bot/||; s/^/  /'
         echo ""
     fi
     

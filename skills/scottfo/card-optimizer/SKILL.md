@@ -2,7 +2,7 @@
 name: card-optimizer
 description: "Credit card rewards optimizer — helps maximize cashback, points, and miles by recommending the best card for every purchase category. Tracks annual caps, calculates annual fee ROI, manages rotating quarterly categories, and suggests new cards based on spending patterns."
 homepage: https://github.com/ScotTFO/card-optimizer-skill
-metadata: {"clawdbot":{"emoji":"💳"}}
+metadata: {"bot":{"emoji":"💳"}}
 ---
 
 # Card Optimizer

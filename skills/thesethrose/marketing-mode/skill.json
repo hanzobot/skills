@@ -5,7 +5,7 @@
   "tags": ["marketing", "growth", "founder", "positioning", "messaging", "funnel"],
   "author": "Seth Rose",
   "license": "MIT",
-  "repository": "https://github.com/TheSethRose/clawdbot-skills",
+  "repository": "https://github.com/TheSethRose/bot-skills",
   "documentation": "SKILL.md",
   "keywords": [
     "marketing",
@@ -25,9 +25,9 @@
     "npm": "npm install -g @thesethrose/marketing-mode"
   },
   "usage": {
-    "cli": "clawdhub install marketing-mode"
+    "cli": "skills install marketing-mode"
   },
-  "clawdbot": {
+  "bot": {
     "requires": {
       "node": true,
       "npm": true

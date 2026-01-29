@@ -2,7 +2,7 @@
 name: claude-team
 description: Orchestrate multiple Claude Code workers via iTerm2 using the claude-team MCP server. Spawn workers with git worktrees, assign beads issues, monitor progress, and coordinate parallel development work.
 homepage: https://github.com/Martian-Engineering/claude-team
-metadata: {"clawdbot":{"emoji":"👥","os":["darwin"],"requires":{"bins":["mcporter"]}}}
+metadata: {"bot":{"emoji":"👥","os":["darwin"],"requires":{"bins":["mcporter"]}}}
 ---
 
 # Claude Team
@@ -439,13 +439,13 @@ export TELEGRAM_BOT_TOKEN="123456789:ABCdefGHIjklMNOpqrsTUVwxyz"
 export TELEGRAM_CHAT_ID="-1001234567890"
 ```
 
-### Alternative: Using clawdbot for Notifications
+### Alternative: Using bot for Notifications
 
-If you have clawdbot configured, you can send notifications through it instead:
+If you have bot configured, you can send notifications through it instead:
 
 ```bash
 # In check-workers.sh, replace the curl command with:
-clawdbot send --to "$TELEGRAM_CHAT_ID" --message "$MESSAGE" --provider telegram
+bot send --to "$TELEGRAM_CHAT_ID" --message "$MESSAGE" --provider telegram
 ```
 
 ### Clearing Notification State

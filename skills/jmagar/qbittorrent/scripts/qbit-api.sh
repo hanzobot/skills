@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-CONFIG_FILE="${QBIT_CONFIG:-$HOME/.clawdbot/credentials/qbittorrent/config.json}"
+CONFIG_FILE="${QBIT_CONFIG:-$HOME/.bot/credentials/qbittorrent/config.json}"
 COOKIE_FILE="${QBIT_COOKIE:-/tmp/qbit_cookie_$(id -u).txt}"
 
 # Load config

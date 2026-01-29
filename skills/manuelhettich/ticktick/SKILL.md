@@ -38,7 +38,7 @@ bun run scripts/ticktick.ts auth --client-id YOUR_CLIENT_ID --client-secret YOUR
 
 This prints an authorization URL. Open it in a browser, approve access, then copy the full redirect URL (it looks like `http://localhost:8080/?code=XXXXX&state=STATE`) and paste it back into the CLI.
 
-The CLI will open your browser to authorize access. After approving, tokens are stored in `~/.clawdbot/credentials/ticktick-cli/config.json`.
+The CLI will open your browser to authorize access. After approving, tokens are stored in `~/.bot/credentials/ticktick-cli/config.json`.
 
 ## Commands
 
@@ -192,7 +192,7 @@ bun run scripts/ticktick.ts complete "Agent task" --list "PROJECT_ID" --json
 
 ## Configuration
 
-Tokens are stored in `~/.clawdbot/credentials/ticktick-cli/config.json`:
+Tokens are stored in `~/.bot/credentials/ticktick-cli/config.json`:
 ```json
 {
   "clientId": "YOUR_CLIENT_ID",

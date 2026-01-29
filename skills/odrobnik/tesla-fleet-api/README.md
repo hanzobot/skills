@@ -1,4 +1,4 @@
-# Tesla Fleet API (Clawdbot Skill)
+# Tesla Fleet API (Bot Skill)
 
 Control Tesla vehicles via Tesla’s official Fleet API.
 

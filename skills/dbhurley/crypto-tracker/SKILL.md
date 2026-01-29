@@ -2,7 +2,7 @@
 name: crypto-tracker
 description: Track crypto prices, set alerts, and search coins via CoinGecko API.
 homepage: https://www.coingecko.com/api
-metadata: {"clawdis":{"emoji":"📈","requires":{"bins":["uv"]}}}
+metadata: {"botis":{"emoji":"📈","requires":{"bins":["uv"]}}}
 ---
 
 # Crypto Tracker

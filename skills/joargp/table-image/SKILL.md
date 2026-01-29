@@ -1,7 +1,7 @@
 ---
 name: table-image
 description: Generate images from tables for better readability in messaging apps like Telegram. Use when displaying tabular data.
-metadata: {"clawdis":{"emoji":"📊"}}
+metadata: {"botis":{"emoji":"📊"}}
 ---
 
 # Table Image Skill

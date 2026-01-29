@@ -1,6 +1,6 @@
 # Unicode Block Drawing Characters
 
-Quick reference for characters used in Clawd and terminal ASCII art.
+Quick reference for characters used in Bot and terminal ASCII art.
 
 ## Block Elements (U+2580-U+259F)
 
@@ -34,20 +34,20 @@ Quick reference for characters used in Clawd and terminal ASCII art.
 | ╱ | 2571 | Light Diagonal Upper Right to Lower Left |
 | ╲ | 2572 | Light Diagonal Upper Left to Lower Right |
 
-## Clawd Character Map
+## Bot Character Map
 
 ```
-Small Clawd (standard terminals):
+Small Bot (standard terminals):
  ▐▛███▜▌   ← ▐ (right half), ▛ (3-quarter), █ (full), ▜ (3-quarter), ▌ (left half)
 ▝▜█████▛▘  ← ▝ (upper-right), ▜, █████, ▛, ▘ (upper-left)
   ▘▘ ▝▝    ← feet using upper quadrants
 
-Small Clawd (Apple Terminal - simpler charset):
+Small Bot (Apple Terminal - simpler charset):
 ▗ ▗   ▖ ▖  ← lower quadrants for outline
            ← solid background row
  ▘▘ ▝▝     ← upper quadrants for feet
 
-Large Clawd (loading screen):
+Large Bot (loading screen):
  █████████   ← head
 ██▄█████▄██  ← ears (▄ = lower half blocks)
  █████████   ← body

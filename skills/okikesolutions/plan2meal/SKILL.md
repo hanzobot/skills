@@ -1,6 +1,6 @@
 # Plan2Meal Skill
 
-A ClawdHub skill for managing recipes and grocery lists via Plan2Meal, a React Native recipe app.
+A Skills skill for managing recipes and grocery lists via Plan2Meal, a React Native recipe app.
 
 ## Features
 
@@ -12,9 +12,9 @@ A ClawdHub skill for managing recipes and grocery lists via Plan2Meal, a React N
 
 ## Setup
 
-1. Install via ClawdHub:
+1. Install via Skills:
    ```bash
-   clawdhub install plan2meal
+   skills install plan2meal
    ```
 
 2. Configure environment variables:
@@ -30,7 +30,7 @@ A ClawdHub skill for managing recipes and grocery lists via Plan2Meal, a React N
    - `PLAN2MEAL_AUTH_URL`: Custom authentication URL (defaults to `https://app.plan2meal.com/sign-in`)
 
    **Important**: 
-   - **Public Skill**: This skill is published on ClawdHub. No secrets are stored in the skill.
+   - **Public Skill**: This skill is published on Skills. No secrets are stored in the skill.
    - **Authentication**: Users authenticate via your Plan2Meal web app, then copy a session token back to Telegram.
    - **Backend Security**: All OAuth credentials (GitHub, Convex) are configured in your backend only, never exposed.
 
@@ -139,7 +139,7 @@ The free tier allows up to **5 recipes**. You'll receive a warning when approach
 
 ### Key Points
 
-- **Public Skill**: No secrets in the skill - safe to publish on ClawdHub
+- **Public Skill**: No secrets in the skill - safe to publish on Skills
 - **Backend OAuth**: All OAuth credentials (GitHub, Convex) stay in your backend
 - **User Identification**: Your backend maps session tokens to Convex users internally
 - **Privacy**: Convex URL stays private in your backend only

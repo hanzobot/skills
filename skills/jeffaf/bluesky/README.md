@@ -1,6 +1,6 @@
 # 🦋 Bluesky Skill
 
-A Clawdbot skill for interacting with Bluesky (AT Protocol) from the command line.
+A Bot skill for interacting with Bluesky (AT Protocol) from the command line.
 
 ## Features
 
@@ -71,9 +71,9 @@ bsky profile @someone.bsky.social   # Someone else's
 
 ## Installation
 
-Via ClawdHub:
+Via Skills:
 ```bash
-clawdhub install bluesky
+skills install bluesky
 ```
 
 ## License
@@ -82,4 +82,4 @@ MIT
 
 ---
 
-*Built for [Clawdbot](https://github.com/clawdbot/clawdbot)*
+*Built for [Bot](https://github.com/bot/bot)*

@@ -1,7 +1,7 @@
 ---
 name: printer
 description: Manage printers via CUPS on macOS (discover, add, print, queue, status, wake).
-metadata: {"clawdbot":{"emoji":"🖨️","os":["darwin"],"requires":{"bins":["lp","lpstat","lpadmin"]}}}
+metadata: {"bot":{"emoji":"🖨️","os":["darwin"],"requires":{"bins":["lp","lpstat","lpadmin"]}}}
 ---
 
 # Printer (CUPS)

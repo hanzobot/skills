@@ -3,7 +3,7 @@ name: gurkerl
 description: Gurkerl.at grocery shopping via MCP - search products, manage cart, orders, recipes, favorites.
 homepage: https://www.gurkerl.at/seite/mcp-server
 metadata:
-  clawdbot:
+  bot:
     emoji: "🥒"
     requires:
       bins: ["curl", "jq"]
@@ -33,7 +33,7 @@ export GURKERL_EMAIL="your@email.com"
 export GURKERL_PASS="your-password"
 ```
 
-For persistent access, add to `~/.config/systemd/user/clawdbot-gateway.service.d/gurkerl.conf`:
+For persistent access, add to `~/.config/systemd/user/bot-gateway.service.d/gurkerl.conf`:
 ```ini
 [Service]
 Environment="GURKERL_EMAIL=your@email.com"

@@ -2,7 +2,7 @@
 name: process-watch
 description: Monitor system processes - CPU, memory, disk I/O, network, open files, ports. Find resource hogs, kill runaway processes, track what's consuming your machine.
 metadata:
-  clawdhub:
+  skills:
     emoji: "📊"
     requires:
       bins: ["python3"]

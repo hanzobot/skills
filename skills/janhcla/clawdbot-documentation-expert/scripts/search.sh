@@ -1,5 +1,5 @@
 #!/bin/bash
-# Search clawdbot documentation by keyword
+# Search bot documentation by keyword
 # Usage: search.sh <query> [--full]
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -34,5 +34,5 @@ echo ""
 if [ "$full_mode" = "--full" ]; then
     echo "$matches"
 else
-    echo "$matches" | sed 's|https://docs.clawd.bot/||' | sed 's/^/  - /'
+    echo "$matches" | sed 's|https://docs.hanzo.bot/||' | sed 's/^/  - /'
 fi

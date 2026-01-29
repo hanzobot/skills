@@ -1,7 +1,7 @@
 ---
 name: domainkits
 description: Domain intelligence toolkit - search newly registered domains (NRDS) by keyword and reverse lookup domains by nameserver (NS Reverse). For domain investors, brand protection, and research.
-metadata: {"clawdbot":{"emoji":"🌐","requires":{"bins":["curl"]},"homepage":"https://domainkits.com"}}
+metadata: {"bot":{"emoji":"🌐","requires":{"bins":["curl"]},"homepage":"https://domainkits.com"}}
 user-invocable: true
 ---
 

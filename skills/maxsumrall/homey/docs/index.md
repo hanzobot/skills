@@ -2,7 +2,7 @@
 
 Control Athom Homey devices from the command line via local (LAN/VPN) or cloud APIs.
 
-This tool is designed to be called by an LLM/agent (ClawdHub skill), so it prioritizes:
+This tool is designed to be called by an LLM/agent (Skills skill), so it prioritizes:
 
 - machine-readable JSON (`--json`)
 - returning full device state (multi-sensor friendly)

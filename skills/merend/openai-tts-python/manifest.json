@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Text-to-speech conversion using OpenAI's TTS API for generating high-quality, natural-sounding audio from text.",
   "summary": "Convert text to natural-sounding speech using OpenAI's TTS API. Features 6 voice options (alloy, echo, fable, onyx, nova, shimmer), adjustable speed (0.25x-4.0x), HD quality model, and multiple output formats (mp3, opus, aac, flac). Activates on phrases like 'read this to me', 'text to speech', 'tts', or voice preferences.",
-  "author": "clawdbot",
+  "author": "bot",
   "license": "MIT",
   "keywords": [
     "tts",

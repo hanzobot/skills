@@ -2,7 +2,7 @@
 name: bible
 description: Get the Bible.com Verse of the Day with shareable image.
 homepage: https://bible.com
-metadata: {"clawdis":{"emoji":"📖","requires":{"bins":["python3"]}}}
+metadata: {"botis":{"emoji":"📖","requires":{"bins":["python3"]}}}
 ---
 
 # Bible.com Verse of the Day
@@ -13,7 +13,7 @@ Fetch the daily verse from Bible.com (YouVersion) including the shareable image.
 
 ### Get Verse of the Day (JSON)
 ```bash
-python3 ~/clawd/skills/bible/votd.py
+python3 ~/bot/skills/bible/votd.py
 ```
 
 Returns:
@@ -30,7 +30,7 @@ Returns:
 
 ### Get VOTD and Download Image
 ```bash
-python3 ~/clawd/skills/bible/votd.py --download /tmp/votd.jpg
+python3 ~/bot/skills/bible/votd.py --download /tmp/votd.jpg
 ```
 
 Downloads the 1280x1280 shareable image to the specified path.

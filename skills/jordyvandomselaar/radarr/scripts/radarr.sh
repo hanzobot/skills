@@ -2,9 +2,9 @@
 set -e
 
 # Radarr API wrapper
-# Credentials: ~/.clawdbot/credentials/radarr/config.json
+# Credentials: ~/.bot/credentials/radarr/config.json
 
-CONFIG_FILE="$HOME/.clawdbot/credentials/radarr/config.json"
+CONFIG_FILE="$HOME/.bot/credentials/radarr/config.json"
 
 if [ -f "$CONFIG_FILE" ]; then
   RADARR_URL=$(jq -r '.url' "$CONFIG_FILE")

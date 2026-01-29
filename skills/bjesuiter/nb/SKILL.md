@@ -4,7 +4,7 @@ description: Manage notes, bookmarks, and notebooks using the nb CLI. Create, li
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 homepage: https://github.com/xwmx/nb
 metadata:
-  clawdbot:
+  bot:
     emoji: "📓"
     os: ["darwin", "linux"]
     requires:

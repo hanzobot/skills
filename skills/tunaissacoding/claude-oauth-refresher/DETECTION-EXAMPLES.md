@@ -1,6 +1,6 @@
 # Auto-Detection Examples
 
-This document shows what the auto-detection script looks for in `~/.clawdbot/clawdbot.json`.
+This document shows what the auto-detection script looks for in `~/.bot/bot.json`.
 
 ## Detection Logic
 
@@ -18,7 +18,7 @@ For each enabled channel, it tries to extract the target ID from the config.
 
 ## Telegram
 
-**What it looks for in `~/.clawdbot/clawdbot.json`:**
+**What it looks for in `~/.bot/bot.json`:**
 
 ```json
 {
@@ -42,7 +42,7 @@ For each enabled channel, it tries to extract the target ID from the config.
 
 **Fallback:** If not in config file, runs:
 ```bash
-clawdbot message telegram message search --limit 1 --from-me true
+bot message telegram message search --limit 1 --from-me true
 ```
 Parses chat ID from output.
 

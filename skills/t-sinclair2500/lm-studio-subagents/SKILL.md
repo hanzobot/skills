@@ -1,13 +1,13 @@
 ---
 name: lmstudio-subagents
 description: "Equips agents to search for and offload tasks to local models in LM Studio. Use when: (1) Offloading simple tasks to free local models (summarization, extraction, classification, rewriting, first-pass code review, brainstorming), (2) Tasks need specialized model capabilities (vision models for images, smaller models for quick tasks, larger models for complex reasoning), (3) Saving paid API tokens by using local models when quality is sufficient, (4) Tasks require local-only processing or privacy. Requires LM Studio installed with lms CLI and server running."
-metadata: {"clawdbot":{"emoji":"🦞","requires":{"bins":["lms"]},"tags":["local-model","local-llm","lm-studio","privacy","subagents"]}}
+metadata: {"bot":{"emoji":"🦞","requires":{"bins":["lms"]},"tags":["local-model","local-llm","lm-studio","privacy","subagents"]}}
 license: MIT
 ---
 
 # LM Studio Local Models
 
-Use **LM Studio** local models directly via API calls to offload tasks to free, local AI models. This skill equips agents to discover available models, select appropriate ones based on task requirements, and use them for cost-effective local processing without requiring pre-configuration in Clawdbot.
+Use **LM Studio** local models directly via API calls to offload tasks to free, local AI models. This skill equips agents to discover available models, select appropriate ones based on task requirements, and use them for cost-effective local processing without requiring pre-configuration in Bot.
 
 ## Why this skill exists (when to reach for it)
 
@@ -25,7 +25,7 @@ Avoid / be cautious:
 
 - **model_key**: The identifier used by `lms` commands (from `lms ls`). This is what you pass to `lms load`.
 - **model_identifier**: The identifier used when loading with `--identifier`. Can be the same as `model_key` or a custom name. This is what you use in API calls to LM Studio.
-- **lm_studio_api_url**: The base URL for LM Studio's API. Default is `http://127.0.0.1:1234/v1`. No Clawdbot config required - the skill works with LM Studio's default server.
+- **lm_studio_api_url**: The base URL for LM Studio's API. Default is `http://127.0.0.1:1234/v1`. No Bot config required - the skill works with LM Studio's default server.
 
 **Note:** The description above contains all triggering information. The sections below provide implementation details for using the skill once triggered.
 
@@ -609,7 +609,7 @@ LM Studio API typically uses:
 - **JSON output**: Always use `--json` flag for `lms` commands for machine-readable output
 - **Already loaded**: Check `lms ps` first - if model is already loaded, skip load step to save time
 - **Cleanup policy**: Prefer `--ttl` to avoid thrash; explicitly unload on memory pressure or when requested
-- **No config required**: Models do not need to be pre-configured in Clawdbot - any model in LM Studio can be used
+- **No config required**: Models do not need to be pre-configured in Bot - any model in LM Studio can be used
 - **Load time**: `lms load` blocks until complete. Large models (70B+) can take 3+ minutes. This is normal and expected
 - **API compatibility**: LM Studio uses OpenAI-compatible API format, so standard OpenAI request/response patterns apply
 - **Model validation**: Always validate `response.model` field matches requested model_identifier. LM Studio may auto-select/auto-load models, so API calls may succeed even if `lms ps` doesn't show the requested model

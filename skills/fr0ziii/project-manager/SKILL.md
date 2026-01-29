@@ -4,7 +4,7 @@
 Gestiona el sistema de proyectos interno basado en JSON. Permite crear tareas, moverlas por el tablero Kanban y sincronizar con Apple Reminders.
 
 ## Ubicación de Datos
-Base de datos: `/Users/fz1/clawd/data/pm/projects.json`
+Base de datos: `/Users/fz1/bot/data/pm/projects.json`
 
 ## Comandos (Mental Model)
 

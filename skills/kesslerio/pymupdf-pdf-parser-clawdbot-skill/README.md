@@ -1,6 +1,6 @@
-# PyMuPDF PDF Parser - Clawdbot Skill
+# PyMuPDF PDF Parser - Bot Skill
 
-A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for fast, lightweight PDF parsing using [PyMuPDF](https://pymupdf.readthedocs.io/) (fitz). Ideal for quick text extraction when speed matters.
+A [Bot](https://github.com/bot/bot) skill for fast, lightweight PDF parsing using [PyMuPDF](https://pymupdf.readthedocs.io/) (fitz). Ideal for quick text extraction when speed matters.
 
 ## Features
 
@@ -17,16 +17,16 @@ A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for fast, lightweight P
 
 1. **Python 3.8+**
 2. **PyMuPDF**: `pip install pymupdf`
-3. **Clawdbot** installed
+3. **Bot** installed
 
 ### Install the skill
 
 ```bash
 # Clone the repo
-git clone https://github.com/kesslerio/PyMuPDF-PDF-Parser-Clawdbot-Skill.git
+git clone https://github.com/kesslerio/PyMuPDF-PDF-Parser-Bot-Skill.git
 
-# Or copy the pymupdf-pdf/ folder to your Clawdbot skills directory
-cp -r PyMuPDF-PDF-Parser-Clawdbot-Skill/pymupdf-pdf ~/.clawdbot/skills/
+# Or copy the pymupdf-pdf/ folder to your Bot skills directory
+cp -r PyMuPDF-PDF-Parser-Bot-Skill/pymupdf-pdf ~/.bot/skills/
 
 # Install dependency
 pip install pymupdf
@@ -112,6 +112,6 @@ Issues and PRs welcome. Please test changes with various PDF types before submit
 
 ## Related
 
-- [MinerU PDF Parser Skill](https://github.com/kesslerio/MinerU-PDF-Parser-Clawdbot-Skill) — Rich, layout-aware alternative
+- [MinerU PDF Parser Skill](https://github.com/kesslerio/MinerU-PDF-Parser-Bot-Skill) — Rich, layout-aware alternative
 - [PyMuPDF](https://pymupdf.readthedocs.io/) — The underlying PDF library
-- [Clawdbot](https://github.com/clawdbot/clawdbot) — The AI agent framework
+- [Bot](https://github.com/bot/bot) — The AI agent framework

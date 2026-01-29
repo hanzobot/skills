@@ -17,7 +17,7 @@ TIMESTAMP=$(date +%s)
 SLUG=$(echo "$IDEA" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//' | cut -c1-50)
 
 # Create output directory
-IDEAS_DIR="$HOME/clawd/ideas/$SLUG"
+IDEAS_DIR="$HOME/bot/ideas/$SLUG"
 mkdir -p "$IDEAS_DIR"
 
 # Chat context for notifications
@@ -37,7 +37,7 @@ Status: In Progress
 EOF
 
 # Notification command - sends file to "me" and queues notification
-NOTIFY_CMD="$HOME/clawd/scripts/notify-research-complete.sh '$IDEAS_DIR/research.md' 'Idea: $IDEA' '$SESSION_KEY'"
+NOTIFY_CMD="$HOME/bot/scripts/notify-research-complete.sh '$IDEAS_DIR/research.md' 'Idea: $IDEA' '$SESSION_KEY'"
 
 # Write prompt to a file
 PROMPT_FILE="$IDEAS_DIR/prompt.txt"
@@ -120,7 +120,7 @@ unset ANTHROPIC_BASE_URL
 
 # Read prompt and run claude
 PROMPT=$(cat "$1")
-cd ~/clawd
+cd ~/bot
 claude --dangerously-skip-permissions --model opus "$PROMPT"
 echo ""
 echo "Session complete. Press any key to exit."

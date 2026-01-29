@@ -11,4 +11,4 @@ It expects:
 - plugin tool `tasker_cmd` allowlisted (recommended)
 - `tasker` CLI available via plugin `binary` config, `TASKER_BIN`, or PATH
 
-See `docs/CLAWDBOT_INTEGRATION.md` at repo root for end-to-end setup.
+See `docs/BOT_INTEGRATION.md` at repo root for end-to-end setup.

@@ -2,7 +2,7 @@
 name: whatdo
 description: "What should we do? Smart activity discovery with live weather, local movie showtimes, streaming recommendations, game library matching, group profiles, routines & traditions, favorites/blacklists, business hours, ratings filtering, Quick Mode for instant suggestions, calendar integration (Google Calendar + cron reminders), group invites via Telegram/message channels, and RSVP tracking. Helps you stop scrolling and start living. Use when someone says 'what to do', 'bored', 'fun', 'tonight', 'date night', 'things to do', 'activity ideas', 'entertainment', 'adventure', 'what should we do', 'need plans', 'something fun', 'stay home', 'game night', 'movie night', 'put it on the calendar', 'send invites', 'who's coming', or just seems like they need a nudge off the couch. Optional Google Places integration for real nearby suggestions with ratings, hours, and links."
 homepage: https://github.com/ScotTFO/whatdo-skill
-metadata: {"clawdbot":{"emoji":"🎲"}}
+metadata: {"bot":{"emoji":"🎲"}}
 ---
 
 # 🎲 What Should We Do?
@@ -523,21 +523,21 @@ curl -s -X POST 'https://www.googleapis.com/calendar/v3/calendars/primary/events
 
 #### Without Google Calendar API (Cron Fallback)
 
-If no calendar API is configured, use Clawdbot's cron tool to schedule reminders:
+If no calendar API is configured, use Bot's cron tool to schedule reminders:
 
 ```
 # Schedule a 2-hour-before reminder via cron
-clawdbot cron add --at "2026-01-28T17:00:00" \
+bot cron add --at "2026-01-28T17:00:00" \
   --message "🎲 Game night with the crew in 2 hours — don't forget the beer! Scott's RV at 7pm" \
   --channel telegram
 
 # Schedule a 30-minute-before reminder
-clawdbot cron add --at "2026-01-28T18:30:00" \
+bot cron add --at "2026-01-28T18:30:00" \
   --message "🎲 Game night in 30 minutes! Heading to Scott's RV" \
   --channel telegram
 
 # Schedule a day-of morning reminder
-clawdbot cron add --at "2026-01-28T10:00:00" \
+bot cron add --at "2026-01-28T10:00:00" \
   --message "🎲 Game night tonight at 7 — Scott's RV. Pizza is on Scott, Sarah gets veggie." \
   --channel telegram
 ```
@@ -701,12 +701,12 @@ Set up individual cron jobs for each group member with a Telegram handle:
 
 ```
 # Reminder for Mike
-clawdbot cron add --at "2026-01-28T17:00:00" \
+bot cron add --at "2026-01-28T17:00:00" \
   --message "🎲 Game night in 2 hours — Scott's RV at 7pm. Bring your A-game!" \
   --target @mikehandle --channel telegram
 
 # Reminder for Sarah
-clawdbot cron add --at "2026-01-28T17:00:00" \
+bot cron add --at "2026-01-28T17:00:00" \
   --message "🎲 Game night in 2 hours — Scott's RV at 7pm. Veggie pizza is covered! 🌱" \
   --target @sarah --channel telegram
 ```

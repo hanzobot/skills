@@ -1,7 +1,7 @@
 ---
 name: telegram-usage
 description: Display session usage statistics (quota, session time, tokens, context)
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["node"]}}}
+metadata: {"bot":{"emoji":"📊","requires":{"bins":["node"]}}}
 ---
 
 # Telegram Usage Stats
@@ -19,7 +19,7 @@ Shows a quick status message with:
 When the user asks for usage statistics, quota info, or session data:
 
 ```bash
-node /home/drew-server/clawd/skills/telegram-usage/handler.js
+node /home/drew-server/bot/skills/telegram-usage/handler.js
 ```
 
 This will output formatted HTML suitable for Telegram's parseMode.
@@ -43,6 +43,6 @@ The response is formatted as a clean Telegram message with:
 
 ## Notes
 
-- Pulls real-time data from `clawdbot models status`
+- Pulls real-time data from `bot models status`
 - Updates on each invocation with current API quota values
 - Uses plain text formatting for Telegram compatibility

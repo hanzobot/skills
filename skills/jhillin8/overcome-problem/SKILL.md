@@ -1,7 +1,7 @@
 ---
 name: overcome-problem
 description: Break down any problem with structured thinking, action plans, and progress tracking
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "help me overcome"

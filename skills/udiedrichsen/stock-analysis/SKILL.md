@@ -2,7 +2,7 @@
 name: stock-analysis
 description: Analyze stocks and cryptocurrencies using Yahoo Finance data. Supports portfolio management (create, add, remove assets), crypto analysis (Top 20 by market cap), and periodic performance reports (daily/weekly/monthly/quarterly/yearly). 8 analysis dimensions for stocks, 3 for crypto. Use for stock analysis, portfolio tracking, earnings reactions, or crypto monitoring.
 homepage: https://finance.yahoo.com
-metadata: {"clawdbot":{"emoji":"📈","requires":{"bins":["uv"],"env":[]},"install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
+metadata: {"bot":{"emoji":"📈","requires":{"bins":["uv"],"env":[]},"install":[{"id":"uv-brew","kind":"brew","formula":"uv","bins":["uv"],"label":"Install uv (brew)"}]}}
 ---
 
 # Stock Analysis (v5.0)
@@ -69,7 +69,7 @@ uv run {baseDir}/scripts/portfolio.py list
 uv run {baseDir}/scripts/portfolio.py delete "My Portfolio"
 ```
 
-**Portfolio Storage:** `~/.clawdbot/skills/stock-analysis/portfolios.json`
+**Portfolio Storage:** `~/.bot/skills/stock-analysis/portfolios.json`
 
 ## Portfolio Analysis (v5.0)
 

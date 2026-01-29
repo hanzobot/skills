@@ -4,14 +4,14 @@ description: Context7 MCP - Intelligent documentation search and context for any
 metadata:
   version: 1.0.3
   tags: ["documentation", "search", "context", "mcp", "llm"]
-  clawdbot:
+  bot:
     requires:
       bins: ["node"]
       npm: true
     install:
       - id: "skill-install"
         kind: "skill"
-        source: "clawdhub"
+        source: "skills"
         slug: "context7"
         label: "Install Context7 skill"
 ---

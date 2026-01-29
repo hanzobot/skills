@@ -2,9 +2,9 @@
 set -e
 
 # Sonarr API wrapper
-# Credentials: ~/.clawdbot/credentials/sonarr/config.json
+# Credentials: ~/.bot/credentials/sonarr/config.json
 
-CONFIG_FILE="$HOME/.clawdbot/credentials/sonarr/config.json"
+CONFIG_FILE="$HOME/.bot/credentials/sonarr/config.json"
 
 if [ -f "$CONFIG_FILE" ]; then
   SONARR_URL=$(jq -r '.url' "$CONFIG_FILE")

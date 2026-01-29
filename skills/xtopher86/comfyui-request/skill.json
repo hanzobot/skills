@@ -2,5 +2,5 @@
   "name": "comfyui-request",
   "kind": "cli",
   "bin": "comfyui-request",
-  "workdir": "/home/node/clawd/skills/comfyui-request"
+  "workdir": "/home/node/bot/skills/comfyui-request"
 }

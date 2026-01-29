@@ -3,7 +3,7 @@ name: unifi
 description: Query and monitor UniFi network via local gateway API (Cloud Gateway Max / UniFi OS). Use when the user asks to "check UniFi", "list UniFi devices", "show who's on the network", "UniFi clients", "UniFi health", "top apps", "network alerts", "UniFi DPI", or mentions UniFi monitoring/status/dashboard.
 version: 1.0.1
 metadata:
-  clawdbot:
+  bot:
     emoji: "📡"
     requires:
       bins: ["curl", "jq"]
@@ -26,7 +26,7 @@ All operations are **GET-only** and safe for monitoring/reporting.
 
 ## Setup
 
-Create the credentials file: `~/.clawdbot/credentials/unifi/config.json`
+Create the credentials file: `~/.bot/credentials/unifi/config.json`
 
 ```json
 {

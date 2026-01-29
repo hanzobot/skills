@@ -116,7 +116,7 @@ Then add to `skill.json`:
 ```
 
 ### Q: Can I share custom personas?
-**A:** Yes! Share the `.md` file or publish a modified version of this skill to ClawdHub with your custom additions.
+**A:** Yes! Share the `.md` file or publish a modified version of this skill to Skills with your custom additions.
 
 ### Q: Examples of good custom personas?
 **A:**
@@ -137,7 +137,7 @@ Then add to `skill.json`:
 **A:** Yes, until you switch or exit. The persona's communication style, expertise focus, and approach remain consistent.
 
 ### Q: Can personas access external tools (web search, code execution)?
-**A:** Yes! Personas can use all Clawdbot tools. Dev might run code, Globetrotter might search travel sites, etc.
+**A:** Yes! Personas can use all Bot tools. Dev might run code, Globetrotter might search travel sites, etc.
 
 ### Q: Do personas have different knowledge bases?
 **A:** No - same underlying knowledge. The difference is **how** they communicate and **what** they prioritize. Dev thinks like a programmer, Chef Marco thinks like a chef.
@@ -204,7 +204,7 @@ Always consult licensed professionals for serious matters.
 
 ### Q: Persona isn't activating?
 **A:** Check:
-1. File exists: `ls ~/clawd/skills/personas/data/[name].md`
+1. File exists: `ls ~/bot/skills/personas/data/[name].md`
 2. Correct name: Must match filename (without `.md`)
 3. Try exact phrasing: `"Use dev"` or `"Switch to dev"`
 
@@ -254,7 +254,7 @@ Or manually: Get Dev's take, then switch to CyberGuard for security perspective,
 **A:** Yes!
 - **Export**: Copy `.md` files from `data/`
 - **Import**: Drop `.md` files into `data/`, update `skill.json`
-- Share via GitHub, ClawdHub, or direct file transfer
+- Share via GitHub, Skills, or direct file transfer
 
 ### Q: Can I use personas in sub-agents?
 **A:** Yes! Spawn a sub-agent with a persona request:
@@ -265,7 +265,7 @@ Or manually: Get Dev's take, then switch to CyberGuard for security perspective,
 ### Q: Versioning personas?
 **A:** Use git in your skills directory:
 ```bash
-cd ~/clawd/skills/personas
+cd ~/bot/skills/personas
 git init
 git add .
 git commit -m "Initial personas"
@@ -274,7 +274,7 @@ Then track changes, revert if needed.
 
 ### Q: Can I monetize custom personas?
 **A:** If you create valuable custom personas, you can:
-1. Publish modified skill to ClawdHub
+1. Publish modified skill to Skills
 2. Share on GitHub (MIT license)
 3. Offer as part of consulting/services
 
@@ -291,7 +291,7 @@ Original 31 personas are MIT licensed (Chameleon AI).
 - Complex, domain-specific tasks
 
 ### Q: Can I use multiple personas in parallel sessions?
-**A:** Yes! Start multiple Clawdbot sessions, each with different personas. Example:
+**A:** Yes! Start multiple Bot sessions, each with different personas. Example:
 - Session 1: Dev persona (coding)
 - Session 2: Wordsmith persona (blog writing)
 - Session 3: Chef Marco persona (meal planning)
@@ -330,11 +330,11 @@ Create new if:
 ### Q: Aren't personas just prompt engineering?
 **A:** Yes! But systematized, reusable, and shareable. Instead of crafting custom prompts every time, load pre-optimized personas instantly.
 
-### Q: Original Chameleon AI vs Clawdbot personas - differences?
+### Q: Original Chameleon AI vs Bot personas - differences?
 **A:** 
 - **Chameleon AI**: Web UI, visual elements (colors, themes), chat-focused
-- **Clawdbot**: CLI/Telegram, tool integration, task automation
-- **This skill**: Adapted personalities for Clawdbot use cases, removed UI-specific elements, added creator functionality
+- **Bot**: CLI/Telegram, tool integration, task automation
+- **This skill**: Adapted personalities for Bot use cases, removed UI-specific elements, added creator functionality
 
 ---
 

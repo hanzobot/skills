@@ -2,7 +2,7 @@
 name: servicenow-docs
 description: Search and retrieve ServiceNow documentation, release notes, and developer docs (APIs, references, guides). Uses docs.servicenow.com via Zoomin and developer.servicenow.com APIs for developer topics.
 metadata:
-  clawdbot:
+  bot:
     emoji: "📘"
     read_when:
       - Answering questions about ServiceNow features, APIs, or scripting

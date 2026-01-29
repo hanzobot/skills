@@ -2,7 +2,7 @@
 name: gkeep
 description: Google Keep notes via gkeepapi. List, search, create, and manage notes.
 homepage: https://github.com/kiwiz/gkeepapi
-metadata: {"clawdbot":{"emoji":"📝","requires":{"bins":["gkeep"]}}}
+metadata: {"bot":{"emoji":"📝","requires":{"bins":["gkeep"]}}}
 ---
 
 # gkeep

@@ -2,7 +2,7 @@
 name: vap-media
 description: AI image, video, and music generation. Flux, Veo 3.1, Suno V5.
 homepage: https://vapagent.com
-metadata: {"clawdbot":{"emoji":"🎬","requires":{"bins":["curl"],"env":["VAP_API_KEY"]},"primaryEnv":"VAP_API_KEY"}}
+metadata: {"bot":{"emoji":"🎬","requires":{"bins":["curl"],"env":["VAP_API_KEY"]},"primaryEnv":"VAP_API_KEY"}}
 ---
 
 # VAP Media Generation
@@ -80,7 +80,7 @@ curl -s -X POST https://api.vapagent.com/v3/tasks \
    ```bash
    export VAP_API_KEY=vape_xxxxxxxxxxxxxxxxxxxx
    ```
-3. **Or configure in clawdbot.json:**
+3. **Or configure in bot.json:**
    ```json
    {
      "skills": {

@@ -40,7 +40,7 @@ esac
 tmux new-session -d -s "$SESSION_NAME" -x 200 -y 50
 
 # Set up the environment
-tmux send-keys -t "$SESSION_NAME" "cd ~/clawd" Enter
+tmux send-keys -t "$SESSION_NAME" "cd ~/bot" Enter
 tmux send-keys -t "$SESSION_NAME" "clear" Enter
 tmux send-keys -t "$SESSION_NAME" "echo '🚀 Agent Session: $SESSION_NAME'" Enter
 tmux send-keys -t "$SESSION_NAME" "echo '🤖 Agent: $AGENT'" Enter

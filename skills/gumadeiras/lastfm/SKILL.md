@@ -9,7 +9,7 @@ Access Last.fm listening history, music stats, and discovery.
 
 ## Configuration
 
-**Required env vars** (add to your shell profile or optionally `~/.clawdbot/.env`):
+**Required env vars** (add to your shell profile or optionally `~/.bot/.env`):
 - `LASTFM_API_KEY` — your Last.fm API key ([get one here](https://www.last.fm/api/account/create))
 - `LASTFM_USER` — your Last.fm username
 
@@ -168,7 +168,7 @@ curl -s "http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=brazilia
 
 ## Useful jq Filters
 
-For JSON processing, see the [jq skill on ClawdHub](https://clawdhub.com/skills/jq).
+For JSON processing, see the [jq skill on Skills](https://skills.com/skills/jq).
 
 ```bash
 # Recent tracks: artist - track

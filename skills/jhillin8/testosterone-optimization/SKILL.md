@@ -1,7 +1,7 @@
 ---
 name: testosterone-optimization
 description: Optimize natural testosterone with sleep, exercise, nutrition, and lifestyle tracking
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "optimize testosterone"

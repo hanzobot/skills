@@ -10,7 +10,7 @@ Search across all your indexers and manage Prowlarr via API.
 
 ## Setup
 
-Config: `~/.clawdbot/credentials/prowlarr/config.json`
+Config: `~/.bot/credentials/prowlarr/config.json`
 
 ```json
 {

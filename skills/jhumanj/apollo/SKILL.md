@@ -1,7 +1,7 @@
 ---
 name: apollo
 description: Interact with Apollo.io REST API (people/org enrichment, search, lists).
-metadata: {"clawdbot":{"emoji":"🛰️","os":["darwin","linux"]}}
+metadata: {"bot":{"emoji":"🛰️","os":["darwin","linux"]}}
 ---
 
 # Apollo.io

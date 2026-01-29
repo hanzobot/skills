@@ -1,7 +1,7 @@
 ---
 name: beeper
 description: Search chats, list/read messages, and send messages via Beeper Desktop using the beeper-cli.
-metadata: {"clawdbot":{"requires":{"bins":["beeper"]}}}
+metadata: {"bot":{"requires":{"bins":["beeper"]}}}
 ---
 
 # beeper

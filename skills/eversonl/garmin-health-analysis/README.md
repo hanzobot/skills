@@ -1,4 +1,4 @@
-# Garmin Health Analysis - Clawdbot Skill
+# Garmin Health Analysis - Bot Skill
 
 > **Talk to your Garmin data naturally** - "what was my fastest speed snowboarding?", "how did I sleep last night?", "what was my heart rate at 3pm?"
 
@@ -6,22 +6,22 @@ Access 20+ metrics from your Garmin device: sleep stages, Body Battery, HRV, VO2
 
 ## 🔵 Looking for Claude Desktop? 
 
-**This is the Clawdbot skill repo.** For standard Claude Desktop, use the dedicated MCP server:
+**This is the Bot skill repo.** For standard Claude Desktop, use the dedicated MCP server:
 
 👉 **[garmin-health-mcp-server](https://github.com/eversonl/garmin-health-mcp-server)** - Node.js MCP server for Claude Desktop
 
 ---
 
-## 🚀 Clawdbot Installation
+## 🚀 Bot Installation
 
 **Best for**: Automated health monitoring, scheduled reports, proactive check-ins
 
 ```bash
-# Install via clawdhub
-clawdhub install garmin-health-analysis
+# Install via skills
+skills install garmin-health-analysis
 
 # Or manually
-cd ~/.clawdbot/skills
+cd ~/.bot/skills
 git clone https://github.com/eversonl/ClawdBot-garmin-health-analysis.git garmin-health-analysis
 
 # Install dependencies
@@ -46,7 +46,7 @@ python3 scripts/garmin_auth.py login
 
 ## 📊 Example Queries
 
-**Clawdbot or Claude Desktop:**
+**Bot or Claude Desktop:**
 
 > "How did I sleep last night?"
 > 
@@ -74,7 +74,7 @@ python3 scripts/garmin_auth.py login
 
 ```
 garmin-health-analysis/
-├── SKILL.md                       # Clawdbot setup & usage
+├── SKILL.md                       # Bot setup & usage
 ├── README.md                      # This file
 ├── install.sh                     # Automated installation script
 ├── scripts/
@@ -101,7 +101,7 @@ garmin-health-analysis/
 
 ## 📚 Documentation
 
-- **[SKILL.md](SKILL.md)** - Complete Clawdbot setup, commands, troubleshooting
+- **[SKILL.md](SKILL.md)** - Complete Bot setup, commands, troubleshooting
 - **[references/health_analysis.md](references/health_analysis.md)** - Science-backed metric interpretation
 - **[references/api.md](references/api.md)** - Garmin Connect API details
 - **[references/extended_capabilities.md](references/extended_capabilities.md)** - Advanced features
@@ -134,10 +134,10 @@ See **[garmin-health-mcp-server](https://github.com/eversonl/garmin-health-mcp-s
 
 ## 🔗 Links
 
-- **Clawdbot**: [clawdbot.com](https://clawdbot.com)
-- **ClawdHub**: [clawdhub.com](https://clawdhub.com)
+- **Bot**: [bot.com](https://bot.com)
+- **Skills**: [skills.com](https://skills.com)
 - **Garmin Connect**: [connect.garmin.com](https://connect.garmin.com)
 
 ---
 
-**Questions?** Open an issue on GitHub or ask in the Clawdbot Discord!
+**Questions?** Open an issue on GitHub or ask in the Bot Discord!

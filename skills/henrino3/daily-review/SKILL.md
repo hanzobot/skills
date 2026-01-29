@@ -27,10 +27,10 @@ Generate comprehensive daily performance reviews with AI coaching insights.
 
 ```bash
 # Run daily review for today
-~/clawd/skills/daily-review/scripts/daily-review.sh
+~/bot/skills/daily-review/scripts/daily-review.sh
 
 # Run for specific date
-~/clawd/skills/daily-review/scripts/daily-review.sh 2026-01-15
+~/bot/skills/daily-review/scripts/daily-review.sh 2026-01-15
 ```
 
 ## Sample Output
@@ -85,9 +85,9 @@ Generate comprehensive daily performance reviews with AI coaching insights.
 
 ## Installation
 
-1. Copy skill to your clawd workspace:
+1. Copy skill to your bot workspace:
 ```bash
-cp -r daily-review ~/clawd/skills/
+cp -r daily-review ~/bot/skills/
 ```
 
 2. Install dependencies:
@@ -103,21 +103,21 @@ cd bird && npm install && npm run build:dist
 3. Configure secrets:
 ```bash
 # Bird (X.com)
-cat > ~/clawd/secrets/bird.env << 'EOF'
+cat > ~/bot/secrets/bird.env << 'EOF'
 AUTH_TOKEN=your_auth_token
 CT0=your_ct0
 EOF
 
 # Fireflies
-echo "your_api_key" > ~/clawd/secrets/fireflies.key
+echo "your_api_key" > ~/bot/secrets/fireflies.key
 
 # Slack
-echo '{"user_token": "xoxp-xxx"}' > ~/clawd/secrets/slack-super-ada.json
+echo '{"user_token": "xoxp-xxx"}' > ~/bot/secrets/slack-super-ada.json
 ```
 
 4. Add cron job for daily 09:00 review:
 ```bash
-clawdbot cron add --name "daily-review" --schedule "0 9 * * *"
+bot cron add --name "daily-review" --schedule "0 9 * * *"
 ```
 
 ## Screen Time Query

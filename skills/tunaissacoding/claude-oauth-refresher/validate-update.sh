@@ -97,14 +97,14 @@ else
     ((CHECKS_FAILED++))
 fi
 
-# Check 8: SKILL.md has Clawdbot examples
-echo -n "Checking Clawdbot documentation... "
+# Check 8: SKILL.md has Bot examples
+echo -n "Checking Bot documentation... "
 if grep -q "disable Claude refresh start notifications" "$SCRIPT_DIR/SKILL.md" && \
    grep -q "show Claude refresh notification settings" "$SCRIPT_DIR/SKILL.md"; then
     echo -e "${GREEN}✓${NC}"
     ((CHECKS_PASSED++))
 else
-    echo -e "${RED}✗${NC} Missing Clawdbot control examples"
+    echo -e "${RED}✗${NC} Missing Bot control examples"
     ((CHECKS_FAILED++))
 fi
 

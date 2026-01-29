@@ -2,7 +2,7 @@
 name: paperless
 description: Interact with Paperless-NGX document management system via ppls CLI. Search, retrieve, upload, and organize documents.
 emoji: 📄
-metadata: {"clawdbot":{"requires":{"bins":["ppls"]},"install":[{"id":"node","kind":"node","package":"@nickchristensen/ppls","bins":["ppls"],"label":"Install ppls CLI (npm/bun)"}]}}
+metadata: {"bot":{"requires":{"bins":["ppls"]},"install":[{"id":"node","kind":"node","package":"@nickchristensen/ppls","bins":["ppls"],"label":"Install ppls CLI (npm/bun)"}]}}
 ---
 
 # Paperless-NGX CLI

@@ -1,7 +1,7 @@
 ---
 name: weather-pollen
 description: Weather and pollen reports for any location using free APIs. Get current conditions, forecasts, and pollen data.
-metadata: {"clawdbot":{"emoji":"🌤️","requires":{"bins":["curl"]}}}
+metadata: {"bot":{"emoji":"🌤️","requires":{"bins":["curl"]}}}
 ---
 
 # Weather and Pollen Skill

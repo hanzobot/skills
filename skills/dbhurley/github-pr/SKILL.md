@@ -3,7 +3,7 @@ name: github-pr
 description: Fetch, preview, merge, and test GitHub PRs locally. Great for trying upstream PRs before they're merged.
 homepage: https://cli.github.com
 metadata:
-  clawdhub:
+  skills:
     emoji: "🔀"
     requires:
       bins: ["gh", "git"]
@@ -50,17 +50,17 @@ Fetches, merges, installs dependencies, and runs build + tests.
 ## Examples
 
 ```bash
-# Preview MS Teams PR from clawdbot
-github-pr preview clawdbot/clawdbot 404
+# Preview MS Teams PR from bot
+github-pr preview bot/bot 404
 
 # Fetch it locally
-github-pr fetch clawdbot/clawdbot 404
+github-pr fetch bot/bot 404
 
 # Merge into your current branch
-github-pr merge clawdbot/clawdbot 404
+github-pr merge bot/bot 404
 
 # Or do the full test cycle
-github-pr test clawdbot/clawdbot 404
+github-pr test bot/bot 404
 ```
 
 ## Notes

@@ -4,7 +4,7 @@ This skill supports Telegram slash commands for quick access to task management 
 
 ## Setup
 
-Add these custom commands to your Clawdbot config (`~/.clawdbot/clawdbot.json`):
+Add these custom commands to your Bot config (`~/.bot/bot.json`):
 
 ```json5
 {
@@ -30,12 +30,12 @@ Add this to your `AGENTS.md` to handle slash command invocation:
 
 When user sends these commands (with or without leading `/`), invoke the task-tracker scripts:
 
-- `/daily` or "daily" → `python3 ~/clawd/skills/task-tracker/scripts/standup.py`
-- `/weekly` or "weekly" → `python3 ~/clawd/skills/task-tracker/scripts/tasks.py list --priority high,medium`
+- `/daily` or "daily" → `python3 ~/bot/skills/task-tracker/scripts/standup.py`
+- `/weekly` or "weekly" → `python3 ~/bot/skills/task-tracker/scripts/tasks.py list --priority high,medium`
 - `/done24h` or "done24h" or "done last 24 hours" → Show completed tasks from last 24 hours
 - `/done7d` or "done7d" or "done last week" → Show completed tasks from last 7 days
 
-Alternative: `bash ~/clawd/skills/task-tracker/scripts/telegram-commands.sh {daily|weekly|done24h|done7d}`
+Alternative: `bash ~/bot/skills/task-tracker/scripts/telegram-commands.sh {daily|weekly|done24h|done7d}`
 ```
 
 ## Available Commands
@@ -59,10 +59,10 @@ bash scripts/telegram-commands.sh done24h
 bash scripts/telegram-commands.sh done7d
 ```
 
-Or create a symlink in your `~/clawd/scripts/` directory:
+Or create a symlink in your `~/bot/scripts/` directory:
 
 ```bash
-ln -s ~/clawd/skills/task-tracker/scripts/telegram-commands.sh ~/clawd/scripts/task-shortcuts.sh
+ln -s ~/bot/skills/task-tracker/scripts/telegram-commands.sh ~/bot/scripts/task-shortcuts.sh
 ```
 
 ## Usage
@@ -77,10 +77,10 @@ The agent automatically recognizes these patterns and invokes the appropriate sc
 
 ## Restart Required
 
-After updating your config, restart Clawdbot:
+After updating your config, restart Bot:
 
 ```bash
-clawdbot daemon restart
+bot daemon restart
 # or via the gateway tool
 # gateway call restart --params '{"reason": "Added Telegram slash commands"}'
 ```

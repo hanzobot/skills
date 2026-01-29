@@ -4,7 +4,7 @@ description: "Create a verbatim transcript for a YouTube URL using Google Gemini
 summary: "Generate a verbatim YouTube transcript via Google Gemini (speaker labels, no time codes)."
 version: 1.0.2
 homepage: https://github.com/odrobnik/gemini-yt-video-transcript-skill
-metadata: {"clawdbot":{"emoji":"📝","requires":{"env":["GEMINI_API_KEY"],"bins":["python3"]}}}
+metadata: {"bot":{"emoji":"📝","requires":{"env":["GEMINI_API_KEY"],"bins":["python3"]}}}
 ---
 
 # Gemini YouTube Video Transcript

@@ -1,7 +1,7 @@
 ---
 name: council
 description: Council Chamber orchestration with Memory Bridge. Single session, multiple personas, structured deliberation.
-metadata: {"clawdbot":{"emoji":"🏛️","requires":{"bins":["sqlite3"]},"features":{"memory_bridge":true,"chamber_pattern":true}}}
+metadata: {"bot":{"emoji":"🏛️","requires":{"bins":["sqlite3"]},"features":{"memory_bridge":true,"chamber_pattern":true}}}
 ---
 
 # Council - Chamber Orchestration Pattern
@@ -12,7 +12,7 @@ Instead of spawning separate agent silos, create a **Council Chamber** where mul
 
 - SQLite3 (member database)
 - Graphiti service (Memory Bridge)
-- Clawdbot gateway (sessions_spawn)
+- Bot gateway (sessions_spawn)
 
 ## Setup
 
@@ -62,7 +62,7 @@ List all registered members.
 
 **Usage:**
 ```bash
-bash command:"sqlite3 -header -column ~/.clawdbot/council.db 'SELECT id, name, role FROM council_members'"
+bash command:"sqlite3 -header -column ~/.bot/council.db 'SELECT id, name, role FROM council_members'"
 ```
 
 ### council_add_member
@@ -71,7 +71,7 @@ Register new member.
 **Usage:**
 ```bash
 bash command:"
-sqlite3 ~/.clawdbot/council.db \"
+sqlite3 ~/.bot/council.db \"
 INSERT INTO council_members (id, name, role, system_message, expertise)
 VALUES ('MEMBER_ID', 'NAME', 'ROLE', 'SYSTEM_MESSAGE', 'EXPERTISE');
 \""

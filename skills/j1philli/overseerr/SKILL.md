@@ -2,7 +2,7 @@
 name: overseerr
 description: Request movies/TV and monitor request status via the Overseerr API (stable Overseerr, not the beta Seerr rewrite).
 homepage: https://overseerr.dev/
-metadata: {"clawdbot":{"emoji":"🍿","requires":{"bins":["node"],"env":["OVERSEERR_URL","OVERSEERR_API_KEY"]},"primaryEnv":"OVERSEERR_API_KEY"}}
+metadata: {"bot":{"emoji":"🍿","requires":{"bins":["node"],"env":["OVERSEERR_URL","OVERSEERR_API_KEY"]},"primaryEnv":"OVERSEERR_API_KEY"}}
 ---
 
 # Overseerr
@@ -13,7 +13,7 @@ Note: This skill targets **Overseerr** (the current stable project), not the new
 
 ## Setup
 
-Set env vars (recommended via your Clawdbot config):
+Set env vars (recommended via your Bot config):
 
 - `OVERSEERR_URL` (example: `http://localhost:5055`)
 - `OVERSEERR_API_KEY` (Settings → General → API Key)

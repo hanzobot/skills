@@ -1,6 +1,6 @@
 # Beanstalk Gateway
 
-Connect your local Clawdbot to [beans.talk](https://beans.talk) for remote monitoring and control.
+Connect your local Bot to [beans.talk](https://beans.talk) for remote monitoring and control.
 
 ## Install
 
@@ -24,7 +24,7 @@ beanstalk-gateway configure --url wss://... --token gt_...
 # Start
 beanstalk-gateway start
 
-# Check local Clawdbot status  
+# Check local Bot status  
 beanstalk-gateway status
 ```
 

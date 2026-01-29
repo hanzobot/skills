@@ -1,5 +1,5 @@
 #!/bin/bash
-# Daily backup script for Clawdbot workspace and config
+# Daily backup script for Bot workspace and config
 
 set -e
 
@@ -22,12 +22,12 @@ backup_repo() {
     fi
 }
 
-echo "🔄 Starting Clawdbot backup..."
+echo "🔄 Starting Bot backup..."
 
 # Backup workspace
-backup_repo "$HOME/clawd" "workspace"
+backup_repo "$HOME/bot" "workspace"
 
 # Backup config
-backup_repo "$HOME/.clawdbot" "config"
+backup_repo "$HOME/.bot" "config"
 
 echo "✅ Backup complete!"

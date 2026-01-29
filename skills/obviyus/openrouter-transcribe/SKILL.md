@@ -2,7 +2,7 @@
 name: openrouter-transcribe
 description: Transcribe audio files via OpenRouter using audio-capable models (Gemini, GPT-4o-audio, etc).
 homepage: https://openrouter.ai/docs
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["curl","ffmpeg","base64","jq"],"env":["OPENROUTER_API_KEY"]},"primaryEnv":"OPENROUTER_API_KEY"}}
+metadata: {"bot":{"emoji":"🎙️","requires":{"bins":["curl","ffmpeg","base64","jq"],"env":["OPENROUTER_API_KEY"]},"primaryEnv":"OPENROUTER_API_KEY"}}
 ---
 
 # OpenRouter Audio Transcription
@@ -42,7 +42,7 @@ Output goes to stdout.
 
 ## API key
 
-Set `OPENROUTER_API_KEY` env var, or configure in `~/.clawdbot/clawdbot.json`:
+Set `OPENROUTER_API_KEY` env var, or configure in `~/.bot/bot.json`:
 
 ```json5
 {
@@ -57,8 +57,8 @@ Set `OPENROUTER_API_KEY` env var, or configure in `~/.clawdbot/clawdbot.json`:
 ## Headers
 
 The script sends identification headers to OpenRouter:
-- `X-Title`: Caller name (default: "Peanut/Clawdbot")
-- `HTTP-Referer`: Reference URL (default: "https://clawdbot.com")
+- `X-Title`: Caller name (default: "Peanut/Bot")
+- `HTTP-Referer`: Reference URL (default: "https://bot.com")
 
 These show up in your OpenRouter dashboard for tracking.
 

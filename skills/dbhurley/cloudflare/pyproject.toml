@@ -1,7 +1,7 @@
 [project]
 name = "cloudflare-skill"
 version = "1.0.0"
-description = "Cloudflare CLI for Clawdis"
+description = "Cloudflare CLI for Bot"
 requires-python = ">=3.10"
 dependencies = [
     "requests>=2.28.0",

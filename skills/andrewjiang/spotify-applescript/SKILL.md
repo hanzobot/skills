@@ -2,7 +2,7 @@
 name: spotify-applescript
 description: Control Spotify desktop app via AppleScript. Play playlists, tracks, albums, episodes, and manage playback. Works reliably with macOS Spotify app without API keys or OAuth.
 homepage: https://github.com/andrewjiang/HoloClawd-Open-Firmware
-metadata: {"clawdbot":{"emoji":"🎵","os":["darwin"]}}
+metadata: {"bot":{"emoji":"🎵","os":["darwin"]}}
 triggers:
   - spotify
   - play music

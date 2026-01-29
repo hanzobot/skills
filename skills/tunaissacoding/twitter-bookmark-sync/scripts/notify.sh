@@ -4,8 +4,8 @@ set -euo pipefail
 # twitter-bookmark-sync: Send notification with ranked bookmarks
 # Usage: ./notify.sh
 
-CONFIG_FILE="$HOME/clawd/twitter-bookmark-sync-config.json"
-LOG_DIR="$HOME/clawd/logs"
+CONFIG_FILE="$HOME/bot/twitter-bookmark-sync-config.json"
+LOG_DIR="$HOME/bot/logs"
 LOG_FILE="$LOG_DIR/twitter-bookmark-sync.log"
 
 log() {

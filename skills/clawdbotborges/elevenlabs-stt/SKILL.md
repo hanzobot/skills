@@ -2,7 +2,7 @@
 name: elevenlabs-stt
 description: Transcribe audio files using ElevenLabs Speech-to-Text (Scribe v2).
 homepage: https://elevenlabs.io/speech-to-text
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"bins":["curl"],"env":["ELEVENLABS_API_KEY"]},"primaryEnv":"ELEVENLABS_API_KEY"}}
+metadata: {"bot":{"emoji":"🎙️","requires":{"bins":["curl"],"env":["ELEVENLABS_API_KEY"]},"primaryEnv":"ELEVENLABS_API_KEY"}}
 ---
 
 # ElevenLabs Speech-to-Text
@@ -40,7 +40,7 @@ All major audio/video formats: mp3, m4a, wav, ogg, webm, mp4, etc.
 
 ## API Key
 
-Set `ELEVENLABS_API_KEY` environment variable, or configure in clawdbot.json:
+Set `ELEVENLABS_API_KEY` environment variable, or configure in bot.json:
 
 ```json5
 {

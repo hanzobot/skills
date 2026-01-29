@@ -7,7 +7,7 @@ read_when:
   - User needs a call summary or action items
   - User wants to set up Fathom integration
 metadata:
-  clawdbot:
+  bot:
     emoji: "📞"
     requires:
       bins: ["curl", "jq"]

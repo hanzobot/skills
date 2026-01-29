@@ -4,7 +4,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/unifi-api.sh"
-OUTPUT_FILE="$HOME/clawd/memory/bank/unifi-inventory.md"
+OUTPUT_FILE="$HOME/bot/memory/bank/unifi-inventory.md"
 
 # Disable strict mode for dashboard (we handle errors gracefully)
 set +e

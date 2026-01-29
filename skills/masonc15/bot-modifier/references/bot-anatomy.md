@@ -1,4 +1,4 @@
-# Clawd Anatomy
+# Bot Anatomy
 
 Technical breakdown of Clawd's structure in Claude Code.
 
@@ -11,21 +11,21 @@ Technical breakdown of Clawd's structure in Claude Code.
 
 ## Color System
 
-Clawd uses two color keys defined in theme objects:
+Bot uses two color keys defined in theme objects:
 
 ```javascript
 // True-color terminals (24-bit RGB)
-clawd_body: "rgb(215,119,87)"      // Coral/terracotta
-clawd_background: "rgb(0,0,0)"     // Black
+bot_body: "rgb(215,119,87)"      // Coral/terracotta
+bot_background: "rgb(0,0,0)"     // Black
 
 // ANSI fallback (8/16-color terminals)
-clawd_body: "ansi:redBright"
-clawd_background: "ansi:black"
+bot_body: "ansi:redBright"
+bot_background: "ansi:black"
 ```
 
 There are 4+ theme definitions in cli.js (light mode, dark mode, etc.), each containing these color keys.
 
-## Small Clawd (Prompt Icon)
+## Small Bot (Prompt Icon)
 
 Rendered by function `gZ0()` (standard terminals) and `vz3()` (Apple Terminal).
 
@@ -40,16 +40,16 @@ Rendered by function `gZ0()` (standard terminals) and `vz3()` (Apple Terminal).
 ```jsx
 <Box flexDirection="column">
   <Text>
-    <Text color="clawd_body"> ▐</Text>
-    <Text color="clawd_body" backgroundColor="clawd_background">▛███▜</Text>
-    <Text color="clawd_body">▌</Text>
+    <Text color="bot_body"> ▐</Text>
+    <Text color="bot_body" backgroundColor="bot_background">▛███▜</Text>
+    <Text color="bot_body">▌</Text>
   </Text>
   <Text>
-    <Text color="clawd_body">▝▜</Text>
-    <Text color="clawd_body" backgroundColor="clawd_background">█████</Text>
-    <Text color="clawd_body">▛▘</Text>
+    <Text color="bot_body">▝▜</Text>
+    <Text color="bot_body" backgroundColor="bot_background">█████</Text>
+    <Text color="bot_body">▛▘</Text>
   </Text>
-  <Text color="clawd_body">  ▘▘ ▝▝  </Text>
+  <Text color="bot_body">  ▘▘ ▝▝  </Text>
 </Box>
 ```
 
@@ -62,7 +62,7 @@ Rendered by function `gZ0()` (standard terminals) and `vz3()` (Apple Terminal).
 
 Uses inverted colors (background as foreground) for compatibility.
 
-## Large Clawd (Loading Screen)
+## Large Bot (Loading Screen)
 
 Appears on the welcome/loading screen with stars animation.
 
@@ -80,29 +80,29 @@ Integrated into a larger scene with:
 
 ## Pattern Locations in cli.js
 
-Search patterns to find Clawd code:
+Search patterns to find Bot code:
 ```bash
 # Color definitions
-grep -o 'clawd_body:"[^"]*"' cli.js
+grep -o 'bot_body:"[^"]*"' cli.js
 
-# Small Clawd patterns
+# Small Bot patterns
 grep -o '"▛███▜"' cli.js
 grep -o '"▘▘ ▝▝"' cli.js
 
-# Large Clawd patterns
+# Large Bot patterns
 grep -o '"██▄█████▄██"' cli.js
 grep -o '"█ █   █ █"' cli.js
 
 # Rendering functions
-grep -o 'function [a-zA-Z0-9_]*().*clawd' cli.js
+grep -o 'function [a-zA-Z0-9_]*().*bot' cli.js
 ```
 
 ## Modification Points
 
 | What to change | Pattern to find | Example replacement |
 |---------------|-----------------|---------------------|
-| Body color (RGB) | `clawd_body:"rgb(215,119,87)"` | `clawd_body:"rgb(100,149,237)"` |
-| Body color (ANSI) | `clawd_body:"ansi:redBright"` | `clawd_body:"ansi:blueBright"` |
+| Body color (RGB) | `bot_body:"rgb(215,119,87)"` | `bot_body:"rgb(100,149,237)"` |
+| Body color (ANSI) | `bot_body:"ansi:redBright"` | `bot_body:"ansi:blueBright"` |
 | Add left arm | `" ▐"` | `"╱▐"` |
 | Add right arm | `"▌")` | `"▌╲")` |
 | Modify head | `"▛███▜"` | Custom pattern |
@@ -110,7 +110,7 @@ grep -o 'function [a-zA-Z0-9_]*().*clawd' cli.js
 
 ## Ink ANSI Color Reference
 
-Available ANSI colors for `clawd_body`:
+Available ANSI colors for `bot_body`:
 - `ansi:black`, `ansi:red`, `ansi:green`, `ansi:yellow`
 - `ansi:blue`, `ansi:magenta`, `ansi:cyan`, `ansi:white`
 - Bright variants: `ansi:blackBright`, `ansi:redBright`, etc.

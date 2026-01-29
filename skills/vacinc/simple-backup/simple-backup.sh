@@ -4,7 +4,7 @@ set -e
 # ==========================================
 # Simple Backup Script
 # ==========================================
-# Backs up Clawdbot brain, body, and skills to local folder + rclone remote.
+# Backs up Bot brain, body, and skills to local folder + rclone remote.
 # ==========================================
 
 # Ensure PATH includes homebrew
@@ -12,7 +12,7 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # --- Configuration (Defaults can be overridden by Env Vars) ---
 # Where backups are stored locally
-BACKUP_ROOT="${BACKUP_ROOT:-$HOME/clawd/BACKUPS}"
+BACKUP_ROOT="${BACKUP_ROOT:-$HOME/bot/BACKUPS}"
 
 # Where backups are sent (Rclone remote:path)
 # Example: "gdrive:backups"
@@ -23,9 +23,9 @@ MAX_DAYS="${MAX_DAYS:-7}"
 HOURLY_RETENTION_HOURS="${HOURLY_RETENTION_HOURS:-24}"
 
 # Source directories to backup
-BRAIN_DIR="${BRAIN_DIR:-$HOME/clawd}"
-BODY_DIR="${BODY_DIR:-$HOME/.clawdbot}"
-SKILLS_DIR="${SKILLS_DIR:-$HOME/clawdbot/skills}"
+BRAIN_DIR="${BRAIN_DIR:-$HOME/bot}"
+BODY_DIR="${BODY_DIR:-$HOME/.bot}"
+SKILLS_DIR="${SKILLS_DIR:-$HOME/bot/skills}"
 
 # --- Dependency Check ---
 for cmd in tar gpg rclone; do
@@ -39,7 +39,7 @@ done
 # 1. Try Env Var
 # 2. Try Standard Credential File
 if [ -z "$BACKUP_PASSWORD" ]; then
-    KEY_FILE="$HOME/.clawdbot/credentials/backup.key"
+    KEY_FILE="$HOME/.bot/credentials/backup.key"
     if [ -f "$KEY_FILE" ]; then
         BACKUP_PASSWORD=$(cat "$KEY_FILE" | tr -d '\n')
     else
@@ -76,20 +76,20 @@ echo "   Root: $BACKUP_ROOT"
 
 # --- 1. Stage Files ---
 echo "   Staging files..."
-mkdir -p "$STAGING_DIR/clawd"
-mkdir -p "$STAGING_DIR/.clawdbot"
+mkdir -p "$STAGING_DIR/bot"
+mkdir -p "$STAGING_DIR/.bot"
 mkdir -p "$STAGING_DIR/skills"
 
 # Copy Brain (Workspace)
 if [ -d "$BRAIN_DIR" ]; then
-    rsync -a --exclude 'BACKUPS' --exclude '.git' --exclude 'node_modules' --exclude 'canvas' "$BRAIN_DIR/" "$STAGING_DIR/clawd/"
+    rsync -a --exclude 'BACKUPS' --exclude '.git' --exclude 'node_modules' --exclude 'canvas' "$BRAIN_DIR/" "$STAGING_DIR/bot/"
 else
     echo "   Warning: Brain dir not found at $BRAIN_DIR"
 fi
 
 # Copy Body (State)
 if [ -d "$BODY_DIR" ]; then
-    rsync -a --exclude 'logs' --exclude 'media' --exclude 'browser' "$BODY_DIR/" "$STAGING_DIR/.clawdbot/"
+    rsync -a --exclude 'logs' --exclude 'media' --exclude 'browser' "$BODY_DIR/" "$STAGING_DIR/.bot/"
 else
     echo "   Warning: Body dir not found at $BODY_DIR"
 fi

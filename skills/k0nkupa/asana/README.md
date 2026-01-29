@@ -1,10 +1,10 @@
-# clawdbot-asana-skill
+# bot-asana-skill
 
-Asana OAuth (local-only) + task/project commands for Clawdbot.
+Asana OAuth (local-only) + task/project commands for Bot.
 
 This repo contains a small **Asana skill** (an AgentSkill folder) that you can:
-- use locally on your Clawdbot host
-- publish/share so other Clawdbot users can install and run it
+- use locally on your Bot host
+- publish/share so other Bot users can install and run it
 
 It uses **Asana OAuth 2.0 Authorization Code Grant** with an **out-of-band (OOB) / manual code paste** redirect URI:
 
@@ -22,9 +22,9 @@ Commands (via Node scripts):
 - View task, update task, mark complete, comment
 
 Tokens and config are stored locally under:
-- `~/.clawdbot/asana/credentials.json` (client id + secret)
-- `~/.clawdbot/asana/token.json` (OAuth tokens)
-- `~/.clawdbot/asana/config.json` (default workspace)
+- `~/.bot/asana/credentials.json` (client id + secret)
+- `~/.bot/asana/token.json` (OAuth tokens)
+- `~/.bot/asana/config.json` (default workspace)
 
 ---
 
@@ -82,9 +82,9 @@ node scripts/configure.mjs \
 ```
 
 This writes:
-- `~/.clawdbot/asana/credentials.json`
+- `~/.bot/asana/credentials.json`
 
-(Alternative: you can set `ASANA_CLIENT_ID` and `ASANA_CLIENT_SECRET` as environment variables, but the credentials file is recommended for Clawdbot.)
+(Alternative: you can set `ASANA_CLIENT_ID` and `ASANA_CLIENT_SECRET` as environment variables, but the credentials file is recommended for Bot.)
 
 ---
 
@@ -106,7 +106,7 @@ node scripts/oauth_oob.mjs token --code "PASTE_CODE_HERE"
 ```
 
 This writes:
-- `~/.clawdbot/asana/token.json`
+- `~/.bot/asana/token.json`
 
 ---
 
@@ -125,7 +125,7 @@ node scripts/asana_api.mjs set-default-workspace --workspace <workspace_gid>
 ```
 
 This writes:
-- `~/.clawdbot/asana/config.json`
+- `~/.bot/asana/config.json`
 
 Commands that require a workspace will use the default if `--workspace` is omitted.
 
@@ -175,13 +175,13 @@ node scripts/asana_api.mjs search-tasks --text "release" --assignee me
 
 ---
 
-## Install into Clawdbot (local)
+## Install into Bot (local)
 
-If your Clawdbot workspace is `/Users/tony/clawd`, copy the skill folder into:
+If your Bot workspace is `/Users/tony/bot`, copy the skill folder into:
 
-- `/Users/tony/clawd/skills/asana/`
+- `/Users/tony/bot/skills/asana/`
 
-and restart Clawdbot if needed.
+and restart Bot if needed.
 
 ---
 

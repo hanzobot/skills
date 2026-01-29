@@ -1,7 +1,7 @@
 ---
 name: protonmail
 description: Read, search, and scan ProtonMail via IMAP bridge (Proton Bridge or hydroxide). Includes daily digest for important emails.
-metadata: {"clawdbot":{"emoji":"📧","requires":{"bins":["python3"]}}}
+metadata: {"bot":{"emoji":"📧","requires":{"bins":["python3"]}}}
 ---
 
 # ProtonMail Skill

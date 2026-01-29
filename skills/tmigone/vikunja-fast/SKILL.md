@@ -2,16 +2,16 @@
 name: vikunja-fast
 description: Manage Vikunja projects and tasks (overdue/due/today), mark done, and get quick summaries via the Vikunja API.
 homepage: https://vikunja.io/
-metadata: {"clawdbot":{"emoji":"📋","requires":{"bins":["curl","jq"],"env":["VIKUNJA_URL"],"optionalEnv":["VIKUNJA_TOKEN","VIKUNJA_USERNAME","VIKUNJA_PASSWORD"]},"primaryEnv":"VIKUNJA_TOKEN"}}
+metadata: {"bot":{"emoji":"📋","requires":{"bins":["curl","jq"],"env":["VIKUNJA_URL"],"optionalEnv":["VIKUNJA_TOKEN","VIKUNJA_USERNAME","VIKUNJA_PASSWORD"]},"primaryEnv":"VIKUNJA_TOKEN"}}
 ---
 
 # ✅ Vikunja Fast Skill
 
-Use Vikunja as the source of truth for tasks and completions, and interact with it from Clawdbot.
+Use Vikunja as the source of truth for tasks and completions, and interact with it from Bot.
 
 ## Setup
 
-You can provide credentials either via environment variables **or** via Clawdbot’s skills config.
+You can provide credentials either via environment variables **or** via Bot’s skills config.
 
 ### Option A: Environment variables
 
@@ -28,9 +28,9 @@ export VIKUNJA_USERNAME="<username>"
 export VIKUNJA_PASSWORD="<password>"
 ```
 
-### Option B: Clawdbot skills config (recommended for the agent)
+### Option B: Bot skills config (recommended for the agent)
 
-Edit `~/.clawdbot/clawdbot.json`:
+Edit `~/.bot/bot.json`:
 
 ```json5
 {

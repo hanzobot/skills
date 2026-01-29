@@ -1,7 +1,7 @@
 ---
 name: pet
 description: Simple command-line snippet manager. Use it to save and reuse complex commands.
-metadata: {"clawdbot":{"emoji":"🐘","requires":{"bins":["pet"]}}}
+metadata: {"bot":{"emoji":"🐘","requires":{"bins":["pet"]}}}
 ---
 
 # pet (Simple Command-Line Snippet Manager)

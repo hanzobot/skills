@@ -10,14 +10,14 @@
     "start": "node dist/index.js",
     "onboard": "tsx src/onboard.ts"
   },
-  "keywords": ["r2", "s3", "cloudflare", "storage", "mcp", "clawdbot", "upload", "presigned-url"],
+  "keywords": ["r2", "s3", "cloudflare", "storage", "mcp", "bot", "upload", "presigned-url"],
   "author": "ClawdBot Community",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/clawdbot/clawdhub-skills"
+    "url": "https://github.com/bot/skills-skills"
   },
-  "homepage": "https://clawdhub.com/skills/r2-upload",
+  "homepage": "https://skills.com/skills/r2-upload",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.699.0",
     "@aws-sdk/s3-request-presigner": "^3.699.0",

@@ -2,7 +2,7 @@
 name: whoop
 description: WHOOP morning check-in (recovery/sleep/strain) with suggestions.
 metadata:
-  clawdbot:
+  bot:
     config:
       requiredEnv:
         - WHOOP_CLIENT_ID
@@ -27,7 +27,7 @@ WHOOP morning check-in:
 2) In the WHOOP developer dashboard, set Redirect URL:
 - `https://localhost:3000/callback`
 
-3) Put secrets into `~/.clawdbot/.env`:
+3) Put secrets into `~/.bot/.env`:
 
 ```bash
 WHOOP_CLIENT_ID=...
@@ -37,21 +37,21 @@ WHOOP_CLIENT_SECRET=...
 4) Authorize once (get refresh token):
 
 ```bash
-node /home/claw/clawd/skills/whoop/bin/whoop-auth --redirect-uri https://localhost:3000/callback
+node /home/claw/bot/skills/whoop/bin/whoop-auth --redirect-uri https://localhost:3000/callback
 ```
 
 - Open the printed URL on your phone/browser
 - Tap Allow/Authorize
 - Copy the `code` from the callback URL and paste it back
 
-This writes `WHOOP_REFRESH_TOKEN=...` into `~/.clawdbot/.env`.
+This writes `WHOOP_REFRESH_TOKEN=...` into `~/.bot/.env`.
 
 ### What the bot does (each run)
 
 Run:
 
 ```bash
-node /home/claw/clawd/skills/whoop/bin/whoop-morning
+node /home/claw/bot/skills/whoop/bin/whoop-morning
 ```
 
 Then send the output back to the user.
@@ -59,7 +59,7 @@ Then send the output back to the user.
 ## Automation (daily)
 
 Recommended: schedule with Gateway cron (daily morning).
-- Command: `node /home/claw/clawd/skills/whoop/bin/whoop-morning`
+- Command: `node /home/claw/bot/skills/whoop/bin/whoop-morning`
 - Bot should send the output as a message.
 
 ## Notes

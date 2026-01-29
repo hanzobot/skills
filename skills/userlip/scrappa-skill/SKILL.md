@@ -13,7 +13,7 @@ Access 80+ tools for searching Google, YouTube, Amazon, LinkedIn, Trustpilot, bu
 
 Sign up for a free account at [scrappa.co](https://scrappa.co/dashboard/register) and get your API key from the dashboard.
 
-### 2. Configure in Clawdbot
+### 2. Configure in Bot
 
 Add Scrappa to your mcporter configuration:
 
@@ -21,7 +21,7 @@ Add Scrappa to your mcporter configuration:
 mcporter config add scrappa --url "https://scrappa.co/mcp" --headers "X-API-KEY=YOUR_API_KEY"
 ```
 
-Or manually edit `~/clawd/config/mcporter.json`:
+Or manually edit `~/bot/config/mcporter.json`:
 
 ```json
 {
@@ -36,10 +36,10 @@ Or manually edit `~/clawd/config/mcporter.json`:
 }
 ```
 
-### 3. Restart Clawdbot
+### 3. Restart Bot
 
 ```bash
-clawdbot gateway restart
+bot gateway restart
 ```
 
 ## All Available Tools (80+)

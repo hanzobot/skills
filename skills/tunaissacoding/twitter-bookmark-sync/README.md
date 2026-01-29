@@ -73,8 +73,8 @@ bird whoami
 ## 🚀 Installation
 
 ```bash
-clawdhub install twitter-bookmark-sync
-cd ~/clawd/skills/twitter-bookmark-sync
+skills install twitter-bookmark-sync
+cd ~/bot/skills/twitter-bookmark-sync
 ./install.sh
 ```
 
@@ -137,7 +137,7 @@ The installer will:
 }
 ```
 
-Ranking criteria stored in: `~/clawd/twitter-bookmark-sync-criteria.json`  
+Ranking criteria stored in: `~/bot/twitter-bookmark-sync-criteria.json`  
 (Evolves automatically — you don't edit this manually)
 
 ---
@@ -162,7 +162,7 @@ This section contains:
 
 <br>
 
-Edit `~/clawd/twitter-bookmark-sync-config.json`:
+Edit `~/bot/twitter-bookmark-sync-config.json`:
 
 **Change timing:**
 ```json5
@@ -236,7 +236,7 @@ Results sent to specified Slack channel.
 
 **Run sync immediately:**
 ```bash
-cd ~/clawd/skills/twitter-bookmark-sync
+cd ~/bot/skills/twitter-bookmark-sync
 ./scripts/sync.sh
 ```
 
@@ -247,7 +247,7 @@ cd ~/clawd/skills/twitter-bookmark-sync
 
 **Check logs:**
 ```bash
-tail -f ~/clawd/logs/twitter-bookmark-sync.log
+tail -f ~/bot/logs/twitter-bookmark-sync.log
 ```
 
 </details>
@@ -273,8 +273,8 @@ bird bookmarks -n 5
 
 Make scripts executable:
 ```bash
-chmod +x ~/clawd/skills/twitter-bookmark-sync/scripts/*.sh
-chmod +x ~/clawd/skills/twitter-bookmark-sync/scripts/*.py
+chmod +x ~/bot/skills/twitter-bookmark-sync/scripts/*.sh
+chmod +x ~/bot/skills/twitter-bookmark-sync/scripts/*.py
 ```
 
 **"Twitter cookies expired"**
@@ -283,9 +283,9 @@ Re-extract cookies from browser and update `~/.config/bird/config.json5`
 
 **"Notification not sent"**
 
-Check Clawdbot status:
+Check Bot status:
 ```bash
-clawdbot status
+bot status
 ```
 
 Verify notification channel in config.

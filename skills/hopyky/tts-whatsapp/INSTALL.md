@@ -6,8 +6,8 @@ Complete installation guide for the tts-whatsapp skill.
 
 Before installing this skill, ensure you have:
 
-1. ✅ **Clawdbot** installed and configured
-2. ✅ **WhatsApp** connected to Clawdbot
+1. ✅ **Bot** installed and configured
+2. ✅ **WhatsApp** connected to Bot
 3. ✅ **Node.js** v14 or higher
 4. ✅ **Python 3.9+** (for Piper TTS)
 
@@ -44,25 +44,25 @@ ffmpeg -version
 
 ## Step 2: Install the Skill
 
-### Option A: Via ClawdHub (Recommended)
+### Option A: Via Skills (Recommended)
 
 ```bash
-# Coming soon - ClawdHub automatic installation
-clawdbot skills install tts-whatsapp
+# Coming soon - Skills automatic installation
+bot skills install tts-whatsapp
 ```
 
 ### Option B: Manual Installation
 
 ```bash
 # Clone or download this repository
-cd ~/.clawdbot/skills/
-git clone https://github.com/clawdbot/clawdhub.git temp
+cd ~/.bot/skills/
+git clone https://github.com/bot/skills.git temp
 cp -r temp/skills/tts-whatsapp tts-whatsapp
 rm -rf temp
 
 # Or download and extract manually
-mkdir -p ~/.clawdbot/skills/tts-whatsapp
-cd ~/.clawdbot/skills/tts-whatsapp
+mkdir -p ~/.bot/skills/tts-whatsapp
+cd ~/.bot/skills/tts-whatsapp
 # Extract downloaded files here
 ```
 
@@ -76,10 +76,10 @@ Visit [Piper Voice Samples](https://rhasspy.github.io/piper-samples/) to listen 
 
 ```bash
 # Create models directory
-mkdir -p ~/.clawdbot/skills/piper-tts/models/
+mkdir -p ~/.bot/skills/piper-tts/models/
 
 # Example: Download French model (siwis, medium quality)
-cd ~/.clawdbot/skills/piper-tts/models/
+cd ~/.bot/skills/piper-tts/models/
 
 # Download .onnx file
 wget https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/siwis/medium/fr_FR-siwis-medium.onnx
@@ -108,10 +108,10 @@ wget https://huggingface.co/rhasspy/piper-voices/resolve/main/de/de_DE/thorsten/
 
 ## Step 4: Configure the Skill
 
-Edit your Clawdbot configuration:
+Edit your Bot configuration:
 
 ```bash
-nano ~/.clawdbot/clawdbot.json
+nano ~/.bot/bot.json
 ```
 
 Add the skill configuration:
@@ -151,7 +151,7 @@ To send to a WhatsApp group, you need the group ID:
 
 ```bash
 # List recent messages to see group IDs
-clawdbot message read --channel whatsapp
+bot message read --channel whatsapp
 
 # Group IDs look like: 120363257357161211@g.us
 ```
@@ -212,7 +212,7 @@ ffmpeg -version
 ### Model not found
 
 ```
-ERROR: Modèle introuvable: ~/.clawdbot/skills/piper-tts/models/en_US-lessac-medium.onnx
+ERROR: Modèle introuvable: ~/.bot/skills/piper-tts/models/en_US-lessac-medium.onnx
 ```
 
 **Solution:** Make sure you downloaded BOTH files:
@@ -223,7 +223,7 @@ ERROR: Modèle introuvable: ~/.clawdbot/skills/piper-tts/models/en_US-lessac-med
 
 ```bash
 # Make the script executable
-chmod +x ~/.clawdbot/skills/tts-whatsapp/bin/tts-whatsapp
+chmod +x ~/.bot/skills/tts-whatsapp/bin/tts-whatsapp
 ```
 
 ### No default target error
@@ -237,11 +237,11 @@ Either:
 To upgrade to a newer version:
 
 ```bash
-# Via ClawdHub (when available)
-clawdbot skills update tts-whatsapp
+# Via Skills (when available)
+bot skills update tts-whatsapp
 
 # Manual upgrade
-cd ~/.clawdbot/skills/tts-whatsapp
+cd ~/.bot/skills/tts-whatsapp
 git pull  # or re-download and extract
 ```
 
@@ -249,10 +249,10 @@ git pull  # or re-download and extract
 
 ```bash
 # Remove the skill
-rm -rf ~/.clawdbot/skills/tts-whatsapp
+rm -rf ~/.bot/skills/tts-whatsapp
 
 # Optionally remove voice models
-rm -rf ~/.clawdbot/skills/piper-tts
+rm -rf ~/.bot/skills/piper-tts
 
 # Optionally uninstall Piper
 pip3 uninstall piper-tts
@@ -268,5 +268,5 @@ pip3 uninstall piper-tts
 ## Need Help?
 
 - 📚 [Full Documentation](README.md)
-- 🐛 [Report Issues](https://github.com/clawdbot/clawdhub/issues)
-- 💬 [Clawdbot Discussions](https://github.com/clawdbot/clawdbot/discussions)
+- 🐛 [Report Issues](https://github.com/bot/skills/issues)
+- 💬 [Bot Discussions](https://github.com/bot/bot/discussions)

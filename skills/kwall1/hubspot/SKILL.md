@@ -1,7 +1,7 @@
 ---
 name: hubspot
 description: HubSpot CRM and CMS API integration for contacts, companies, deals, owners, and content management.
-metadata: {"clawdbot":{"secrets":["HUBSPOT_ACCESS_TOKEN"]}}
+metadata: {"bot":{"secrets":["HUBSPOT_ACCESS_TOKEN"]}}
 ---
 
 # HubSpot Skill

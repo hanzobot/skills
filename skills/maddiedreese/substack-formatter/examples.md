@@ -98,7 +98,7 @@ python3 formatter.py "Your content here" > output.html
 python3 copy_to_substack.py "$(cat output.html)"
 ```
 
-## Integration with Clawdbot
+## Integration with Bot
 
 ```
 Format this for Substack as a micro-story:

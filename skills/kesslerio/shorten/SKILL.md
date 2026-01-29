@@ -10,7 +10,7 @@ Quickly shorten URLs using the [is.gd](https://is.gd) service. No API key or acc
 ## Usage
 
 ```bash
-/home/art/clawd/skills/shorten/shorten.sh "https://example.com/very/long/url"
+/home/art/bot/skills/shorten/shorten.sh "https://example.com/very/long/url"
 ```
 
 ## Examples

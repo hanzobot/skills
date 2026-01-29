@@ -2,7 +2,7 @@
 name: beepctl
 description: Use when sending messages, searching chats, or managing conversations across messaging platforms (Telegram, WhatsApp, Slack, iMessage, etc.) via Beeper Desktop API.
 homepage: https://github.com/blqke/beepctl
-metadata: {"clawdbot":{"emoji":"🐝","requires":{"bins":["beepctl"]},"install":[{"id":"npm","kind":"npm","package":"beepctl","global":true,"bins":["beepctl"],"label":"Install beepctl (npm)"}]}}
+metadata: {"bot":{"emoji":"🐝","requires":{"bins":["beepctl"]},"install":[{"id":"npm","kind":"npm","package":"beepctl","global":true,"bins":["beepctl"],"label":"Install beepctl (npm)"}]}}
 ---
 
 # beepctl

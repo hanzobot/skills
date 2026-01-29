@@ -1,6 +1,6 @@
 # 🍕 Irish Takeaway Finder
 
-A Clawdbot skill for finding nearby takeaways in Ireland and browsing their menus.
+A Bot skill for finding nearby takeaways in Ireland and browsing their menus.
 
 ## Features
 

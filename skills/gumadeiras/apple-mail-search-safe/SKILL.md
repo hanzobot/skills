@@ -1,9 +1,9 @@
 ---
 name: apple-mail-search
 description: Fast & safe Apple Mail search with body content support.
-homepage: https://clawdhub.com/gumadeiras/apple-mail-search-safe
+homepage: https://skills.com/gumadeiras/apple-mail-search-safe
 repository: https://github.com/gumadeiras/apple-mail-search-cli
-metadata: {"clawdbot":{"emoji":"📧","requires":{"bins":["fruitmail"]},"install":[{"id":"node","kind":"node","package":"apple-mail-search-cli","bins":["fruitmail"],"label":"Install fruitmail CLI (npm)"}]}}
+metadata: {"bot":{"emoji":"📧","requires":{"bins":["fruitmail"]},"install":[{"id":"node","kind":"node","package":"apple-mail-search-cli","bins":["fruitmail"],"label":"Install fruitmail CLI (npm)"}]}}
 ---
 
 # Fruitmail (Fast & Safe)

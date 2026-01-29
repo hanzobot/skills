@@ -4,23 +4,23 @@ This guide explains how to test the `healthkit-sync` Agent Skill in ClawdBot.
 
 ## Prerequisites
 
-- ClawdBot CLI installed (`clawdbot --version`)
-- ClawdBot gateway configured (`~/.clawdbot/clawdbot.json`)
+- ClawdBot CLI installed (`bot --version`)
+- ClawdBot gateway configured (`~/.bot/bot.json`)
 - Active messaging provider (WhatsApp, Telegram, or Discord)
 
 ## Step 1: Link the Skill
 
-ClawdBot loads skills from `~/.clawdbot/skills/`. Create a symlink to keep the skill in sync with the repo:
+ClawdBot loads skills from `~/.bot/skills/`. Create a symlink to keep the skill in sync with the repo:
 
 ```bash
 # Check if already linked
-ls -la ~/.clawdbot/skills/healthkit-sync
+ls -la ~/.bot/skills/healthkit-sync
 
 # Create symlink (if not exists)
-ln -sf "$(pwd)/skills/healthkit-sync" ~/.clawdbot/skills/healthkit-sync
+ln -sf "$(pwd)/skills/healthkit-sync" ~/.bot/skills/healthkit-sync
 
 # Verify
-ls -la ~/.clawdbot/skills/healthkit-sync/
+ls -la ~/.bot/skills/healthkit-sync/
 ```
 
 Expected output:
@@ -36,7 +36,7 @@ Verify the skill follows the [Agent Skills specification](https://agentskills.io
 
 ```bash
 # Check frontmatter
-head -15 ~/.clawdbot/skills/healthkit-sync/SKILL.md
+head -15 ~/.bot/skills/healthkit-sync/SKILL.md
 ```
 
 Expected frontmatter:
@@ -61,7 +61,7 @@ Validation checklist:
 
 ```bash
 # Check line count
-wc -l ~/.clawdbot/skills/healthkit-sync/SKILL.md
+wc -l ~/.bot/skills/healthkit-sync/SKILL.md
 # Should be < 500
 ```
 
@@ -73,10 +73,10 @@ wc -l ~/.clawdbot/skills/healthkit-sync/SKILL.md
 
 ```bash
 # Stop existing gateway (Ctrl+C or kill)
-pkill -f "clawdbot gateway"
+pkill -f "bot gateway"
 
 # Start fresh
-clawdbot gateway --port 18789
+bot gateway --port 18789
 ```
 
 ### Option B: New Chat Session
@@ -139,10 +139,10 @@ Message 4: "What's the full project architecture?"
 
 ```bash
 # Check ClawdBot recognizes the skills directory
-cat ~/.clawdbot/clawdbot.json | jq '.skills'
+cat ~/.bot/bot.json | jq '.skills'
 
 # Verify skill is readable
-cat ~/.clawdbot/skills/healthkit-sync/SKILL.md | head -20
+cat ~/.bot/skills/healthkit-sync/SKILL.md | head -20
 
 # Check for YAML parsing errors (must be valid YAML frontmatter)
 ```
@@ -170,10 +170,10 @@ If wrong: Skill not loaded, check steps 1-3.
 
 ```bash
 # Watch ClawdBot logs in real-time
-tail -f ~/.clawdbot/logs/*.log
+tail -f ~/.bot/logs/*.log
 
 # Filter for skill-related messages
-tail -f ~/.clawdbot/logs/*.log | grep -iE "(skill|healthkit)"
+tail -f ~/.bot/logs/*.log | grep -iE "(skill|healthkit)"
 ```
 
 ## Troubleshooting
@@ -202,5 +202,5 @@ After making changes to the skill files:
 ## References
 
 - [Agent Skills Specification](https://agentskills.io/specification)
-- [ClawdBot Skills Documentation](https://docs.clawd.bot/tools/skills)
-- [ClawdBot Skills Config](https://docs.clawd.bot/tools/skills-config)
+- [ClawdBot Skills Documentation](https://docs.hanzo.bot/tools/skills)
+- [ClawdBot Skills Config](https://docs.hanzo.bot/tools/skills-config)

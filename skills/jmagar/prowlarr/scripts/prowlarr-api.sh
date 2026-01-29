@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-CONFIG_FILE="${PROWLARR_CONFIG:-$HOME/.clawdbot/credentials/prowlarr/config.json}"
+CONFIG_FILE="${PROWLARR_CONFIG:-$HOME/.bot/credentials/prowlarr/config.json}"
 
 # Load config
 if [[ -f "$CONFIG_FILE" ]]; then

@@ -4,6 +4,6 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Source .env if it exists
 [[ -f "$SCRIPT_DIR/.env" ]] && source "$SCRIPT_DIR/.env"
-[[ -f "$HOME/clawd/.env" ]] && source "$HOME/clawd/.env"
+[[ -f "$HOME/bot/.env" ]] && source "$HOME/bot/.env"
 
 exec "$SCRIPT_DIR/scripts/generate.sh" "$@"

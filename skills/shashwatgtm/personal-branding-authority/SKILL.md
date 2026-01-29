@@ -1,7 +1,7 @@
 ---
 name: personal-branding-authority
 description: Founder vs employee personal branding strategies with LinkedIn positioning and exit planning
-metadata: {"clawdbot":{"emoji":"👤","homepage":"https://github.com/shashwatgtm","always":true}}
+metadata: {"bot":{"emoji":"👤","homepage":"https://github.com/shashwatgtm","always":true}}
 ---
 ## 🎯 MULTI-DIMENSIONAL NAVIGATOR
 

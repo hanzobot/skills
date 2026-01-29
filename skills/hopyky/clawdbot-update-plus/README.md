@@ -1,24 +1,24 @@
-# Clawdbot Update Plus
+# Bot Update Plus
 
-A comprehensive backup, update, and restore tool for your entire Clawdbot environment. Protect your config, workspace, and skills with automatic rollback, encrypted backups, and cloud sync.
+A comprehensive backup, update, and restore tool for your entire Bot environment. Protect your config, workspace, and skills with automatic rollback, encrypted backups, and cloud sync.
 
 ## Quick Start
 
 ```bash
 # Check for available updates
-clawdbot-update-plus check
+bot-update-plus check
 
 # Create a full backup
-clawdbot-update-plus backup
+bot-update-plus backup
 
 # Update everything (creates backup first)
-clawdbot-update-plus update
+bot-update-plus update
 
 # Preview changes (no modifications)
-clawdbot-update-plus update --dry-run
+bot-update-plus update --dry-run
 
 # Restore from backup
-clawdbot-update-plus restore clawdbot-update-2026-01-25-12:00:00.tar.gz
+bot-update-plus restore bot-update-2026-01-25-12:00:00.tar.gz
 ```
 
 ## Features
@@ -38,11 +38,11 @@ clawdbot-update-plus restore clawdbot-update-2026-01-25-12:00:00.tar.gz
 ## Installation
 
 ```bash
-# Via ClawdHub
-clawdhub install clawdbot-update-plus --dir ~/.clawdbot/skills
+# Via Skills
+skills install bot-update-plus --dir ~/.bot/skills
 
 # Or clone manually
-git clone https://github.com/hopyky/clawdbot-update-plus.git ~/.clawdbot/skills/clawdbot-update-plus
+git clone https://github.com/hopyky/bot-update-plus.git ~/.bot/skills/bot-update-plus
 ```
 
 ### Add to PATH
@@ -53,7 +53,7 @@ Create a symlink to use the command globally:
 mkdir -p ~/bin
 echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc  # or ~/.bashrc
 source ~/.zshrc
-ln -sf ~/.clawdbot/skills/clawdbot-update-plus/bin/clawdbot-update-plus ~/bin/clawdbot-update-plus
+ln -sf ~/.bot/skills/bot-update-plus/bin/bot-update-plus ~/bin/bot-update-plus
 ```
 
 ### Dependencies
@@ -68,25 +68,25 @@ ln -sf ~/.clawdbot/skills/clawdbot-update-plus/bin/clawdbot-update-plus ~/bin/cl
 
 ## Configuration
 
-Create `~/.clawdbot/clawdbot-update.json`:
+Create `~/.bot/bot-update.json`:
 
 ```json
 {
-  "backup_dir": "~/.clawdbot/backups",
+  "backup_dir": "~/.bot/backups",
   "backup_before_update": true,
   "backup_count": 5,
   "backup_paths": [
-    {"path": "~/.clawdbot", "label": "config", "exclude": ["backups", "logs", "media", "*.lock"]},
-    {"path": "~/clawd", "label": "workspace", "exclude": ["node_modules", ".venv"]}
+    {"path": "~/.bot", "label": "config", "exclude": ["backups", "logs", "media", "*.lock"]},
+    {"path": "~/bot", "label": "workspace", "exclude": ["node_modules", ".venv"]}
   ],
   "skills_dirs": [
-    {"path": "~/.clawdbot/skills", "label": "prod", "update": true},
-    {"path": "~/clawd/skills", "label": "dev", "update": false}
+    {"path": "~/.bot/skills", "label": "prod", "update": true},
+    {"path": "~/bot/skills", "label": "dev", "update": false}
   ],
   "remote_storage": {
     "enabled": false,
     "rclone_remote": "gdrive:",
-    "path": "clawdbot-backups"
+    "path": "bot-backups"
   },
   "encryption": {
     "enabled": false,
@@ -115,8 +115,8 @@ Configure what to backup with `backup_paths`:
 
 ```json
 "backup_paths": [
-  {"path": "~/.clawdbot", "label": "config", "exclude": ["backups", "logs", "media"]},
-  {"path": "~/clawd", "label": "workspace", "exclude": ["node_modules", ".venv"]}
+  {"path": "~/.bot", "label": "config", "exclude": ["backups", "logs", "media"]},
+  {"path": "~/bot", "label": "workspace", "exclude": ["node_modules", ".venv"]}
 ]
 ```
 
@@ -134,12 +134,12 @@ Configure which skills to update with `skills_dirs`:
 
 ```json
 "skills_dirs": [
-  {"path": "~/.clawdbot/skills", "label": "prod", "update": true},
-  {"path": "~/clawd/skills", "label": "dev", "update": false}
+  {"path": "~/.bot/skills", "label": "prod", "update": true},
+  {"path": "~/bot/skills", "label": "dev", "update": false}
 ]
 ```
 
-- **Prod**: Auto-update from ClawdHub/GitHub
+- **Prod**: Auto-update from Skills/GitHub
 - **Dev**: Manual only (protects your work)
 
 ## Commands
@@ -147,64 +147,64 @@ Configure which skills to update with `skills_dirs`:
 ### `backup` — Create Full Backup
 
 ```bash
-clawdbot-update-plus backup
+bot-update-plus backup
 ```
 
 ### `list-backups` — List Available Backups
 
 ```bash
-clawdbot-update-plus list-backups
+bot-update-plus list-backups
 ```
 
 ### `update` — Update Everything
 
 ```bash
 # Standard update (with automatic backup)
-clawdbot-update-plus update
+bot-update-plus update
 
 # Preview changes only
-clawdbot-update-plus update --dry-run
+bot-update-plus update --dry-run
 
 # Skip backup
-clawdbot-update-plus update --no-backup
+bot-update-plus update --no-backup
 
 # Force continue even if backup fails
-clawdbot-update-plus update --force
+bot-update-plus update --force
 ```
 
 ### `restore` — Restore from Backup
 
 ```bash
 # Restore everything
-clawdbot-update-plus restore backup.tar.gz
+bot-update-plus restore backup.tar.gz
 
 # Restore only config
-clawdbot-update-plus restore backup.tar.gz config
+bot-update-plus restore backup.tar.gz config
 
 # Restore only workspace
-clawdbot-update-plus restore backup.tar.gz workspace
+bot-update-plus restore backup.tar.gz workspace
 
 # Force (no confirmation)
-clawdbot-update-plus restore backup.tar.gz --force
+bot-update-plus restore backup.tar.gz --force
 ```
 
 ### `check` — Check for Updates
 
 ```bash
-clawdbot-update-plus check
+bot-update-plus check
 ```
 
 ### `install-cron` — Automatic Updates
 
 ```bash
 # Install daily at 2 AM
-clawdbot-update-plus install-cron
+bot-update-plus install-cron
 
 # Custom schedule
-clawdbot-update-plus install-cron "0 3 * * 0"  # Sundays at 3 AM
+bot-update-plus install-cron "0 3 * * 0"  # Sundays at 3 AM
 
 # Remove
-clawdbot-update-plus uninstall-cron
+bot-update-plus uninstall-cron
 ```
 
 ## Notifications
@@ -244,7 +244,7 @@ rclone config
 "remote_storage": {
   "enabled": true,
   "rclone_remote": "gdrive:",
-  "path": "clawdbot-backups"
+  "path": "bot-backups"
 }
 ```
 
@@ -259,12 +259,12 @@ rclone config
 
 ## Logs
 
-All operations are logged to `~/.clawdbot/backups/update.log`:
+All operations are logged to `~/.bot/backups/update.log`:
 
 ```
 [2026-01-25 20:22:48] === Update started 2026-01-25 20:22:48 ===
 [2026-01-25 20:23:39] Creating backup...
-[2026-01-25 20:23:39] Backup created: clawdbot-update-2026-01-25-20:22:48.tar.gz (625M)
+[2026-01-25 20:23:39] Backup created: bot-update-2026-01-25-20:22:48.tar.gz (625M)
 [2026-01-25 20:23:41] === Update completed 2026-01-25 20:23:41 ===
 [2026-01-25 20:23:43] Notification sent to +1234567890 via whatsapp
 ```
@@ -283,7 +283,7 @@ All operations are logged to `~/.clawdbot/backups/update.log`:
 
 ```
 bin/
-├── clawdbot-update-plus     # Main entry point
+├── bot-update-plus     # Main entry point
 └── lib/
     ├── utils.sh             # Logging, helpers
     ├── config.sh            # Configuration
@@ -319,7 +319,7 @@ bin/
 - Multi-directory support (`skills_dirs`)
 
 ### v1.4.0
-- Notifications via Clawdbot messaging
+- Notifications via Bot messaging
 
 ### v1.3.0
 - Added `check`, `diff-backups`, `install-cron` commands

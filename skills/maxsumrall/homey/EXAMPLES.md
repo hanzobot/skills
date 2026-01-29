@@ -231,9 +231,9 @@ homeycli devices --json | jq '.[] | select(.class == "sensor") | {
 }'
 ```
 
-## Integration with AI (Clawdbot)
+## Integration with AI (Bot)
 
-When using with Clawdbot, the AI can:
+When using with Bot, the AI can:
 
 ```bash
 # Natural language → command translation

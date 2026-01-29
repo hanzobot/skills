@@ -1,13 +1,13 @@
-# xAI / Grok Skill for Clawdbot
+# xAI / Grok Skill for Bot
 
-Chat with xAI's Grok models from Clawdbot. Supports text chat, vision, and all Grok models including Grok-4.
+Chat with xAI's Grok models from Bot. Supports text chat, vision, and all Grok models including Grok-4.
 
 ## Installation
 
 ```bash
-clawdhub install xai
+skills install xai
 # or
-cd ~/clawd/skills && git clone https://github.com/mvanhorn/clawdbot-skill-xai xai
+cd ~/bot/skills && git clone https://github.com/mvanhorn/bot-skill-xai xai
 ```
 
 ## Setup
@@ -15,7 +15,7 @@ cd ~/clawd/skills && git clone https://github.com/mvanhorn/clawdbot-skill-xai xa
 Get your API key from [console.x.ai](https://console.x.ai), then:
 
 ```bash
-clawdbot config set skills.entries.xai.apiKey "xai-YOUR-KEY"
+bot config set skills.entries.xai.apiKey "xai-YOUR-KEY"
 ```
 
 Or set environment variable:
@@ -60,7 +60,7 @@ node scripts/models.js
 - `grok-2-vision-1212` - Image understanding
 - `grok-2-image-1212` - Image generation
 
-## Clawdbot Integration
+## Bot Integration
 
 Once installed, you can just say:
 - "Ask Grok about [topic]"

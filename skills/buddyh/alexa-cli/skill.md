@@ -2,7 +2,7 @@
 name: alexa-cli
 description: Control Amazon Alexa devices and smart home via the `alexacli` CLI. Use when a user asks to speak/announce on Echo devices, control lights/thermostats/locks, send voice commands, or query Alexa.
 homepage: https://github.com/buddyh/alexa-cli
-metadata: {"clawdbot":{"emoji":"🔊","requires":{"bins":["alexacli"]},"install":[{"id":"brew","kind":"brew","formula":"buddyh/tap/alexacli","bins":["alexacli"],"label":"Install alexacli (brew)"},{"id":"go","kind":"go","module":"github.com/buddyh/alexa-cli/cmd/alexa@latest","bins":["alexacli"],"label":"Install alexa-cli (go)"}]}}
+metadata: {"bot":{"emoji":"🔊","requires":{"bins":["alexacli"]},"install":[{"id":"brew","kind":"brew","formula":"buddyh/tap/alexacli","bins":["alexacli"],"label":"Install alexacli (brew)"},{"id":"go","kind":"go","module":"github.com/buddyh/alexa-cli/cmd/alexa@latest","bins":["alexacli"],"label":"Install alexa-cli (go)"}]}}
 ---
 
 # Alexa CLI

@@ -52,10 +52,10 @@ If X handle doesn't work on TG, try combinations based on their real name:
 ## Important Rules
 - **CHECK BEFORE RESEARCHING** — ALWAYS run this command first:
   ```
-  cat /Users/derrick/clawd/crypto-master.csv /Users/derrick/clawd/crypto-no-contacts.csv | cut -d',' -f1 | sort -u
+  cat /Users/derrick/bot/crypto-master.csv /Users/derrick/bot/crypto-no-contacts.csv | cut -d',' -f1 | sort -u
   ```
   This gives you ALL team names already processed. **SKIP any team on this list.**
-- Before adding a team, grep for it: `grep -i "TeamName" /Users/derrick/clawd/crypto-master.csv`
+- Before adding a team, grep for it: `grep -i "TeamName" /Users/derrick/bot/crypto-master.csv`
 - **ONLY individual people** — NO community channels, NO support channels, NO groups
 - X handle may NOT equal Telegram handle — MUST verify each one visually
 - **Retry on errors** — browser timeouts happen, just retry. If anything times out, RESTART immediately and keep going. Never stop.
@@ -64,7 +64,7 @@ If X handle doesn't work on TG, try combinations based on their real name:
 - **⚠️ CLOSE TABS AFTER EACH VERIFICATION** — Don't leave t.me tabs open! Close immediately after screenshot.
 
 ## If Can't Find Contacts for a Company
-- **ALWAYS add to `/Users/derrick/clawd/crypto-no-contacts.csv`** with notes on what you tried
+- **ALWAYS add to `/Users/derrick/bot/crypto-no-contacts.csv`** with notes on what you tried
 - Format: Name,Category,Website,X Link,Notes
 - Include in notes: funding amount, which handles you tried, why they failed
 - Then move on to find NEW target teams that meet criteria ($10M+ funding or $1M+ ARR)
@@ -125,7 +125,7 @@ If existing sources aren't yielding results, find MORE:
 When a subagent completes or times out, immediately spawn a new one to continue. This process never stops until explicitly told to stop.
 
 ## CSV Location & Format
-`/Users/derrick/clawd/crypto-master.csv`
+`/Users/derrick/bot/crypto-master.csv`
 
 **CSV Columns:** Name,Chain,Category,Website,X Link,Funding,Contacts
 

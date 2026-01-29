@@ -2,7 +2,7 @@
 name: linkedin
 description: LinkedIn automation via browser relay or cookies for messaging, profile viewing, and network actions.
 homepage: https://linkedin.com
-metadata: {"clawdbot":{"emoji":"💼"}}
+metadata: {"bot":{"emoji":"💼"}}
 ---
 
 # LinkedIn
@@ -13,11 +13,11 @@ Use browser automation to interact with LinkedIn - check messages, view profiles
 
 ### Option 1: Chrome Extension Relay (Recommended)
 1. Open LinkedIn in Chrome and log in
-2. Click the Clawdbot Browser Relay toolbar icon to attach the tab
+2. Click the Bot Browser Relay toolbar icon to attach the tab
 3. Use `browser` tool with `profile="chrome"`
 
 ### Option 2: Isolated Browser
-1. Use `browser` tool with `profile="clawd"` 
+1. Use `browser` tool with `profile="bot"` 
 2. Navigate to linkedin.com
 3. Log in manually (one-time setup)
 4. Session persists for future use

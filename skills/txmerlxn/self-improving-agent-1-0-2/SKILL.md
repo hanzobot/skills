@@ -19,9 +19,9 @@ Log learnings and errors to markdown files for continuous improvement. Coding ag
 | Found better approach | Log to `.learnings/LEARNINGS.md` with category `best_practice` |
 | Similar to existing entry | Link with `**See Also**`, consider priority bump |
 | Broadly applicable learning | Promote to `CLAUDE.md`, `AGENTS.md`, and/or `.github/copilot-instructions.md` |
-| Workflow improvements | Promote to `AGENTS.md` (clawdbot workspace) |
-| Tool gotchas | Promote to `TOOLS.md` (clawdbot workspace) |
-| Behavioral patterns | Promote to `SOUL.md` (clawdbot workspace) |
+| Workflow improvements | Promote to `AGENTS.md` (bot workspace) |
+| Tool gotchas | Promote to `TOOLS.md` (bot workspace) |
+| Behavioral patterns | Promote to `SOUL.md` (bot workspace) |
 
 ## Setup
 
@@ -178,8 +178,8 @@ When a learning is broadly applicable (not a one-off fix), promote it to permane
 | `CLAUDE.md` | Project facts, conventions, gotchas for all Claude interactions |
 | `AGENTS.md` | Agent-specific workflows, tool usage patterns, automation rules |
 | `.github/copilot-instructions.md` | Project context and conventions for GitHub Copilot |
-| `SOUL.md` | Behavioral guidelines, communication style, principles (clawdbot) |
-| `TOOLS.md` | Tool capabilities, usage patterns, integration gotchas (clawdbot) |
+| `SOUL.md` | Behavioral guidelines, communication style, principles (bot) |
+| `TOOLS.md` | Tool capabilities, usage patterns, integration gotchas (bot) |
 
 ### How to Promote
 
@@ -483,13 +483,13 @@ Ask in chat: "Should I log this as a learning?"
 
 **Detection**: Manual review at session end
 
-### Clawdbot
+### Bot
 
 **Activation**: Workspace injection + inter-agent messaging
-**Setup**: Configure workspace path in `~/.clawdbot/clawdbot.json`
+**Setup**: Configure workspace path in `~/.bot/bot.json`
 **Detection**: Via session tools and workspace files (`AGENTS.md`, `SOUL.md`, `TOOLS.md`)
 
-Clawdbot uses a workspace-based model with injected prompt files. See `references/clawdbot-integration.md` for detailed setup.
+Bot uses a workspace-based model with injected prompt files. See `references/bot-integration.md` for detailed setup.
 
 ### Agent-Agnostic Guidance
 
@@ -512,21 +512,21 @@ Or use quick prompts:
 - "Create a skill from this solution"
 - "Check .learnings/ for related issues"
 
-## Clawdbot Integration
+## Bot Integration
 
-Clawdbot uses workspace-based prompt injection with specialized files for different concerns.
+Bot uses workspace-based prompt injection with specialized files for different concerns.
 
 ### Workspace Structure
 
 ```
-~/clawd/                    # Default workspace (configurable)
+~/bot/                    # Default workspace (configurable)
 ├── AGENTS.md              # Multi-agent workflows, delegation patterns
 ├── SOUL.md                # Behavioral guidelines, communication style
 ├── TOOLS.md               # Tool capabilities, MCP integrations
 └── sessions/              # Session transcripts (auto-managed)
 ```
 
-### Clawdbot Promotion Targets
+### Bot Promotion Targets
 
 | Learning Type | Promote To | Example |
 |--------------|------------|---------|
@@ -537,16 +537,16 @@ Clawdbot uses workspace-based prompt injection with specialized files for differ
 
 ### Inter-Agent Learning
 
-Clawdbot supports session-based communication:
+Bot supports session-based communication:
 - **sessions_list** - See active/recent sessions
 - **sessions_history** - Read transcript from another session
 - **sessions_send** - Send message to another session
 
-### Hybrid Setup (Claude Code + Clawdbot)
+### Hybrid Setup (Claude Code + Bot)
 
 When using both:
 1. Keep `.learnings/` for project-specific learnings
-2. Use clawdbot workspace files for cross-project patterns
+2. Use bot workspace files for cross-project patterns
 3. Sync high-value learnings to both systems
 
-See `references/clawdbot-integration.md` for complete setup, promotion formats, and troubleshooting.
+See `references/bot-integration.md` for complete setup, promotion formats, and troubleshooting.

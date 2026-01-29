@@ -5,9 +5,9 @@
 set -e
 
 SERVICE_NAME="jellyseerr-webhook"
-SCRIPT_DIR="/home/clawd/clawd/skills/jellyseerr/scripts"
+SCRIPT_DIR="/home/bot/bot/skills/jellyseerr/scripts"
 PORT="8384"
-USER="clawd"
+USER="bot"
 
 echo "Creating systemd service file..."
 

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Publishes this skill folder to ClawdHub using the official `clawdhub` CLI.
+# Publishes this skill folder to ClawdHub using the official `bothub` CLI.
 #
 # Requirements (CI):
-# - `clawdhub` must be installed and on PATH
+# - `bothub` must be installed and on PATH
 # - CLAWDHUB_API_KEY must be set (GitHub secret)
 #
 # Optional env overrides:
@@ -21,8 +21,8 @@ fi
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 export ROOT_DIR
 
-if ! command -v clawdhub >/dev/null 2>&1; then
-  echo "error: clawdhub CLI not found on PATH (install with: npm i -g clawdhub)" >&2
+if ! command -v bothub >/dev/null 2>&1; then
+  echo "error: bothub CLI not found on PATH (install with: npm i -g bothub)" >&2
   exit 2
 fi
 
@@ -79,13 +79,13 @@ if [ -z "$SLUG" ]; then
   exit 2
 fi
 
-echo "clawdhub publish: slug=${SLUG} version=${VERSION} tags=${TAGS}" >&2
+echo "bothub publish: slug=${SLUG} version=${VERSION} tags=${TAGS}" >&2
 
 # Non-interactive login using token.
-clawdhub --no-input login --token "$CLAWDHUB_API_KEY" --no-browser >/dev/null
+bothub --no-input login --token "$CLAWDHUB_API_KEY" --no-browser >/dev/null
 
 # Publish the skill folder (repo root contains SKILL.md)
-clawdhub --no-input publish "$ROOT_DIR" \
+bothub --no-input publish "$ROOT_DIR" \
   --slug "$SLUG" \
   --name "$NAME" \
   --version "$VERSION" \

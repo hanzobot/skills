@@ -28,7 +28,7 @@ This document explains the technical architecture, implementation details, and m
 personas/
 ├── README.md          # User-facing documentation (extensive guide)
 ├── FAQ.md             # Common questions and troubleshooting
-├── SKILL.md           # Clawdbot skill instructions (loaded on invocation)
+├── SKILL.md           # Bot skill instructions (loaded on invocation)
 ├── skill.json         # Metadata, index, and feature list
 ├── INTERNAL.md        # This file (developer documentation)
 └── data/              # Persona definitions (31 default + custom)
@@ -46,9 +46,9 @@ personas/
 ```
 User request: "Use Dev persona"
        ↓
-Clawdbot parses intent → persona activation
+Bot parses intent → persona activation
        ↓
-Read ~/clawd/skills/personas/data/dev.md
+Read ~/bot/skills/personas/data/dev.md
        ↓
 Load persona prompt into context
        ↓
@@ -58,7 +58,7 @@ User continues conversation in Dev mode
        ↓
 User request: "Switch to Chef Marco"
        ↓
-Read ~/clawd/skills/personas/data/chef-marco.md
+Read ~/bot/skills/personas/data/chef-marco.md
        ↓
 Replace Dev context with Chef Marco context
        ↓
@@ -112,7 +112,7 @@ Each persona `.md` file follows this structure:
 ```
 
 **Why this structure?**
-- **Consistent parsing** - Clawdbot can extract sections reliably
+- **Consistent parsing** - Bot can extract sections reliably
 - **LLM-friendly** - Clear headers guide model behavior
 - **Human-readable** - Easy to edit and understand
 - **Extensible** - Add custom sections as needed
@@ -125,7 +125,7 @@ Each persona `.md` file follows this structure:
   "emoji": "🎭",
   "description": "Transform into 31 specialized AI personalities...",
   "category": "ai-experience",
-  "author": "Chameleon AI / Clawdbot",
+  "author": "Chameleon AI / Bot",
   "version": "1.0.0",
   "tags": ["personalities", "modes", "expertise", ...],
   "features": [
@@ -148,8 +148,8 @@ Each persona `.md` file follows this structure:
 
 **Fields:**
 - `personas` - Categorized index of all available personas
-- `features` - Used for ClawdHub listing
-- `tags` - Search/discovery on ClawdHub
+- `features` - Used for Skills listing
+- `tags` - Search/discovery on Skills
 - `version` - Semantic versioning for updates
 
 ### Activation Logic
@@ -160,7 +160,7 @@ Each persona `.md` file follows this structure:
 - `"Activate [persona]"`
 - `"I want [persona] mode"`
 
-**Clawdbot behavior:**
+**Bot behavior:**
 1. Parse persona name from user input
 2. Normalize: lowercase, replace spaces with hyphens
 3. Check if file exists: `data/{persona}.md`
@@ -275,7 +275,7 @@ Want to activate it now? (yes/no)"
 
 1. **Create file:**
    ```bash
-   touch ~/clawd/skills/personas/data/your-persona.md
+   touch ~/bot/skills/personas/data/your-persona.md
    ```
 
 2. **Follow template** (see "Persona File Format" above)
@@ -313,7 +313,7 @@ Want to activate it now? (yes/no)"
 4. Update README.md persona table
 5. Add FAQ entry if needed
 6. Bump `version` in `skill.json` (minor version: x.Y.z)
-7. Publish update to ClawdHub
+7. Publish update to Skills
 
 ### Updating Existing Personas
 
@@ -376,7 +376,7 @@ Want to activate it now? (yes/no)"
 - ✅ **Lazy loading** - Only load requested persona
 - ✅ **No embedding** - Don't include all 31 in context
 - ⚠️ **Compression** - Could minify prompts, but reduces readability
-- ⚠️ **Caching** - Clawdbot could cache frequently-used personas
+- ⚠️ **Caching** - Bot could cache frequently-used personas
 
 **Recommendation:** Current approach is optimal. Don't over-optimize.
 
@@ -414,7 +414,7 @@ At 100 custom personas: ~425KB total (still tiny).
 - Personas are local files (user controls data/)
 - No remote persona loading
 - File permissions: user-writable only
-- Clawdbot sandboxing prevents system-level harm
+- Bot sandboxing prevents system-level harm
 
 **Low risk** - user shoots own foot if editing files maliciously.
 
@@ -426,7 +426,7 @@ At 100 custom personas: ~425KB total (still tiny).
 - Include copyrighted content verbatim
 
 **Review process:**
-- Check files before publishing to ClawdHub
+- Check files before publishing to Skills
 - Sanitize any contributed personas
 - FAQ explicitly warns against secrets in personas
 
@@ -481,11 +481,11 @@ At 100 custom personas: ~425KB total (still tiny).
 **Process:**
 1. Fork skill or submit `.md` file
 2. Review for quality, ethics, uniqueness
-3. Test in Clawdbot
+3. Test in Bot
 4. Merge if approved
 5. Credit contributor in README
 
-**ClawdHub publication:**
+**Skills publication:**
 - Original skill: `personas` (official, 31 defaults)
 - Forks: `personas-extended`, `personas-medical`, etc.
 - Users can install multiple persona skills (data/ folders merge)
@@ -505,7 +505,7 @@ Bot: "I don't recognize that persona."
 ```
 
 **Diagnosis:**
-1. Check file exists: `ls ~/clawd/skills/personas/data/dev.md`
+1. Check file exists: `ls ~/bot/skills/personas/data/dev.md`
 2. Check filename matches (case-sensitive filesystem): `dev.md` not `Dev.md`
 3. Check skill.json includes it
 4. Try exact case: `"Use dev"` (lowercase)
@@ -526,7 +526,7 @@ Bot: *doesn't act like a programmer*
 ```
 
 **Diagnosis:**
-1. Read file: `cat ~/clawd/skills/personas/data/dev.md`
+1. Read file: `cat ~/bot/skills/personas/data/dev.md`
 2. Check structure (headers present?)
 3. Check file isn't corrupted (encoding, special chars)
 4. Test with fresh activation: exit and re-enter
@@ -535,7 +535,7 @@ Bot: *doesn't act like a programmer*
 - Validate markdown structure
 - Ensure UTF-8 encoding
 - Restore from backup if corrupted
-- Clear Clawdbot cache (if applicable)
+- Clear Bot cache (if applicable)
 
 ---
 
@@ -571,8 +571,8 @@ Bot: *doesn't guide through creation*
 - Custom persona creation rate (feature adoption)
 
 **Implementation:**
-- Clawdbot may log tool calls (file reads)
-- skill.json could include usage stats (if Clawdbot supports)
+- Bot may log tool calls (file reads)
+- skill.json could include usage stats (if Bot supports)
 
 ---
 
@@ -598,18 +598,18 @@ Bot: *doesn't guide through creation*
 
 ### Exporting Personas
 
-**To another Clawdbot instance:**
+**To another Bot instance:**
 ```bash
 # Copy entire skill
-cp -r ~/clawd/skills/personas /path/to/other/instance/skills/
+cp -r ~/bot/skills/personas /path/to/other/instance/skills/
 
 # Or just custom personas
-cp ~/clawd/skills/personas/data/my-custom-*.md /path/to/other/data/
+cp ~/bot/skills/personas/data/my-custom-*.md /path/to/other/data/
 ```
 
 **To share with others:**
 - GitHub repo of `.md` files
-- ClawdHub publication
+- Skills publication
 - Direct file sharing (Dropbox, email, etc.)
 
 ---
@@ -620,10 +620,10 @@ cp ~/clawd/skills/personas/data/my-custom-*.md /path/to/other/data/
 
 ```bash
 # 1. Edit persona
-vim ~/clawd/skills/personas/data/dev.md
+vim ~/bot/skills/personas/data/dev.md
 
-# 2. Test in Clawdbot
-clawdbot
+# 2. Test in Bot
+bot
 > "Use Dev"
 > "Write a Python function to parse JSON"
 
@@ -632,15 +632,15 @@ clawdbot
 # Re-activate: "Exit persona" then "Use Dev"
 
 # 4. Commit when satisfied
-cd ~/clawd/skills/personas
+cd ~/bot/skills/personas
 git add data/dev.md
 git commit -m "Improve Dev persona: Add Python focus"
 ```
 
-### Publishing to ClawdHub
+### Publishing to Skills
 
 ```bash
-cd ~/clawd/skills/personas
+cd ~/bot/skills/personas
 
 # 1. Bump version in skill.json
 vim skill.json  # e.g., 1.0.0 → 1.1.0
@@ -649,7 +649,7 @@ vim skill.json  # e.g., 1.0.0 → 1.1.0
 echo "## v1.1.0 - $(date +%Y-%m-%d)\n- Added Game Master persona\n- Improved Dev persona Python expertise" >> CHANGELOG.md
 
 # 3. Publish
-clawdhub publish
+skills publish
 
 # 4. Tag release
 git tag v1.1.0
@@ -663,7 +663,7 @@ git push origin v1.1.0
 - Coordinate with Chameleon maintainers
 - Keep adapted version in sync
 
-**To Clawdbot (this skill):**
+**To Bot (this skill):**
 - Fork/PR to skill repository
 - Follow code review process
 - Maintain quality standards
@@ -677,7 +677,7 @@ git push origin v1.1.0
 - Authors: Chameleon AI Community
 - License: MIT
 
-**Clawdbot Adaptation:**
+**Bot Adaptation:**
 - Adapter: Robby (robbyczgw-cla)
 - Modifications: Removed UI-specific elements, added creator workflow, optimized for CLI/tool use
 - License: MIT
@@ -685,12 +685,12 @@ git push origin v1.1.0
 **31 Default Personas:**
 - Adapted from Chameleon AI definitions (TypeScript → Markdown)
 - Personality prompts largely preserved
-- Communication styles adjusted for Clawdbot context
+- Communication styles adjusted for Bot context
 
 **Skill Framework:**
-- Platform: Clawdbot
-- Skill structure follows Clawdbot conventions
-- Compatible with ClawdHub publication
+- Platform: Bot
+- Skill structure follows Bot conventions
+- Compatible with Skills publication
 
 ---
 
@@ -750,7 +750,7 @@ git push origin v1.1.0
 
 ```bash
 # Check persona file sizes
-cd ~/clawd/skills/personas/data
+cd ~/bot/skills/personas/data
 du -h *.md | sort -h
 
 # Typical output:

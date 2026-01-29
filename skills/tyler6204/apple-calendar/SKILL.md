@@ -1,7 +1,7 @@
 ---
 name: apple-calendar
 description: Apple Calendar.app integration for macOS. CRUD operations for events, search, and multi-calendar support.
-metadata: {"clawdbot":{"emoji":"📅","os":["darwin"]}}
+metadata: {"bot":{"emoji":"📅","os":["darwin"]}}
 ---
 
 # Apple Calendar

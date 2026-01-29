@@ -5,7 +5,7 @@ iOS Health Sync is a Swift 6 project for secure HealthKit data transfer.
 ## Repository Structure
 
 ```
-ai-health-sync-ios-clawdbot/
+ai-health-sync-ios-bot/
 ├── iOS Health Sync App/              # Xcode project
 │   ├── iOS Health Sync App/
 │   │   ├── App/

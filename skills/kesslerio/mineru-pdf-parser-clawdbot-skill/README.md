@@ -1,6 +1,6 @@
-# MinerU PDF Parser - Clawdbot Skill
+# MinerU PDF Parser - Bot Skill
 
-A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for parsing PDFs locally using [MinerU](https://github.com/opendatalab/MinerU) (CPU). Produces rich structured output including Markdown, JSON with layout data, and extracted images.
+A [Bot](https://github.com/bot/bot) skill for parsing PDFs locally using [MinerU](https://github.com/opendatalab/MinerU) (CPU). Produces rich structured output including Markdown, JSON with layout data, and extracted images.
 
 ## Features
 
@@ -15,16 +15,16 @@ A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for parsing PDFs locall
 ### Prerequisites
 
 1. **MinerU CLI** installed and accessible (see [MinerU installation](https://github.com/opendatalab/MinerU))
-2. **Clawdbot** installed
+2. **Bot** installed
 
 ### Install the skill
 
 ```bash
 # Clone the repo
-git clone https://github.com/kesslerio/MinerU-PDF-Parser-Clawdbot-Skill.git
+git clone https://github.com/kesslerio/MinerU-PDF-Parser-Bot-Skill.git
 
-# Or copy the mineru-pdf/ folder to your Clawdbot skills directory
-cp -r MinerU-PDF-Parser-Clawdbot-Skill/mineru-pdf ~/.clawdbot/skills/
+# Or copy the mineru-pdf/ folder to your Bot skills directory
+cp -r MinerU-PDF-Parser-Bot-Skill/mineru-pdf ~/.bot/skills/
 ```
 
 ## Usage
@@ -112,6 +112,6 @@ Issues and PRs welcome. Please test with a variety of PDFs before submitting cha
 
 ## Related
 
-- [PyMuPDF PDF Parser Skill](https://github.com/kesslerio/PyMuPDF-PDF-Parser-Clawdbot-Skill) — Fast, lightweight alternative
+- [PyMuPDF PDF Parser Skill](https://github.com/kesslerio/PyMuPDF-PDF-Parser-Bot-Skill) — Fast, lightweight alternative
 - [MinerU](https://github.com/opendatalab/MinerU) — The underlying PDF parser
-- [Clawdbot](https://github.com/clawdbot/clawdbot) — The AI agent framework
+- [Bot](https://github.com/bot/bot) — The AI agent framework

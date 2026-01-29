@@ -2,7 +2,7 @@
 name: xkcd
 description: Fetch xkcd comics - latest, random, by number, or search by keyword. Display comics with title, image, and alt text (the hidden joke). Generate custom xkcd-style stick figure comics using image generation. Perfect for daily comic delivery via cron, on-demand requests, or creating original xkcd-inspired content.
 homepage: https://xkcd.com
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["uv"]}}}
+metadata: {"bot":{"emoji":"📊","requires":{"bins":["uv"]}}}
 ---
 
 # xkcd

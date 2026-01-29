@@ -12,7 +12,7 @@
 - SKILL.md updated to reflect current functionality (removed deprecation notice)
 
 ### Why This Matters
-The original version fought against OAuth by converting it to token mode. This caused issues for users where `clawdbot onboard --auth-choice claude-cli` wouldn't properly save OAuth credentials. This version fixes that and ensures OAuth works correctly.
+The original version fought against OAuth by converting it to token mode. This caused issues for users where `bot onboard --auth-choice claude-cli` wouldn't properly save OAuth credentials. This version fixes that and ensures OAuth works correctly.
 
 ---
 

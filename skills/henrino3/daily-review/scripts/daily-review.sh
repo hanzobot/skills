@@ -15,11 +15,11 @@ echo ""
 echo "📬 COMMUNICATION"
 
 # Emails sent (using Google Workspace skill)
-EMAILS=$(cd ~/clawd/skills/google-workspace && node scripts/gmail.js list henry@curacel.ai "after:${DATE//-/\\/} before:${DATE_NEXT//-/\\/} from:me" 2>/dev/null | jq 'length' || echo "?")
+EMAILS=$(cd ~/bot/skills/google-workspace && node scripts/gmail.js list henry@curacel.ai "after:${DATE//-/\\/} before:${DATE_NEXT//-/\\/} from:me" 2>/dev/null | jq 'length' || echo "?")
 echo "  • Emails sent: $EMAILS"
 
 # Slack messages
-SLACK_TOKEN=$(cat ~/clawd/secrets/slack-super-ada.json 2>/dev/null | jq -r '.user_token')
+SLACK_TOKEN=$(cat ~/bot/secrets/slack-super-ada.json 2>/dev/null | jq -r '.user_token')
 SLACK_MSGS=$(curl -s "https://slack.com/api/search.messages" \
   -H "Authorization: Bearer $SLACK_TOKEN" \
   -G --data-urlencode "query=from:<@U0LGU88M8> on:$DATE" \
@@ -41,7 +41,7 @@ echo ""
 # ============ MEETINGS ============
 echo "📅 MEETINGS (Fireflies - speaker verified)"
 
-FIREFLIES_KEY=$(cat ~/clawd/secrets/fireflies.key 2>/dev/null)
+FIREFLIES_KEY=$(cat ~/bot/secrets/fireflies.key 2>/dev/null)
 MEETINGS=$(curl -s -X POST "https://api.fireflies.ai/graphql" \
   -H "Authorization: Bearer $FIREFLIES_KEY" \
   -H "Content-Type: application/json" \
@@ -65,15 +65,15 @@ echo ""
 echo "💻 OUTPUT"
 
 # Git commits
-GIT_COMMITS=$(cd ~/clawd && git log --oneline --since="$DATE 00:00" --until="$DATE_NEXT 00:00" 2>/dev/null | wc -l | tr -d ' ')
-echo "  • Git commits (clawd): $GIT_COMMITS"
+GIT_COMMITS=$(cd ~/bot && git log --oneline --since="$DATE 00:00" --until="$DATE_NEXT 00:00" 2>/dev/null | wc -l | tr -d ' ')
+echo "  • Git commits (bot): $GIT_COMMITS"
 
 # Google Docs edited (using Google Workspace skill)
-DOCS=$(cd ~/clawd/skills/google-workspace && node scripts/drive.js list henry@curacel.ai "modifiedTime>='${DATE}T00:00:00'" 2>/dev/null | jq 'length' || echo "?")
+DOCS=$(cd ~/bot/skills/google-workspace && node scripts/drive.js list henry@curacel.ai "modifiedTime>='${DATE}T00:00:00'" 2>/dev/null | jq 'length' || echo "?")
 echo "  • Docs modified: $DOCS"
 
 # Ada messages (from session)
-ADA_MSGS=$(grep -c "Him (@henrino3)" ~/.clawdbot/agents/main/sessions/*.jsonl 2>/dev/null | tail -1 | cut -d: -f2 || echo "?")
+ADA_MSGS=$(grep -c "Him (@henrino3)" ~/.bot/agents/main/sessions/*.jsonl 2>/dev/null | tail -1 | cut -d: -f2 || echo "?")
 echo "  • Messages to Ada: $ADA_MSGS"
 
 echo ""

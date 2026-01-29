@@ -16,7 +16,7 @@ This update brings significant improvements to notification handling and user ex
    - Smart recommendations
    - Easy to change later
 
-3. **Clawdbot Control** - Voice/text commands to manage settings:
+3. **Bot Control** - Voice/text commands to manage settings:
    - "disable Claude refresh start notifications"
    - "show Claude refresh notification settings"
    - "enable all Claude refresh notifications"
@@ -45,7 +45,7 @@ This update brings significant improvements to notification handling and user ex
 Simply re-run the installer:
 
 ```bash
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./install.sh
 ```
 
@@ -72,7 +72,7 @@ If you prefer manual control:
    cat > claude-oauth-refresh-config.json << 'EOF'
    {
      "refresh_buffer_minutes": 30,
-     "log_file": "~/clawd/logs/claude-oauth-refresh.log",
+     "log_file": "~/bot/logs/claude-oauth-refresh.log",
      "notifications": {
        "on_start": false,
        "on_success": false,
@@ -115,7 +115,7 @@ If you prefer manual control:
 ```json
 {
   "refresh_buffer_minutes": 30,
-  "log_file": "~/clawd/logs/claude-oauth-refresh.log",
+  "log_file": "~/bot/logs/claude-oauth-refresh.log",
   "notify_on_success": false,
   "notify_on_failure": true,
   "notification_channel": "telegram",
@@ -127,7 +127,7 @@ If you prefer manual control:
 ```json
 {
   "refresh_buffer_minutes": 30,
-  "log_file": "~/clawd/logs/claude-oauth-refresh.log",
+  "log_file": "~/bot/logs/claude-oauth-refresh.log",
   "notifications": {
     "on_start": true,
     "on_success": true,
@@ -202,7 +202,7 @@ The `notify_on_success` and `notify_on_failure` fields are replaced with:
 After verifying the setup works:
 
 ```bash
-# Option 1: Ask Clawdbot
+# Option 1: Ask Bot
 "disable Claude refresh start notifications"
 "disable Claude refresh success notifications"
 
@@ -232,10 +232,10 @@ Details: Connection timed out after 30s
 Troubleshooting:
 - Check your internet connection
 - Verify you can reach auth.anthropic.com
-- Try running manually: ~/clawd/skills/claude-oauth-refresher/refresh-token.sh
+- Try running manually: ~/bot/skills/claude-oauth-refresher/refresh-token.sh
 
-Need help? Message Clawdbot or check logs:
-~/clawd/logs/claude-oauth-refresh.log
+Need help? Message Bot or check logs:
+~/bot/logs/claude-oauth-refresh.log
 ```
 
 ### 3. Config Changes Apply Automatically
@@ -328,7 +328,7 @@ If you encounter issues and need to roll back:
 
 **Issues?** Check:
 1. Run `./verify-setup.sh`
-2. Check logs: `tail -20 ~/clawd/logs/claude-oauth-refresh.log`
+2. Check logs: `tail -20 ~/bot/logs/claude-oauth-refresh.log`
 3. Test manually: `./refresh-token.sh`
 4. Check config: `cat claude-oauth-refresh-config.json | jq`
 
@@ -345,7 +345,7 @@ If you encounter issues and need to roll back:
 ✅ **Config migrated** - preserves your settings
 ✅ **New notification types** - finer control
 ✅ **Better error messages** - easier troubleshooting
-✅ **Clawdbot integration** - voice/text control
+✅ **Bot integration** - voice/text control
 ✅ **No breaking workflow** - still runs every 2 hours
 
 **Recommended next steps:**

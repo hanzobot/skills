@@ -1,5 +1,5 @@
 #!/bin/bash
-# notify-research-complete.sh - Send research file and wake Clawdbot to notify
+# notify-research-complete.sh - Send research file and wake Bot to notify
 #
 # Usage: notify-research-complete.sh <file_path> <title>
 
@@ -25,13 +25,13 @@ GATEWAY_URL="http://localhost:18789"
 echo "Sending file to Saved Messages..."
 telegram send-file "me" "$FILE_PATH" "$TITLE"
 
-echo "Waking Clawdbot..."
+echo "Waking Bot..."
 # Use simple ASCII text to avoid JSON encoding issues
 # Escape the title for JSON
 SAFE_TITLE=$(echo "$TITLE" | sed 's/"/\\"/g' | tr -cd '[:print:]')
 curl -s -X POST "${GATEWAY_URL}/hooks/wake" \
   -H "Content-Type: application/json" \
-  -H "X-Clawdbot-Token: ${HOOKS_TOKEN}" \
+  -H "X-Bot-Token: ${HOOKS_TOKEN}" \
   -d "{\"text\": \"RESEARCH_COMPLETE: ${SAFE_TITLE} - File sent to Saved Messages.\", \"mode\": \"now\"}"
 
 echo ""

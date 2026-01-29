@@ -14,7 +14,7 @@ Use this guide if you prefer manual setup via Azure Portal, or if the automated 
 2. Search for **"App registrations"** → Click it
 3. Click **"+ New registration"**
 4. Configure:
-   - **Name:** `Clawdbot-Outlook` (or any name)
+   - **Name:** `Bot-Outlook` (or any name)
    - **Supported account types:** "Accounts in any organizational directory and personal Microsoft accounts"
    - **Redirect URI:** Platform = Web, URI = `http://localhost`
 5. Click **Register**
@@ -25,7 +25,7 @@ After registration:
 1. On the app overview page, copy the **Application (client) ID** → This is your `CLIENT_ID`
 2. Go to **Certificates & secrets** in the left menu
 3. Click **+ New client secret**
-4. Add a description (e.g., "clawdbot") and choose expiration
+4. Add a description (e.g., "bot") and choose expiration
 5. Click **Add**
 6. **Immediately copy the Value** (not the ID) → This is your `CLIENT_SECRET`
    - ⚠️ You can only see this once!

@@ -9,9 +9,9 @@ An [Agent Skills](https://agentskills.io) compatible skill for AI agents.
 ### Clawdhub
 
 ```bash
-npx clawdhub@latest install rezkam/boring-but-good/skanetrafiken
-# or: pnpm dlx clawdhub@latest install rezkam/boring-but-good/skanetrafiken
-# or: bunx clawdhub@latest install rezkam/boring-but-good/skanetrafiken
+npx skills@latest install rezkam/boring-but-good/skanetrafiken
+# or: pnpm dlx skills@latest install rezkam/boring-but-good/skanetrafiken
+# or: bunx skills@latest install rezkam/boring-but-good/skanetrafiken
 ```
 
 ### Claude Code

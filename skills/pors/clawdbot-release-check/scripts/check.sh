@@ -1,28 +1,28 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-# Try to find clawdbot source directory
-if [[ -n "${CLAWDBOT_DIR:-}" ]]; then
-  CLAWDBOT_DIR="$CLAWDBOT_DIR"
-elif [[ -f "${HOME}/dev/clawdis/package.json" ]]; then
-  CLAWDBOT_DIR="${HOME}/dev/clawdis"
-elif [[ -f "${HOME}/clawdbot/package.json" ]]; then
-  CLAWDBOT_DIR="${HOME}/clawdbot"
+# Try to find bot source directory
+if [[ -n "${BOT_DIR:-}" ]]; then
+  BOT_DIR="$BOT_DIR"
+elif [[ -f "${HOME}/dev/botis/package.json" ]]; then
+  BOT_DIR="${HOME}/dev/botis"
+elif [[ -f "${HOME}/bot/package.json" ]]; then
+  BOT_DIR="${HOME}/bot"
 else
   # Fallback: find via npm
-  CLAWDBOT_DIR=$(npm root -g 2>/dev/null)/clawdbot
+  BOT_DIR=$(npm root -g 2>/dev/null)/bot
 fi
-STATE_DIR="${HOME}/.clawdbot"
-STATE_FILE="${STATE_DIR}/clawdbot-release-check-state.json"
-CACHE_FILE="${STATE_DIR}/clawdbot-release-check-cache.json"
-RELEASES_URL="https://api.github.com/repos/clawdbot/clawdbot/releases"
+STATE_DIR="${HOME}/.bot"
+STATE_FILE="${STATE_DIR}/bot-release-check-state.json"
+CACHE_FILE="${STATE_DIR}/bot-release-check-cache.json"
+RELEASES_URL="https://api.github.com/repos/bot/bot/releases"
 CACHE_MAX_AGE_HOURS="${CACHE_MAX_AGE_HOURS:-24}"
 
 usage() {
   cat <<'EOF'
-Clawdbot Release Checker
+Bot Release Checker
 
-Checks for new clawdbot releases and notifies once per version.
+Checks for new bot releases and notifies once per version.
 
 Usage: check.sh [OPTIONS]
 
@@ -65,7 +65,7 @@ done
 mkdir -p "$STATE_DIR"
 
 # Get current installed version from package.json
-current_version=$(jq -r '.version' "$CLAWDBOT_DIR/package.json" 2>/dev/null || echo "unknown")
+current_version=$(jq -r '.version' "$BOT_DIR/package.json" 2>/dev/null || echo "unknown")
 
 # Check if cache is valid
 use_cache=false
@@ -205,7 +205,7 @@ fi
 
 # Build notification message
 cat <<EOF
-🔄 **Clawdbot Update Available!**
+🔄 **Bot Update Available!**
 
 Current: \`$current_version\`
 Latest:  \`$latest_version\`
@@ -259,10 +259,10 @@ echo "🔗 $release_url"
 echo ""
 
 # Show appropriate update command
-if [[ -d "$CLAWDBOT_DIR/.git" ]]; then
-  echo "To update: \`cd $CLAWDBOT_DIR && git pull && pnpm install && pnpm build\`"
+if [[ -d "$BOT_DIR/.git" ]]; then
+  echo "To update: \`cd $BOT_DIR && git pull && pnpm install && pnpm build\`"
 else
-  echo "To update: \`npm update -g clawdbot\`"
+  echo "To update: \`npm update -g bot\`"
 fi
 
 # Save state

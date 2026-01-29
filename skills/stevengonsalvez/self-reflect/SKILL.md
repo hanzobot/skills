@@ -18,7 +18,7 @@ allowed-tools:
   - Glob
   - Bash
 metadata:
-  clawdbot:
+  bot:
     emoji: "🪞"
     config:
       stateDirs: ["~/.reflect"]

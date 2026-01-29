@@ -1,9 +1,9 @@
 #!/bin/bash
-# Fetch and display Clawdbot documentation sitemap organized by category
+# Fetch and display Bot documentation sitemap organized by category
 
-SITEMAP_URL="https://docs.clawd.bot/sitemap.xml"
+SITEMAP_URL="https://docs.hanzo.bot/sitemap.xml"
 
-echo "📚 Clawdbot Documentation Structure"
+echo "📚 Bot Documentation Structure"
 echo "===================================="
 echo ""
 
@@ -16,7 +16,7 @@ print_category() {
     local emoji="$2"
     local pattern="$3"
     
-    local matches=$(echo "$URLS" | grep -E "$pattern" | sed 's|https://docs.clawd.bot/||')
+    local matches=$(echo "$URLS" | grep -E "$pattern" | sed 's|https://docs.hanzo.bot/||')
     if [ -n "$matches" ]; then
         echo "$emoji $category"
         echo "$matches" | sed 's/^/  - /'

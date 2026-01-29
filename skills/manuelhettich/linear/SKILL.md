@@ -2,7 +2,7 @@
 name: linear
 description: Query and manage Linear issues, projects, and team workflows.
 homepage: https://linear.app
-metadata: {"clawdis":{"emoji":"📊","requires":{"env":["LINEAR_API_KEY"]}}}
+metadata: {"botis":{"emoji":"📊","requires":{"env":["LINEAR_API_KEY"]}}}
 ---
 
 # Linear
@@ -154,4 +154,4 @@ Use `linear.sh teams` to refresh and list available teams.
 ## Attribution
 
 Inspired by [schpet/linear-cli](https://github.com/schpet/linear-cli) by Peter Schilling (ISC License).
-This is an independent bash implementation for Clawdbot integration.
+This is an independent bash implementation for Bot integration.

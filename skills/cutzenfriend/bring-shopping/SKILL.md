@@ -13,7 +13,7 @@ Use the `bring-shopping` npm package to access Bring! lists with email/password 
 
 1. Install dependency in the skill folder:
    - `npm install bring-shopping`
-2. Set environment variables in the Clawdbot config (preferred) or shell:
+2. Set environment variables in the Bot config (preferred) or shell:
    - `BRING_EMAIL` and `BRING_PASSWORD`
 3. Run the CLI script:
    - `node scripts/bring_cli.mjs items --list "Willig"`
@@ -46,6 +46,6 @@ Use the `bring-shopping` npm package to access Bring! lists with email/password 
 
 ## Notes
 
-- Store credentials in Clawdbot config env so they are not bundled with the skill.
+- Store credentials in Bot config env so they are not bundled with the skill.
 - If the list name is ambiguous, run `lists` and ask which list to use.
 - If an item is already checked, `uncheck` re-adds it to the purchase list.

@@ -1,7 +1,7 @@
 ---
 name: apple-mail
 description: Apple Mail.app integration for macOS. Read inbox, search emails, send emails, reply, and manage messages with fast direct access (no enumeration).
-metadata: {"clawdbot":{"emoji":"📧","os":["darwin"],"requires":{"bins":["sqlite3"]}}}
+metadata: {"bot":{"emoji":"📧","os":["darwin"],"requires":{"bins":["sqlite3"]}}}
 ---
 
 # Apple Mail

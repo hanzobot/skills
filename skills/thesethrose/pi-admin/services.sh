@@ -8,9 +8,9 @@ echo ""
 # Gateway service
 echo "Gateway Service:"
 echo "----------------"
-pgrep -f "clawdis gateway" > /dev/null && echo "  ✅ Running" || echo "  ❌ Not running"
-if pgrep -f "clawdis gateway" > /dev/null; then
-  pids=$(pgrep -f "clawdis gateway" | tr '\n' ' ')
+pgrep -f "botis gateway" > /dev/null && echo "  ✅ Running" || echo "  ❌ Not running"
+if pgrep -f "botis gateway" > /dev/null; then
+  pids=$(pgrep -f "botis gateway" | tr '\n' ' ')
   echo "  PIDs: $pids"
 fi
 echo ""

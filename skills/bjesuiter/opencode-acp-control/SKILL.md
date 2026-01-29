@@ -51,7 +51,7 @@ Save the returned `sessionId` - you'll need it for all subsequent commands.
 Send immediately after starting OpenCode:
 
 ```json
-{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":1,"clientCapabilities":{"fs":{"readTextFile":true,"writeTextFile":true},"terminal":true},"clientInfo":{"name":"clawdbot","title":"Clawdbot","version":"1.0.0"}}}
+{"jsonrpc":"2.0","id":0,"method":"initialize","params":{"protocolVersion":1,"clientCapabilities":{"fs":{"readTextFile":true,"writeTextFile":true},"terminal":true},"clientInfo":{"name":"bot","title":"Bot","version":"1.0.0"}}}
 ```
 
 Poll for response. Expect `result.protocolVersion: 1`.
@@ -92,7 +92,7 @@ No response expected - this is a notification.
 ## State to Track
 
 Per OpenCode instance, track:
-- `processSessionId` - from bash tool (clawdbot's process ID)
+- `processSessionId` - from bash tool (bot's process ID)
 - `opencodeSessionId` - from session/new response (OpenCode's session ID)  
 - `messageId` - increment for each request you send
 

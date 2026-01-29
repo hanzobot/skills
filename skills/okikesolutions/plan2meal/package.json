@@ -1,7 +1,7 @@
 {
   "name": "plan2meal-skill",
   "version": "1.0.1",
-  "description": "ClawdHub skill for Plan2Meal recipe and grocery list management",
+  "description": "Skills skill for Plan2Meal recipe and grocery list management",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -13,7 +13,7 @@
     "test:interactive": "ts-node src/test.ts"
   },
   "keywords": [
-    "clawdhub",
+    "skills",
     "skill",
     "recipe",
     "meal-planner",

@@ -1,7 +1,7 @@
 ---
 name: newsletter-creation-curation
 description: Industry-specific newsletter creation with cadence recommendations and automation workflows
-metadata: {"clawdbot":{"emoji":"📧","homepage":"https://github.com/shashwatgtm","always":true}}
+metadata: {"bot":{"emoji":"📧","homepage":"https://github.com/shashwatgtm","always":true}}
 ---
 ## **🎯 Multi-Dimensional Navigator**
 

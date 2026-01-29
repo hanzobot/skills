@@ -48,7 +48,7 @@ tailscale serve reset
 ### Serve presentation alongside control UI
 ```bash
 # If control UI is at /, serve presentation at a subpath
-tailscale serve --bg --set-path /slides ~/clawd/personal-agents-presentation.html
+tailscale serve --bg --set-path /slides ~/bot/personal-agents-presentation.html
 
 # Access at: https://[hostname].ts.net/slides
 ```

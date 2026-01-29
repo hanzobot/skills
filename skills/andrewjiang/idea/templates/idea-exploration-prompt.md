@@ -57,10 +57,10 @@ Please research and analyze this idea comprehensively:
 Please be thorough but practical. Focus on actionable insights.
 
 **When you're done:**
-1. Save your research to: ~/clawd/ideas/{IDEA_SLUG}/research.md
+1. Save your research to: ~/bot/ideas/{IDEA_SLUG}/research.md
 2. Run this command to notify that research is complete:
    ```bash
-   ~/clawd/scripts/notify-research-complete.sh "{IDEA_SLUG}" "{SESSION_ID}"
+   ~/bot/scripts/notify-research-complete.sh "{IDEA_SLUG}" "{SESSION_ID}"
    ```
 ```
 

@@ -1,7 +1,7 @@
 ---
 name: homey
 description: Control Athom Homey smart home devices via local (LAN/VPN) or cloud APIs. List/control devices, trigger flows, query zones. Works with Homey Pro, Cloud, and Bridge.
-metadata: {"clawdbot":{"requires":{"bins":["homeycli"]},"install":[{"id":"homey-npm","kind":"node","package":".","bins":["homeycli"],"label":"Install Homey CLI"}]}}
+metadata: {"bot":{"requires":{"bins":["homeycli"]},"install":[{"id":"homey-npm","kind":"node","package":".","bins":["homeycli"],"label":"Install Homey CLI"}]}}
 ---
 
 # Homey Smart Home Control

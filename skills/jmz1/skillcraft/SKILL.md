@@ -1,24 +1,24 @@
 ---
 name: skillcraft
-description: Create, design, and package Clawdbot skills. Use when asked to "make/build/craft a skill for X", or when extracting ad-hoc functionality ("turn my script/agent instructions/library into a skill"). Applies Clawdbot-specific integration concerns (tool calling, memory, message routing etc.) to build reusable skills that compose.
-metadata: {"clawdbot":{"emoji":"🧶"}}
+description: Create, design, and package Bot skills. Use when asked to "make/build/craft a skill for X", or when extracting ad-hoc functionality ("turn my script/agent instructions/library into a skill"). Applies Bot-specific integration concerns (tool calling, memory, message routing etc.) to build reusable skills that compose.
+metadata: {"bot":{"emoji":"🧶"}}
 ---
 
-# Skillcraft - Clawdbot Skill Creator
+# Skillcraft - Bot Skill Creator
 
-An opinionated, AI-native design guide for Clawdbot skills. Focuses on **clawdbot-specific integration patterns** — message routing, cron scheduling, memory persistence, channel formatting — not generic programming advice.
+An opinionated, AI-native design guide for Bot skills. Focuses on **bot-specific integration patterns** — message routing, cron scheduling, memory persistence, channel formatting — not generic programming advice.
 
-**Assumes:** The agent knows how to write code, structure projects, and handle errors. This skill teaches *clawdbot-specific* concerns.
+**Assumes:** The agent knows how to write code, structure projects, and handle errors. This skill teaches *bot-specific* concerns.
 
 ## Prerequisites
 
-**Load the `clawddocs` (or equivalent) skill first.** This skill relies on Clawdbot documentation for authoritative feature details. The clawddocs skill provides:
+**Load the `botdocs` (or equivalent) skill first.** This skill relies on Bot documentation for authoritative feature details. The botdocs skill provides:
 
 - Documentation category navigation (see categories below)
 - Search scripts for finding specific docs
 - Config snippets for common patterns
 
-**Documentation categories** (via clawddocs):
+**Documentation categories** (via botdocs):
 
 | Category | Path | Use for |
 | -------- | ---- | ------- |
@@ -28,11 +28,11 @@ An opinionated, AI-native design guide for Clawdbot skills. Focuses on **clawdbo
 | Concepts | `/concepts/` | Sessions, models, queues, streaming |
 | Providers | `/providers/` | Discord, Telegram, WhatsApp, etc. |
 
-When this skill says "consult documentation," use clawddocs to fetch the relevant doc.
+When this skill says "consult documentation," use botdocs to fetch the relevant doc.
 
 ## Core Philosophy
 
-**Skills are how Clawdbot extends itself.** They survive context limits, compose cleanly, and share via ClawdHub. 
+**Skills are how Bot extends itself.** They survive context limits, compose cleanly, and share via Skills. 
 
 **Most good skills start as scattered notes before anyone formalizes them.** This skill is a protocol for that formalization — turning "remember to do X" into something that composes and shares.
 
@@ -67,7 +67,7 @@ Ask:
 - **Where does it live?** (scripts, TOOLS.md section, memory notes, conversation patterns)
 - **What does it do?** (describe the capability)
 - **How is it currently triggered?** (manual request, heartbeat check, ad-hoc)
-- **What Clawdbot features does it use?** (exec, cron, message, memory, etc.)
+- **What Bot features does it use?** (exec, cron, message, memory, etc.)
 
 Example inventory:
 
@@ -116,11 +116,11 @@ Work through these questions with the user:
 
 #### Generalisability
 
-Ask the user: **Is this skill for your setup specifically, or should it work for any Clawdbot instance?**
+Ask the user: **Is this skill for your setup specifically, or should it work for any Bot instance?**
 
 | Choice | Implications |
 |--------|--------------|
-| **Universal** | Generic paths (`<workspace>/`), no assumptions about installed tools, minimal references to user-specific config, suitable for ClawdHub |
+| **Universal** | Generic paths (`<workspace>/`), no assumptions about installed tools, minimal references to user-specific config, suitable for Skills |
 | **Particular** | Can reference specific local paths, skills, tools, TOOLS.md entries; tailored to user's workflow |
 
 This affects many downstream decisions. Capture it early.
@@ -156,11 +156,11 @@ Prioritise skills which have their dependencies fulfilled and are in active use.
 - Does it wrap a web API? What's the base URL? Auth mechanism? Rate limits?
 - Does it process local files? What formats? What transformations?
 
-#### Clawdbot Features
+#### Bot Features
 
-Clawdbot has powerful built-in features with deep semantics and rich configurability. They can be combined in unexpected ways to solve user problems.
+Bot has powerful built-in features with deep semantics and rich configurability. They can be combined in unexpected ways to solve user problems.
 
-**Conduct a creatively-minded review of the documentation** with the skill's needs in mind. Use **clawddocs** to explore — start with `/concepts/` and `/tools/` categories. Think like a meta-programmer: Clawdbot's features are primitives that compose. A skill might combine cron scheduling with canvas presentation and node camera access in ways no single feature anticipates. If a solution would require a configuration change, check `/gateway/configuration` and suggest it to the user.
+**Conduct a creatively-minded review of the documentation** with the skill's needs in mind. Use **botdocs** to explore — start with `/concepts/` and `/tools/` categories. Think like a meta-programmer: Bot's features are primitives that compose. A skill might combine cron scheduling with canvas presentation and node camera access in ways no single feature anticipates. If a solution would require a configuration change, check `/gateway/configuration` and suggest it to the user.
 
 **Documentation categories to explore:**
 
@@ -176,14 +176,14 @@ Clawdbot has powerful built-in features with deep semantics and rich configurabi
 | Web research | `/tools/` | `web_search`, `web_fetch` |
 | Image analysis | `/tools/` | `image` tool |
 
-**Verify feature usage against documentation.** Don't assume — features evolve and have nuances. Use clawddocs to check:
+**Verify feature usage against documentation.** Don't assume — features evolve and have nuances. Use botdocs to check:
 
 - Tool parameters and capabilities (fetch the relevant `/tools/` doc)
 - Channel-specific constraints (check `/providers/` for the target channel)
 - Configuration requirements and defaults (`/gateway/configuration`)
 - Known gotchas or limitations
 
-**Output:** Capability map listing external deps, Clawdbot features to use, and generalisability choice.
+**Output:** Capability map listing external deps, Bot features to use, and generalisability choice.
 
 ---
 
@@ -287,7 +287,7 @@ If user confirms reminder → **dynamically select the appropriate reminder syst
 
 #### Composable Pattern Examples
 
-Skills often combine multiple Clawdbot primitives in non-obvious ways. See **[patterns/composable-examples.md](patterns/composable-examples.md)** for 7 detailed examples:
+Skills often combine multiple Bot primitives in non-obvious ways. See **[patterns/composable-examples.md](patterns/composable-examples.md)** for 7 detailed examples:
 
 1. Visual Monitoring Pipeline (nodes + image + canvas + message)
 2. Parallel Research Aggregator (sessions_spawn + web_search + browser)
@@ -297,7 +297,7 @@ Skills often combine multiple Clawdbot primitives in non-obvious ways. See **[pa
 6. Interactive Approval Workflow (message + cron + memory + gateway)
 7. Adaptive Learning Loop (image + memory + cron)
 
-**Output:** Selection of Clawdbot system features with rationale (if any), initial architecture sketch.
+**Output:** Selection of Bot system features with rationale (if any), initial architecture sketch.
 
 
 ### Stage 4: Design Specification
@@ -317,7 +317,7 @@ If persistent state is needed, where should it live?
 - `<workspace>/state/<skill>.json` — for skill-internal state (common workspace area)
 - `<workspace>/TOOLS.md` — for user-specific configuration notes
 
-By default, skills shouldn't write state outside the workspace. `~/.clawdbot/` and other system-level config directories are not suitable for state storage.
+By default, skills shouldn't write state outside the workspace. `~/.bot/` and other system-level config directories are not suitable for state storage.
 
 #### User Preferences & Environment
 
@@ -353,13 +353,13 @@ Present the proposed architecture:
 2. **SKILL.md outline** — sections and key content
 3. **Software** — high level requirements for each software component (script, module, wrapper)
 4. **State management** — where and how state is persisted
-5. **Clawdbot integration points** — which features, how they interact
+5. **Bot integration points** — which features, how they interact
 
 *If extracting:* Include migration notes — what moves where, what workspace files need updating.
 
 **The specification is a review checkpoint.** Its purpose is letting the user verify:
 
-- Assumptions about Clawdbot integration are correct
+- Assumptions about Bot integration are correct
 - The design fits their existing workflow
 - No conflicts with existing workspace files or tools
 - Generalisability matches their intent
@@ -367,7 +367,7 @@ Present the proposed architecture:
 **Validate against requirements:**
 
 - Does it handle all the examples from Stage 1?
-- Are Clawdbot features used correctly? (verify via clawddocs)
+- Are Bot features used correctly? (verify via botdocs)
 - Is the state approach appropriate for the access pattern?
 - Are there edge cases or failure modes to handle?
 - Has the proposed architecture revealed any contradictions in the Stage 1 requirements?
@@ -408,7 +408,7 @@ Work through in order, with user review at each checkpoint:
 
 The SKILL.md frontmatter determines discoverability and provides structured metadata. The `description` field is critical — when the agent scans available skills, this determines whether the skill gets loaded.
 
-See <https://docs.clawd.bot/tools/skills> for Clawdbot-specific metadata documentation.
+See <https://docs.hanzo.bot/tools/skills> for Bot-specific metadata documentation.
 
 **Frontmatter format:**
 
@@ -417,7 +417,7 @@ See <https://docs.clawd.bot/tools/skills> for Clawdbot-specific metadata documen
 name: my-skill
 description: [description optimized for discovery]
 homepage: https://github.com/user/repo  # optional
-metadata: {"clawdbot": {"emoji": "🔧", "requires": {"bins": ["tool"], "env": ["API_KEY"]}, "install": [...]}}
+metadata: {"bot": {"emoji": "🔧", "requires": {"bins": ["tool"], "env": ["API_KEY"]}, "install": [...]}}
 ---
 ```
 
@@ -442,13 +442,13 @@ description: YouTube downloader.
 
 **Metadata field** (optional but recommended for publishable skills)
 
-Refer to the format specification at <https://docs.clawd.bot/tools/skills>.
+Refer to the format specification at <https://docs.hanzo.bot/tools/skills>.
 
 Simple example:
 
 ```json
 {
-  "clawdbot": {
+  "bot": {
     "emoji": "📍",
     "requires": {
       "bins": ["goplaces"],
@@ -490,12 +490,12 @@ Skills must handle paths carefully, especially for portability and multi-agent c
 
 - **Workspace files:** Always use `<workspace>/` prefix
 - **Skill components:** Relative paths OK (refers to skill directory)
-- **Never hardcode** `~/clawd` or similar — workspaces are portable
-- **State files:** Use `<workspace>/` paths, not `~/.clawdbot/` (skills don't own user home)
+- **Never hardcode** `~/bot` or similar — workspaces are portable
+- **State files:** Use `<workspace>/` paths, not `~/.bot/` (skills don't own user home)
 
 ### Sub-Agent Considerations
 
-Sub-agents via `sessions_spawn` may run in sandboxed containers with different mount points. Use **clawddocs** to check `/tools/subagents` for current sandbox configuration and path translation requirements. When spawning sub-agents that need workspace files, include path context in the task description.
+Sub-agents via `sessions_spawn` may run in sandboxed containers with different mount points. Use **botdocs** to check `/tools/subagents` for current sandbox configuration and path translation requirements. When spawning sub-agents that need workspace files, include path context in the task description.
 
 ## Workspace Awareness
 

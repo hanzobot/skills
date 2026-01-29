@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Clawdbot Update Plus - Notification functions
+# Bot Update Plus - Notification functions
 # Version: 2.1.1
 
 # Detect channel from target format
@@ -17,7 +17,7 @@ detect_channel() {
   fi
 }
 
-# Send notification via Clawdbot messaging
+# Send notification via Bot messaging
 send_notification() {
   local status="$1"  # "success", "info", or "error"
   local details="${2:-}"
@@ -48,9 +48,9 @@ send_notification() {
 
   log_info "Sending notification..."
 
-  # Check if clawdbot command is available
-  if ! command_exists clawdbot; then
-    log_warning "clawdbot command not found, skipping notification"
+  # Check if bot command is available
+  if ! command_exists bot; then
+    log_warning "bot command not found, skipping notification"
     return 0
   fi
 
@@ -60,13 +60,13 @@ send_notification() {
   # Build message
   local message=""
   if [[ "$status" == "success" ]]; then
-    message="✅ *Clawdbot Update Complete*"
+    message="✅ *Bot Update Complete*"
     message+="\n\n📦 Updates applied successfully."
   elif [[ "$status" == "info" ]]; then
-    message="ℹ️ *Clawdbot Update Check*"
+    message="ℹ️ *Bot Update Check*"
     message+="\n\n📋 Everything is already up to date."
   else
-    message="❌ *Clawdbot Update Failed*"
+    message="❌ *Bot Update Failed*"
     message+="\n\n⚠️ An error occurred during the update."
   fi
 
@@ -76,8 +76,8 @@ send_notification() {
 
   message+="\n\n🕐 $(date '+%Y-%m-%d %H:%M:%S')"
 
-  # Send via clawdbot message
-  if clawdbot message send --channel "$channel" --target "$NOTIFY_TARGET" --message "$message" 2>/dev/null; then
+  # Send via bot message
+  if bot message send --channel "$channel" --target "$NOTIFY_TARGET" --message "$message" 2>/dev/null; then
     log_success "Notification sent to $NOTIFY_TARGET via $channel"
     log_to_file "Notification sent to $NOTIFY_TARGET via $channel"
   else

@@ -2,7 +2,7 @@
 name: codex-account-switcher
 description: Manage multiple OpenAI Codex accounts. Capture current login tokens and switch between them instantly.
 metadata:
-  clawdbot:
+  bot:
     emoji: "🎭"
     requires:
       bins: ["python3"]
@@ -34,7 +34,7 @@ Interactive wizard to capture login(s).
 - **Always starts a fresh browser login** (`codex logout && codex login`) so you explicitly choose the identity to capture.
 - After each login it saves a snapshot.
 - In an interactive terminal it asks if you want to add another.
-- When invoked non-interactively (e.g. via Clawdbot), it runs **single-shot** (no "add another" prompt).
+- When invoked non-interactively (e.g. via Bot), it runs **single-shot** (no "add another" prompt).
 - When naming an account, **press Enter** to accept the default name (local-part of the detected email, e.g. `oliver` from `oliver@…`).
 
 ```bash

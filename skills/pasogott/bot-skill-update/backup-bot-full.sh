@@ -8,36 +8,36 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🚀 Clawdbot Full Backup Script${NC}"
+echo -e "${BLUE}🚀 Bot Full Backup Script${NC}"
 echo -e "${BLUE}================================${NC}"
 echo ""
 
 # Config check
-if [ ! -f ~/.clawdbot/clawdbot.json ]; then
-  echo -e "${RED}❌ Config file not found: ~/.clawdbot/clawdbot.json${NC}"
+if [ ! -f ~/.bot/bot.json ]; then
+  echo -e "${RED}❌ Config file not found: ~/.bot/bot.json${NC}"
   exit 1
 fi
 
 # Backup Directory
-BACKUP_DIR=~/.clawdbot-backups/pre-update-$(date +%Y%m%d-%H%M%S)
+BACKUP_DIR=~/.bot-backups/pre-update-$(date +%Y%m%d-%H%M%S)
 mkdir -p "$BACKUP_DIR"
 echo -e "${GREEN}📁 Backup Directory: $BACKUP_DIR${NC}"
 echo ""
 
 # 1. Config Backup
 echo -e "${YELLOW}📋 Backing up configuration...${NC}"
-cp ~/.clawdbot/clawdbot.json "$BACKUP_DIR/clawdbot.json"
+cp ~/.bot/bot.json "$BACKUP_DIR/bot.json"
 echo -e "${GREEN}✅ Config backed up${NC}"
 
 # Copy all backup files
-cp ~/.clawdbot/*.backup* "$BACKUP_DIR/" 2>/dev/null || true
-cp ~/.clawdbot/*.json.* "$BACKUP_DIR/" 2>/dev/null || true
+cp ~/.bot/*.backup* "$BACKUP_DIR/" 2>/dev/null || true
+cp ~/.bot/*.json.* "$BACKUP_DIR/" 2>/dev/null || true
 
 # 2. Sessions
 echo ""
 echo -e "${YELLOW}💾 Backing up sessions...${NC}"
-if [ -d ~/.clawdbot/sessions ]; then
-  tar -czf "$BACKUP_DIR/sessions.tar.gz" -C ~/.clawdbot sessions/
+if [ -d ~/.bot/sessions ]; then
+  tar -czf "$BACKUP_DIR/sessions.tar.gz" -C ~/.bot sessions/
   echo -e "${GREEN}✅ Sessions backed up${NC}"
 else
   echo -e "${BLUE}ℹ️  No sessions directory${NC}"
@@ -46,8 +46,8 @@ fi
 # 3. Agents State
 echo ""
 echo -e "${YELLOW}🤖 Backing up agents...${NC}"
-if [ -d ~/.clawdbot/agents ]; then
-  tar -czf "$BACKUP_DIR/agents.tar.gz" -C ~/.clawdbot agents/
+if [ -d ~/.bot/agents ]; then
+  tar -czf "$BACKUP_DIR/agents.tar.gz" -C ~/.bot agents/
   echo -e "${GREEN}✅ Agents backed up${NC}"
 else
   echo -e "${BLUE}ℹ️  No agents directory${NC}"
@@ -56,8 +56,8 @@ fi
 # 4. Credentials
 echo ""
 echo -e "${YELLOW}🔐 Backing up credentials...${NC}"
-if [ -d ~/.clawdbot/credentials ]; then
-  tar -czf "$BACKUP_DIR/credentials.tar.gz" -C ~/.clawdbot credentials/
+if [ -d ~/.bot/credentials ]; then
+  tar -czf "$BACKUP_DIR/credentials.tar.gz" -C ~/.bot credentials/
   echo -e "${GREEN}✅ Credentials backed up${NC}"
 else
   echo -e "${RED}⚠️  No credentials directory!${NC}"
@@ -66,8 +66,8 @@ fi
 # 5. Cron
 echo ""
 echo -e "${YELLOW}⏰ Backing up cron jobs...${NC}"
-if [ -d ~/.clawdbot/cron ]; then
-  tar -czf "$BACKUP_DIR/cron.tar.gz" -C ~/.clawdbot cron/
+if [ -d ~/.bot/cron ]; then
+  tar -czf "$BACKUP_DIR/cron.tar.gz" -C ~/.bot cron/
   echo -e "${GREEN}✅ Cron jobs backed up${NC}"
 else
   echo -e "${BLUE}ℹ️  No cron directory${NC}"
@@ -76,8 +76,8 @@ fi
 # 6. Sandboxes
 echo ""
 echo -e "${YELLOW}📦 Backing up sandboxes...${NC}"
-if [ -d ~/.clawdbot/sandboxes ]; then
-  tar -czf "$BACKUP_DIR/sandboxes.tar.gz" -C ~/.clawdbot sandboxes/
+if [ -d ~/.bot/sandboxes ]; then
+  tar -czf "$BACKUP_DIR/sandboxes.tar.gz" -C ~/.bot sandboxes/
   echo -e "${GREEN}✅ Sandboxes backed up${NC}"
 else
   echo -e "${BLUE}ℹ️  No sandboxes directory${NC}"
@@ -88,7 +88,7 @@ echo ""
 echo -e "${YELLOW}🏠 Backing up workspaces (reading from config)...${NC}"
 
 # Read workspaces from config
-WORKSPACE_DATA=$(jq -r '.routing.agents // {} | to_entries[] | "\(.key)|\(.value.workspace // "none")|\(.value.name // .key)"' ~/.clawdbot/clawdbot.json)
+WORKSPACE_DATA=$(jq -r '.routing.agents // {} | to_entries[] | "\(.key)|\(.value.workspace // "none")|\(.value.name // .key)"' ~/.bot/bot.json)
 
 if [ -z "$WORKSPACE_DATA" ]; then
   echo -e "${BLUE}ℹ️  No agents configured${NC}"
@@ -124,8 +124,8 @@ fi
 # 8. Git State
 echo ""
 echo -e "${YELLOW}🔧 Backing up git state...${NC}"
-if [ -d ~/code/clawdbot/.git ]; then
-  cd ~/code/clawdbot
+if [ -d ~/code/bot/.git ]; then
+  cd ~/code/bot
   git log -1 --oneline > "$BACKUP_DIR/git-version.txt"
   git branch --show-current >> "$BACKUP_DIR/git-version.txt"
   git status --short > "$BACKUP_DIR/git-status.txt"
@@ -151,7 +151,7 @@ if [ -n "$WORKSPACE_DATA" ]; then
 fi
 
 cat > "$BACKUP_DIR/BACKUP_INFO.txt" << EOF
-Clawdbot Full Backup
+Bot Full Backup
 ====================
 Date: $(date)
 Backup Location: $BACKUP_DIR
@@ -160,7 +160,7 @@ Git Information:
 ----------------
 $(cat "$BACKUP_DIR/git-version.txt" 2>/dev/null || echo "Not available")
 
-Repository: https://github.com/clawdbot/clawdbot
+Repository: https://github.com/bot/bot
 
 Contents:
 ---------
@@ -171,40 +171,40 @@ Workspace Information:
 
 Agents Configuration:
 --------------------
-$(jq -r '.routing.agents // {} | to_entries[] | "  - \(.key): \(.value.name // .key)"' ~/.clawdbot/clawdbot.json)
+$(jq -r '.routing.agents // {} | to_entries[] | "  - \(.key): \(.value.name // .key)"' ~/.bot/bot.json)
 
 Restore Instructions:
 ---------------------
 1. Stop Gateway:
-   cd ~/code/clawdbot
-   pnpm clawdbot gateway stop
+   cd ~/code/bot
+   pnpm bot gateway stop
 
 2. Restore Config:
-   cp $BACKUP_DIR/clawdbot.json ~/.clawdbot/clawdbot.json
+   cp $BACKUP_DIR/bot.json ~/.bot/bot.json
 
 3. Restore State:
-   tar -xzf $BACKUP_DIR/sessions.tar.gz -C ~/.clawdbot 2>/dev/null || true
-   tar -xzf $BACKUP_DIR/agents.tar.gz -C ~/.clawdbot 2>/dev/null || true
-   tar -xzf $BACKUP_DIR/credentials.tar.gz -C ~/.clawdbot 2>/dev/null || true
-   tar -xzf $BACKUP_DIR/cron.tar.gz -C ~/.clawdbot 2>/dev/null || true
-   tar -xzf $BACKUP_DIR/sandboxes.tar.gz -C ~/.clawdbot 2>/dev/null || true
+   tar -xzf $BACKUP_DIR/sessions.tar.gz -C ~/.bot 2>/dev/null || true
+   tar -xzf $BACKUP_DIR/agents.tar.gz -C ~/.bot 2>/dev/null || true
+   tar -xzf $BACKUP_DIR/credentials.tar.gz -C ~/.bot 2>/dev/null || true
+   tar -xzf $BACKUP_DIR/cron.tar.gz -C ~/.bot 2>/dev/null || true
+   tar -xzf $BACKUP_DIR/sandboxes.tar.gz -C ~/.bot 2>/dev/null || true
 
 4. Restore Workspaces:
 $(echo -e "$RESTORE_WORKSPACES")
 
 5. Restore Git (optional):
-   cd ~/code/clawdbot
+   cd ~/code/bot
    git checkout <commit from git-version.txt>
    pnpm install
    pnpm build
 
 6. Start Gateway:
-   pnpm clawdbot gateway start
+   pnpm bot gateway start
 
 Quick Restore:
 --------------
 Use the restore script:
-  ~/.skills/clawdbot-update/restore-clawdbot.sh $BACKUP_DIR
+  ~/.skills/bot-update/restore-bot.sh $BACKUP_DIR
 EOF
 
 # 10. Summary
@@ -220,7 +220,7 @@ echo ""
 
 # Validation
 echo -e "${YELLOW}🔍 Validation:${NC}"
-[ -f "$BACKUP_DIR/clawdbot.json" ] && echo -e "${GREEN}✅${NC} Config" || echo -e "${RED}❌${NC} Config"
+[ -f "$BACKUP_DIR/bot.json" ] && echo -e "${GREEN}✅${NC} Config" || echo -e "${RED}❌${NC} Config"
 [ -f "$BACKUP_DIR/credentials.tar.gz" ] && echo -e "${GREEN}✅${NC} Credentials" || echo -e "${YELLOW}⚠️${NC} Credentials"
 
 # Count workspace backups
@@ -238,6 +238,6 @@ echo -e "${BLUE}$BACKUP_DIR${NC}"
 echo ""
 echo -e "${YELLOW}💡 Next steps:${NC}"
 echo "1. Review backup: cat $BACKUP_DIR/BACKUP_INFO.txt"
-echo "2. Run validation: ~/.skills/clawdbot-update/validate-setup.sh"
+echo "2. Run validation: ~/.skills/bot-update/validate-setup.sh"
 echo "3. Proceed with update when ready"
 echo ""

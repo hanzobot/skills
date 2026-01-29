@@ -1,14 +1,14 @@
 ---
 name: grok-search
 description: Search the web or X/Twitter using xAI Grok server-side tools (web_search, x_search) via the xAI Responses API. Use when you need tweets/threads/users from X, or want Grok as an alternative search provider.
-metadata: {"clawdbot":{"requires":{"bins":["node"],"env":["XAI_API_KEY"]},"primaryEnv":"XAI_API_KEY"}}
+metadata: {"bot":{"requires":{"bins":["node"],"env":["XAI_API_KEY"]},"primaryEnv":"XAI_API_KEY"}}
 ---
 
 Use Grok search via the bundled script and return structured results.
 
 ## Prereqs
 
-- `XAI_API_KEY` must be set (env var), or present at `~/.clawdbot/clawdbot.json` under `env.XAI_API_KEY`.
+- `XAI_API_KEY` must be set (env var), or present at `~/.bot/bot.json` under `env.XAI_API_KEY`.
 
 ## Run
 

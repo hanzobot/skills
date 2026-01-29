@@ -1,4 +1,4 @@
-# Common Config Snippets for Clawdbot
+# Common Config Snippets for Bot
 
 ## Provider Setup
 

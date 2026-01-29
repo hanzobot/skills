@@ -4,7 +4,7 @@
 
 Transform YouTube videos into beautiful Telegraph Instant View articles with embedded slides and timestamped summaries.
 
-Best used with Clawdbot + Telegram for inline article opening.
+Best used with Bot + Telegram for inline article opening.
 
 ## Features
 

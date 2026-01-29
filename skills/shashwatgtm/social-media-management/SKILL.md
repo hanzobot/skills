@@ -1,7 +1,7 @@
 ---
 name: content-writing-thought-leadership
 description: B2B content writing with daily workflows and batching systems across Sales/HR/Fintech/Ops Tech
-metadata: {"clawdbot":{"emoji":"✍️","homepage":"https://github.com/shashwatgtm","always":true}}
+metadata: {"bot":{"emoji":"✍️","homepage":"https://github.com/shashwatgtm","always":true}}
 ---
 ## **🎯 Multi-Dimensional Navigator**
 

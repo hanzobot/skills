@@ -235,10 +235,10 @@ Each vertical includes 6 specific scenarios covering:
 
 ## 📦 Installation
 
-### Method 1: Using Clawd CLI
+### Method 1: Using Bot CLI
 
 ```bash
-clawdhub install shashwatgtm/competitive-intelligence-market-research
+skills install shashwatgtm/competitive-intelligence-market-research
 ```
 
 ### Method 2: Using Claude.ai

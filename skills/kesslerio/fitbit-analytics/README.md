@@ -1,9 +1,9 @@
-# Fitbit Analytics Skill for Clawdbot 🦞
+# Fitbit Analytics Skill for Bot 🦞
 
-[![Clawdbot Community Skill](https://img.shields.io/badge/clawdbot-community%20skill-blue)](https://github.com/clawdbot/clawdbot)
-[![ClawdHub Listed](https://img.shields.io/badge/clawdhub-listed-green)](https://clawdhub.com/skills/fitbit-analytics)
+[![Bot Community Skill](https://img.shields.io/badge/bot-community%20skill-blue)](https://github.com/bot/bot)
+[![Skills Listed](https://img.shields.io/badge/skills-listed-green)](https://skills.com/skills/fitbit-analytics)
 
-Fitbit health and fitness data integration for Clawdbot. Fetch steps, heart rate, sleep, activity, calories, and trends from Fitbit Web API. Generate automated health reports, correlations, and alerts.
+Fitbit health and fitness data integration for Bot. Fetch steps, heart rate, sleep, activity, calories, and trends from Fitbit Web API. Generate automated health reports, correlations, and alerts.
 
 ## Features
 

@@ -67,7 +67,7 @@ message:read
 
 ```bash
 # Find most recent session files for this agent
-SESSION_DIR=$(ls -d ~/.clawdbot-*/agents/*/sessions 2>/dev/null | head -1)
+SESSION_DIR=$(ls -d ~/.bot-*/agents/*/sessions 2>/dev/null | head -1)
 SESSIONS=$(ls -t "$SESSION_DIR"/*.jsonl 2>/dev/null | head -3)
 
 for SESSION in $SESSIONS; do
@@ -86,10 +86,10 @@ done
 ```bash
 # Extract keywords from channel history (project names, PR numbers, branch names)
 # Search memory for relevant entries
-grep -ri "<keyword>" ~/clawd-*/memory/ 2>/dev/null | head -10
+grep -ri "<keyword>" ~/bot-*/memory/ 2>/dev/null | head -10
 
 # Check for recent daily logs
-ls -t ~/clawd-*/memory/202*.md 2>/dev/null | head -3 | xargs grep -l "<keyword>" 2>/dev/null
+ls -t ~/bot-*/memory/202*.md 2>/dev/null | head -3 | xargs grep -l "<keyword>" 2>/dev/null
 ```
 
 ### Step 5: Synthesize Context
@@ -140,7 +140,7 @@ Compile a structured summary:
 
 ```bash
 # Write to daily memory file
-MEMORY_FILE=~/clawd-*/memory/$(date +%Y-%m-%d).md
+MEMORY_FILE=~/bot-*/memory/$(date +%Y-%m-%d).md
 
 cat >> "$MEMORY_FILE" << EOF
 
@@ -234,6 +234,6 @@ User message: "did this happen?"
 > **Recovered state:**
 > - PR #137: 15,053 additions, 91 files, CONFLICTING merge state
 > - Spec location: `content/spec-skills-agents-system.md` (2,067 lines)
-> - Nexus sessions: `~/.clawdbot-duke-leto/archive/nexus-sessions/` (96 files)
+> - Nexus sessions: `~/.bot-duke-leto/archive/nexus-sessions/` (96 files)
 >
 > Shall I proceed with the extraction?"

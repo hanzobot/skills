@@ -4,7 +4,7 @@ description: Manage Jira issues, transitions, and worklogs via the Jira Cloud RE
 homepage: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
 metadata:
   {
-    "clawdbot":
+    "bot":
       {
         "emoji": "🧭",
         "requires":
@@ -19,7 +19,7 @@ metadata:
 
 # Jira Skill
 
-Work with Jira issues and worklogs from Clawdbot (search, status, create, log work, worklog summaries).
+Work with Jira issues and worklogs from Bot (search, status, create, log work, worklog summaries).
 
 ## Setup
 

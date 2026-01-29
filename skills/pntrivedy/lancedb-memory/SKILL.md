@@ -14,7 +14,7 @@ from pathlib import Path
 class LanceMemoryDB:
     """LanceDB wrapper for long-term memory storage and retrieval."""
     
-    def __init__(self, db_path: str = "/Users/prerak/clawd/memory/lancedb"):
+    def __init__(self, db_path: str = "/Users/prerak/bot/memory/lancedb"):
         self.db_path = Path(db_path)
         self.db_path.mkdir(parents=True, exist_ok=True)
         self.db = lancedb.connect(self.db_path)

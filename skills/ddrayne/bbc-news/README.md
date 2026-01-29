@@ -1,6 +1,6 @@
 # BBC News Skill
 
-A Clawdbot skill for fetching BBC News stories from various sections and regions via RSS feeds.
+A Bot skill for fetching BBC News stories from various sections and regions via RSS feeds.
 
 ## Features
 
@@ -12,17 +12,17 @@ A Clawdbot skill for fetching BBC News stories from various sections and regions
 
 ## Installation
 
-### Via ClawdHub
+### Via Skills
 
 ```bash
-clawdhub install bbc-news
+skills install bbc-news
 ```
 
 ### Manual Installation
 
 ```bash
 # Clone the repo
-git clone https://github.com/ddrayne/bbc-news-skill.git ~/.clawdbot/skills/bbc-news
+git clone https://github.com/ddrayne/bbc-news-skill.git ~/.bot/skills/bbc-news
 
 # Install dependencies
 pip3 install feedparser
@@ -30,7 +30,7 @@ pip3 install feedparser
 
 ## Usage
 
-### With Clawdbot
+### With Bot
 
 Ask your agent:
 - "What's the latest BBC news?"
@@ -41,19 +41,19 @@ Ask your agent:
 
 ```bash
 # Top stories (default)
-python3 ~/.clawdbot/skills/bbc-news/scripts/bbc_news.py
+python3 ~/.bot/skills/bbc-news/scripts/bbc_news.py
 
 # Specific section
-python3 ~/.clawdbot/skills/bbc-news/scripts/bbc_news.py technology
+python3 ~/.bot/skills/bbc-news/scripts/bbc_news.py technology
 
 # Limit results
-python3 ~/.clawdbot/skills/bbc-news/scripts/bbc_news.py uk --limit 5
+python3 ~/.bot/skills/bbc-news/scripts/bbc_news.py uk --limit 5
 
 # JSON output
-python3 ~/.clawdbot/skills/bbc-news/scripts/bbc_news.py world --json
+python3 ~/.bot/skills/bbc-news/scripts/bbc_news.py world --json
 
 # List all sections
-python3 ~/.clawdbot/skills/bbc-news/scripts/bbc_news.py --list
+python3 ~/.bot/skills/bbc-news/scripts/bbc_news.py --list
 ```
 
 ## Available Sections

@@ -1,7 +1,7 @@
 ---
 name: apple-photos
 description: Apple Photos.app integration for macOS. List albums, browse photos, search by date/person/content, export photos.
-metadata: {"clawdbot":{"emoji":"📷","os":["darwin"]}}
+metadata: {"bot":{"emoji":"📷","os":["darwin"]}}
 ---
 
 # Apple Photos

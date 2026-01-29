@@ -2,7 +2,7 @@
 name: whoop-morning
 description: Check WHOOP recovery/sleep/strain each morning and send suggestions.
 metadata:
-  clawdbot:
+  bot:
     config:
       requiredEnv:
         - WHOOP_CLIENT_ID
@@ -24,25 +24,25 @@ You already have:
 - `WHOOP_CLIENT_ID`
 - `WHOOP_CLIENT_SECRET`
 
-Store these in `~/.clawdbot/.env`.
+Store these in `~/.bot/.env`.
 
 ### 2) Authorize once (get refresh token)
 
 Run:
 
 ```bash
-/home/claw/clawd/skills/whoop-morning/bin/whoop-auth --scopes offline read:recovery read:sleep read:cycles read:profile
+/home/claw/bot/skills/whoop-morning/bin/whoop-auth --scopes offline read:recovery read:sleep read:cycles read:profile
 ```
 
 This prints an authorization URL.
 Open it in your browser, approve, and paste the `code` back into the terminal.
 
-The script will exchange it for tokens and write `WHOOP_REFRESH_TOKEN=...` to `~/.clawdbot/.env`.
+The script will exchange it for tokens and write `WHOOP_REFRESH_TOKEN=...` to `~/.bot/.env`.
 
 ### 3) Run the morning report
 
 ```bash
-/home/claw/clawd/skills/whoop-morning/bin/whoop-morning
+/home/claw/bot/skills/whoop-morning/bin/whoop-morning
 ```
 
 ## Automation

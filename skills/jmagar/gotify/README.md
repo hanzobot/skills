@@ -1,6 +1,6 @@
 # Gotify Skill
 
-Send push notifications via Gotify from Clawdbot.
+Send push notifications via Gotify from Bot.
 
 ## What It Does
 
@@ -21,8 +21,8 @@ Send push notifications via Gotify from Clawdbot.
 ### 2. Create Credentials File
 
 ```bash
-mkdir -p ~/.clawdbot/credentials/gotify
-cp config.json.example ~/.clawdbot/credentials/gotify/config.json
+mkdir -p ~/.bot/credentials/gotify
+cp config.json.example ~/.bot/credentials/gotify/config.json
 # Edit with your actual values
 ```
 
@@ -38,7 +38,7 @@ Or create manually:
 ### 3. Test It
 
 ```bash
-bash scripts/send.sh "Hello from Clawdbot!"
+bash scripts/send.sh "Hello from Bot!"
 ```
 
 ## Usage Examples
@@ -113,7 +113,7 @@ export GOTIFY_TOKEN="your-app-token"
 ## Troubleshooting
 
 **"Gotify not configured"**  
-→ Check your config file exists at `~/.clawdbot/credentials/gotify/config.json`
+→ Check your config file exists at `~/.bot/credentials/gotify/config.json`
 
 **Connection refused**  
 → Verify your Gotify server URL is correct

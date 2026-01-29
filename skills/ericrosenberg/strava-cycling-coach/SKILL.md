@@ -12,7 +12,7 @@ Track cycling performance, analyze rides, and monitor fitness progression using 
 ### 1. Create Strava API Application
 
 Visit https://www.strava.com/settings/api and create an application:
-- Application Name: Clawdbot (or your preferred name)
+- Application Name: Bot (or your preferred name)
 - Category: Data Importer
 - Club: (leave blank)
 - Website: http://localhost

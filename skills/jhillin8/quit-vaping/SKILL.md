@@ -1,7 +1,7 @@
 ---
 name: quit-vaping
 description: Quit vaping with nicotine-free streak tracking, craving tools, and health milestones
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "quit vaping"

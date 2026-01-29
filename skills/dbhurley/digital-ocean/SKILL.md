@@ -2,7 +2,7 @@
 name: digital-ocean
 description: Manage Digital Ocean droplets, domains, and infrastructure via DO API.
 homepage: https://docs.digitalocean.com/reference/api/
-metadata: {"clawdis":{"emoji":"🌊","requires":{"bins":["uv","curl"],"env":["DO_API_TOKEN"]},"primaryEnv":"DO_API_TOKEN"}}
+metadata: {"botis":{"emoji":"🌊","requires":{"bins":["uv","curl"],"env":["DO_API_TOKEN"]},"primaryEnv":"DO_API_TOKEN"}}
 ---
 
 # Digital Ocean Management

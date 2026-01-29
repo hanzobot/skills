@@ -12,7 +12,7 @@ Automated LinkedIn inbox monitoring with human-in-the-loop approval for response
 - macOS with Peekaboo CLI installed (`brew install steipete/tap/peekaboo`)
 - Screen Recording + Accessibility permissions granted
 - LinkedIn logged in via browser (Chrome recommended)
-- Clawdbot with browser capability
+- Bot with browser capability
 
 ## Quick Start
 

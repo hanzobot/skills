@@ -1,7 +1,7 @@
 ---
 name: craft
 description: Manage Craft notes, documents, and tasks via CLI. Use when the user asks to add notes, create documents, manage tasks, search their Craft documents, or work with daily notes. Craft is a note-taking app for macOS/iOS.
-metadata: {"clawdbot":{"install":[{"id":"craft-cli","kind":"script","path":"scripts/craft","dest":"~/bin/craft","label":"Install Craft CLI"}]}}
+metadata: {"bot":{"install":[{"id":"craft-cli","kind":"script","path":"scripts/craft","dest":"~/bin/craft","label":"Install Craft CLI"}]}}
 ---
 
 # Craft CLI

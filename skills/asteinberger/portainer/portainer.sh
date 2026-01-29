@@ -1,6 +1,6 @@
 #!/bin/bash
 # Portainer CLI - Control Docker containers via Portainer API
-# Author: Andy Steinberger (with help from his Clawdbot Owen the Frog 🐸)
+# Author: Andy Steinberger (with help from his Bot Owen the Frog 🐸)
 
 set -e
 
@@ -8,9 +8,9 @@ set -e
 PORTAINER_URL="${PORTAINER_URL:-}"
 PORTAINER_API_KEY="${PORTAINER_API_KEY:-}"
 
-# Try to load from clawdbot .env if not set
+# Try to load from bot .env if not set
 if [[ -z "$PORTAINER_URL" || -z "$PORTAINER_API_KEY" ]]; then
-    ENV_FILE="$HOME/.clawdbot/.env"
+    ENV_FILE="$HOME/.bot/.env"
     if [[ -f "$ENV_FILE" ]]; then
         export $(grep -E "^PORTAINER_" "$ENV_FILE" | xargs)
     fi
@@ -18,7 +18,7 @@ fi
 
 if [[ -z "$PORTAINER_URL" || -z "$PORTAINER_API_KEY" ]]; then
     echo "Error: PORTAINER_URL and PORTAINER_API_KEY must be set"
-    echo "Add to ~/.clawdbot/.env or export as environment variables"
+    echo "Add to ~/.bot/.env or export as environment variables"
     exit 1
 fi
 

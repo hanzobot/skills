@@ -9,9 +9,9 @@ set -euo pipefail
 TESSIE_API_URL="${TESSIE_API_URL:-https://api.tessie.com}"
 TESSIE_API_KEY="${TESSIE_API_KEY:-}"
 
-# Get API key from clawdbot config if env not set
+# Get API key from bot config if env not set
 if [[ -z "$TESSIE_API_KEY" ]]; then
-    CONFIG_FILE="$HOME/.clawdbot/clawdbot.json"
+    CONFIG_FILE="$HOME/.bot/bot.json"
     if [[ -f "$CONFIG_FILE" ]]; then
         TESSIE_API_KEY=$(jq -r '.skills.entries.tessie.apiKey // empty' "$CONFIG_FILE" 2>/dev/null || echo "")
         TESSIE_VEHICLE_ID=$(jq -r '.skills.entries.tessie.vehicleId // empty' "$CONFIG_FILE" 2>/dev/null || echo "")
@@ -21,7 +21,7 @@ fi
 # Validate API key
 if [[ -z "$TESSIE_API_KEY" ]]; then
     echo "⚠️  Tessie API key not configured"
-    echo "Set TESSIE_API_KEY environment variable or configure in clawdbot.json"
+    echo "Set TESSIE_API_KEY environment variable or configure in bot.json"
     exit 1
 fi
 
@@ -437,7 +437,7 @@ Examples:
 
 Setup:
   1. Get API key from https://tessie.com/developers
-  2. Set TESSIE_API_KEY env var or add to clawdbot.json
+  2. Set TESSIE_API_KEY env var or add to bot.json
   3. Optionally set TESSIE_VEHICLE_ID if known
 EOF
         ;;

@@ -2,7 +2,7 @@
 name: deploy-agent
 description: Multi-step deployment agent for full-stack apps. Build → Test → GitHub → Cloudflare Pages with human approval at each step.
 metadata:
-  clawdbot:
+  bot:
     emoji: "🚀"
     requires:
       bins: ["gh", "wrangler", "git"]
@@ -15,8 +15,8 @@ Deploy full-stack applications via a multi-step workflow with human approval at 
 ## Quick Start
 
 ```bash
-# Install via ClawdHub
-clawdhub install deploy-agent
+# Install via Skills
+skills install deploy-agent
 
 # Initialize a new deployment
 deploy-agent init my-app
@@ -121,7 +121,7 @@ App live at: https://my-blog.sheraj.org
 
 ## State Management
 
-State stored in: `~/.clawdbot/skills/deploy-agent/state/{deployment-name}.json`
+State stored in: `~/.bot/skills/deploy-agent/state/{deployment-name}.json`
 
 ```json
 {

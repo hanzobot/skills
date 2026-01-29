@@ -459,7 +459,7 @@ Result: Tool went from single-device/broken to universal/production-ready.
 - Building tools that read system configuration
 - Working with keychains, credentials, environment variables
 - Creating scripts that run on multiple machines
-- Publishing skills to ClawdHub (others will use them)
+- Publishing skills to Skills (others will use them)
 
 **Apply:**
 1. Before implementing: Answer the three questions

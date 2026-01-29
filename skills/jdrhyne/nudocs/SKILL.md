@@ -3,7 +3,7 @@ name: nudocs
 description: Upload, edit, and export documents via Nudocs.ai. Use when creating shareable document links for collaborative editing, uploading markdown/docs to Nudocs for rich editing, or pulling back edited content. Triggers on "send to nudocs", "upload to nudocs", "edit in nudocs", "pull from nudocs", "get the nudocs link", "show my nudocs documents".
 homepage: https://nudocs.ai
 metadata:
-  clawdbot:
+  bot:
     emoji: "📄"
     requires:
       bins: ["nudocs"]

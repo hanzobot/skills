@@ -6,7 +6,7 @@ description: >-
   Use when transcribing audio files, converting speech to text, or processing
   voice recordings locally without cloud APIs.
 homepage: https://github.com/groxaxo/parakeet-tdt-0.6b-v3-fastapi-openai
-metadata: {"clawdbot":{"emoji":"🦜","env":["PARAKEET_URL"]}}
+metadata: {"bot":{"emoji":"🦜","env":["PARAKEET_URL"]}}
 ---
 
 # Parakeet TDT (Speech-to-Text)

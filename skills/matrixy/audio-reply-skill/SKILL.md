@@ -2,7 +2,7 @@
 name: audio-reply
 description: 'Generate audio replies using TTS. Trigger with "read it to me [URL]" to fetch and read content aloud, or "talk to me [topic]" to generate a spoken response. Also responds to "speak", "say it", "voice reply".'
 homepage: https://github.com/anthropics/claude-code
-metadata: {"clawdbot":{"emoji":"🔊","requires":{"bins":["uv"]}}}
+metadata: {"bot":{"emoji":"🔊","requires":{"bins":["uv"]}}}
 ---
 
 # Audio Reply Skill

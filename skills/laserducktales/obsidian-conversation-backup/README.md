@@ -1,4 +1,4 @@
-# Obsidian Conversation Backup for Clawdbot
+# Obsidian Conversation Backup for Bot
 
 🦞 Automatic conversation backup system with beautiful chat-style Obsidian formatting.
 
@@ -15,10 +15,10 @@
 
 ```bash
 # Install the skill
-clawdbot skills install YOUR-USERNAME/clawdbot-obsidian-backup
+bot skills install YOUR-USERNAME/bot-obsidian-backup
 
 # Run installer
-cd ~/.clawdbot/skills/obsidian-conversation-backup
+cd ~/.bot/skills/obsidian-conversation-backup
 ./install.sh
 
 # Add to crontab for automatic hourly backups
@@ -28,7 +28,7 @@ crontab -e
 
 ## What It Does
 
-Protects your Clawdbot conversations from data loss when running `/new` by automatically backing up to Obsidian vault with beautiful formatting.
+Protects your Bot conversations from data loss when running `/new` by automatically backing up to Obsidian vault with beautiful formatting.
 
 **In Obsidian, conversations look like:**
 
@@ -43,7 +43,7 @@ See [SKILL.md](SKILL.md) for complete documentation, configuration options, and 
 
 ## Requirements
 
-- Clawdbot
+- Bot
 - Obsidian vault
 - `jq` (JSON parser)
 - `cron` (for automatic backups)

@@ -10,7 +10,7 @@ Manage Usenet downloads via SABnzbd's REST API.
 
 ## Setup
 
-Config: `~/.clawdbot/credentials/sabnzbd/config.json`
+Config: `~/.bot/credentials/sabnzbd/config.json`
 
 ```json
 {

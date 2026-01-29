@@ -4,7 +4,7 @@ description: "Automate George online banking (Erste Bank / Sparkasse Austria) us
 summary: "George (Erste/Sparkasse Austria) banking automation: login, accounts/balances, statements and transaction exports."
 version: 1.0.7
 homepage: https://github.com/odrobnik/george-skill
-metadata: {"clawdbot":{"emoji":"🏦","requires":{"bins":["python3","playwright"]}}}
+metadata: {"bot":{"emoji":"🏦","requires":{"bins":["python3","playwright"]}}}
 ---
 
 # George Banking Automation
@@ -26,7 +26,7 @@ python3 {baseDir}/scripts/george.py accounts
 
 What `setup` does:
 - Prompts for your **George user number / username** (`user_id`)
-- Writes `~/.clawdbot/george/config.json` (accounts stored as an array)
+- Writes `~/.bot/george/config.json` (accounts stored as an array)
 - Ensures Playwright is installed and installs Chromium
 
 ### Manual setup (alternative)
@@ -35,8 +35,8 @@ What `setup` does:
 pipx install playwright
 playwright install chromium
 
-mkdir -p ~/.clawdbot/george
-cat > ~/.clawdbot/george/config.json <<EOF
+mkdir -p ~/.bot/george
+cat > ~/.bot/george/config.json <<EOF
 {
   "user_id": "YOUR_USER_ID",
   "accounts": {}
@@ -55,7 +55,7 @@ python3 {baseDir}/scripts/george.py login
 python3 {baseDir}/scripts/george.py logout
 ```
 
-Session is persisted in `~/.clawdbot/george/.pw-profile/` (or `--dir`).
+Session is persisted in `~/.bot/george/.pw-profile/` (or `--dir`).
 
 ### Accounts
 
@@ -102,18 +102,18 @@ Supported formats: `csv` (default), `json`, `ofx`, `xlsx`
 
 ```
 --visible          Show browser window (debugging)
---dir DIR          State directory (default: ~/.clawdbot/george; override via GEORGE_DIR)
+--dir DIR          State directory (default: ~/.bot/george; override via GEORGE_DIR)
 --login-timeout N  Seconds to wait for phone approval (default: 60)
 --user-id ID       Override user number/username (or set GEORGE_USER_ID)
 ```
 
-You can also put `GEORGE_USER_ID=...` in `~/.clawdbot/george/.env`.
+You can also put `GEORGE_USER_ID=...` in `~/.bot/george/.env`.
 
 ## Output / state locations
 
-- **Config:** `~/.clawdbot/george/config.json` (or `--dir`)
-- **Session:** `~/.clawdbot/george/.pw-profile/` (or `--dir`)
-- **Downloads:** `~/.clawdbot/george/data/` (or `--dir`)
+- **Config:** `~/.bot/george/config.json` (or `--dir`)
+- **Session:** `~/.bot/george/.pw-profile/` (or `--dir`)
+- **Downloads:** `~/.bot/george/data/` (or `--dir`)
 
 ## Security notes
 

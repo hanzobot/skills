@@ -1,8 +1,8 @@
 ---
 name: apple-media
 description: Control Apple TV, HomePod, and AirPlay devices via pyatv (scan, stream, playback, volume, navigation).
-homepage: https://github.com/aaronn/clawd-apple-media-skill
-metadata: {"clawdbot":{"emoji":"🎛️","requires":{"bins":["atvremote"]},"install":[{"id":"pipx","kind":"shell","command":"pipx install pyatv --python python3.13","bins":["atvremote"],"label":"Install pyatv via pipx (Python 3.13)"}]}}
+homepage: https://github.com/aaronn/bot-apple-media-skill
+metadata: {"bot":{"emoji":"🎛️","requires":{"bins":["atvremote"]},"install":[{"id":"pipx","kind":"shell","command":"pipx install pyatv --python python3.13","bins":["atvremote"],"label":"Install pyatv via pipx (Python 3.13)"}]}}
 ---
 
 # Apple Media Remote

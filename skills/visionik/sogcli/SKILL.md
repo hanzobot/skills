@@ -2,7 +2,7 @@
 name: sog
 description: Standards Ops Gadget — CLI for IMAP/SMTP/CalDAV/CardDAV/WebDAV. Open-standards alternative to gog (Google) and mog (Microsoft).
 homepage: https://github.com/visionik/sogcli
-metadata: {"clawdbot":{"emoji":"📬","requires":{"bins":["sog"]},"install":[{"id":"go","kind":"go","package":"github.com/visionik/sogcli/cmd/sog@latest","bins":["sog"],"label":"Install sog (go install)"}]}}
+metadata: {"bot":{"emoji":"📬","requires":{"bins":["sog"]},"install":[{"id":"go","kind":"go","package":"github.com/visionik/sogcli/cmd/sog@latest","bins":["sog"],"label":"Install sog (go install)"}]}}
 ---
 
 # sog — Standards Ops Gadget

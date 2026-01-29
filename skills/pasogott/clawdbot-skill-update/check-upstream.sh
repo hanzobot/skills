@@ -7,17 +7,17 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-echo -e "${BLUE}🔍 Clawdbot Upstream Check${NC}"
+echo -e "${BLUE}🔍 Bot Upstream Check${NC}"
 echo -e "${BLUE}==========================${NC}"
 echo ""
 
 # Check if repo exists
-if [ ! -d ~/code/clawdbot/.git ]; then
-  echo -e "${RED}❌ Clawdbot repository not found at ~/code/clawdbot${NC}"
+if [ ! -d ~/code/bot/.git ]; then
+  echo -e "${RED}❌ Bot repository not found at ~/code/bot${NC}"
   exit 1
 fi
 
-cd ~/code/clawdbot
+cd ~/code/bot
 
 # Current state
 echo -e "${YELLOW}📍 Current State${NC}"
@@ -65,12 +65,12 @@ echo -e "${BLUE}═════════════════════�
 
 if [ "$BEHIND" != "0" ]; then
   echo -e "${YELLOW}💡 To update:${NC}"
-  echo "  1. Backup: ~/.skills/clawdbot-update/backup-clawdbot-full.sh"
+  echo "  1. Backup: ~/.skills/bot-update/backup-bot-full.sh"
   echo "  2. Update: git pull --rebase origin main"
   echo "  3. Build:  pnpm install && pnpm build"
   echo ""
   echo "Or use the full checklist:"
-  echo "  cat ~/.skills/clawdbot-update/UPDATE_CHECKLIST.md"
+  echo "  cat ~/.skills/bot-update/UPDATE_CHECKLIST.md"
 fi
 
 echo ""

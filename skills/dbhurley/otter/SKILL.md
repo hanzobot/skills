@@ -5,7 +5,7 @@ version: 1.0.0
 author: dbhurley
 homepage: https://otter.ai
 metadata:
-  clawdis:
+  botis:
     emoji: "🦦"
     requires:
       bins: ["python3", "uv"]
@@ -38,7 +38,7 @@ Interact with Otter.ai to manage meeting transcripts - list, search, download, u
 
 ## ⚙️ Setup
 
-Configure in `~/.clawdis/clawdis.json`:
+Configure in `~/.botis/botis.json`:
 ```json
 {
   "skills": {
@@ -115,5 +115,5 @@ When syncing to Twenty, creates:
 ## 📦 Installation
 
 ```bash
-clawdhub install otter
+skills install otter
 ```

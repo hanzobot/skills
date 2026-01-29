@@ -1,4 +1,4 @@
-# Publishing Guide for Clawdbot Update Skill
+# Publishing Guide for Bot Update Skill
 
 ## Pre-Publication Checklist
 
@@ -9,21 +9,21 @@
 - [x] Generic examples in documentation
 - [x] All scripts executable
 - [x] package.json configured
-- [x] .clawdhub.json configured
+- [x] .skills.json configured
 - [x] README with installation instructions
 
 ## Files Ready for Publication
 
 ```
-/tmp/clawdbot-update-publish/
-├── backup-clawdbot-dryrun.sh     # Dry run preview
-├── backup-clawdbot-full.sh       # Full backup
-├── restore-clawdbot.sh           # Restore
+/tmp/bot-update-publish/
+├── backup-bot-dryrun.sh     # Dry run preview
+├── backup-bot-full.sh       # Full backup
+├── restore-bot.sh           # Restore
 ├── validate-setup.sh             # Validation
 ├── check-upstream.sh             # Update checker
 ├── config.json                   # Skill config
 ├── package.json                  # npm metadata
-├── .clawdhub.json               # ClawdHub metadata
+├── .skills.json               # Skills metadata
 ├── LICENSE                       # MIT License
 ├── README.md                     # Quick start
 ├── SKILL.md                      # Full documentation
@@ -36,7 +36,7 @@
 ### 1. Prepare npm package
 
 ```bash
-cd /tmp/clawdbot-update-publish
+cd /tmp/bot-update-publish
 
 # Verify package.json
 cat package.json
@@ -59,33 +59,33 @@ npm publish --access public
 
 ```bash
 # Check package page
-open https://www.npmjs.com/package/@clawdbot/skill-update
+open https://www.npmjs.com/package/@bot/skill-update
 
 # Test installation
-npm install -g @clawdbot/skill-update
+npm install -g @bot/skill-update
 ```
 
-## Publishing to ClawdHub
+## Publishing to Skills
 
 ### 1. Create repository
 
 ```bash
 # Option A: Create new repo
-gh repo create pasogott/clawdbot-skill-update --public
+gh repo create pasogott/bot-skill-update --public
 
-# Option B: Fork Clawdbot repo and add as subdirectory
-# Follow ClawdHub contribution guidelines
+# Option B: Fork Bot repo and add as subdirectory
+# Follow Skills contribution guidelines
 ```
 
 ### 2. Push to repository
 
 ```bash
-cd /tmp/clawdbot-update-publish
+cd /tmp/bot-update-publish
 
 # Initialize git
 git init
 git add .
-git commit -m "Initial release: Clawdbot Update Skill v1.0.0
+git commit -m "Initial release: Bot Update Skill v1.0.0
 
 Features:
 - Dynamic workspace detection
@@ -99,42 +99,42 @@ Author: Pascal Schott (@pasogott)
 License: MIT"
 
 # Push to GitHub
-git remote add origin https://github.com/pasogott/clawdbot-skill-update.git
+git remote add origin https://github.com/pasogott/bot-skill-update.git
 git branch -M main
 git push -u origin main
 ```
 
-### 3. Submit to ClawdHub
+### 3. Submit to Skills
 
-Visit https://clawdhub.com and follow submission process:
+Visit https://skills.com and follow submission process:
 
 1. Navigate to "Submit Skill"
 2. Provide repository URL
-3. ClawdHub will read `.clawdhub.json` automatically
+3. Skills will read `.skills.json` automatically
 4. Review and submit
 
 ## Installation Instructions for Users
 
-### Via ClawdHub (Recommended)
+### Via Skills (Recommended)
 
 ```bash
-clawdbot skills install clawdbot-update
+bot skills install bot-update
 ```
 
 ### Via npm
 
 ```bash
-npm install -g @clawdbot/skill-update
+npm install -g @bot/skill-update
 
 # Link to skills directory
-ln -s /usr/local/lib/node_modules/@clawdbot/skill-update ~/.skills/clawdbot-update
+ln -s /usr/local/lib/node_modules/@bot/skill-update ~/.skills/bot-update
 ```
 
 ### Manual Installation
 
 ```bash
-git clone https://github.com/pasogott/clawdbot-skill-update.git ~/.skills/clawdbot-update
-chmod +x ~/.skills/clawdbot-update/*.sh
+git clone https://github.com/pasogott/bot-skill-update.git ~/.skills/bot-update
+chmod +x ~/.skills/bot-update/*.sh
 ```
 
 ## Post-Publication
@@ -158,14 +158,14 @@ git push origin v1.0.0
 # Create release on GitHub
 gh release create v1.0.0 \
   --title "v1.0.0 - Initial Release" \
-  --notes "First public release of Clawdbot Update Skill"
+  --notes "First public release of Bot Update Skill"
 ```
 
 ### 2. Announce
 
-- Post on Clawdbot Discord/Community
+- Post on Bot Discord/Community
 - Tweet/share if applicable
-- Add to Clawdbot skills documentation
+- Add to Bot skills documentation
 
 ### 3. Monitor
 
@@ -179,7 +179,7 @@ gh release create v1.0.0 \
 
 ```bash
 # Edit package.json version
-# Edit .clawdhub.json version
+# Edit .skills.json version
 # Edit config.json version
 
 # Commit
@@ -196,8 +196,8 @@ npm publish
 
 ## Maintenance Checklist
 
-- [ ] Keep aligned with Clawdbot breaking changes
-- [ ] Test with new Clawdbot releases
+- [ ] Keep aligned with Bot breaking changes
+- [ ] Test with new Bot releases
 - [ ] Update documentation
 - [ ] Respond to issues
 - [ ] Add new features based on feedback
@@ -205,18 +205,18 @@ npm publish
 ## Repository Structure
 
 ```
-clawdbot-skill-update/
+bot-skill-update/
 ├── .github/
 │   └── workflows/
 │       └── test.yml          # CI/CD
-├── backup-clawdbot-dryrun.sh
-├── backup-clawdbot-full.sh
-├── restore-clawdbot.sh
+├── backup-bot-dryrun.sh
+├── backup-bot-full.sh
+├── restore-bot.sh
 ├── validate-setup.sh
 ├── check-upstream.sh
 ├── config.json
 ├── package.json
-├── .clawdhub.json
+├── .skills.json
 ├── LICENSE
 ├── README.md
 ├── SKILL.md
@@ -235,7 +235,7 @@ clawdbot-skill-update/
 - [ ] Examples use placeholder data
 - [ ] License is properly attributed
 - [ ] package.json is valid
-- [ ] .clawdhub.json is valid
+- [ ] .skills.json is valid
 
 ## Contact
 

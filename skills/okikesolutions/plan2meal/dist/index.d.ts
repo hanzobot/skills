@@ -1,5 +1,5 @@
 /**
- * Plan2Meal ClawdHub Skill - Main Entry Point
+ * Plan2Meal Skills Skill - Main Entry Point
  *
  * Handles incoming messages and routes them to appropriate command handlers.
  * Uses backend-based Device Flow for authentication - no configuration required.

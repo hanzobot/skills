@@ -45,7 +45,7 @@ Do NOT use for:
 ### Check if Configured
 
 ```bash
-cat ~/.config/clawdbot/node-scaling.yaml
+cat ~/.config/bot/node-scaling.yaml
 ```
 
 If not configured, guide user:
@@ -61,7 +61,7 @@ You'll need an API key from one of these providers:
 ### Run Setup
 
 ```bash
-cd ~/clawd/skills/node-scaling && node bin/setup.js
+cd ~/bot/skills/node-scaling && node bin/setup.js
 ```
 
 ### Execute Parallel Tasks
@@ -70,7 +70,7 @@ For a research task like "Research top 5 AI companies":
 
 ```javascript
 // 1. Load the dispatcher
-const { Dispatcher } = require('~/clawd/skills/node-scaling/lib/dispatcher');
+const { Dispatcher } = require('~/bot/skills/node-scaling/lib/dispatcher');
 const dispatcher = new Dispatcher();
 
 // 2. Define parallel tasks
@@ -110,7 +110,7 @@ const analyses = await dispatcher.executeParallel(analyzeTasks);
 
 ## Configuration
 
-Config file: `~/.config/clawdbot/node-scaling.yaml`
+Config file: `~/.config/bot/node-scaling.yaml`
 
 Key settings:
 ```yaml
@@ -126,10 +126,10 @@ node_scaling:
 
 ```bash
 # View current config
-cat ~/.config/clawdbot/node-scaling.yaml
+cat ~/.config/bot/node-scaling.yaml
 
 # Edit max nodes (example)
-sed -i 's/max_nodes: .*/max_nodes: 20/' ~/.config/clawdbot/node-scaling.yaml
+sed -i 's/max_nodes: .*/max_nodes: 20/' ~/.config/bot/node-scaling.yaml
 ```
 
 ## Performance Expectations
@@ -157,12 +157,12 @@ const stats = dispatcher.getNodeStats();
 When Swarm isn't working, run diagnostics first:
 
 ```bash
-cd ~/clawd/skills/node-scaling && npm run diagnose
+cd ~/bot/skills/node-scaling && npm run diagnose
 ```
 
 For JSON output (easier to parse):
 ```bash
-cd ~/clawd/skills/node-scaling && npm run diagnose:json
+cd ~/bot/skills/node-scaling && npm run diagnose:json
 ```
 
 ### Understanding Diagnostic Output
@@ -182,7 +182,7 @@ The JSON report includes:
 
 #### Issue: `no_config_dir`
 ```bash
-mkdir -p ~/.config/clawdbot
+mkdir -p ~/.config/bot
 ```
 
 #### Issue: `no_api_key`
@@ -193,13 +193,13 @@ export GEMINI_API_KEY="your-key-here"
 
 Option 2 - Create key file:
 ```bash
-echo "your-key-here" > ~/.config/clawdbot/gemini-key.txt
-chmod 600 ~/.config/clawdbot/gemini-key.txt
+echo "your-key-here" > ~/.config/bot/gemini-key.txt
+chmod 600 ~/.config/bot/gemini-key.txt
 ```
 
 Option 3 - Run setup wizard:
 ```bash
-cd ~/clawd/skills/node-scaling && node bin/setup.js
+cd ~/bot/skills/node-scaling && node bin/setup.js
 ```
 
 #### Issue: `node_version`
@@ -217,7 +217,7 @@ sudo apt-get install -y nodejs
 #### Issue: `test_failure` (unit/integration)
 These indicate a bug or corrupted install. Try:
 ```bash
-cd ~/clawd/skills/node-scaling
+cd ~/bot/skills/node-scaling
 rm -rf node_modules
 npm install
 npm run test:unit
@@ -236,14 +236,14 @@ E2E failures usually mean:
 
 After running diagnostics, check the machine profile:
 ```bash
-cat ~/.config/clawdbot/swarm-profile.json
+cat ~/.config/bot/swarm-profile.json
 ```
 
 Use the `recommendations.optimalWorkers` value:
 ```bash
 # Update config with optimal worker count
-OPTIMAL=$(cat ~/.config/clawdbot/swarm-profile.json | jq '.recommendations.optimalWorkers // 10')
-sed -i "s/max_nodes: .*/max_nodes: $OPTIMAL/" ~/.config/clawdbot/node-scaling.yaml
+OPTIMAL=$(cat ~/.config/bot/swarm-profile.json | jq '.recommendations.optimalWorkers // 10')
+sed -i "s/max_nodes: .*/max_nodes: $OPTIMAL/" ~/.config/bot/node-scaling.yaml
 ```
 
 ### Low Memory Systems
@@ -281,10 +281,10 @@ limits:
 
 Nuclear option if nothing else works:
 ```bash
-cd ~/clawd/skills/node-scaling
+cd ~/bot/skills/node-scaling
 rm -rf node_modules
-rm ~/.config/clawdbot/node-scaling.yaml
-rm ~/.config/clawdbot/gemini-key.txt
+rm ~/.config/bot/node-scaling.yaml
+rm ~/.config/bot/gemini-key.txt
 npm install
 node bin/setup.js
 ```

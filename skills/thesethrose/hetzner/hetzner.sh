@@ -1,5 +1,5 @@
 #!/bin/bash
-# Hetzner Cloud CLI wrapper for Clawdbot
+# Hetzner Cloud CLI wrapper for Bot
 # Usage: ./hetzner.sh <command> [args]
 
 set -e

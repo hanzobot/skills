@@ -5,7 +5,7 @@
 
 set -e
 
-DEPLOY_DIR="$HOME/.clawdbot/skills/deploy-agent"
+DEPLOY_DIR="$HOME/.bot/skills/deploy-agent"
 STATE_DIR="$DEPLOY_DIR/state"
 SCRIPTS_DIR="$DEPLOY_DIR/scripts"
 

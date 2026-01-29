@@ -1,7 +1,7 @@
 ---
 name: self-love-confidence
 description: Build self-love and confidence with affirmations, wins logging, and inner critic management
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "self love practice"

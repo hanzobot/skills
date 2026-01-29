@@ -66,7 +66,7 @@ This guides you through:
    ```
    Follow the prompts to authorize via URL and paste the callback.
 
-Tokens are saved to `~/.config/spotify-clawd/token.json` and auto-refresh when expired.
+Tokens are saved to `~/.config/spotify-bot/token.json` and auto-refresh when expired.
 
 ## Usage
 
@@ -136,7 +136,7 @@ For recommendations, combine API data with music knowledge to suggest similar ar
 - Token expired and auto-refresh failed
 - Delete token and re-authenticate:
   ```bash
-  rm ~/.config/spotify-clawd/token.json
+  rm ~/.config/spotify-bot/token.json
   python3 scripts/spotify-auth.py
   ```
 

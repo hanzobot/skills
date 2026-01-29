@@ -2,7 +2,7 @@
 name: paperless-ngx
 description: Manage documents in Paperless-ngx - search, upload, tag, and retrieve.
 homepage: https://github.com/paperless-ngx/paperless-ngx
-metadata: {"clawdbot":{"requires":{"env":["PAPERLESS_URL","PAPERLESS_TOKEN"]},"primaryEnv":"PAPERLESS_TOKEN"}}
+metadata: {"bot":{"requires":{"env":["PAPERLESS_URL","PAPERLESS_TOKEN"]},"primaryEnv":"PAPERLESS_TOKEN"}}
 ---
 
 # Paperless-ngx
@@ -11,7 +11,7 @@ Document management via Paperless-ngx REST API.
 
 ## Configuration
 
-Set environment variables in `~/.clawdbot/clawdbot.json`:
+Set environment variables in `~/.bot/bot.json`:
 
 ```json
 {
@@ -149,7 +149,7 @@ For complex queries or bulk operations, see [references/api.md](references/api.m
 
 ## Troubleshooting
 
-**"PAPERLESS_URL not set"** — Add to `~/.clawdbot/clawdbot.json` env section or export in shell.
+**"PAPERLESS_URL not set"** — Add to `~/.bot/bot.json` env section or export in shell.
 
 **"401 Unauthorized"** — Check PAPERLESS_TOKEN is valid. Regenerate in Paperless UI if needed.
 

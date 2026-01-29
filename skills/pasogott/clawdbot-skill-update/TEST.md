@@ -7,7 +7,7 @@ Before publishing, test all functionality locally:
 ## 1. Script Permissions
 
 ```bash
-cd /tmp/clawdbot-update-publish
+cd /tmp/bot-update-publish
 
 # Check all scripts are executable
 ls -la *.sh
@@ -20,7 +20,7 @@ chmod +x *.sh
 
 ```bash
 # Test dry run (should show what would be backed up)
-./backup-clawdbot-dryrun.sh
+./backup-bot-dryrun.sh
 
 # Expected output:
 # - Workspace detection
@@ -33,15 +33,15 @@ chmod +x *.sh
 
 ```bash
 # Create test backup
-./backup-clawdbot-full.sh
+./backup-bot-full.sh
 
 # Verify backup created
-ls -lh ~/.clawdbot-backups/
+ls -lh ~/.bot-backups/
 
 # Check backup contents
-LATEST=$(ls -t ~/.clawdbot-backups/ | head -1)
-ls -lh ~/.clawdbot-backups/$LATEST/
-cat ~/.clawdbot-backups/$LATEST/BACKUP_INFO.txt
+LATEST=$(ls -t ~/.bot-backups/ | head -1)
+ls -lh ~/.bot-backups/$LATEST/
+cat ~/.bot-backups/$LATEST/BACKUP_INFO.txt
 ```
 
 ## 4. Validation Test
@@ -76,31 +76,31 @@ cat ~/.clawdbot-backups/$LATEST/BACKUP_INFO.txt
 # This will overwrite current config!
 
 # Create safety backup first
-cp ~/.clawdbot/clawdbot.json ~/.clawdbot/clawdbot.json.test-backup
+cp ~/.bot/bot.json ~/.bot/bot.json.test-backup
 
 # Test restore (will ask for confirmation)
-./restore-clawdbot.sh ~/.clawdbot-backups/<backup-dir>
+./restore-bot.sh ~/.bot-backups/<backup-dir>
 
 # Restore safety backup
-mv ~/.clawdbot/clawdbot.json.test-backup ~/.clawdbot/clawdbot.json
+mv ~/.bot/bot.json.test-backup ~/.bot/bot.json
 ```
 
 ## 7. Package Validation
 
 ```bash
-cd /tmp/clawdbot-update-publish
+cd /tmp/bot-update-publish
 
 # Validate package.json
 npm run validate 2>/dev/null || cat package.json | jq '.'
 
-# Check .clawdhub.json
-cat .clawdhub.json | jq '.'
+# Check .skills.json
+cat .skills.json | jq '.'
 
 # Test npm pack
 npm pack
 
 # Inspect tarball
-tar -tzf clawdbot-skill-update-1.0.0.tgz
+tar -tzf bot-skill-update-1.0.0.tgz
 ```
 
 ## 8. Documentation Check
@@ -124,7 +124,7 @@ grep -r "](/" *.md
 ```bash
 # Check for personal data
 echo "Checking for personal data..."
-grep -r "pascal\|/Users/pascal\|clawd-family\|cyberheld\|120363" . --include="*.sh" --include="*.md" --include="*.json" || echo "✓ No personal data found"
+grep -r "pascal\|/Users/pascal\|bot-family\|cyberheld\|120363" . --include="*.sh" --include="*.md" --include="*.json" || echo "✓ No personal data found"
 
 # Check for sensitive patterns
 grep -r "sk-\|token\|password\|secret" . --include="*.sh" --include="*.md" --include="*.json" || echo "✓ No secrets found"
@@ -138,14 +138,14 @@ mkdir -p /tmp/test-install
 cd /tmp/test-install
 
 # Extract
-tar -xzf /tmp/clawdbot-update-publish/clawdbot-skill-update-1.0.0.tgz
+tar -xzf /tmp/bot-update-publish/bot-skill-update-1.0.0.tgz
 cd package
 
 # Make executable
 chmod +x *.sh
 
 # Test scripts
-./backup-clawdbot-dryrun.sh
+./backup-bot-dryrun.sh
 ./validate-setup.sh
 ./check-upstream.sh
 ```
@@ -161,7 +161,7 @@ chmod +x *.sh
 - [ ] Upstream check connects to GitHub
 - [ ] Restore works (tested safely)
 - [ ] package.json is valid JSON
-- [ ] .clawdhub.json is valid JSON
+- [ ] .skills.json is valid JSON
 - [ ] No personal data in any file
 - [ ] No secrets or tokens
 - [ ] All documentation files present
@@ -172,14 +172,14 @@ chmod +x *.sh
 
 ### Dry Run Output
 ```
-🔍 Clawdbot Backup Dry Run
+🔍 Bot Backup Dry Run
 ===========================
 This is a DRY RUN - no files will be created or modified
 
 📁 Would create backup at:
-   ~/.clawdbot-backups/pre-update-YYYYMMDD-HHMMSS
+   ~/.bot-backups/pre-update-YYYYMMDD-HHMMSS
 
-✓ Config file: ~/.clawdbot/clawdbot.json
+✓ Config file: ~/.bot/bot.json
 ✓ Detected workspaces from config
 ✓ Would backup X workspace(s)
 ✨ Dry run complete!
@@ -187,7 +187,7 @@ This is a DRY RUN - no files will be created or modified
 
 ### Validation Output
 ```
-🔍 Clawdbot Setup Validation
+🔍 Bot Setup Validation
 ============================
 
 ✅ Config file exists
@@ -199,9 +199,9 @@ This is a DRY RUN - no files will be created or modified
 ### Package Structure
 ```
 package/
-├── backup-clawdbot-dryrun.sh
-├── backup-clawdbot-full.sh
-├── restore-clawdbot.sh
+├── backup-bot-dryrun.sh
+├── backup-bot-full.sh
+├── restore-bot.sh
 ├── validate-setup.sh
 ├── check-upstream.sh
 ├── config.json
@@ -219,11 +219,11 @@ package/
 rm -rf /tmp/test-install
 
 # Keep one test backup for reference
-LATEST=$(ls -t ~/.clawdbot-backups/ | head -1)
-echo "Test backup preserved: ~/.clawdbot-backups/$LATEST"
+LATEST=$(ls -t ~/.bot-backups/ | head -1)
+echo "Test backup preserved: ~/.bot-backups/$LATEST"
 
 # Remove npm tarball
-rm /tmp/clawdbot-update-publish/*.tgz
+rm /tmp/bot-update-publish/*.tgz
 ```
 
 ## Ready for Publication?
@@ -232,7 +232,7 @@ If all tests pass:
 1. Review PUBLISH.md
 2. Create GitHub repository
 3. Publish to npm
-4. Submit to ClawdHub
+4. Submit to Skills
 
 ## Troubleshooting Tests
 
@@ -244,16 +244,16 @@ chmod +x *.sh
 ### Backup fails
 ```bash
 # Check config exists
-ls -la ~/.clawdbot/clawdbot.json
+ls -la ~/.bot/bot.json
 
 # Check permissions
-ls -la ~/.clawdbot/
+ls -la ~/.bot/
 ```
 
 ### Workspace detection fails
 ```bash
 # Check config structure
-jq '.routing.agents' ~/.clawdbot/clawdbot.json
+jq '.routing.agents' ~/.bot/bot.json
 ```
 
 ### npm pack fails

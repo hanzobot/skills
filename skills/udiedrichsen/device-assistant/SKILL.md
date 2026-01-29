@@ -2,10 +2,10 @@
 name: device-assistant
 version: 1.0.0
 description: "Personal device and appliance manager with error code lookup and troubleshooting. Tracks all your devices (appliances, electronics, software) with model numbers, manuals, and warranty info. When something breaks, tell it the error code and get instant solutions. Use when: device shows error, need manual, warranty check, adding new device, maintenance reminder. Triggers: /device, /geräte, 'mein Geschirrspüler', 'Fehler E24', 'Fehlermeldung', device problems, appliance issues."
-author: clawdbot
+author: bot
 license: MIT
 metadata:
-  clawdbot:
+  bot:
     emoji: "🔧"
     triggers: ["/device", "/geräte"]
     requires:

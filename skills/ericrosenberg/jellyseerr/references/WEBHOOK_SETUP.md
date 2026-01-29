@@ -13,7 +13,7 @@ This guide will help you set up instant notifications from Jellyseerr using webh
 Run the setup script to create a systemd service:
 
 ```bash
-cd /home/clawd/clawd/skills/jellyseerr
+cd /home/bot/bot/skills/jellyseerr
 ./scripts/setup_webhook.sh 8384
 ```
 

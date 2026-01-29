@@ -38,7 +38,7 @@
 
 **Current State**:
 - ✅ `get_insider_activity()` fetches Form 4 filings via edgartools
-- ✅ SEC identity configured (`stock-analysis@clawd.bot`)
+- ✅ SEC identity configured (`stock-analysis@hanzo.bot`)
 - ✅ Aggregates buys/sells over 90-day window
 - ✅ Scoring logic: strong buying (+0.8), moderate (+0.4), neutral (0), moderate selling (-0.4), strong (-0.8)
 

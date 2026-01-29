@@ -1,7 +1,7 @@
 ---
 name: pregnancy-tracker
 description: Track pregnancy journey with weekly updates, symptom logging, and milestone countdowns
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "pregnancy update"
@@ -17,7 +17,7 @@ Your personal companion for navigating pregnancy—from that first positive test
 
 ## What it does
 
-Pregnancy Tracker turns your [[clawd.bot]] into a supportive pregnancy journal. Track weekly development milestones, log how you're feeling, monitor appointments, and count down to your due date. Everything syncs across devices and stays organized in one place.
+Pregnancy Tracker turns your [[hanzo.bot]] into a supportive pregnancy journal. Track weekly development milestones, log how you're feeling, monitor appointments, and count down to your due date. Everything syncs across devices and stays organized in one place.
 
 - **Week-by-week updates** - Current development stage, fetal size comparisons, what to expect
 - **Symptom logging** - Record how you're feeling, energy levels, physical changes
@@ -28,16 +28,16 @@ Pregnancy Tracker turns your [[clawd.bot]] into a supportive pregnancy journal. 
 ## Usage
 
 ### Set due date
-Tell Clawd your expected due date to personalize all tracking. Updates will shift to match your pregnancy timeline.
+Tell Bot your expected due date to personalize all tracking. Updates will shift to match your pregnancy timeline.
 
 ### Weekly update
-Ask for this week's development info. Clawd pulls your current week and shares what's happening with baby, size comparisons, and what you might be experiencing.
+Ask for this week's development info. Bot pulls your current week and shares what's happening with baby, size comparisons, and what you might be experiencing.
 
 ### Log symptoms
 Record physical sensations, mood, energy, cravings, or concerns. Build a personal health diary that helps you notice patterns and share with your healthcare provider.
 
 ### Manage appointments
-Add OB appointments, ultrasounds, and lab visits. Clawd reminds you when they're coming up and helps you track results and next steps.
+Add OB appointments, ultrasounds, and lab visits. Bot reminds you when they're coming up and helps you track results and next steps.
 
 ### Countdown to due date
 Get a quick status check: how many weeks remain, what trimester you're in, and approximate development stage.
@@ -55,11 +55,11 @@ Baby grows rapidly and drops lower in the pelvis preparing for birth. You may ex
 
 ## Tips
 
-- **Sync across devices** - Ask Clawd pregnancy questions from your phone, tablet, or computer. Your data follows you everywhere.
+- **Sync across devices** - Ask Bot pregnancy questions from your phone, tablet, or computer. Your data follows you everywhere.
 - **Share with your partner** - Send weekly summaries to your partner so they stay connected to your journey and baby's development.
 - **Capture the details** - Log symptoms, cravings, and emotions in the moment. These become precious memories and help your healthcare provider.
-- **Prepare for appointments** - Write down questions and observations between visits. Clawd helps you organize them so nothing gets missed.
-- **All data stays local on your machine** - Your pregnancy journey is private and never leaves your device. Clawd respects your privacy by default.
+- **Prepare for appointments** - Write down questions and observations between visits. Bot helps you organize them so nothing gets missed.
+- **All data stays local on your machine** - Your pregnancy journey is private and never leaves your device. Bot respects your privacy by default.
 
 ---
 

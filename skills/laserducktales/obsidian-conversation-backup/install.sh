@@ -9,11 +9,11 @@ echo ""
 read -p "Obsidian vault path [/root/ObsidianVault/Clawd Markdowns]: " VAULT_PATH
 VAULT_PATH=${VAULT_PATH:-/root/ObsidianVault/Clawd Markdowns}
 
-read -p "Session directory [/root/.clawdbot/agents/main/sessions]: " SESSION_DIR
-SESSION_DIR=${SESSION_DIR:-/root/.clawdbot/agents/main/sessions}
+read -p "Session directory [/root/.bot/agents/main/sessions]: " SESSION_DIR
+SESSION_DIR=${SESSION_DIR:-/root/.bot/agents/main/sessions}
 
-read -p "Tracking directory [/root/clawd]: " TRACKING_DIR
-TRACKING_DIR=${TRACKING_DIR:-/root/clawd}
+read -p "Tracking directory [/root/bot]: " TRACKING_DIR
+TRACKING_DIR=${TRACKING_DIR:-/root/bot}
 
 echo ""
 echo "Configuration:"
@@ -37,8 +37,8 @@ mv scripts/format_message_v2.jq.txt scripts/format_message_v2.jq 2>/dev/null
 # Update paths in scripts
 for script in scripts/*.sh; do
     sed -i "s|VAULT_DIR=\".*\"|VAULT_DIR=\"$VAULT_PATH\"|g" "$script"
-    sed -i "s|/root/.clawdbot/agents/main/sessions|$SESSION_DIR|g" "$script"
-    sed -i "s|/root/clawd|$TRACKING_DIR|g" "$script"
+    sed -i "s|/root/.bot/agents/main/sessions|$SESSION_DIR|g" "$script"
+    sed -i "s|/root/bot|$TRACKING_DIR|g" "$script"
 done
 
 # Create vault directory if needed

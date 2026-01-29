@@ -1,13 +1,13 @@
 # Humanizer
 
-A Clawdbot skill that removes signs of AI-generated writing from text, making it sound more natural and human.
+A Bot skill that removes signs of AI-generated writing from text, making it sound more natural and human.
 
 ## Installation
 
-Install via ClawdHub:
+Install via Skills:
 
 ```bash
-clawdhub install humanizer
+skills install humanizer
 ```
 
 ## Usage

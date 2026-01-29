@@ -27,7 +27,7 @@ cron add \
 
 **Important**: Replace `YOUR_UNIQUE_ID` with your own feed ID from step 1. Each person needs their own feed URL!
 
-3. **Clawdbot will**:
+3. **Bot will**:
    - Fetch your feed every 4 hours
    - Detect new price alerts
    - Send you Telegram notifications
@@ -118,6 +118,6 @@ If you're not receiving notifications:
    ```bash
    rm /tmp/camelcamelcamel/cache.json
    ```
-5. **Check Telegram** is configured in Clawdbot
+5. **Check Telegram** is configured in Bot
 
 See [SETUP.md](references/SETUP.md) for more details.

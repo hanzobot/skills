@@ -1,9 +1,9 @@
 #!/bin/bash
-# Show session statistics from clawdbot
+# Show session statistics from bot
 # Usage: session-stats.sh
 
-SESSIONS_JSON="$HOME/.clawdbot/agents/main/sessions/sessions.json"
-SESSION_DIR="$HOME/.clawdbot/agents/main/sessions"
+SESSIONS_JSON="$HOME/.bot/agents/main/sessions/sessions.json"
+SESSION_DIR="$HOME/.bot/agents/main/sessions"
 
 echo "=== Session Statistics ==="
 echo ""
@@ -50,4 +50,4 @@ fi
 
 echo ""
 echo "=== Gateway Status ==="
-systemctl --user is-active clawdbot-gateway.service 2>/dev/null || echo "unknown"
+systemctl --user is-active bot-gateway.service 2>/dev/null || echo "unknown"

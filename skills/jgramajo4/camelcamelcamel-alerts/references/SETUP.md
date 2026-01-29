@@ -9,7 +9,7 @@ This skill monitors **your personal** CamelCamelCamel RSS feed for Amazon price 
 ## Prerequisites
 
 - CamelCamelCamel RSS feed URL (e.g., `https://camelcamelcamel.com/alerts/YOUR_FEED_ID.xml`)
-- Telegram setup (Clawdbot must have Telegram configured)
+- Telegram setup (Bot must have Telegram configured)
 - Python 3 with urllib (built-in)
 
 ## Setup Steps
@@ -25,7 +25,7 @@ Example format:
 https://camelcamelcamel.com/alerts/46b7418010d2395d2f6fcea824e4ae18c699cfd3.xml
 ```
 
-### 2. Configure Clawdbot to Check the Feed
+### 2. Configure Bot to Check the Feed
 
 Add a cron job to check the feed periodically (recommend every 1-6 hours):
 
@@ -35,7 +35,7 @@ cron --action add \
     "name": "camelcamelcamel-check",
     "schedule": "0 */4 * * *",
     "task": "Check CamelCamelCamel price alerts",
-    "command": "python3 /home/goliso/clawd/skills/camelcamelcamel-alerts/scripts/fetch_rss.py <YOUR_FEED_URL> /tmp/camelcamelcamel | jq '.alerts' | /home/goliso/clawd/skills/camelcamelcamel-alerts/scripts/notify.sh"
+    "command": "python3 /home/goliso/bot/skills/camelcamelcamel-alerts/scripts/fetch_rss.py <YOUR_FEED_URL> /tmp/camelcamelcamel | jq '.alerts' | /home/goliso/bot/skills/camelcamelcamel-alerts/scripts/notify.sh"
   }'
 ```
 

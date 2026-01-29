@@ -12,7 +12,7 @@
 
 ```bash
 # Generate key if needed
-ssh-keygen -t ed25519 -C "clawdbot-sync"
+ssh-keygen -t ed25519 -C "bot-sync"
 
 # Copy to target
 ssh-copy-id user@target-host
@@ -43,8 +43,8 @@ tailscale status
 /sync add <name> <host> <user> <remote-path>
 
 # Examples
-/sync add mac-mini 100.95.193.55 clawdbot /Users/clawdbot/clawd
-/sync add server 100.89.48.26 clawdbot /home/clawdbot/clawd
+/sync add mac-mini 100.95.193.55 bot /Users/bot/bot
+/sync add server 100.89.48.26 bot /home/bot/bot
 ```
 
 ## Testing

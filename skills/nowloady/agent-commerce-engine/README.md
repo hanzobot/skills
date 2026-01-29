@@ -76,7 +76,7 @@ GitHub 仓库: https://github.com/NowLoadY/agent-commerce-engine
 
 参考如何利用本标准引擎驱动实际的 Agent 商业体验：
 
-- **在线 Skill**: [辣匪兔: Authentic Agentic Spicy Food Delivery](https://clawdhub.com/NowLoadY/agentic-spicy-food)
+- **在线 Skill**: [辣匪兔: Authentic Agentic Spicy Food Delivery](https://skills.com/NowLoadY/agentic-spicy-food)
 - **参考实现源码**: [辣匪兔 Skill 仓库](https://github.com/NowLoadY/agent-skill-online-shopping-spicy-food)
 
 ## 许可协议

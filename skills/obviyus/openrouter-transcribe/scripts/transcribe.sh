@@ -10,8 +10,8 @@ Options:
   --model <model>    OpenRouter model (default: google/gemini-2.5-flash)
   --prompt <text>    Custom transcription instructions
   --out <file>       Output file (default: stdout)
-  --title <name>     Caller identifier for OpenRouter (default: Clawdbot)
-  --referer <url>    HTTP-Referer header (default: https://clawdbot.com)
+  --title <name>     Caller identifier for OpenRouter (default: Bot)
+  --referer <url>    HTTP-Referer header (default: https://bot.com)
 
 Example:
   transcribe.sh audio.m4a --prompt "Include timestamps"
@@ -29,8 +29,8 @@ shift || true
 model="google/gemini-2.5-flash"
 prompt="Please transcribe this audio file. Keep it readable, suitable for messaging. Begin transcript immediately without any commentary."
 out=""
-title="Clawdbot"
-referer="https://clawdbot.com"
+title="Bot"
+referer="https://bot.com"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in

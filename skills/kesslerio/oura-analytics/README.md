@@ -1,9 +1,9 @@
-# Oura Analytics - Clawdbot Skill
+# Oura Analytics - Bot Skill
 
-[![Clawdbot Community Skill](https://img.shields.io/badge/clawdbot-community%20skill-blue)](https://github.com/clawdbot/clawdbot)
-[![ClawdHub Listed](https://img.shields.io/badge/clawdhub-listed-green)](https://clawdhub.com/skills/oura-analytics)
+[![Bot Community Skill](https://img.shields.io/badge/bot-community%20skill-blue)](https://github.com/bot/bot)
+[![Skills Listed](https://img.shields.io/badge/skills-listed-green)](https://skills.com/skills/oura-analytics)
 
-**Production-grade Oura Ring data integration for Clawdbot**  
+**Production-grade Oura Ring data integration for Bot**  
 Fetch sleep scores, readiness, activity, HRV, and trends from Oura Cloud API. Generate automated health reports and trigger-based alerts.
 
 ## Features
@@ -17,7 +17,7 @@ Fetch sleep scores, readiness, activity, HRV, and trends from Oura Cloud API. Ge
 
 ## Why This Exists
 
-Clawdbot needs access to Oura Ring health data for:
+Bot needs access to Oura Ring health data for:
 - Daily morning briefings ("How did I sleep?")
 - Correlating recovery with productivity/calendar
 - Automated alerts for low recovery days
@@ -44,18 +44,18 @@ echo 'OURA_API_TOKEN="your_token_here"' >> ~/.config/systemd/user/secrets.conf
 ### 2. Install the skill
 
 ```bash
-git clone https://github.com/kesslerio/oura-analytics-clawdbot-skill.git ~/.clawdbot/skills/oura-analytics
+git clone https://github.com/kesslerio/oura-analytics-bot-skill.git ~/.bot/skills/oura-analytics
 pip install -r requirements.txt
 ```
 
-### 3. Add to Clawdbot's TOOLS.md
+### 3. Add to Bot's TOOLS.md
 
 ```markdown
 ### oura-analytics
 - Fetch Oura Ring metrics (sleep, readiness, activity, HRV)
 - Generate health reports and correlations
 - Set up automated alerts for low recovery
-- Usage: `python ~/.clawdbot/skills/oura-analytics/scripts/oura_api.py sleep --days 7`
+- Usage: `python ~/.bot/skills/oura-analytics/scripts/oura_api.py sleep --days 7`
 ```
 
 ## Usage Examples
@@ -397,8 +397,8 @@ python scripts/oura_api.py sleep --days 7 | python -m json.tool | head -50
 
 ## Credits
 
-**Created for production Clawdbot health tracking**  
-Developed by [@kesslerio](https://github.com/kesslerio) • Part of the [ClawdHub](https://clawdhub.com) ecosystem
+**Created for production Bot health tracking**  
+Developed by [@kesslerio](https://github.com/kesslerio) • Part of the [Skills](https://skills.com) ecosystem
 
 **Powered by:**
 - [Oura Ring](https://ouraring.com/) - Wearable health tracker

@@ -8,7 +8,7 @@ triggers:
   - new signups
   - user count
 metadata:
-  clawdbot:
+  bot:
     emoji: "⚡"
 ---
 
@@ -110,15 +110,15 @@ python3 {baseDir}/scripts/supabase.py list-users --json
 | JWT service_role | `eyJ...` | ✅ Yes | ✅ Yes | ✅ Yes |
 | New secret | `sb_secret_...` | ❌ No | ❌ No | ✅ Yes |
 
-**Recommendation:** Always use the JWT `service_role` key for Clawdbot integration.
+**Recommendation:** Always use the JWT `service_role` key for Bot integration.
 
 ## Daily Reports
 
-Set up automated daily user reports via Clawdbot cron.
+Set up automated daily user reports via Bot cron.
 
 ### Example: Daily 5 PM Report
 
-Ask Clawdbot:
+Ask Bot:
 ```
 Send me a report of how many new users signed up at 5 PM every day, 
 show the last 5 signups with their names

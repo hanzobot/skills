@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-CONFIG_FILE="${SAB_CONFIG:-$HOME/.clawdbot/credentials/sabnzbd/config.json}"
+CONFIG_FILE="${SAB_CONFIG:-$HOME/.bot/credentials/sabnzbd/config.json}"
 
 # Load config
 if [[ -f "$CONFIG_FILE" ]]; then

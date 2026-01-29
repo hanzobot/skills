@@ -1,10 +1,10 @@
-# track17 (17TRACK) Clawdbot skill
+# track17 (17TRACK) Bot skill
 
-This folder is a self-contained Clawdbot skill that lets your assistant track parcels using the **17TRACK Tracking API v2.2**.
+This folder is a self-contained Bot skill that lets your assistant track parcels using the **17TRACK Tracking API v2.2**.
 
 It includes:
 
-- `SKILL.md` — the skill prompt/instructions Clawdbot loads.
+- `SKILL.md` — the skill prompt/instructions Bot loads.
 - `scripts/track17.py` — a dependency-free Python CLI that:
   - stores packages in a local SQLite DB,
   - registers tracking numbers with 17TRACK,
@@ -20,7 +20,7 @@ By default (workspace-local):
 - `<workspace>/packages/track17/inbox/` (raw webhook payloads)
 
 Where `<workspace>` is auto-detected as the parent directory of the nearest `skills/` directory that contains this skill.
-So if the skill is installed at `/clawd/skills/track17/`, data will be stored at `/clawd/packages/track17/`.
+So if the skill is installed at `/bot/skills/track17/`, data will be stored at `/bot/packages/track17/`.
 
 Override with:
 
@@ -29,7 +29,7 @@ Override with:
 
 ## Configure the API token
 
-This skill declares `metadata.clawdbot.primaryEnv = TRACK17_TOKEN`, so you can configure it in your Clawdbot config as:
+This skill declares `metadata.bot.primaryEnv = TRACK17_TOKEN`, so you can configure it in your Bot config as:
 
 ```jsonc
 {

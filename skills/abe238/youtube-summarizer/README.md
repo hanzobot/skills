@@ -16,23 +16,23 @@ Automatically fetch YouTube video transcripts, generate structured summaries, an
 ### Prerequisites
 
 1. **Node.js 18+** installed
-2. **Clawdbot** running
+2. **Bot** running
 
-### Install via ClawdHub
+### Install via Skills
 
 ```bash
-clawdhub install youtube-summarizer
+skills install youtube-summarizer
 ```
 
 ### Manual Installation
 
 ```bash
 # 1. Clone the skill
-cd /root/clawd/skills
+cd /root/bot/skills
 git clone <this-repo-url> youtube-summarizer
 
 # 2. Install MCP YouTube Transcript dependency
-cd /root/clawd
+cd /root/bot
 git clone https://github.com/kimtaeyoon83/mcp-server-youtube-transcript.git
 cd mcp-server-youtube-transcript
 npm install && npm run build
@@ -98,7 +98,7 @@ Practical conclusion
 
 ### Transcript File
 
-Saved to `/root/clawd/transcripts/YYYY-MM-DD_VIDEO_ID.txt` with:
+Saved to `/root/bot/transcripts/YYYY-MM-DD_VIDEO_ID.txt` with:
 - Video metadata header
 - Full transcript text
 - URL reference
@@ -121,7 +121,7 @@ No configuration needed! The skill automatically:
 ### "MCP server not found"
 Install the dependency:
 ```bash
-cd /root/clawd
+cd /root/bot
 git clone https://github.com/kimtaeyoon83/mcp-server-youtube-transcript.git
 cd mcp-server-youtube-transcript
 npm install && npm run build
@@ -148,7 +148,7 @@ The skill automatically falls back to English if requested language isn't availa
 
 - [MCP YouTube Transcript](https://github.com/kimtaeyoon83/mcp-server-youtube-transcript) - Fetches transcripts via Android client emulation
 - Node.js 18+ - Runtime environment
-- Clawdbot - AI agent framework
+- Bot - AI agent framework
 
 ## Credits
 

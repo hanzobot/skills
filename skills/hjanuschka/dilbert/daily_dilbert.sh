@@ -1,8 +1,8 @@
 #!/bin/bash
 # Daily Dilbert cron script for Helmut
-# Run via: /home/node/clawd/workspace/skills/dilbert/daily_dilbert.sh
+# Run via: /home/node/bot/workspace/skills/dilbert/daily_dilbert.sh
 
-SKILL_SCRIPT="/home/node/clawd/workspace/skills/dilbert/skill.sh"
+SKILL_SCRIPT="/home/node/bot/workspace/skills/dilbert/skill.sh"
 TELEGRAM_CHAT_ID="954799023"
 
 # Fetch the comic

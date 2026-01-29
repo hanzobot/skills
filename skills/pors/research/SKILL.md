@@ -2,12 +2,12 @@
 name: research
 description: Deep research via Gemini CLI — runs in background sub-agent so you don't burn your Claude tokens.
 homepage: https://github.com/google/gemini-cli
-metadata: {"clawdbot":{"emoji":"🔬","requires":{"bins":["gemini"]}}}
+metadata: {"bot":{"emoji":"🔬","requires":{"bins":["gemini"]}}}
 ---
 
 # Research Skill
 
-Conduct deep research on any topic using Gemini CLI via a spawned sub-agent. Uses your Google AI subscription instead of Claude tokens — perfect for long research tasks that would otherwise eat your Clawdbot usage.
+Conduct deep research on any topic using Gemini CLI via a spawned sub-agent. Uses your Google AI subscription instead of Claude tokens — perfect for long research tasks that would otherwise eat your Bot usage.
 
 ## How It Works
 
@@ -57,13 +57,13 @@ The research prompt should ask Gemini to cover:
 6. Future Outlook - trends, predictions, emerging areas
 7. Resources - key papers, researchers, communities, courses
 
-Save the output to: ~/clawd/research/[slug]/research.md
+Save the output to: ~/bot/research/[slug]/research.md
 
 Be thorough (aim for 500+ lines). Include specific examples and citations.
 
 IMPORTANT - When research is complete:
 1. Send a wake event to notify the main agent immediately:
-   cron(action: 'wake', text: '🔬 Research complete: [TOPIC]. Key findings: [2-3 bullet points]. Full report: ~/clawd/research/[slug]/research.md', mode: 'now')
+   cron(action: 'wake', text: '🔬 Research complete: [TOPIC]. Key findings: [2-3 bullet points]. Full report: ~/bot/research/[slug]/research.md', mode: 'now')
 2. When asked to produce an announce message, reply exactly: ANNOUNCE_SKIP",
   label: "research-[slug]"
 )
@@ -81,7 +81,7 @@ You'll receive a wake with the research summary. Then:
 
 Research saved to:
 ```
-~/clawd/research/<slug>/research.md
+~/bot/research/<slug>/research.md
 ```
 
 ## Tips
@@ -89,5 +89,5 @@ Research saved to:
 - Research typically takes 3-8 minutes depending on complexity
 - Gemini CLI uses your Google AI subscription quota
 - The `--yolo` flag auto-approves file operations (non-interactive)
-- Check `~/clawd/research/` for all past research
+- Check `~/bot/research/` for all past research
 - Always include conversation context in the spawn task for better results

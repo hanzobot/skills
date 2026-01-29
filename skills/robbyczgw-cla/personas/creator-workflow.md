@@ -318,7 +318,7 @@ Looks good?
 
 1. **Write file:**
    ```
-   Write to: ~/clawd/skills/personas/data/[filename].md
+   Write to: ~/bot/skills/personas/data/[filename].md
    Content: [Generated persona prompt]
    ```
 

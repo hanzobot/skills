@@ -2,7 +2,7 @@
 name: graphiti
 description: Knowledge graph operations via Graphiti API. Search facts, add episodes, and extract entities/relationships.
 homepage: https://github.com/getzep/graphiti
-metadata: {"clawdbot":{"emoji":"🕸️","requires":{"services":["neo4j","qdrant","graphiti"]},"install":[{"id":"docker","kind":"docker-compose","label":"Install Graphiti stack (Docker)"}]}}
+metadata: {"bot":{"emoji":"🕸️","requires":{"services":["neo4j","qdrant","graphiti"]},"install":[{"id":"docker","kind":"docker-compose","label":"Install Graphiti stack (Docker)"}]}}
 ---
 
 # Graphiti Knowledge Graph
@@ -47,7 +47,7 @@ curl -s -X POST \"\$GRAPHITI_URL/messages\" \
 
 The skill uses environment discovery to find Graphiti automatically:
 
-1. **Clawdbot config**: `clawdbot config get skills.graphiti.baseUrl`
+1. **Bot config**: `bot config get skills.graphiti.baseUrl`
 2. **Environment variable**: `$GRAPHITI_URL`
 3. **Default fallback**: `http://localhost:8001`
 
@@ -55,7 +55,7 @@ To change the Graphiti URL:
 ```bash
 export GRAPHITI_URL="http://10.0.0.10:8001"
 # OR
-clawdbot config set skills.graphiti.baseUrl "http://10.0.0.10:8001"
+bot config set skills.graphiti.baseUrl "http://10.0.0.10:8001"
 ```
 
 ## Examples
@@ -76,6 +76,6 @@ bash command:"
 GRAPHITI_URL=\$({baseDir}/references/env-check.sh)
 curl -s -X POST \"\$GRAPHITI_URL/messages\" \
   -H 'Content-Type: application/json' \
-  -d '{\"name\": \"Project Update\", \"content\": \"Completed Phase 1 of Clawdbot integration\"}'
+  -d '{\"name\": \"Project Update\", \"content\": \"Completed Phase 1 of Bot integration\"}'
 "
 ```

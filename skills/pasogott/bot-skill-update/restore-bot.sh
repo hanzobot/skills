@@ -7,21 +7,21 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🔄 Clawdbot Restore Script${NC}"
+echo -e "${BLUE}🔄 Bot Restore Script${NC}"
 echo -e "${BLUE}===========================${NC}"
 echo ""
 
 # Check if backup directory is provided
 if [ -z "$1" ]; then
   echo -e "${YELLOW}📁 Available backups:${NC}"
-  if [ -d ~/.clawdbot-backups ]; then
-    ls -lth ~/.clawdbot-backups/ | grep "^d" | head -5
+  if [ -d ~/.bot-backups ]; then
+    ls -lth ~/.bot-backups/ | grep "^d" | head -5
   else
     echo "  No backups found"
   fi
   echo ""
   echo -e "${RED}Usage: $0 <backup-directory>${NC}"
-  echo -e "${YELLOW}Example: $0 ~/.clawdbot-backups/pre-update-20260108-094500${NC}"
+  echo -e "${YELLOW}Example: $0 ~/.bot-backups/pre-update-20260108-094500${NC}"
   exit 1
 fi
 
@@ -44,8 +44,8 @@ if [ -f "$BACKUP_DIR/BACKUP_INFO.txt" ]; then
 fi
 
 # Check if backed up config exists
-if [ ! -f "$BACKUP_DIR/clawdbot.json" ]; then
-  echo -e "${RED}❌ Invalid backup: clawdbot.json not found!${NC}"
+if [ ! -f "$BACKUP_DIR/bot.json" ]; then
+  echo -e "${RED}❌ Invalid backup: bot.json not found!${NC}"
   exit 1
 fi
 
@@ -57,26 +57,26 @@ read -r
 # Stop Gateway
 echo ""
 echo -e "${YELLOW}🛑 Stopping gateway...${NC}"
-if [ -d ~/code/clawdbot ]; then
-  cd ~/code/clawdbot
-  pnpm clawdbot gateway stop 2>/dev/null || echo "Gateway already stopped"
+if [ -d ~/code/bot ]; then
+  cd ~/code/bot
+  pnpm bot gateway stop 2>/dev/null || echo "Gateway already stopped"
   sleep 2
 else
-  echo -e "${YELLOW}⚠️  Clawdbot repo not found, skipping gateway stop${NC}"
+  echo -e "${YELLOW}⚠️  Bot repo not found, skipping gateway stop${NC}"
 fi
 
 # Restore Config
 echo ""
 echo -e "${YELLOW}📋 Restoring config...${NC}"
-cp "$BACKUP_DIR/clawdbot.json" ~/.clawdbot/clawdbot.json
+cp "$BACKUP_DIR/bot.json" ~/.bot/bot.json
 echo -e "${GREEN}✅ Config restored${NC}"
 
 # Restore Sessions
 echo ""
 echo -e "${YELLOW}💾 Restoring sessions...${NC}"
 if [ -f "$BACKUP_DIR/sessions.tar.gz" ]; then
-  rm -rf ~/.clawdbot/sessions
-  tar -xzf "$BACKUP_DIR/sessions.tar.gz" -C ~/.clawdbot
+  rm -rf ~/.bot/sessions
+  tar -xzf "$BACKUP_DIR/sessions.tar.gz" -C ~/.bot
   echo -e "${GREEN}✅ Sessions restored${NC}"
 else
   echo -e "${BLUE}ℹ️  No sessions backup${NC}"
@@ -86,8 +86,8 @@ fi
 echo ""
 echo -e "${YELLOW}🤖 Restoring agents...${NC}"
 if [ -f "$BACKUP_DIR/agents.tar.gz" ]; then
-  rm -rf ~/.clawdbot/agents
-  tar -xzf "$BACKUP_DIR/agents.tar.gz" -C ~/.clawdbot
+  rm -rf ~/.bot/agents
+  tar -xzf "$BACKUP_DIR/agents.tar.gz" -C ~/.bot
   echo -e "${GREEN}✅ Agents restored${NC}"
 else
   echo -e "${BLUE}ℹ️  No agents backup${NC}"
@@ -97,8 +97,8 @@ fi
 echo ""
 echo -e "${YELLOW}🔐 Restoring credentials...${NC}"
 if [ -f "$BACKUP_DIR/credentials.tar.gz" ]; then
-  rm -rf ~/.clawdbot/credentials
-  tar -xzf "$BACKUP_DIR/credentials.tar.gz" -C ~/.clawdbot
+  rm -rf ~/.bot/credentials
+  tar -xzf "$BACKUP_DIR/credentials.tar.gz" -C ~/.bot
   echo -e "${GREEN}✅ Credentials restored${NC}"
 else
   echo -e "${YELLOW}⚠️  No credentials backup${NC}"
@@ -108,8 +108,8 @@ fi
 echo ""
 echo -e "${YELLOW}⏰ Restoring cron...${NC}"
 if [ -f "$BACKUP_DIR/cron.tar.gz" ]; then
-  rm -rf ~/.clawdbot/cron
-  tar -xzf "$BACKUP_DIR/cron.tar.gz" -C ~/.clawdbot
+  rm -rf ~/.bot/cron
+  tar -xzf "$BACKUP_DIR/cron.tar.gz" -C ~/.bot
   echo -e "${GREEN}✅ Cron restored${NC}"
 else
   echo -e "${BLUE}ℹ️  No cron backup${NC}"
@@ -119,8 +119,8 @@ fi
 echo ""
 echo -e "${YELLOW}📦 Restoring sandboxes...${NC}"
 if [ -f "$BACKUP_DIR/sandboxes.tar.gz" ]; then
-  rm -rf ~/.clawdbot/sandboxes
-  tar -xzf "$BACKUP_DIR/sandboxes.tar.gz" -C ~/.clawdbot
+  rm -rf ~/.bot/sandboxes
+  tar -xzf "$BACKUP_DIR/sandboxes.tar.gz" -C ~/.bot
   echo -e "${GREEN}✅ Sandboxes restored${NC}"
 else
   echo -e "${BLUE}ℹ️  No sandboxes backup${NC}"
@@ -131,7 +131,7 @@ echo ""
 echo -e "${YELLOW}🏠 Restoring workspaces (reading from restored config)...${NC}"
 
 # Read workspaces from restored config
-WORKSPACE_DATA=$(jq -r '.routing.agents // {} | to_entries[] | "\(.key)|\(.value.workspace // "none")|\(.value.name // .key)"' ~/.clawdbot/clawdbot.json)
+WORKSPACE_DATA=$(jq -r '.routing.agents // {} | to_entries[] | "\(.key)|\(.value.workspace // "none")|\(.value.name // .key)"' ~/.bot/bot.json)
 
 if [ -z "$WORKSPACE_DATA" ]; then
   echo -e "${BLUE}ℹ️  No agents configured${NC}"
@@ -176,8 +176,8 @@ if [ -f "$BACKUP_DIR/git-version.txt" ]; then
   echo -e "${YELLOW}Restore git to this version? (y/N)${NC}"
   read -r response
   if [[ "$response" =~ ^[Yy]$ ]]; then
-    if [ -d ~/code/clawdbot ]; then
-      cd ~/code/clawdbot
+    if [ -d ~/code/bot ]; then
+      cd ~/code/bot
       git checkout "$GIT_COMMIT"
       pnpm install
       pnpm build
@@ -197,12 +197,12 @@ echo -e "${GREEN}✨ Restore Complete!${NC}"
 echo -e "${BLUE}════════════════════════════════════════${NC}"
 echo ""
 echo -e "${YELLOW}📊 Restored Components:${NC}"
-[ -f ~/.clawdbot/clawdbot.json ] && echo -e "${GREEN}✅${NC} Configuration"
-[ -d ~/.clawdbot/sessions ] && echo -e "${GREEN}✅${NC} Sessions"
-[ -d ~/.clawdbot/agents ] && echo -e "${GREEN}✅${NC} Agents"
-[ -d ~/.clawdbot/credentials ] && echo -e "${GREEN}✅${NC} Credentials"
-[ -d ~/.clawdbot/cron ] && echo -e "${GREEN}✅${NC} Cron jobs"
-[ -d ~/.clawdbot/sandboxes ] && echo -e "${GREEN}✅${NC} Sandboxes"
+[ -f ~/.bot/bot.json ] && echo -e "${GREEN}✅${NC} Configuration"
+[ -d ~/.bot/sessions ] && echo -e "${GREEN}✅${NC} Sessions"
+[ -d ~/.bot/agents ] && echo -e "${GREEN}✅${NC} Agents"
+[ -d ~/.bot/credentials ] && echo -e "${GREEN}✅${NC} Credentials"
+[ -d ~/.bot/cron ] && echo -e "${GREEN}✅${NC} Cron jobs"
+[ -d ~/.bot/sandboxes ] && echo -e "${GREEN}✅${NC} Sandboxes"
 
 # Count restored workspaces
 if [ -n "$WORKSPACE_DATA" ]; then
@@ -216,8 +216,8 @@ fi
 
 echo ""
 echo -e "${YELLOW}💡 Next steps:${NC}"
-echo "1. Verify config: jq '.' ~/.clawdbot/clawdbot.json | less"
-echo "2. Validate setup: ~/.skills/clawdbot-update/validate-setup.sh"
-echo "3. Start gateway: cd ~/code/clawdbot && pnpm clawdbot gateway start"
-echo "4. Check status: pnpm clawdbot gateway status"
+echo "1. Verify config: jq '.' ~/.bot/bot.json | less"
+echo "2. Validate setup: ~/.skills/bot-update/validate-setup.sh"
+echo "3. Start gateway: cd ~/code/bot && pnpm bot gateway start"
+echo "4. Check status: pnpm bot gateway status"
 echo ""

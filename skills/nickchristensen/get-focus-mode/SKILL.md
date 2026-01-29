@@ -10,7 +10,7 @@ Returns the name of the currently active macOS Focus mode.
 ## Usage
 
 ```bash
-~/clawd/skills/get-focus-mode/get-focus-mode.sh
+~/bot/skills/get-focus-mode/get-focus-mode.sh
 ```
 
 ## Output

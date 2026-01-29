@@ -1,6 +1,6 @@
 ---
 name: basecamp-cli
-description: Manage Basecamp (via bc3 API / 37signals Launchpad) projects, to-dos, messages, and campfires via a TypeScript CLI. Use when you want to list/create/update Basecamp projects and todos from the terminal, or when integrating Basecamp automation into Clawdbot workflows.
+description: Manage Basecamp (via bc3 API / 37signals Launchpad) projects, to-dos, messages, and campfires via a TypeScript CLI. Use when you want to list/create/update Basecamp projects and todos from the terminal, or when integrating Basecamp automation into Bot workflows.
 ---
 
 # Basecamp CLI

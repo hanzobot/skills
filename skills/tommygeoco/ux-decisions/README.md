@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://uxdecisions.com">📖 Learn more at uxdecisions.com</a> •
-  <a href="https://clawdhub.com/skills/ux-decisions">ClawdHub</a> •
+  <a href="https://skills.com/skills/ux-decisions">Skills</a> •
   <a href="https://npmjs.com/package/ux-decisions">npm</a>
 </p>
 
@@ -17,7 +17,7 @@
 
 ## What is this?
 
-This is a skill package that gives AI assistants (Claude, Clawdbot, Codex, etc.) the ability to perform structured UI/UX design audits using the Making UX Decisions framework by Tommy Geoco.
+This is a skill package that gives AI assistants (Claude, Bot, Codex, etc.) the ability to perform structured UI/UX design audits using the Making UX Decisions framework by Tommy Geoco.
 
 **Use it for:**
 - UI/UX design decisions under time pressure
@@ -28,9 +28,9 @@ This is a skill package that gives AI assistants (Claude, Clawdbot, Codex, etc.)
 
 ## Installation
 
-### Clawdbot / ClawdHub
+### Bot / Skills
 ```bash
-clawdhub install ux-decisions
+skills install ux-decisions
 ```
 
 ### npm

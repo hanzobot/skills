@@ -25,7 +25,7 @@ Transform YouTube videos into Telegraph Instant View articles with visual slides
 ## Quick Start
 
 ```bash
-source /Users/viticci/clawd/.env && {baseDir}/scripts/generate.sh "$ARGUMENTS"
+source /Users/viticci/bot/.env && {baseDir}/scripts/generate.sh "$ARGUMENTS"
 ```
 
 ## Options
@@ -37,7 +37,7 @@ source /Users/viticci/clawd/.env && {baseDir}/scripts/generate.sh "$ARGUMENTS"
 
 ## Environment Variables
 
-Required environment variables are loaded from `/Users/viticci/clawd/.env`:
+Required environment variables are loaded from `/Users/viticci/bot/.env`:
 - `TELEGRAPH_TOKEN` - Telegraph API access token
 - `OPENAI_API_KEY` - For GPT-5.2 summarization
 

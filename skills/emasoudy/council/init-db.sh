@@ -1,7 +1,7 @@
 #!/bin/bash
 # Initialize Council SQLite Database
 
-DB_PATH="$HOME/.clawdbot/council.db"
+DB_PATH="$HOME/.bot/council.db"
 
 # Create database and tables
 sqlite3 "$DB_PATH" << SQL

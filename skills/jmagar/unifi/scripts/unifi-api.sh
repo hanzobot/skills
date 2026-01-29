@@ -3,7 +3,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_FILE="${UNIFI_CONFIG_FILE:-$HOME/.clawdbot/credentials/unifi/config.json}"
+CONFIG_FILE="${UNIFI_CONFIG_FILE:-$HOME/.bot/credentials/unifi/config.json}"
 
 # Load config
 if [ ! -f "$CONFIG_FILE" ]; then

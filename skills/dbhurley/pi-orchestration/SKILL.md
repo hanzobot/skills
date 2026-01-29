@@ -2,7 +2,7 @@
 name: pi-orchestration
 description: Orchestrate multiple AI models (GLM, MiniMax, etc.) as workers using Pi Coding Agent with Claude as coordinator.
 homepage: https://github.com/mariozechner/pi-coding-agent
-metadata: {"clawdis":{"emoji":"🎭","requires":{"bins":["pi"]}}}
+metadata: {"botis":{"emoji":"🎭","requires":{"bins":["pi"]}}}
 ---
 
 # Pi Orchestration

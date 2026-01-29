@@ -1,6 +1,6 @@
 # UniFi Skill
 
-Monitor your UniFi network via the local gateway API from Clawdbot.
+Monitor your UniFi network via the local gateway API from Bot.
 
 ## What It Does
 
@@ -24,8 +24,8 @@ All operations are **read-only** and safe for monitoring.
 ### 2. Create Credentials File
 
 ```bash
-mkdir -p ~/.clawdbot/credentials/unifi
-cp config.json.example ~/.clawdbot/credentials/unifi/config.json
+mkdir -p ~/.bot/credentials/unifi
+cp config.json.example ~/.bot/credentials/unifi/config.json
 # Edit with your actual values
 ```
 
@@ -102,7 +102,7 @@ export UNIFI_SITE="default"
 ## Troubleshooting
 
 **"UniFi not configured"**  
-→ Check your config file exists at `~/.clawdbot/credentials/unifi/config.json`
+→ Check your config file exists at `~/.bot/credentials/unifi/config.json`
 
 **"Login failed (empty cookie file)"**  
 → Wrong username/password. Must be a **local** admin, not Ubiquiti cloud account.

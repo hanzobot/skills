@@ -1,7 +1,7 @@
 ---
 name: quit-porn
 description: Break free from porn addiction with streak tracking, urge management, and recovery milestones
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "quit porn"

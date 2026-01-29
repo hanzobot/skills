@@ -2,7 +2,7 @@
 name: content-advisory
 description: Lookup detailed content ratings for movies and TV shows (sex/nudity, violence/gore, language) from Kids-In-Mind.
 homepage: https://kids-in-mind.com
-metadata: { "clawdbot": { "emoji": "🎬", "requires": { "bins": ["uv"] } } }
+metadata: { "bot": { "emoji": "🎬", "requires": { "bins": ["uv"] } } }
 ---
 
 # Content Advisory
@@ -104,7 +104,7 @@ uv run {baseDir}/scripts/content_advisory.py search "disney" --limit 20
 
 ## Data Storage
 
-Cache stored at `~/.clawdbot/content-advisory/cache.json` to minimize repeated lookups.
+Cache stored at `~/.bot/content-advisory/cache.json` to minimize repeated lookups.
 
 ## Notes
 

@@ -28,7 +28,7 @@ echo 'export SEARCHCH_API_KEY="your-api-key-here"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-**For Clawdbot Gateway:**
+**For Bot Gateway:**
 
 Add to your gateway config or environment:
 ```yaml

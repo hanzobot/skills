@@ -33,7 +33,7 @@ if [ "$AVAILABLE_COUNT" -gt 0 ]; then
         MESSAGE="${line#NOTIFY: }"
         echo "[$(date)] Sending notification: $MESSAGE" >> "$LOG_FILE"
         
-        # TODO: Send via Clawdbot message tool
+        # TODO: Send via Bot message tool
         # For now, just log it
     done
 fi

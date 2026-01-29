@@ -7,7 +7,7 @@ if [ $# -eq 0 ]; then
 fi
 
 # Load API key from credentials
-CONFIG_FILE="$HOME/.clawdbot/credentials/exa/config.json"
+CONFIG_FILE="$HOME/.bot/credentials/exa/config.json"
 if [ -f "$CONFIG_FILE" ]; then
     EXA_API_KEY=$(jq -r '.apiKey' "$CONFIG_FILE")
 fi

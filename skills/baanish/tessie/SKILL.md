@@ -7,7 +7,7 @@ Control your Tesla vehicles via Tessie API - a Tesla management platform with 50
 Get your Tessie API credentials:
 1. Go to https://tessie.com/developers
 2. Sign up and create an API key
-3. Configure in Clawdbot:
+3. Configure in Bot:
 
 ```yaml
 skills:

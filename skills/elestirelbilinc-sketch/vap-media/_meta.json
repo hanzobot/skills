@@ -5,13 +5,13 @@
   "latest": {
     "version": "1.0.1",
     "publishedAt": 1769390196832,
-    "commit": "https://github.com/clawdbot/skills/commit/3334865486e9f86fa7ec2ea961489e0402ad2c7d"
+    "commit": "https://github.com/bot/skills/commit/3334865486e9f86fa7ec2ea961489e0402ad2c7d"
   },
   "history": [
     {
       "version": "1.0.0",
       "publishedAt": 1769380129049,
-      "commit": "https://github.com/clawdbot/skills/commit/711706ff262010ffe9f9412f1d10d5fe29b2b48c"
+      "commit": "https://github.com/bot/skills/commit/711706ff262010ffe9f9412f1d10d5fe29b2b48c"
     }
   ]
 }

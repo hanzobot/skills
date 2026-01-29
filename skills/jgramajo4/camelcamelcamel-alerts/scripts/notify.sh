@@ -21,7 +21,7 @@ echo "$json_input" | jq -c '.[]' | while read -r alert; do
     # Format message
     message="🛒 *Price Alert*\n\n*${title}*\n\n${description}\n\n[View on Amazon](${link})"
     
-    # Send via Clawdbot (using message tool)
+    # Send via Bot (using message tool)
     # This will be called from a parent process that has access to message tool
     # Output in format that can be piped to message action
     echo "ALERT|$title|$message|$link"

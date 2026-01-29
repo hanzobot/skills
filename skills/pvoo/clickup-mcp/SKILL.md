@@ -2,7 +2,7 @@
 name: clickup-mcp
 description: Manage ClickUp tasks, docs, time tracking, comments, chat, and search via official MCP. OAuth authentication required.
 homepage: https://clickup.com
-metadata: {"clawdbot":{"emoji":"✅","requires":{"bins":["mcporter"],"env":["CLICKUP_TOKEN"]}}}
+metadata: {"bot":{"emoji":"✅","requires":{"bins":["mcporter"],"env":["CLICKUP_TOKEN"]}}}
 ---
 
 # ClickUp MCP (Official)
@@ -41,7 +41,7 @@ jq -r '.mcpOAuth | to_entries | .[] | select(.key | startswith("clickup")) | .va
 
 **Step 3: Add to environment**
 ```bash
-# Add to ~/.clawdbot/.env
+# Add to ~/.bot/.env
 CLICKUP_TOKEN=eyJhbGciOiJkaXIi...
 ```
 

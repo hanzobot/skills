@@ -2,10 +2,10 @@
 name: streaming-buddy
 version: 2.0.0
 description: "Personal streaming assistant with learning preferences. Tracks what you're watching, learns your taste, and suggests what to watch next based on your services, mood, and preferences. Use when asked about movies, TV shows, streaming services, what to watch, or tracking viewing progress. Triggers: /stream, 'what should I watch', 'recommend something', mentioning Netflix/Prime/Disney+/Apple TV+, asking about series/seasons/episodes, mood-based requests like 'something exciting'."
-author: clawdbot
+author: bot
 license: MIT
 metadata:
-  clawdbot:
+  bot:
     emoji: "📺"
     triggers: ["/stream"]
     requires:

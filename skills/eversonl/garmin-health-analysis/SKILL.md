@@ -4,7 +4,7 @@ description: Talk to your Garmin data naturally - "what was my fastest speed sno
 version: 1.2.2
 author: EversonL & Claude
 homepage: https://github.com/eversonl/ClawdBot-garmin-health-analysis
-metadata: {"clawdbot":{"emoji":"⌚","requires":{"env":["GARMIN_EMAIL","GARMIN_PASSWORD"]},"install":[{"id":"garminconnect","kind":"python","package":"garminconnect","label":"Install garminconnect (pip)"},{"id":"fitparse","kind":"python","package":"fitparse","label":"Install fitparse (pip)"},{"id":"gpxpy","kind":"python","package":"gpxpy","label":"Install gpxpy (pip)"}]}}
+metadata: {"bot":{"emoji":"⌚","requires":{"env":["GARMIN_EMAIL","GARMIN_PASSWORD"]},"install":[{"id":"garminconnect","kind":"python","package":"garminconnect","label":"Install garminconnect (pip)"},{"id":"fitparse","kind":"python","package":"fitparse","label":"Install fitparse (pip)"},{"id":"gpxpy","kind":"python","package":"gpxpy","label":"Install gpxpy (pip)"}]}}
 ---
 
 # Garmin Health Analysis
@@ -15,14 +15,14 @@ Query health metrics from Garmin Connect and generate interactive HTML charts.
 
 This skill supports **two different setups**:
 
-1. **Clawdbot Skill** (this guide) - Use with Clawdbot for automation and proactive health monitoring
+1. **Bot Skill** (this guide) - Use with Bot for automation and proactive health monitoring
 2. **MCP Server** ([see MCP setup guide](references/mcp_setup.md)) - Use with standard Claude Desktop as an MCP server
 
 Choose the path that matches your use case. You can also use both simultaneously!
 
 ---
 
-## Clawdbot Skill Setup (first time only)
+## Bot Skill Setup (first time only)
 
 ### 1. Install Dependencies
 
@@ -34,9 +34,9 @@ pip3 install garminconnect
 
 You have three options to provide your Garmin Connect credentials:
 
-#### Option A: Clawdbot Config (Recommended - UI configurable)
+#### Option A: Bot Config (Recommended - UI configurable)
 
-Add credentials to `~/.clawdbot/clawdbot.json`:
+Add credentials to `~/.bot/bot.json`:
 
 ```json
 {
@@ -54,14 +54,14 @@ Add credentials to `~/.clawdbot/clawdbot.json`:
 }
 ```
 
-**Tip**: You can also set these through the Clawdbot UI in the Skills settings panel.
+**Tip**: You can also set these through the Bot UI in the Skills settings panel.
 
 #### Option B: Local Config File
 
 Create a config file in the skill directory:
 
 ```bash
-cd ~/.clawdbot/skills/garmin-health-analysis
+cd ~/.bot/skills/garmin-health-analysis
 # or: cd <workspace>/skills/garmin-health-analysis
 cp config.example.json config.json
 # Edit config.json and add your email and password
@@ -98,9 +98,9 @@ This uses credentials from (in priority order):
 1. Command line arguments (`--email`, `--password`)
 2. Local config file (`config.json`)
 3. Environment variables (`GARMIN_EMAIL`, `GARMIN_PASSWORD`)
-4. Clawdbot config (`skills.entries.garmin-health-analysis.env`)
+4. Bot config (`skills.entries.garmin-health-analysis.env`)
 
-Session tokens are stored in `~/.clawdbot/garmin-tokens.json` and auto-refresh.
+Session tokens are stored in `~/.bot/garmin-tokens.json` and auto-refresh.
 
 Check authentication status:
 ```bash
@@ -248,7 +248,7 @@ When users ask for insights or want to understand their trends, use `references/
 
 ## Privacy Note
 
-- Credentials are stored locally in `~/.clawdbot/garmin-tokens.json`
+- Credentials are stored locally in `~/.bot/garmin-tokens.json`
 - Session tokens refresh automatically
 - No data is sent anywhere except to Garmin's official servers
 - You can revoke access anytime by deleting the tokens file

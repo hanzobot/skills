@@ -4,7 +4,7 @@
 
 > **Keywords:** WordPress, WooCommerce, REST API, WP-CLI, blog automation, content management, ecommerce, posts, pages, media, comments, SEO, Yoast, RankMath, inventory, orders, coupons, bulk operations, multi-site, Gutenberg
 
-[![Version](https://img.shields.io/badge/version-3.1.0-blue.svg)](https://clawdhub.com/skills/pinch-to-post)
+[![Version](https://img.shields.io/badge/version-3.1.0-blue.svg)](https://skills.com/skills/pinch-to-post)
 [![Features](https://img.shields.io/badge/features-50+-green.svg)](#features)
 [![Sites Tested](https://img.shields.io/badge/tested%20on-50k%2B%20posts-orange.svg)](#performance)
 
@@ -162,7 +162,7 @@ Nope. WordPress has REST API built-in since version 4.7. Just generate an Applic
 Administrator for full access, Editor for content management, Author for their own posts only.
 
 **Is my password stored securely?**  
-Your Application Password stays in your local Clawdbot config. It's never sent anywhere except your own WordPress site.
+Your Application Password stays in your local Bot config. It's never sent anywhere except your own WordPress site.
 
 **Can I use this with WP Engine / Kinsta / Flywheel?**  
 Yes. Works with any WordPress host that hasn't disabled the REST API (almost none do).
@@ -221,10 +221,10 @@ Not working?
 ## 📦 Install
 
 ```bash
-clawdhub install pinch-to-post
+skills install pinch-to-post
 ```
 
-Or tell Clawdbot: *"install the pinch-to-post skill"*
+Or tell Bot: *"install the pinch-to-post skill"*
 
 
 ## 📚 Full Documentation
@@ -234,8 +234,8 @@ See the complete feature reference in the [SKILL.md](./SKILL.md) file.
 
 ## 🔗 Links
 
-- [ClawdHub](https://clawdhub.com/skills/pinch-to-post)
-- [Clawdbot Docs](https://docs.clawd.bot/tools/skills)
+- [Skills](https://skills.com/skills/pinch-to-post)
+- [Bot Docs](https://docs.hanzo.bot/tools/skills)
 - [WordPress REST API](https://developer.wordpress.org/rest-api/)
 - [WooCommerce REST API](https://woocommerce.github.io/woocommerce-rest-api-docs/)
 

@@ -1,6 +1,6 @@
 # Linkding Skill
 
-Manage bookmarks via Linkding REST API from Clawdbot.
+Manage bookmarks via Linkding REST API from Bot.
 
 ## What It Does
 
@@ -21,8 +21,8 @@ Manage bookmarks via Linkding REST API from Clawdbot.
 ### 2. Create Credentials File
 
 ```bash
-mkdir -p ~/.clawdbot/credentials/linkding
-cp config.json.example ~/.clawdbot/credentials/linkding/config.json
+mkdir -p ~/.bot/credentials/linkding
+cp config.json.example ~/.bot/credentials/linkding/config.json
 # Edit with your actual values
 ```
 
@@ -122,7 +122,7 @@ export LINKDING_API_KEY="your-api-token"
 ## Troubleshooting
 
 **"LINKDING_URL and LINKDING_API_KEY must be set"**  
-→ Check your config file exists at `~/.clawdbot/credentials/linkding/config.json`
+→ Check your config file exists at `~/.bot/credentials/linkding/config.json`
 
 **401 Unauthorized**  
 → Your API token is invalid — regenerate it in Linkding settings

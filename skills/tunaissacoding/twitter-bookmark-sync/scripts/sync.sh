@@ -4,11 +4,11 @@ set -euo pipefail
 # twitter-bookmark-sync: Fetch, rank, and save Twitter bookmarks
 # Usage: ./sync.sh
 
-CONFIG_FILE="$HOME/clawd/twitter-bookmark-sync-config.json"
-CRITERIA_FILE="$HOME/clawd/twitter-bookmark-sync-criteria.json"
+CONFIG_FILE="$HOME/bot/twitter-bookmark-sync-config.json"
+CRITERIA_FILE="$HOME/bot/twitter-bookmark-sync-criteria.json"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
-LOG_DIR="$HOME/clawd/logs"
+LOG_DIR="$HOME/bot/logs"
 mkdir -p "$LOG_DIR"
 
 LOG_FILE="$LOG_DIR/twitter-bookmark-sync.log"

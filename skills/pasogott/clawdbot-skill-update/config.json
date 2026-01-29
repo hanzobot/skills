@@ -1,21 +1,21 @@
 {
-  "name": "clawdbot-update",
+  "name": "bot-update",
   "version": "1.0.0",
-  "description": "Comprehensive backup, update, and restore workflow for Clawdbot installations",
+  "description": "Comprehensive backup, update, and restore workflow for Bot installations",
   "repository": {
     "type": "git",
-    "url": "https://github.com/clawdbot/clawdbot"
+    "url": "https://github.com/bot/bot"
   },
   "upstream": {
     "remote": "origin",
-    "url": "https://github.com/clawdbot/clawdbot",
+    "url": "https://github.com/bot/bot",
     "defaultBranch": "main"
   },
   "paths": {
-    "repo": "~/code/clawdbot",
-    "config": "~/.clawdbot/clawdbot.json",
-    "backups": "~/.clawdbot-backups",
-    "skills": "~/.skills/clawdbot-update"
+    "repo": "~/code/bot",
+    "config": "~/.bot/bot.json",
+    "backups": "~/.bot-backups",
+    "skills": "~/.skills/bot-update"
   },
   "features": {
     "dynamicWorkspaces": true,

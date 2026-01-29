@@ -1,5 +1,5 @@
 {
-  "name": "@clawdhub/homey",
+  "name": "@skills/homey",
   "version": "1.1.2",
   "description": "Control Athom Homey smart home devices via local (LAN/VPN) or cloud APIs",
   "main": "bin/homeycli.js",
@@ -21,8 +21,8 @@
     "homey-api",
     "homey cloud api",
     "smart-home",
-    "clawdbot",
-    "clawdhub"
+    "bot",
+    "skills"
   ],
   "repository": {
     "type": "git",

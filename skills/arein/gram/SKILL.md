@@ -2,7 +2,7 @@
 name: gram
 description: Instagram CLI for viewing feeds, posts, profiles, and engagement via cookies.
 homepage: https://github.com/arein/gram
-metadata: {"clawdbot":{"emoji":"📸","requires":{"bins":["gram"]},"install":[{"id":"npm","kind":"node","package":"@cyberdrk/gram","bins":["gram"],"label":"Install gram (npm)"}]}}
+metadata: {"bot":{"emoji":"📸","requires":{"bins":["gram"]},"install":[{"id":"npm","kind":"node","package":"@cyberdrk/gram","bins":["gram"],"label":"Install gram (npm)"}]}}
 ---
 
 # gram 📸

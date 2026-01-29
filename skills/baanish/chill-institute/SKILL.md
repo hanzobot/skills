@@ -31,7 +31,7 @@ If you have both skills installed (**chill-institute** + **putio**), the workflo
 
 ## Browser automation notes
 
-- Prefer `browser` tool with the isolated profile (`profile="clawd"`).
+- Prefer `browser` tool with the isolated profile (`profile="bot"`).
 - If clicks time out, re-snapshot (`refs="aria"`) and retry on the new ref.
 
 ## Safety / policy

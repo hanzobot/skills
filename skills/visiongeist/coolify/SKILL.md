@@ -4,7 +4,7 @@ description: Manage Coolify deployments, applications, databases, and services v
 homepage: https://coolify.io
 repository: https://github.com/visiongeist/coolifycli
 user-invocable: true
-metadata: {"clawdbot":{"emoji":"🚀","requires":{"bins":["node"],"env":["COOLIFY_TOKEN","COOLIFY_API_URL"]},"primaryEnv":"COOLIFY_TOKEN"}}
+metadata: {"bot":{"emoji":"🚀","requires":{"bins":["node"],"env":["COOLIFY_TOKEN","COOLIFY_API_URL"]},"primaryEnv":"COOLIFY_TOKEN"}}
 ---
 
 # Coolify API Skill
@@ -754,7 +754,7 @@ Use this skill when the user needs to:
 export COOLIFY_TOKEN="your-token-here"
 ```
 
-Or configure in Clawdbot config at `~/.clawdbot/clawdbot.json`:
+Or configure in Bot config at `~/.bot/bot.json`:
 ```json
 {
   "skills": {

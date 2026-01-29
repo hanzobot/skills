@@ -2,7 +2,7 @@
 name: radarr
 version: 1.0.1
 description: Search and add movies to Radarr. Supports collections, search-on-add option.
-metadata: {"clawdbot":{"emoji":"🎬","requires":{"bins":["curl","jq"]}}}
+metadata: {"bot":{"emoji":"🎬","requires":{"bins":["curl","jq"]}}}
 ---
 
 # Radarr
@@ -11,7 +11,7 @@ Add movies to your Radarr library with collection support.
 
 ## Setup
 
-Create `~/.clawdbot/credentials/radarr/config.json`:
+Create `~/.bot/credentials/radarr/config.json`:
 ```json
 {
   "url": "http://localhost:7878",

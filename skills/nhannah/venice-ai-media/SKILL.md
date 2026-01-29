@@ -4,7 +4,7 @@ description: Generate, edit, and upscale images; create videos from images or ot
 homepage: https://venice.ai
 metadata:
   {
-    "clawdbot":
+    "bot":
       {
         "emoji": "🎨",
         "requires": { "bins": ["python3"], "env": ["VENICE_API_KEY"] },
@@ -51,9 +51,9 @@ Generate images and videos using Venice AI APIs. Venice is an uncensored AI plat
 export VENICE_API_KEY="vn_your_key_here"
 ```
 
-**Option B: Clawdbot config** (recommended - persists across sessions)
+**Option B: Bot config** (recommended - persists across sessions)
 
-Add to `~/.clawdbot/clawdbot.json`:
+Add to `~/.bot/bot.json`:
 
 ```json5
 {
@@ -195,7 +195,7 @@ Use `--list-models` to see current availability and status. Models change freque
 
 ## Output
 
-Scripts print a `MEDIA: /path/to/file` line for Clawdbot auto-attach.
+Scripts print a `MEDIA: /path/to/file` line for Bot auto-attach.
 
 **Tip:** Use `--out-dir /tmp/venice-$(date +%s)` when generating media to send via iMessage (ensures accessibility across user accounts).
 
@@ -203,7 +203,7 @@ Scripts print a `MEDIA: /path/to/file` line for Clawdbot auto-attach.
 
 **"VENICE_API_KEY not set"**
 
-- Check your config in `~/.clawdbot/clawdbot.json`
+- Check your config in `~/.bot/bot.json`
 - Or export the env var: `export VENICE_API_KEY="vn_..."`
 
 **"Invalid API key"**

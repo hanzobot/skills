@@ -352,7 +352,7 @@ const ChatMessages = () => {
         <Message
           text={`✅ **Skill saved!**
 
-\`~/clawd/skills/whatsapp-video/\`
+\`~/bot/skills/whatsapp-video/\`
 
 Includes template, docs, and render script. Just tell me what conversation to show and I'll generate the video.`}
           isOutgoing={false}
@@ -417,13 +417,13 @@ const EndCard = () => {
           Reusable WhatsApp video template
         </div>
         <div style={{ color: "rgba(255,255,255,0.95)", fontSize: 24, marginBottom: 35, lineHeight: 1.4 }}>
-          saved to Clawdbot skills
+          saved to Bot skills
         </div>
         <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 22, marginTop: 20 }}>
           @danpeguine
         </div>
         <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 18, marginTop: 8 }}>
-          clawdbot.com
+          bot.com
         </div>
       </div>
     </AbsoluteFill>

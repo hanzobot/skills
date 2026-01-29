@@ -1,7 +1,7 @@
 ---
 name: premium-domains
 description: Search for premium domains for sale across Afternic, Sedo, Atom, Dynadot, Namecheap, NameSilo, and Unstoppable Domains.
-metadata: {"clawdbot":{"emoji":"💎","requires":{"bins":["curl"]}}}
+metadata: {"bot":{"emoji":"💎","requires":{"bins":["curl"]}}}
 ---
 
 # Premium Domain Search

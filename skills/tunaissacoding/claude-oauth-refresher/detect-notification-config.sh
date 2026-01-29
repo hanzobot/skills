@@ -1,13 +1,13 @@
 #!/bin/bash
-# detect-notification-config.sh - Auto-detect notification settings from Clawdbot config
+# detect-notification-config.sh - Auto-detect notification settings from Bot config
 
 set -euo pipefail
 
-CLAWDBOT_CONFIG="$HOME/.clawdbot/clawdbot.json"
+BOT_CONFIG="$HOME/.bot/bot.json"
 
 # Output format: channel|target or empty
 detect_notification_target() {
-    if [[ ! -f "$CLAWDBOT_CONFIG" ]]; then
+    if [[ ! -f "$BOT_CONFIG" ]]; then
         return 1
     fi
     
@@ -19,7 +19,7 @@ detect_notification_target() {
     local channels=("telegram" "slack" "discord" "whatsapp" "imessage" "signal")
     
     for channel in "${channels[@]}"; do
-        local enabled=$(jq -r ".channels.${channel}.enabled // false" "$CLAWDBOT_CONFIG" 2>/dev/null)
+        local enabled=$(jq -r ".channels.${channel}.enabled // false" "$BOT_CONFIG" 2>/dev/null)
         
         if [[ "$enabled" == "true" ]]; then
             # Channel is enabled, try to find target
@@ -28,16 +28,16 @@ detect_notification_target() {
             case "$channel" in
                 telegram)
                     # Try to get chat_id from config or recent messages
-                    target=$(jq -r ".channels.telegram.default_chat_id // empty" "$CLAWDBOT_CONFIG" 2>/dev/null)
+                    target=$(jq -r ".channels.telegram.default_chat_id // empty" "$BOT_CONFIG" 2>/dev/null)
                     if [[ -z "$target" ]]; then
                         # Try to get from user info
-                        target=$(jq -r ".channels.telegram.user_id // empty" "$CLAWDBOT_CONFIG" 2>/dev/null)
+                        target=$(jq -r ".channels.telegram.user_id // empty" "$BOT_CONFIG" 2>/dev/null)
                     fi
                     ;;
                     
                 slack)
                     # Try to get user ID
-                    target=$(jq -r ".channels.slack.user_id // empty" "$CLAWDBOT_CONFIG" 2>/dev/null)
+                    target=$(jq -r ".channels.slack.user_id // empty" "$BOT_CONFIG" 2>/dev/null)
                     if [[ -n "$target" ]]; then
                         target="user:${target}"
                     fi
@@ -45,7 +45,7 @@ detect_notification_target() {
                     
                 discord)
                     # Try to get user ID
-                    target=$(jq -r ".channels.discord.user_id // empty" "$CLAWDBOT_CONFIG" 2>/dev/null)
+                    target=$(jq -r ".channels.discord.user_id // empty" "$BOT_CONFIG" 2>/dev/null)
                     if [[ -n "$target" ]]; then
                         target="user:${target}"
                     fi
@@ -53,17 +53,17 @@ detect_notification_target() {
                     
                 whatsapp)
                     # Try to get phone number
-                    target=$(jq -r ".channels.whatsapp.phone // empty" "$CLAWDBOT_CONFIG" 2>/dev/null)
+                    target=$(jq -r ".channels.whatsapp.phone // empty" "$BOT_CONFIG" 2>/dev/null)
                     ;;
                     
                 imessage)
                     # Try to get default target
-                    target=$(jq -r ".channels.imessage.default_target // empty" "$CLAWDBOT_CONFIG" 2>/dev/null)
+                    target=$(jq -r ".channels.imessage.default_target // empty" "$BOT_CONFIG" 2>/dev/null)
                     ;;
                     
                 signal)
                     # Try to get phone number
-                    target=$(jq -r ".channels.signal.phone // empty" "$CLAWDBOT_CONFIG" 2>/dev/null)
+                    target=$(jq -r ".channels.signal.phone // empty" "$BOT_CONFIG" 2>/dev/null)
                     ;;
             esac
             
@@ -78,15 +78,15 @@ detect_notification_target() {
     return 1
 }
 
-# Try runtime detection via clawdbot CLI
+# Try runtime detection via bot CLI
 detect_from_cli() {
-    if ! command -v clawdbot &> /dev/null; then
+    if ! command -v bot &> /dev/null; then
         return 1
     fi
     
     # Try Telegram first (most common)
-    if clawdbot message telegram account list &> /dev/null; then
-        local chat_id=$(clawdbot message telegram message search --limit 1 --from-me true 2>/dev/null | \
+    if bot message telegram account list &> /dev/null; then
+        local chat_id=$(bot message telegram message search --limit 1 --from-me true 2>/dev/null | \
                        jq -r '.messages[0].chat.id // empty' 2>/dev/null)
         if [[ -n "$chat_id" ]]; then
             echo "telegram|${chat_id}"

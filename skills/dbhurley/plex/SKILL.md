@@ -2,7 +2,7 @@
 name: plex
 description: Control Plex Media Server - browse libraries, search, play media, manage playback.
 homepage: https://plex.tv
-metadata: {"clawdis":{"emoji":"🎬","requires":{"bins":["curl"],"env":["PLEX_TOKEN","PLEX_SERVER"]},"primaryEnv":"PLEX_TOKEN"}}
+metadata: {"botis":{"emoji":"🎬","requires":{"bins":["curl"],"env":["PLEX_TOKEN","PLEX_SERVER"]},"primaryEnv":"PLEX_TOKEN"}}
 ---
 
 # Plex Media Server

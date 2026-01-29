@@ -1,8 +1,8 @@
 # Setting Up Automated Monitoring
 
-## Option 1: Add via Clawdbot Config (Recommended)
+## Option 1: Add via Bot Config (Recommended)
 
-Add this to your Clawdbot Gateway config (`~/.clawdbot/clawdbot.json`):
+Add this to your Bot Gateway config (`~/.bot/bot.json`):
 
 ```json
 {
@@ -14,7 +14,7 @@ Add this to your Clawdbot Gateway config (`~/.clawdbot/clawdbot.json`):
         "sessionTarget": "telegram:YOUR_CHAT_ID",
         "payload": {
           "kind": "exec",
-          "command": "/Users/ali/clawd/skills/claude-code-usage/scripts/monitor-usage.sh"
+          "command": "/Users/ali/bot/skills/claude-code-usage/scripts/monitor-usage.sh"
         }
       }
     ]
@@ -24,9 +24,9 @@ Add this to your Clawdbot Gateway config (`~/.clawdbot/clawdbot.json`):
 
 Replace `YOUR_CHAT_ID` with your Telegram chat ID (usually your phone number).
 
-Then restart Clawdbot:
+Then restart Bot:
 ```bash
-clawdbot daemon restart
+bot daemon restart
 ```
 
 ## Option 2: System Cron (Alternative)
@@ -39,7 +39,7 @@ crontab -e
 
 Add this line:
 ```
-*/30 * * * * /Users/ali/clawd/skills/claude-code-usage/scripts/monitor-usage.sh > /tmp/claude-monitor.log 2>&1
+*/30 * * * * /Users/ali/bot/skills/claude-code-usage/scripts/monitor-usage.sh > /tmp/claude-monitor.log 2>&1
 ```
 
 **Note:** System cron won't send Telegram notifications directly. You'll need to check `/tmp/claude-monitor.log` for reset notifications.
@@ -48,7 +48,7 @@ Add this line:
 
 Test the monitor anytime:
 ```bash
-/Users/ali/clawd/skills/claude-code-usage/scripts/monitor-usage.sh
+/Users/ali/bot/skills/claude-code-usage/scripts/monitor-usage.sh
 ```
 
 ## Verification

@@ -2,7 +2,7 @@
 # Create hourly conversation snapshots for a specific day
 
 DATE="${1:-2026-01-20}"
-SESSION_FILE=$(ls -t /root/.clawdbot/agents/main/sessions/*.jsonl 2>/dev/null | head -1)
+SESSION_FILE=$(ls -t /root/.bot/agents/main/sessions/*.jsonl 2>/dev/null | head -1)
 VAULT_DIR="/root/ObsidianVault/Clawd Markdowns"
 
 if [[ ! -f "$SESSION_FILE" ]]; then
@@ -38,7 +38,7 @@ EOF
         # Filter for this hour and format
         TIMESTAMP=$(echo "$line" | jq -r '.timestamp // ""')
         if [[ "$TIMESTAMP" == ${DATE}T${HOUR}:* ]]; then
-            echo "$line" | jq -r -f /root/clawd/format_message_v2.jq.txt 2>/dev/null
+            echo "$line" | jq -r -f /root/bot/format_message_v2.jq.txt 2>/dev/null
         fi
     done >> "$OUTPUT_FILE"
     

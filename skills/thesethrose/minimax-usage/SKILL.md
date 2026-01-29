@@ -1,7 +1,7 @@
 ---
 name: minimax-usage
 description: Monitor Minimax Coding Plan usage to stay within API limits. Fetches current usage stats and provides status alerts.
-metadata: {"clawdbot":{"emoji":"📊"}}
+metadata: {"bot":{"emoji":"📊"}}
 ---
 
 # Minimax Usage Skill

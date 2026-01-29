@@ -1,7 +1,7 @@
 ---
 name: office-quotes
 description: Generate random quotes from The Office (US). Provides access to 326 offline quotes plus online mode with SVG cards, character avatars, and full episode metadata via the akashrajpurohit API. Use for fun, icebreakers, or any task requiring The Office quotes.
-metadata: {"clawdbot":{"requires":{"bins":["office-quotes"]},"install":[{"id":"node","kind":"node","package":"office-quotes-cli","bins":["office-quotes"],"label":"Install office-quotes CLI (npm)"}]}}
+metadata: {"bot":{"requires":{"bins":["office-quotes"]},"install":[{"id":"node","kind":"node","package":"office-quotes-cli","bins":["office-quotes"],"label":"Install office-quotes CLI (npm)"}]}}
 ---
 
 # office-quotes Skill

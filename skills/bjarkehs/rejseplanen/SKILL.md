@@ -1,7 +1,7 @@
 ---
 name: rejseplanen
 description: Query Danish public transport departures, arrivals, and journey planning via Rejseplanen API
-metadata: {"clawdbot":{"emoji":"🚂","os":["linux","darwin","win32"],"requires":{"bins":["node"]}}}
+metadata: {"bot":{"emoji":"🚂","os":["linux","darwin","win32"],"requires":{"bins":["node"]}}}
 ---
 
 # Rejseplanen - Danish Public Transport

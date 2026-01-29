@@ -30,7 +30,7 @@ Most AI training focuses on the wrong layer—either basic "101" prompting or ad
 Getting 80% of your organization to "201 level" AI fluency—treating AI like a capable but inexperienced collaborator who needs management—distinguishes companies that realize real gains from those stuck with a few power users and mass disengagement. Invest in the judgment layer, not just tool deployment.
 ```
 
-**File saved:** `/root/clawd/transcripts/2026-01-26_EZ4EjJ0iDDQ.txt`
+**File saved:** `/root/bot/transcripts/2026-01-26_EZ4EjJ0iDDQ.txt`
 
 ---
 
@@ -62,7 +62,7 @@ You can build a production-ready REST API quickly using modern frameworks and be
 Start simple with proven patterns, add complexity only when needed, and prioritize developer experience to ship faster.
 ```
 
-**File saved:** `/root/clawd/transcripts/2024-08-15_dQw4w9WgXcQ.txt`
+**File saved:** `/root/bot/transcripts/2024-08-15_dQw4w9WgXcQ.txt`
 
 ---
 

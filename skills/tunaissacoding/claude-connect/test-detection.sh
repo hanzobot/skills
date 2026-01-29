@@ -33,7 +33,7 @@ if [[ -x "$SCRIPT_DIR/detect-notification-config.sh" ]]; then
         cat << EOF
 {
   "refresh_buffer_minutes": 30,
-  "log_file": "~/clawd/logs/claude-oauth-refresh.log",
+  "log_file": "~/bot/logs/claude-oauth-refresh.log",
   "notifications": {
     "on_success": false,
     "on_failure": true
@@ -65,8 +65,8 @@ EOF
         echo -e "${YELLOW}⚠ Auto-detection failed${NC}"
         echo ""
         echo "Possible reasons:"
-        echo "  • Clawdbot config not found (~/.clawdbot/clawdbot.json)"
-        echo "  • No messaging channels enabled in Clawdbot"
+        echo "  • Bot config not found (~/.bot/bot.json)"
+        echo "  • No messaging channels enabled in Bot"
         echo "  • Channel config missing target ID fields"
         echo ""
         echo "You'll need to configure manually during install"

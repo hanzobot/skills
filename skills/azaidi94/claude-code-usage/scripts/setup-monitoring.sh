@@ -1,5 +1,5 @@
 #!/bin/bash
-# Setup Claude Code usage monitoring with Clawdbot cron
+# Setup Claude Code usage monitoring with Bot cron
 
 set -euo pipefail
 
@@ -9,10 +9,10 @@ MONITOR_SCRIPT="$SCRIPT_DIR/monitor-usage.sh"
 echo "🦞 Claude Code Usage Monitoring Setup"
 echo ""
 
-# Check if clawdbot is available
-if ! command -v clawdbot >/dev/null 2>&1; then
-  echo "❌ clawdbot CLI not found in PATH"
-  echo "Please ensure Clawdbot is installed and accessible"
+# Check if bot is available
+if ! command -v bot >/dev/null 2>&1; then
+  echo "❌ bot CLI not found in PATH"
+  echo "Please ensure Bot is installed and accessible"
   exit 1
 fi
 
@@ -30,14 +30,14 @@ echo "   Check interval: $INTERVAL"
 echo "   Monitor script: $MONITOR_SCRIPT"
 echo ""
 
-# Create cron job via Clawdbot
+# Create cron job via Bot
 echo "🔧 Creating cron job..."
 
-# Use clawdbot's cron add command
+# Use bot's cron add command
 # The job will run the monitor script at the specified interval
 CRON_TEXT="Monitor Claude Code usage resets every $INTERVAL"
 
-# Note: This is a placeholder - actual implementation depends on Clawdbot's cron API
+# Note: This is a placeholder - actual implementation depends on Bot's cron API
 # For now, we'll output the command that needs to be run
 
 cat <<EOF
@@ -46,12 +46,12 @@ cat <<EOF
 
 To activate monitoring, run:
 
-  clawdbot cron add \\
+  bot cron add \\
     --schedule "$INTERVAL" \\
     --command "$MONITOR_SCRIPT" \\
     --label "Claude Code Usage Monitor"
 
-Or add via Clawdbot gateway config:
+Or add via Bot gateway config:
 
   {
     "schedule": "$INTERVAL",

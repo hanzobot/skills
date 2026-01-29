@@ -1,10 +1,10 @@
 ---
 name: claw-me-maybe
 version: 1.2.0
-description: Beeper integration for Clawdbot. Send messages and search chats across WhatsApp, Telegram, Signal, Discord, Slack, Instagram, iMessage, LinkedIn, Facebook Messenger, Google Messages via Beeper Desktop API. Reactions, reminders, attachments, mark as read. Unified multi-platform messaging automation—just ask.
+description: Beeper integration for Bot. Send messages and search chats across WhatsApp, Telegram, Signal, Discord, Slack, Instagram, iMessage, LinkedIn, Facebook Messenger, Google Messages via Beeper Desktop API. Reactions, reminders, attachments, mark as read. Unified multi-platform messaging automation—just ask.
 author: nickhamze
 keywords: Beeper, messaging, WhatsApp, Telegram, Signal, Discord, Slack, Instagram, iMessage, LinkedIn, Facebook Messenger, Google Messages, Google Chat, chat automation, unified messaging, Desktop API, send messages, search messages, reactions, reminders, multi-platform, cross-platform messaging, chat search, message history, unread messages
-metadata: {"clawdbot":{"emoji":"📟","skillKey":"claw-me-maybe","requires":{"bins":["curl"]},"homepage":"https://www.beeper.com","defaultEnv":{"BEEPER_API_URL":"http://localhost:23373"}}}
+metadata: {"bot":{"emoji":"📟","skillKey":"claw-me-maybe","requires":{"bins":["curl"]},"homepage":"https://www.beeper.com","defaultEnv":{"BEEPER_API_URL":"http://localhost:23373"}}}
 user-invocable: true
 ---
 
@@ -12,7 +12,7 @@ user-invocable: true
 
 **Your lobster just got a Beeper.**
 
-Finally, your Clawdbot can reach you (and everyone else) across *every* chat platform. WhatsApp? Telegram? Signal? Discord? Slack? Instagram DMs? LinkedIn? iMessage? **All of them. One skill. One claw.**
+Finally, your Bot can reach you (and everyone else) across *every* chat platform. WhatsApp? Telegram? Signal? Discord? Slack? Instagram DMs? LinkedIn? iMessage? **All of them. One skill. One claw.**
 
 Powered by [Beeper](https://www.beeper.com) - the app that unifies all your chats.
 
@@ -34,7 +34,7 @@ Powered by [Beeper](https://www.beeper.com) - the app that unifies all your chat
 
 ## Supported Beeper Networks
 
-Your Clawdbot can reach you on **any platform Beeper supports**:
+Your Bot can reach you on **any platform Beeper supports**:
 
 | Platform | Status |
 |----------|--------|
@@ -71,7 +71,7 @@ For smoother automation, grab an access token:
 
 1. Beeper Desktop → Settings → Developers
 2. Click "Create Access Token"
-3. Add to `~/.clawdbot/clawdbot.json`:
+3. Add to `~/.bot/bot.json`:
 
 ```json
 {
@@ -554,7 +554,7 @@ Some networks have limited emoji support. Try a more common emoji like 👍 ❤�
 
 ## Credits
 
-Built with 🦞 by @nickhamze and the Clawdbot community.
+Built with 🦞 by @nickhamze and the Bot community.
 
 Powered by [Beeper](https://www.beeper.com) - One app for all your chats.
 

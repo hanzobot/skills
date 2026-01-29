@@ -1,7 +1,7 @@
 ---
 name: gemini-stt
 description: Transcribe audio files using Google's Gemini API or Vertex AI
-metadata: {"clawdbot":{"emoji":"🎤","os":["linux","darwin"]}}
+metadata: {"bot":{"emoji":"🎤","os":["linux","darwin"]}}
 ---
 
 # Gemini Speech-to-Text Skill
@@ -21,7 +21,7 @@ The script will automatically detect and use ADC when available.
 
 ### Option 2: Direct Gemini API Key
 
-Set `GEMINI_API_KEY` in environment (e.g., `~/.env` or `~/.clawdbot/.env`)
+Set `GEMINI_API_KEY` in environment (e.g., `~/.env` or `~/.bot/.env`)
 
 ## Requirements
 
@@ -50,8 +50,8 @@ python ~/.claude/skills/gemini-stt/transcribe.py /path/to/audio.ogg --model gemi
 # Vertex AI with specific project and region
 python ~/.claude/skills/gemini-stt/transcribe.py /path/to/audio.ogg --vertex --project my-project --region us-central1
 
-# With Clawdbot media
-python ~/.claude/skills/gemini-stt/transcribe.py ~/.clawdbot/media/inbound/voice-message.ogg
+# With Bot media
+python ~/.claude/skills/gemini-stt/transcribe.py ~/.bot/media/inbound/voice-message.ogg
 ```
 
 ## Options
@@ -91,7 +91,7 @@ See [Gemini API Models](https://ai.google.dev/gemini-api/docs/models) for the la
 
 ## Example Integration
 
-For Clawdbot voice message handling:
+For Bot voice message handling:
 
 ```bash
 # Transcribe incoming voice message

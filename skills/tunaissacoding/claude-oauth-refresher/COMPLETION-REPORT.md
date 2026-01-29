@@ -53,14 +53,14 @@ All 7 requirements have been successfully implemented and validated.
   - Log file location
   - Help resources
 
-### 6. Clawdbot Control for Notifications ✅
+### 6. Bot Control for Notifications ✅
 - [x] Added comprehensive section to SKILL.md
 - [x] Examples provided:
   - "disable Claude refresh start notifications"
   - "disable Claude refresh success notifications"
   - "enable all Claude refresh notifications"
   - "show Claude refresh notification settings"
-- [x] Explained how Clawdbot can edit config
+- [x] Explained how Bot can edit config
 - [x] Documented that changes apply automatically
 
 ### 7. Update All Scripts ✅
@@ -89,7 +89,7 @@ All 7 requirements have been successfully implemented and validated.
 5. ✅ Enhanced error handling present
 6. ✅ Interactive prompts in install.sh
 7. ✅ Migration logic in install.sh
-8. ✅ Clawdbot examples in SKILL.md
+8. ✅ Bot examples in SKILL.md
 9. ✅ Notification type documentation complete
 10. ✅ UPGRADE.md exists
 11. ✅ verify-setup.sh checks both config filenames
@@ -129,13 +129,13 @@ All 7 requirements have been successfully implemented and validated.
   
 - `SKILL.md` - 15 KB (was 8.7 KB)
   - Complete documentation overhaul
-  - Clawdbot control examples
+  - Bot control examples
   - Notification types explained
   - Enhanced troubleshooting
   
 - `QUICKSTART.md` - 3.4 KB (was 3.1 KB)
   - Updated config references
-  - Added Clawdbot examples
+  - Added Bot examples
 
 ### Removed
 - `config.example.json` - Replaced by new filename
@@ -158,7 +158,7 @@ All 7 requirements have been successfully implemented and validated.
 2. **Smart Defaults** - Recommended settings with explanation
 3. **Easy Changes** - Config changes apply automatically, no reinstall
 4. **Clear Workflow** - One-time installation clearly documented
-5. **Voice Control** - Natural language config via Clawdbot
+5. **Voice Control** - Natural language config via Bot
 
 ### Error Handling
 1. **Detailed Messages** - Specific error context
@@ -234,7 +234,7 @@ All 7 requirements have been successfully implemented and validated.
 4. ⏳ Test all three notification types
 5. ⏳ Test config changes without reinstall
 6. ⏳ Test error scenarios (network, invalid token, etc.)
-7. ⏳ Test Clawdbot config editing
+7. ⏳ Test Bot config editing
 
 ### User Acceptance Testing
 1. Verify interactive prompts are clear
@@ -251,7 +251,7 @@ All 7 requirements have been successfully implemented and validated.
   - Installation guide
   - Configuration reference
   - Troubleshooting section
-  - Clawdbot integration examples
+  - Bot integration examples
   - Finding notification targets
   
 - **QUICKSTART.md** - Fast onboarding guide
@@ -263,7 +263,7 @@ All 7 requirements have been successfully implemented and validated.
 - Examples for every feature
 - Clear action items
 - Troubleshooting guides
-- Multiple paths (CLI/Clawdbot/manual)
+- Multiple paths (CLI/Bot/manual)
 
 ---
 
@@ -287,9 +287,9 @@ These are acceptable for v1.0 and can be enhanced in future releases.
 5. Disable start/success after verifying it works
 
 ### Optional
-1. Ask Clawdbot to manage settings
+1. Ask Bot to manage settings
 2. Customize notification preferences
-3. Review logs: `tail -f ~/clawd/logs/claude-oauth-refresh.log`
+3. Review logs: `tail -f ~/bot/logs/claude-oauth-refresh.log`
 
 ---
 
@@ -312,7 +312,7 @@ The claude-oauth-refresher skill has been successfully updated with all requeste
 - **Enhanced notifications** (3 types with fine-grained control)
 - **Interactive installation** (guided setup with recommendations)
 - **Detailed error handling** (context-specific troubleshooting)
-- **Clawdbot integration** (voice/text control of settings)
+- **Bot integration** (voice/text control of settings)
 - **Automatic migration** (seamless upgrade path)
 - **Comprehensive documentation** (15 KB of guides and examples)
 
@@ -320,7 +320,7 @@ The claude-oauth-refresher skill has been successfully updated with all requeste
 
 **Command to install/upgrade:**
 ```bash
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./install.sh
 ```
 

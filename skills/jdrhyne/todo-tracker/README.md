@@ -1,6 +1,6 @@
 # 📋 TODO Tracker Skill
 
-A persistent TODO scratch pad for [Clawdbot](https://clawdbot.com) that tracks tasks across sessions with priorities, completion tracking, and heartbeat reminders.
+A persistent TODO scratch pad for [Bot](https://bot.com) that tracks tasks across sessions with priorities, completion tracking, and heartbeat reminders.
 
 ## Installation
 
@@ -9,7 +9,7 @@ A persistent TODO scratch pad for [Clawdbot](https://clawdbot.com) that tracks t
 git clone https://github.com/jdrhyne/todo-tracker-skill.git skills/todo-tracker
 ```
 
-Or copy `SKILL.md` and `scripts/` to your Clawdbot workspace.
+Or copy `SKILL.md` and `scripts/` to your Bot workspace.
 
 ## Usage
 
@@ -104,4 +104,4 @@ MIT — use freely!
 
 ---
 
-Made for Clawdbot 🤖
+Made for Bot 🤖

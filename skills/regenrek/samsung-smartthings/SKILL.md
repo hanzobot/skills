@@ -2,12 +2,12 @@
 name: samsung-smart-tv
 description: Control Samsung TVs via SmartThings (OAuth app + device control).
 homepage: https://developer.smartthings.com/docs
-metadata: {"clawdbot":{"emoji":"📺","requires":{"bins":["python3","npx"]},"install":[{"id":"python-brew","kind":"brew","formula":"python","bins":["python3"],"label":"Install Python (brew)"},{"id":"node-brew","kind":"brew","formula":"node","bins":["node","npx"],"label":"Install Node.js (brew)"}]}}
+metadata: {"bot":{"emoji":"📺","requires":{"bins":["python3","npx"]},"install":[{"id":"python-brew","kind":"brew","formula":"python","bins":["python3"],"label":"Install Python (brew)"},{"id":"node-brew","kind":"brew","formula":"node","bins":["node","npx"],"label":"Install Node.js (brew)"}]}}
 ---
 
 # Samsung Smart TV (SmartThings)
 
-This skill provisions a SmartThings OAuth app and stores the credentials for Clawdbot.
+This skill provisions a SmartThings OAuth app and stores the credentials for Bot.
 
 Setup (one-time)
 - Create the SmartThings OAuth app headlessly (requires a PAT) and print a phone login URL, using plain text instructions only.
@@ -16,10 +16,10 @@ Setup (one-time)
 - Re-run to refresh credentials: describe the action in plain text (no code snippets).
 
 What it does
-- Creates an OAuth-In SmartApp with display name smartthings-clawdbot.
+- Creates an OAuth-In SmartApp with display name smartthings-bot.
 - Uses scopes r:devices:* and x:devices:* (read + execute commands).
 - Redirect URI defaults to https://httpbin.org/get (can be overridden via redirect-uri option).
-- Writes SMARTTHINGS_APP_ID, SMARTTHINGS_CLIENT_ID, SMARTTHINGS_CLIENT_SECRET plus OAuth tokens to ~/.clawdbot/.env (or CLAWDBOT_STATE_DIR/.env).
+- Writes SMARTTHINGS_APP_ID, SMARTTHINGS_CLIENT_ID, SMARTTHINGS_CLIENT_SECRET plus OAuth tokens to ~/.bot/.env (or BOT_STATE_DIR/.env).
 - Uses the SmartThings CLI to create the OAuth app when a PAT is provided.
 - Exchanges the OAuth code for tokens via direct HTTPS to SmartThings (not via the CLI).
 

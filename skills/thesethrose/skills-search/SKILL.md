@@ -4,13 +4,13 @@ description: Search skills.sh registry from CLI. Find and discover agent skills 
 metadata:
   version: 1.0.4
   tags: ["search", "skills.sh", "cli"]
-  clawdbot:
+  bot:
     requires:
       bins: ["node"]
     install:
       - id: "skill-install"
         kind: "skill"
-        source: "clawdhub"
+        source: "skills"
         slug: "skills-search"
         label: "Install skills-search skill"
 ---
@@ -19,10 +19,10 @@ metadata:
 
 Search skills from skills.sh registry directly from your terminal.
 
-## Install (Clawdbot)
+## Install (Bot)
 
 ```bash
-clawdhub install skills-search
+skills install skills-search
 ```
 
 ## Usage
@@ -73,7 +73,7 @@ skills-search "web design" --show-install
 ...
 ```
 
-## Automation (Clawdbot)
+## Automation (Bot)
 
 ### Step 1: Search for a skill
 
@@ -94,16 +94,16 @@ npx skills add vercel-labs/agent-skills
 The `skills` CLI uses an interactive menu. Watch for prompts and navigate accordingly:
 
 1. **Select skills** → Toggle skills you want with `space`, confirm with `enter`
-2. **Select agents** → Navigate with `up`/`down`, select `Clawdbot` with `space`, confirm with `enter`
+2. **Select agents** → Navigate with `up`/`down`, select `Bot` with `space`, confirm with `enter`
 3. **Installation scope** → Choose Project (recommended) with `enter`
 4. **Confirm** → Press `enter` to proceed
 
-**Important:** The TUI may change. Pay attention to the menu options and select `Clawdbot` when prompted for agents. If unsure about any selection, ask the user for guidance.
+**Important:** The TUI may change. Pay attention to the menu options and select `Bot` when prompted for agents. If unsure about any selection, ask the user for guidance.
 
 ### Step 3: Verify installation
 
 ```bash
-ls ~/.clawdbot/workspace/.agents/skills/
+ls ~/.bot/workspace/.agents/skills/
 ```
 
 ## Adding Your Own Skill
@@ -111,18 +111,18 @@ ls ~/.clawdbot/workspace/.agents/skills/
 Skills.sh automatically indexes GitHub repos containing `SKILL.md` files. To add your skill:
 
 1. **Create a skill folder** with `SKILL.md` in your GitHub repo
-2. **Publish to ClawdHub** for Clawdbot-specific discovery:
+2. **Publish to Skills** for Bot-specific discovery:
    ```bash
-   clawdhub publish ./your-skill/ --slug your-skill --name "Your Skill" --version 1.0.0
+   skills publish ./your-skill/ --slug your-skill --name "Your Skill" --version 1.0.0
    ```
-3. **Install in Clawdbot:**
+3. **Install in Bot:**
    ```bash
-   clawdhub install your-skill
+   skills install your-skill
    ```
 
 ## Notes
 
 - Queries https://skills.sh/api/skills (official skills.sh API)
 - Results sorted by install count (most popular first)
-- **Clawdbot-only**: Install via `clawdhub install skills-search`
-- Skills.sh leaderboard requires GitHub repo (not needed for ClawdHub-only skills)
+- **Bot-only**: Install via `skills install skills-search`
+- Skills.sh leaderboard requires GitHub repo (not needed for Skills-only skills)

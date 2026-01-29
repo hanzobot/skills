@@ -40,7 +40,7 @@ Before using gogcli, set up OAuth credentials:
 3. Go to OAuth consent screen
 4. Create OAuth 2.0 client with these settings:
    - Application type: "Desktop app"
-   - Name: "gogcli for Clawdbot"
+   - Name: "gogcli for Bot"
    - Authorized redirect URIs: `http://localhost:8085/callback`
 5. Enable APIs you need
 6. Download OAuth client credentials JSON file

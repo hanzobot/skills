@@ -5,7 +5,7 @@ version: 1.0.0
 author: dbhurley
 homepage: https://cloudflare.com
 metadata:
-  clawdis:
+  botis:
     emoji: "🔶"
     requires:
       bins: ["python3", "uv"]
@@ -31,7 +31,7 @@ Manage Cloudflare DNS, cache, and Workers via the API.
 
 ## ⚙️ Setup
 
-Configure in `~/.clawdis/clawdis.json`:
+Configure in `~/.botis/botis.json`:
 ```json
 {
   "skills": {
@@ -132,5 +132,5 @@ cloudflare cache purge example.com --all
 ## 📦 Installation
 
 ```bash
-clawdhub install cloudflare
+skills install cloudflare
 ```

@@ -10,7 +10,7 @@
 - Removed `requirements.txt` (old MCP dependencies)
 
 **Updated documentation for clarity:**
-- README.md now clearly identifies this as the Clawdbot skill
+- README.md now clearly identifies this as the Bot skill
 - Added prominent callout directing Claude Desktop users to the dedicated MCP server repo
 - Simplified `references/mcp_setup.md` to redirect to https://github.com/eversonl/garmin-health-mcp-server
 - Updated file tree to reflect current structure
@@ -21,9 +21,9 @@
 - Easy `npm install` + `npm run auth` setup
 - Comprehensive installation guide and troubleshooting
 
-**Both can coexist** - Shared authentication allows users to install both the Clawdbot skill and MCP server simultaneously.
+**Both can coexist** - Shared authentication allows users to install both the Bot skill and MCP server simultaneously.
 
-**This repo is now focused exclusively on the Clawdbot skill** for automated health monitoring, scheduled reports, and proactive check-ins.
+**This repo is now focused exclusively on the Bot skill** for automated health monitoring, scheduled reports, and proactive check-ins.
 
 ## v1.2.0 (2026-01-26)
 
@@ -43,7 +43,7 @@
 - Added `mcp` to requirements.txt
 
 **Now you can use this skill with:**
-- ✅ Clawdbot (original)
+- ✅ Bot (original)
 - ✅ Claude Desktop (new!)
 - ✅ Claude Code / VS Code extension (new!)
 - ✅ Any MCP-compatible client (new!)
@@ -51,7 +51,7 @@
 ## v1.1.5 (2026-01-25)
 
 ### Metadata
-- Expanded ClawdHub description with conversational examples and "talk to your data" messaging
+- Expanded Skills description with conversational examples and "talk to your data" messaging
 - Showcases real use cases: "what was my fastest speed?", activity analysis, recovery tracking
 
 ## v1.1.3 (2026-01-25)
@@ -139,7 +139,7 @@
 - Full dashboard combining all metrics
 
 **Configuration:**
-- UI-configurable via Clawdbot config (`skills.entries.garmin-health-analysis.env`)
+- UI-configurable via Bot config (`skills.entries.garmin-health-analysis.env`)
 - Local config.json support
 - Command-line arguments
 - Environment variables
@@ -150,6 +150,6 @@
 - Garmin Connect account with wearable device
 
 **Security:**
-- Session tokens stored locally in `~/.clawdbot/garmin/`
+- Session tokens stored locally in `~/.bot/garmin/`
 - Tokens auto-refresh
 - No data sent anywhere except Garmin's official servers

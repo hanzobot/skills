@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # publisher: Document and publish skills that people actually download
-# Usage: cd ~/clawd/skills/your-skill && publisher
+# Usage: cd ~/bot/skills/your-skill && publisher
 
 SKILL_DIR="${1:-.}"
 cd "$SKILL_DIR"
@@ -15,7 +15,7 @@ check_requirements() {
     local missing=()
     command -v jq >/dev/null || missing+=("jq")
     command -v gh >/dev/null || missing+=("gh")
-    command -v clawdhub >/dev/null || missing+=("clawdhub")
+    command -v bothub >/dev/null || missing+=("bothub")
     
     if [ ${#missing[@]} -gt 0 ]; then
         echo "❌ Missing required tools: ${missing[*]}"
@@ -25,7 +25,7 @@ check_requirements() {
             case "$tool" in
                 jq) echo "  brew install jq" ;;
                 gh) echo "  brew install gh && gh auth login" ;;
-                clawdhub) echo "  npm install -g clawdhub" ;;
+                bothub) echo "  npm install -g bothub" ;;
             esac
         done
         exit 1
@@ -161,7 +161,7 @@ main() {
         if [ ! -f "README.md" ]; then
             echo "⚠️  README.md generation coming in v1.1.0"
             echo "   For now, please create README.md manually using:"
-            echo "   ~/clawd/templates/README-template.md"
+            echo "   ~/bot/templates/README-template.md"
             echo ""
             read -p "Press Enter when README.md is ready..." 
         fi
@@ -216,13 +216,13 @@ EOF
     
     # Publish to ClawdHub
     echo "📦 Publishing to ClawdHub..."
-    clawdhub publish . --version "$VERSION"
+    bothub publish . --version "$VERSION"
     
     echo ""
     echo "✅ Published successfully!"
     echo ""
     echo "📍 GitHub: $(gh repo view --json url -q .url)"
-    echo "📍 ClawdHub: https://clawdhub.com/skills/$SKILL_NAME"
+    echo "📍 ClawdHub: https://bothub.com/skills/$SKILL_NAME"
 }
 
 main "$@"

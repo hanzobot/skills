@@ -1,7 +1,7 @@
 {
   "name": "imap-email-skill",
   "version": "1.0.0",
-  "description": "IMAP email reader for Clawdbot (ProtonMail Bridge, Gmail, etc.)",
+  "description": "IMAP email reader for Bot (ProtonMail Bridge, Gmail, etc.)",
   "main": "scripts/imap.js",
   "scripts": {
     "check": "node scripts/imap.js check",
@@ -13,7 +13,7 @@
     "mailparser": "^3.7.1",
     "dotenv": "^16.4.7"
   },
-  "keywords": ["imap", "email", "protonmail", "clawdbot", "skill"],
+  "keywords": ["imap", "email", "protonmail", "bot", "skill"],
   "author": "Mike Varrieur",
   "license": "MIT"
 }

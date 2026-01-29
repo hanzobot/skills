@@ -13,7 +13,7 @@
 
 <p align="center">
   <a href="https://audit.uxtools.co">Guidelines</a> •
-  <a href="https://clawdhub.com/skills/ui-audit">ClawdHub</a> •
+  <a href="https://skills.com/skills/ui-audit">Skills</a> •
   <a href="https://npmjs.com/package/ui-audit">npm</a>
 </p>
 
@@ -38,8 +38,8 @@ A skill that gives AI assistants the ability to perform structured UI audits. Ba
 # Agent Skills (Vercel)
 npx skills add uxtools/ui-audit
 
-# ClawdHub
-clawdhub install ui-audit
+# Skills
+skills install ui-audit
 
 # npm
 npm install ui-audit

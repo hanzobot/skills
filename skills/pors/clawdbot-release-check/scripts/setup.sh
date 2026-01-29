@@ -8,7 +8,7 @@ CHANNEL="${CHANNEL:-telegram}"
 
 usage() {
   cat <<'EOF'
-Setup Clawdbot Release Check cron job
+Setup Bot Release Check cron job
 
 Usage: setup.sh [OPTIONS]
 
@@ -40,8 +40,8 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-CRON_FILE="${HOME}/.clawdbot/cron/jobs.json"
-JOB_NAME="Clawdbot Release Check"
+CRON_FILE="${HOME}/.bot/cron/jobs.json"
+JOB_NAME="Bot Release Check"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 if [[ "$uninstall" == "true" ]]; then
@@ -118,4 +118,4 @@ echo "✓ Added '$JOB_NAME' cron job"
 echo "  Schedule: Daily at ${CRON_HOUR}:00"
 echo "  Channel: $CHANNEL → $TELEGRAM_TO"
 echo ""
-echo "Restart gateway to apply: launchctl kickstart -k gui/\$(id -u)/com.clawdis.gateway"
+echo "Restart gateway to apply: launchctl kickstart -k gui/\$(id -u)/com.botis.gateway"

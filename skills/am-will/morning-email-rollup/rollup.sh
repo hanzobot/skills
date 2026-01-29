@@ -6,7 +6,7 @@
 
 GOG_ACCOUNT="${GOG_ACCOUNT:-your-email@gmail.com}"
 MAX_EMAILS="${MAX_EMAILS:-10}"  # Default to 10, can be overridden via environment variable
-WORKSPACE="${CLAWDBOT_WORKSPACE:-$HOME/clawd}"
+WORKSPACE="${BOT_WORKSPACE:-$HOME/bot}"
 LOG_FILE="${WORKSPACE}/morning-email-rollup-log.md"
 
 # Initialize log

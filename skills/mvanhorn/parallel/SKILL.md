@@ -6,7 +6,7 @@ triggers:
   - deep search
   - research
 metadata:
-  clawdbot:
+  bot:
     emoji: "🔬"
 ---
 

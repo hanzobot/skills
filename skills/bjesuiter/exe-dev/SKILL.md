@@ -4,7 +4,7 @@ description: Manage persistent VMs on exe.dev. Create VMs, configure HTTP proxie
 author: Benjamin Jesuiter
 ---
 
-> ⚠️ **Warning:** This skill was auto-built by clawdbot from the exe.dev markdown documentation. It's not tested yet — use with caution! I plan to test it soon. 🔜
+> ⚠️ **Warning:** This skill was auto-built by bot from the exe.dev markdown documentation. It's not tested yet — use with caution! I plan to test it soon. 🔜
 
 # exe.dev VM Management
 

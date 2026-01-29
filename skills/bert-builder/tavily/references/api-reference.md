@@ -16,7 +16,7 @@ Tavily is a search engine optimized for Large Language Models (LLMs) and AI appl
 1. Visit https://tavily.com and sign up
 2. Generate an API key from your dashboard
 3. Store the key securely:
-   - **Recommended**: Add to Clawdbot config under `skills.entries.tavily.apiKey`
+   - **Recommended**: Add to Bot config under `skills.entries.tavily.apiKey`
    - **Alternative**: Set `TAVILY_API_KEY` environment variable
 
 ## Search Parameters

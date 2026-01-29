@@ -5,9 +5,9 @@ description: Make your skills easy to understand and impossible to ignore
 
 # publisher
 
-**Professional documentation and publishing for Clawdbot skills**
+**Professional documentation and publishing for Bot skills**
 
-Generate adoption-optimized READMEs and publish to GitHub + ClawdHub with one command.
+Generate adoption-optimized READMEs and publish to GitHub + Skills with one command.
 
 ---
 
@@ -16,7 +16,7 @@ Generate adoption-optimized READMEs and publish to GitHub + ClawdHub with one co
 - bash
 - `jq` (for JSON parsing)
 - `gh` CLI (GitHub operations)
-- `clawdhub` CLI (publishing)
+- `skills` CLI (publishing)
 - git
 
 ---
@@ -39,14 +39,14 @@ Automates the complete publishing workflow:
 ### Publishing
 5. Creates GitHub repository (if doesn't exist)
 6. Pushes code to GitHub
-7. Publishes to ClawdHub with auto-detected version
+7. Publishes to Skills with auto-detected version
 
 ---
 
 ## 🚀 Installation
 
 ```bash
-clawdhub install skill-publisher
+skills install skill-publisher
 ```
 
 ---
@@ -54,7 +54,7 @@ clawdhub install skill-publisher
 ## 💡 Usage
 
 ```bash
-cd ~/clawd/skills/your-skill
+cd ~/bot/skills/your-skill
 skill-publisher
 ```
 
@@ -62,7 +62,7 @@ The script will:
 1. Show 3 one-liner options (choose or write your own)
 2. Generate README preview
 3. Ask for approval
-4. Publish to GitHub + ClawdHub
+4. Publish to GitHub + Skills
 
 ---
 
@@ -127,7 +127,7 @@ Analyzes your SKILL.md description and generates 3 options:
 Shows you all 3, lets you choose or write custom.
 
 ### Phase 3: README Generation
-Uses the template from `~/clawd/templates/README-template.md`:
+Uses the template from `~/bot/templates/README-template.md`:
 - Fills in title, problem, solution
 - Extracts requirements from SKILL.md
 - Generates "What It Does" from description
@@ -139,7 +139,7 @@ Uses the template from `~/clawd/templates/README-template.md`:
 2. Reads VERSION file for version number
 3. Creates GitHub repo (using `gh repo create`)
 4. Commits and pushes all files
-5. Publishes to ClawdHub with `clawdhub publish`
+5. Publishes to Skills with `skills publish`
 
 ---
 
@@ -202,7 +202,7 @@ echo "1.0.0" > VERSION
 ## 📖 References
 
 - GitHub documentation best practices: https://docs.github.com/en/contributing/writing-for-github-docs/best-practices-for-github-docs
-- README template: `~/clawd/templates/README-template.md`
+- README template: `~/bot/templates/README-template.md`
 - One-liner formulas: See "One-Liner Generation Patterns" section above
 
 ---

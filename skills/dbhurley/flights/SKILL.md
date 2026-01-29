@@ -2,7 +2,7 @@
 name: flights
 description: Track flight status, delays, and search routes. Uses FlightAware data.
 homepage: https://flightaware.com
-metadata: {"clawdis":{"emoji":"✈️","requires":{"bins":[],"env":[]}}}
+metadata: {"botis":{"emoji":"✈️","requires":{"bins":[],"env":[]}}}
 ---
 
 # Flights Skill

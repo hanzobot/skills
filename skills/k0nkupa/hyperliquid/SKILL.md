@@ -38,7 +38,7 @@ Account (read-only):
 - `orders <HL:0x..|0x..|label>`: show open orders
 - `fills <HL:0x..|0x..|label> [--n N]`: show recent fills
 
-Saved account aliases (stored locally in `~/.clawdbot/hyperliquid/config.json`):
+Saved account aliases (stored locally in `~/.bot/hyperliquid/config.json`):
 - `account list`
 - `account add "sub account 1" HL:0x... [--default]`
 - `account remove "sub account 1"`

@@ -2,7 +2,7 @@
 name: mechanic
 description: "Vehicle maintenance tracker and mechanic advisor. Tracks mileage, service intervals, fuel economy, costs, warranties, and recalls. Researches manufacturer schedules, estimates costs, projects service dates, tracks providers, and proactively reminds about upcoming/overdue services. Supports NHTSA recall monitoring, MPG tracking with anomaly detection, warranty expiration alerts, pre-trip/seasonal checklists, mileage projection, service provider history, tax deduction integration, emergency info cards, and cost-per-mile analysis. Use when discussing vehicle maintenance, oil changes, service intervals, mileage tracking, fuel economy, warranties, recalls, RV maintenance, roof sealing, generator service, slide-outs, winterization, or anything mechanic-related. Supports any vehicle type including trucks, cars, motorcycles, dirt bikes, ATVs, RVs, and boats."
 homepage: https://github.com/ScotTFO/mechanic-skill
-metadata: {"clawdbot":{"emoji":"🔧"}}
+metadata: {"bot":{"emoji":"🔧"}}
 ---
 
 # Mechanic — Vehicle Maintenance Tracker

@@ -1,7 +1,7 @@
 ---
 name: quit-alcohol
 description: Track sobriety with alcohol-free streaks, craving management, and recovery milestones
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "quit drinking"

@@ -1,8 +1,8 @@
 #!/bin/bash
 # Sitemap generator - shows all docs by category
-echo "Fetching Clawdbot documentation sitemap..."
+echo "Fetching Bot documentation sitemap..."
 
-# Categories structure based on docs.clawd.bot
+# Categories structure based on docs.hanzo.bot
 CATEGORIES=(
   "start"
   "gateway"

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Cache management for Clawdbot docs
+# Cache management for Bot docs
 case "$1" in
   status)
     echo "Cache status: OK (1-hour TTL)"

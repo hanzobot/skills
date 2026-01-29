@@ -1,7 +1,7 @@
 ---
 name: mbta
 description: Real-time MBTA transit predictions for Boston-area subway, bus, commuter rail, and ferry. Query departure times, search stops/routes, check service alerts, and run a live dashboard. Use when asked about Boston transit, T schedules, when to leave for the train, or MBTA service status.
-metadata: {"clawdbot":{"requires":{"bins":["python3"],"pip":["requests"]}}}
+metadata: {"bot":{"requires":{"bins":["python3"],"pip":["requests"]}}}
 ---
 
 # MBTA Transit

@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-CONFIG_FILE="${LINKDING_CONFIG:-$HOME/.clawdbot/credentials/linkding/config.json}"
+CONFIG_FILE="${LINKDING_CONFIG:-$HOME/.bot/credentials/linkding/config.json}"
 
 # Load config
 if [[ -f "$CONFIG_FILE" ]]; then

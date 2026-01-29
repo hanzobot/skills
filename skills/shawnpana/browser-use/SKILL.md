@@ -1,6 +1,6 @@
 ---
 name: browser-use
-description: Use Browser Use cloud API to spin up cloud browsers for Clawdbot and run autonomous browser tasks. Primary use is creating browser sessions with profiles (persisted logins/cookies) that Clawdbot can control. Secondary use is running task subagents for fast autonomous browser automation. Docs at docs.browser-use.com and docs.cloud.browser-use.com.
+description: Use Browser Use cloud API to spin up cloud browsers for Bot and run autonomous browser tasks. Primary use is creating browser sessions with profiles (persisted logins/cookies) that Bot can control. Secondary use is running task subagents for fast autonomous browser automation. Docs at docs.browser-use.com and docs.cloud.browser-use.com.
 ---
 
 # Browser Use
@@ -13,12 +13,12 @@ Browser Use provides cloud browsers and autonomous browser automation via API.
 
 ## Setup
 
-**API Key** is read from clawdbot config at `skills.entries.browser-use.apiKey`.
+**API Key** is read from bot config at `skills.entries.browser-use.apiKey`.
 
 If not configured, tell the user:
 > To use Browser Use, you need an API key. Get one at https://cloud.browser-use.com (new signups get $10 free credit). Then configure it:
 > ```
-> clawdbot config set skills.entries.browser-use.apiKey "bu_your_key_here"
+> bot config set skills.entries.browser-use.apiKey "bu_your_key_here"
 > ```
 
 Base URL: `https://api.browser-use.com/api/v2`
@@ -29,7 +29,7 @@ All requests need header: `X-Browser-Use-API-Key: <apiKey>`
 
 ## 1. Browser Sessions (Primary)
 
-Spin up cloud browsers for Clawdbot to control directly. Use profiles to persist logins and cookies.
+Spin up cloud browsers for Bot to control directly. Use profiles to persist logins and cookies.
 
 ### Create browser session
 
@@ -57,7 +57,7 @@ curl -X POST "https://api.browser-use.com/api/v2/browsers" \
 }
 ```
 
-### Connect Clawdbot to the browser
+### Connect Bot to the browser
 
 ```bash
 gateway config.patch '{"browser":{"profiles":{"browseruse":{"cdpUrl":"<cdpUrl-from-response>"}}}}'

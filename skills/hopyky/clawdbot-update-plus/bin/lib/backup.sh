@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Clawdbot Update Plus - Backup functions
+# Bot Update Plus - Backup functions
 # Version: 2.1.1
 
 # Create timestamped backup
 create_backup() {
-  local backup_name="clawdbot-update-$(date +%Y-%m-%d-%H:%M:%S).tar.gz"
+  local backup_name="bot-update-$(date +%Y-%m-%d-%H:%M:%S).tar.gz"
   local backup_path="${BACKUP_DIR}/${backup_name}"
   local tmp_backup_dir=$(mktemp -d)
   local dirs_backed_up=0

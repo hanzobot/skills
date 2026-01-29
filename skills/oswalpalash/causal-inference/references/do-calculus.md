@@ -33,7 +33,7 @@ Given causal graph G:
 
 ## Practical Application
 
-For most Clawdbot use cases, full do-calculus isn't needed. Use:
+For most Bot use cases, full do-calculus isn't needed. Use:
 
 1. **Randomization** — if you can randomize the intervention, `P(Y | do(X)) = P(Y | X)` in the experiment
 2. **Backdoor adjustment** — control for confounders: `P(Y | do(X)) = Σ_z P(Y | X, Z=z) P(Z=z)`

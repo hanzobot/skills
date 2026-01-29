@@ -2,7 +2,7 @@
 
 > 10 psychological sessions based on Dan Koe's viral article.
 
-A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that guides you through structured psychological excavation.
+A [Bot](https://github.com/bot/bot) skill that guides you through structured psychological excavation.
 
 ![Life Architect](assets/intro.jpg)
 
@@ -10,7 +10,7 @@ A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that guides you through
 
 - 📝 **Dan Koe** ([@thedankoe](https://x.com/thedankoe)) — Original article and framework
 - 🔧 **Alex Prompter** ([@alex_prompter](https://x.com/alex_prompter)) — 10 AI prompts reverse-engineered from Dan's article
-- ⚡ **Chip** ([@chip1cr](https://x.com/chip1cr)) — Clawdbot skill implementation
+- ⚡ **Chip** ([@chip1cr](https://x.com/chip1cr)) — Bot skill implementation
 
 ## The 10 Sessions
 
@@ -29,24 +29,24 @@ A [Clawdbot](https://github.com/clawdbot/clawdbot) skill that guides you through
 
 ## Installation
 
-### Via ClawdHub
+### Via Skills
 
 ```bash
-clawdhub install life-architect
+skills install life-architect
 ```
 
 ### Manual
 
-Clone into your Clawdbot skills directory:
+Clone into your Bot skills directory:
 
 ```bash
-cd ~/clawd/skills
+cd ~/bot/skills
 git clone https://github.com/pinkpixel/fix-life-in-1-day life-architect
 ```
 
 ## Usage
 
-In Telegram (or any Clawdbot channel):
+In Telegram (or any Bot channel):
 
 ```
 /life          # Start or continue
@@ -77,7 +77,7 @@ After completing all 10 sessions:
 
 ## Requirements
 
-- Clawdbot
+- Bot
 - `jq` (JSON processor)
 - `bash` 4.0+
 

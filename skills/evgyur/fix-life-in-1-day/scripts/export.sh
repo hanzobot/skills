@@ -3,7 +3,7 @@ set -euo pipefail
 
 command -v jq >/dev/null || { echo '{"status":"error","message":"jq required"}'; exit 1; }
 
-WORKSPACE="${1:-$HOME/clawd}"
+WORKSPACE="${1:-$HOME/bot}"
 DATA_DIR="$WORKSPACE/memory/life-architect"
 STATE_FILE="$DATA_DIR/state.json"
 OUT="$DATA_DIR/final-document.md"

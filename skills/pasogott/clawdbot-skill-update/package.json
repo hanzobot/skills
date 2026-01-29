@@ -1,10 +1,10 @@
 {
-  "name": "@clawdbot/skill-update",
+  "name": "@bot/skill-update",
   "version": "1.0.0",
-  "description": "Comprehensive backup, update, and restore workflow for Clawdbot with dynamic workspace detection",
+  "description": "Comprehensive backup, update, and restore workflow for Bot with dynamic workspace detection",
   "type": "module",
   "keywords": [
-    "clawdbot",
+    "bot",
     "skill",
     "backup",
     "restore",
@@ -15,12 +15,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/clawdbot/clawdbot.git"
+    "url": "https://github.com/bot/bot.git"
   },
   "bugs": {
-    "url": "https://github.com/clawdbot/clawdbot/issues"
+    "url": "https://github.com/bot/bot/issues"
   },
-  "homepage": "https://clawdhub.com",
+  "homepage": "https://skills.com",
   "license": "MIT",
   "author": {
     "name": "Pascal Schott",
@@ -33,13 +33,13 @@
     "!package.json"
   ],
   "scripts": {
-    "dryrun": "./backup-clawdbot-dryrun.sh",
-    "backup": "./backup-clawdbot-full.sh",
-    "restore": "./restore-clawdbot.sh",
+    "dryrun": "./backup-bot-dryrun.sh",
+    "backup": "./backup-bot-full.sh",
+    "restore": "./restore-bot.sh",
     "validate": "./validate-setup.sh",
     "check": "./check-upstream.sh"
   },
-  "clawdbot": {
+  "bot": {
     "type": "skill",
     "category": "system",
     "tags": [

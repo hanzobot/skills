@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Clawdbot Update Plus - Utility functions
+# Bot Update Plus - Utility functions
 # Version: 2.1.1
 
 # Colors for output
@@ -130,9 +130,9 @@ detect_workspace() {
   log_info "Detecting workspace..."
 
   local possible_workspaces=(
-    "${HOME}/clawd"
-    "${HOME}/Documents/clawd"
-    "${HOME}/workspace/clawd"
+    "${HOME}/bot"
+    "${HOME}/Documents/bot"
+    "${HOME}/workspace/bot"
     "$(pwd)"
   )
 

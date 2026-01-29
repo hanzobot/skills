@@ -128,6 +128,6 @@ Created by Shashwat Ghosh
 
 ## Links
 
-- ClawdHub: https://clawdhub.com/shashwatgtm/newsletter-creation-curation
+- Skills: https://skills.com/shashwatgtm/newsletter-creation-curation
 - LinkedIn: https://linkedin.com/in/shashwatghosh-ai-b2b-gtm-fractionalcmo
 - GitHub: https://github.com/shashwatgtm

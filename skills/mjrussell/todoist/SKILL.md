@@ -3,7 +3,7 @@ name: todoist
 description: Manage tasks and projects in Todoist. Use when user asks about tasks, to-dos, reminders, or productivity.
 homepage: https://todoist.com
 metadata:
-  clawdbot:
+  bot:
     emoji: "✅"
     requires:
       bins: ["todoist"]

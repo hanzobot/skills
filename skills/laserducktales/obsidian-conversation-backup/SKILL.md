@@ -5,7 +5,7 @@ description: Automatic conversation backup system for Obsidian with incremental 
 
 # Obsidian Conversation Backup
 
-Automatically backs up Clawdbot conversations to Obsidian with beautiful chat-style formatting. Prevents data loss from `/new` resets with hourly incremental snapshots.
+Automatically backs up Bot conversations to Obsidian with beautiful chat-style formatting. Prevents data loss from `/new` resets with hourly incremental snapshots.
 
 ## Features
 
@@ -171,16 +171,16 @@ scripts/
 The system uses hidden files to track state:
 
 ```bash
-/root/clawd/.last_save_line_count       # For token monitoring
-/root/clawd/.last_snapshot_timestamp    # For incremental saves
-/root/clawd/.token_warning_sent         # For warning deduplication
+/root/bot/.last_save_line_count       # For token monitoring
+/root/bot/.last_snapshot_timestamp    # For incremental saves
+/root/bot/.token_warning_sent         # For warning deduplication
 ```
 
 **Note:** Do not delete these files or incremental backups may duplicate content
 
 ### Session File Location
 
-Default: `/root/.clawdbot/agents/main/sessions/*.jsonl`
+Default: `/root/.bot/agents/main/sessions/*.jsonl`
 
 If your session files are elsewhere, update the `SESSION_FILE` path in each script.
 
@@ -202,7 +202,7 @@ If your session files are elsewhere, update the `SESSION_FILE` path in each scri
 
 - Delete tracking files and let system reset:
   ```bash
-  rm /root/clawd/.last_snapshot_timestamp
+  rm /root/bot/.last_snapshot_timestamp
   ```
 
 ### Empty callout boxes appearing
@@ -275,7 +275,7 @@ Edit `monitor_and_save.sh` to change warning text or add custom notifications.
 2. Run `/new` safely - conversation is backed up
 3. Continue chatting - incrementals resume automatically
 
-## Integration with Clawdbot
+## Integration with Bot
 
 This skill works with:
 - **HEARTBEAT.md**: Automatic token monitoring
@@ -285,4 +285,4 @@ This skill works with:
 
 ## Credits
 
-Created by the Clawdbot community for reliable conversation backup and beautiful Obsidian formatting.
+Created by the Bot community for reliable conversation backup and beautiful Obsidian formatting.

@@ -63,10 +63,10 @@ node scripts/imap.js mark-unread <uid>
 node scripts/imap.js list-mailboxes
 ```
 
-## Integration with Clawdbot
+## Integration with Bot
 
 ### Manual email check
-From any Clawdbot session:
+From any Bot session:
 ```bash
 node skills/imap-email/scripts/imap.js check --limit 5
 ```
@@ -74,7 +74,7 @@ node skills/imap-email/scripts/imap.js check --limit 5
 ### Automated email checking (cron)
 Set up periodic checks:
 ```bash
-clawdbot cron add \
+bot cron add \
   --name "email-check-hourly" \
   --cron "0 * * * *" \
   --session isolated \
@@ -144,7 +144,7 @@ IMAP_MAILBOX=INBOX
 
 ## Files
 
-- `SKILL.md` - Skill documentation (loaded by Clawdbot)
+- `SKILL.md` - Skill documentation (loaded by Bot)
 - `scripts/imap.js` - Main IMAP CLI tool
 - `package.json` - Node.js dependencies
 - `.env` - Your credentials (created by setup.sh or manually)

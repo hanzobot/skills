@@ -13,7 +13,7 @@ GitHub Repository: https://github.com/NowLoadY/agent-commerce-engine
 
 ## Reference Case: Lafeitu
 
-For a production-grade implementation example using this engine, see the [Lafeitu Gourmet Skill](https://clawdhub.com/NowLoadY/agentic-spicy-food). It demonstrates the engine specialized for a real-world artisanal food brand.
+For a production-grade implementation example using this engine, see the [Lafeitu Gourmet Skill](https://skills.com/NowLoadY/agentic-spicy-food). It demonstrates the engine specialized for a real-world artisanal food brand.
 
 ---
 

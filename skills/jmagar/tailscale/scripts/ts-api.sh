@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-CONFIG_FILE="${TS_CONFIG:-$HOME/.clawdbot/credentials/tailscale/config.json}"
+CONFIG_FILE="${TS_CONFIG:-$HOME/.bot/credentials/tailscale/config.json}"
 API_BASE="https://api.tailscale.com/api/v2"
 
 # Load config

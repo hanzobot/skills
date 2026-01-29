@@ -1,4 +1,4 @@
-# Task Tracker Skill for Clawdbot
+# Task Tracker Skill for Bot
 
 Personal task management with daily standups and weekly reviews.
 
@@ -17,40 +17,40 @@ Personal task management with daily standups and weekly reviews.
 
 ```bash
 # Daily standup
-python3 ~/clawd/skills/task-tracker/scripts/standup.py
+python3 ~/bot/skills/task-tracker/scripts/standup.py
 
 # List all tasks
-python3 ~/clawd/skills/task-tracker/scripts/tasks.py list
+python3 ~/bot/skills/task-tracker/scripts/tasks.py list
 
 # Add a task
-python3 ~/clawd/skills/task-tracker/scripts/tasks.py add "Task description" --priority high --due 2026-01-25
+python3 ~/bot/skills/task-tracker/scripts/tasks.py add "Task description" --priority high --due 2026-01-25
 
 # Mark task done (fuzzy match)
-python3 ~/clawd/skills/task-tracker/scripts/tasks.py done "task keyword"
+python3 ~/bot/skills/task-tracker/scripts/tasks.py done "task keyword"
 
 # Weekly review
-python3 ~/clawd/skills/task-tracker/scripts/weekly_review.py
+python3 ~/bot/skills/task-tracker/scripts/weekly_review.py
 ```
 
 ## Installation
 
-1. Clone to your Clawdbot skills directory:
+1. Clone to your Bot skills directory:
    ```bash
-   git clone https://github.com/kesslerio/task-tracker-clawdbot-skill.git \
-       ~/clawd/skills/task-tracker
+   git clone https://github.com/kesslerio/task-tracker-bot-skill.git \
+       ~/bot/skills/task-tracker
    ```
 
 2. Create tasks file from template:
    ```bash
-   cp ~/clawd/skills/task-tracker/assets/templates/TASKS.md \
-       ~/clawd/memory/work/TASKS.md
+   cp ~/bot/skills/task-tracker/assets/templates/TASKS.md \
+       ~/bot/memory/work/TASKS.md
    ```
 
 3. (Optional) Set up Telegram slash commands - see [TELEGRAM.md](TELEGRAM.md)
 
 ## Task File Format
 
-Tasks are stored in `~/clawd/memory/work/TASKS.md` using this format:
+Tasks are stored in `~/bot/memory/work/TASKS.md` using this format:
 
 ```markdown
 ## 🔴 High Priority (This Week)
@@ -155,18 +155,18 @@ Set up automated standups and reviews:
 
 ```bash
 # Daily standup (8:30 AM PT, weekdays)
-clawdbot cron add \
+bot cron add \
   --name "Daily Standup" \
   --schedule "30 8 * * 1-5" \
   --timezone "America/Los_Angeles" \
-  --command "python3 ~/clawd/skills/task-tracker/scripts/standup.py"
+  --command "python3 ~/bot/skills/task-tracker/scripts/standup.py"
 
 # Weekly review (9:00 AM PT, Mondays)
-clawdbot cron add \
+bot cron add \
   --name "Weekly Review" \
   --schedule "0 9 * * 1" \
   --timezone "America/Los_Angeles" \
-  --command "python3 ~/clawd/skills/task-tracker/scripts/weekly_review.py"
+  --command "python3 ~/bot/skills/task-tracker/scripts/weekly_review.py"
 ```
 
 ## Workflow
@@ -181,7 +181,7 @@ clawdbot cron add \
 ```
 task-tracker/
 ├── README.md              # This file
-├── SKILL.md               # Clawdbot skill documentation
+├── SKILL.md               # Bot skill documentation
 ├── TELEGRAM.md            # Telegram integration guide
 ├── scripts/
 │   ├── tasks.py           # Task CRUD operations
@@ -197,7 +197,7 @@ task-tracker/
     └── task-format.md     # Task format specification
 ```
 
-## Integration with Clawdbot
+## Integration with Bot
 
 The agent automatically:
 - Recognizes task-related questions ("What's my #1 priority?")
@@ -208,7 +208,7 @@ The agent automatically:
 ## Dependencies
 
 - Python 3.10+
-- Clawdbot (for cron/messaging integration)
+- Bot (for cron/messaging integration)
 
 ## License
 
@@ -216,7 +216,7 @@ Apache 2.0 - See [LICENSE](LICENSE) file for details.
 
 ## Related Skills
 
-- **[finance-news](https://github.com/kesslerio/finance-news-clawdbot-skill):** AI-powered market briefings with multi-source aggregation (WSJ, Barron's, CNBC), portfolio tracking, and automated WhatsApp delivery in German/English
-- **[oura-analytics](https://github.com/kesslerio/clawdbot-oura-skill):** Sleep and health tracking
-- **[session-logs](https://github.com/kesslerio/clawdbot-session-logs-skill):** Search conversation history
-- **[task-tracker](https://github.com/kesslerio/task-tracker-clawdbot-skill):** This skill
+- **[finance-news](https://github.com/kesslerio/finance-news-bot-skill):** AI-powered market briefings with multi-source aggregation (WSJ, Barron's, CNBC), portfolio tracking, and automated WhatsApp delivery in German/English
+- **[oura-analytics](https://github.com/kesslerio/bot-oura-skill):** Sleep and health tracking
+- **[session-logs](https://github.com/kesslerio/bot-session-logs-skill):** Search conversation history
+- **[task-tracker](https://github.com/kesslerio/task-tracker-bot-skill):** This skill

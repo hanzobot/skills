@@ -108,7 +108,7 @@ harvey_session:
 ## Konfiguration
 
 ```yaml
-# ~/.clawdbot/harvey.yaml
+# ~/.bot/harvey.yaml
 harvey:
   default_mode: bored
   personality:

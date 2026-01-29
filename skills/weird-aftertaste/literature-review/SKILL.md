@@ -23,7 +23,7 @@ Help write academic literature reviews using a multi-engine search integration (
 | Variable | Purpose | Default |
 |----------|---------|---------|
 | `USER_EMAIL` | Email for polite API access | `anonymous@example.org` |
-| `CLAWDBOT_EMAIL` | Fallback if USER_EMAIL not set | — |
+| `BOT_EMAIL` | Fallback if USER_EMAIL not set | — |
 | `SEMANTIC_SCHOLAR_API_KEY` | Optional S2 API key for higher rate limits | — |
 | `OPENALEX_API_KEY` | Optional OpenAlex API key | — |
 

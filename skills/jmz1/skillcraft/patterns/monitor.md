@@ -1,6 +1,6 @@
 # Monitor Pattern
 
-Watch for conditions and notify. Focuses on **clawdbot-specific integration** — cron vs heartbeat, state location, notification routing.
+Watch for conditions and notify. Focuses on **bot-specific integration** — cron vs heartbeat, state location, notification routing.
 
 ## Trigger: Cron vs Heartbeat
 
@@ -13,7 +13,7 @@ Watch for conditions and notify. Focuses on **clawdbot-specific integration** �
 
 ### Cron Setup
 
-For scheduled monitoring, use Clawdbot's cron system. Consult **clawddocs** `/automation/cron-jobs` for:
+For scheduled monitoring, use Bot's cron system. Consult **botdocs** `/automation/cron-jobs` for:
 - Configuration format and options
 - Schedule syntax (standard cron expressions)
 - Prompt patterns for triggering skills

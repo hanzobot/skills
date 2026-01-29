@@ -1,11 +1,11 @@
 ---
 name: git-crypt-backup
-description: Backup Clawdbot workspace and config to GitHub with git-crypt encryption. Use for daily automated backups or manual backup/restore operations.
+description: Backup Bot workspace and config to GitHub with git-crypt encryption. Use for daily automated backups or manual backup/restore operations.
 ---
 
 # Git-Crypt Backup
 
-Automated backup of Clawdbot workspace (`~/clawd`) and config (`~/.clawdbot`) to GitHub with sensitive files encrypted via git-crypt.
+Automated backup of Bot workspace (`~/bot`) and config (`~/.bot`) to GitHub with sensitive files encrypted via git-crypt.
 
 ## Setup
 
@@ -13,8 +13,8 @@ Automated backup of Clawdbot workspace (`~/clawd`) and config (`~/.clawdbot`) to
 
 ```bash
 # Create two private repos on GitHub:
-# - <username>/clawdbot-workspace
-# - <username>/clawdbot-config
+# - <username>/bot-workspace
+# - <username>/bot-config
 ```
 
 ### 2. Initialize git-crypt
@@ -25,16 +25,16 @@ brew install git-crypt  # macOS
 # apt install git-crypt  # Linux
 
 # Workspace repo
-cd ~/clawd
+cd ~/bot
 git init
 git-crypt init
-git remote add origin git@github.com:<username>/clawdbot-workspace.git
+git remote add origin git@github.com:<username>/bot-workspace.git
 
 # Config repo
-cd ~/.clawdbot
+cd ~/.bot
 git init
 git-crypt init
-git remote add origin git@github.com:<username>/clawdbot-config.git
+git remote add origin git@github.com:<username>/bot-config.git
 ```
 
 ### 3. Configure encryption
@@ -50,7 +50,7 @@ memory/** filter=git-crypt diff=git-crypt
 
 **Config `.gitattributes`:**
 ```
-clawdbot.json filter=git-crypt diff=git-crypt
+bot.json filter=git-crypt diff=git-crypt
 .env filter=git-crypt diff=git-crypt
 credentials/** filter=git-crypt diff=git-crypt
 telegram/** filter=git-crypt diff=git-crypt
@@ -76,9 +76,9 @@ update-check.json
 ### 4. Export keys (important!)
 
 ```bash
-mkdir -p ~/clawdbot-keys
-cd ~/clawd && git-crypt export-key ~/clawdbot-keys/workspace.key
-cd ~/.clawdbot && git-crypt export-key ~/clawdbot-keys/config.key
+mkdir -p ~/bot-keys
+cd ~/bot && git-crypt export-key ~/bot-keys/workspace.key
+cd ~/.bot && git-crypt export-key ~/bot-keys/config.key
 ```
 
 ⚠️ **Store these keys securely** (1Password, iCloud Keychain, USB drive, etc.)
@@ -86,8 +86,8 @@ cd ~/.clawdbot && git-crypt export-key ~/clawdbot-keys/config.key
 ### 5. Initial commit & push
 
 ```bash
-cd ~/clawd && git add -A && git commit -m "Initial backup" && git push -u origin main
-cd ~/.clawdbot && git add -A && git commit -m "Initial backup" && git push -u origin main
+cd ~/bot && git add -A && git commit -m "Initial backup" && git push -u origin main
+cd ~/.bot && git add -A && git commit -m "Initial backup" && git push -u origin main
 ```
 
 ## Daily Backup
@@ -95,7 +95,7 @@ cd ~/.clawdbot && git add -A && git commit -m "Initial backup" && git push -u or
 Run `scripts/backup.sh`:
 
 ```bash
-~/clawd/skills/git-crypt-backup/scripts/backup.sh
+~/bot/skills/git-crypt-backup/scripts/backup.sh
 ```
 
 Or set up a cron job for automatic daily backups.
@@ -104,12 +104,12 @@ Or set up a cron job for automatic daily backups.
 
 ```bash
 # 1. Clone repos
-git clone git@github.com:<username>/clawdbot-workspace.git ~/clawd
-git clone git@github.com:<username>/clawdbot-config.git ~/.clawdbot
+git clone git@github.com:<username>/bot-workspace.git ~/bot
+git clone git@github.com:<username>/bot-config.git ~/.bot
 
 # 2. Unlock with keys
-cd ~/clawd && git-crypt unlock /path/to/workspace.key
-cd ~/.clawdbot && git-crypt unlock /path/to/config.key
+cd ~/bot && git-crypt unlock /path/to/workspace.key
+cd ~/.bot && git-crypt unlock /path/to/config.key
 ```
 
 ## What Gets Encrypted
@@ -117,4 +117,4 @@ cd ~/.clawdbot && git-crypt unlock /path/to/config.key
 | Repo | Encrypted | Plain |
 |------|-----------|-------|
 | workspace | SOUL/USER/HEARTBEAT/MEMORY.md, memory/** | AGENTS.md, IDENTITY.md, TOOLS.md, drafts/** |
-| config | clawdbot.json, .env, credentials/**, sessions/** | cron/jobs.json, settings/** |
+| config | bot.json, .env, credentials/**, sessions/** | cron/jobs.json, settings/** |

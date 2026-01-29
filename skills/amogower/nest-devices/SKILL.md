@@ -2,7 +2,7 @@
 name: nest-devices
 description: Control Nest smart home devices (thermostat, cameras, doorbell) via the Device Access API. Use when asked to check or adjust home temperature, view camera feeds, check who's at the door, monitor rooms, or set up temperature schedules.
 metadata:
-  clawdbot:
+  bot:
     emoji: "🏠"
 ---
 
@@ -133,11 +133,11 @@ For instant alerts when someone rings the doorbell or motion is detected, you ne
 
 - Google Cloud CLI (`gcloud`) installed and authenticated
 - Cloudflare account (free tier works) for the tunnel
-- Clawdbot hooks enabled in config
+- Bot hooks enabled in config
 
-### 1. Enable Clawdbot Hooks
+### 1. Enable Bot Hooks
 
-Add to your `clawdbot.json`:
+Add to your `bot.json`:
 
 ```json
 {
@@ -218,8 +218,8 @@ After=network.target
 [Service]
 Type=simple
 User=YOUR_USER
-Environment=CLAWDBOT_GATEWAY_URL=http://localhost:18789
-Environment=CLAWDBOT_HOOKS_TOKEN=your-hooks-token-here
+Environment=BOT_GATEWAY_URL=http://localhost:18789
+Environment=BOT_HOOKS_TOKEN=your-hooks-token-here
 ExecStart=/usr/bin/python3 /path/to/skills/nest-devices/scripts/nest-webhook.py
 Restart=always
 RestartSec=5

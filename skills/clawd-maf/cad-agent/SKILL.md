@@ -33,7 +33,7 @@ Decide: iterate or done
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/clawd-maf/cad-agent.git
+git clone https://github.com/bot-maf/cad-agent.git
 cd cad-agent
 ```
 
@@ -66,7 +66,7 @@ curl http://localhost:8123/health
 # Should return: {"status": "healthy", ...}
 ```
 
-> **Docker-in-Docker caveat:** In nested container environments (e.g., Clawdbot sandbox), host networking may not work—`curl localhost:8123` will fail even though the server binds to `0.0.0.0:8123`. Use `docker exec cad-agent python3 -c "..."` commands instead. On a normal Docker host, localhost access works fine.
+> **Docker-in-Docker caveat:** In nested container environments (e.g., Bot sandbox), host networking may not work—`curl localhost:8123` will fail even though the server binds to `0.0.0.0:8123`. Use `docker exec cad-agent python3 -c "..."` commands instead. On a normal Docker host, localhost access works fine.
 
 ## Workflow
 
@@ -169,6 +169,6 @@ The project has safeguards against accidentally committing CAD outputs:
 
 ## Links
 
-- [Repository](https://github.com/clawd-maf/cad-agent)
+- [Repository](https://github.com/bot-maf/cad-agent)
 - [build123d docs](https://build123d.readthedocs.io/)
 - [VTK](https://vtk.org/)

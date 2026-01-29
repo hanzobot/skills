@@ -109,7 +109,7 @@ echo 'export PERPLEXITY_API_KEY="your-key-here"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-**Note:** Do not store API key in Clawdbot config. The skill only reads from environment variable to avoid config conflicts.
+**Note:** Do not store API key in Bot config. The skill only reads from environment variable to avoid config conflicts.
 
 ### Dependencies
 

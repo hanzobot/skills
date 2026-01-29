@@ -1,6 +1,6 @@
-# MS 365 Skill for Clawdbot
+# MS 365 Skill for Bot
 
-A Clawdbot skill for Microsoft 365 integration via the Graph API.
+A Bot skill for Microsoft 365 integration via the Graph API.
 
 ## Features
 
@@ -15,9 +15,9 @@ A Clawdbot skill for Microsoft 365 integration via the Graph API.
 
 ## Installation
 
-### 1. Copy Skill to Clawdbot
+### 1. Copy Skill to Bot
 
-Clone this repo to your Clawdbot skills directory:
+Clone this repo to your Bot skills directory:
 
 ```bash
 # For workspace skills
@@ -25,7 +25,7 @@ cd <workspace>/skills
 git clone https://github.com/YOUR_USERNAME/m365-skill ms365
 
 # Or for managed skills
-cd ~/.clawdbot/skills
+cd ~/.bot/skills
 git clone https://github.com/YOUR_USERNAME/m365-skill ms365
 ```
 
@@ -51,7 +51,7 @@ This method works headless and is required for Docker deployments.
 2. Navigate to **Azure Active Directory** → **App registrations**
 3. Click **New registration**
 4. Configure:
-   - **Name**: `Clawdbot MS365` (or your choice)
+   - **Name**: `Bot MS365` (or your choice)
    - **Supported account types**:
      - "Personal Microsoft accounts only" for personal use
      - "Accounts in any organizational directory and personal" for both
@@ -89,7 +89,7 @@ For organization features, also add:
 
 1. Go to **Certificates & secrets**
 2. Click **New client secret**
-3. Add description: `Clawdbot`
+3. Add description: `Bot`
 4. Choose expiration (recommend 24 months)
 5. Click **Add**
 6. **IMPORTANT**: Copy the secret value immediately (shown only once!)
@@ -126,7 +126,7 @@ For interactive/testing use. No Azure setup needed.
 
 ### 4. Configure mcporter
 
-Add MS365 server to mcporter config. Create/edit `~/.clawdbot/mcporter.json`:
+Add MS365 server to mcporter config. Create/edit `~/.bot/mcporter.json`:
 
 ```json
 {
@@ -171,7 +171,7 @@ mcporter call ms365.list_events
 
 ## Usage
 
-Once installed, simply talk to Clawdbot naturally:
+Once installed, simply talk to Bot naturally:
 
 - "Check my email"
 - "What meetings do I have tomorrow?"
@@ -341,7 +341,7 @@ Start with minimal tools, expand on demand:
 ## Support
 
 - MCP Server Issues: https://github.com/Softeria/ms-365-mcp-server/issues
-- Clawdbot Issues: https://github.com/clawdbot/clawdbot/issues
+- Bot Issues: https://github.com/bot/bot/issues
 
 ## License
 

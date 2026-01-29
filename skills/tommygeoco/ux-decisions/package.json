@@ -2,7 +2,7 @@
   "name": "ux-decisions",
   "version": "1.0.0",
   "description": "AI skill for the Making UX Decisions framework — a software design decision-making system for rapid, intentional interface design. Learn more at uxdecisions.com",
-  "keywords": ["ux", "design", "ui", "framework", "audit", "checklist", "ai-skill", "claude", "codex", "clawdbot", "making-ux-decisions"],
+  "keywords": ["ux", "design", "ui", "framework", "audit", "checklist", "ai-skill", "claude", "codex", "bot", "making-ux-decisions"],
   "author": "Tommy Geoco <tommy@uxtools.co> (https://uxdecisions.com)",
   "license": "MIT",
   "homepage": "https://uxdecisions.com",
@@ -22,6 +22,6 @@
     "./references/*": "./references/*"
   },
   "scripts": {
-    "postinstall": "echo '\\n📖 UX Decisions skill installed. Add to your project:\\n   - Clawdbot: Copy to ~/clawd/skills/ux-decisions/\\n   - Claude: Copy CLAUDE.md to your project root\\n'"
+    "postinstall": "echo '\\n📖 UX Decisions skill installed. Add to your project:\\n   - Bot: Copy to ~/bot/skills/ux-decisions/\\n   - Claude: Copy CLAUDE.md to your project root\\n'"
   }
 }

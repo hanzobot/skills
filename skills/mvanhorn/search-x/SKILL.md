@@ -10,7 +10,7 @@ triggers:
   - x search
   - twitter search
 metadata:
-  clawdbot:
+  bot:
     emoji: "🔍"
 ---
 
@@ -23,7 +23,7 @@ Real-time X/Twitter search powered by Grok's x_search tool. Get actual tweets wi
 Set your xAI API key:
 
 ```bash
-clawdbot config set skills.entries.search-x.apiKey "xai-YOUR-KEY"
+bot config set skills.entries.search-x.apiKey "xai-YOUR-KEY"
 ```
 
 Or use environment variable:

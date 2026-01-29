@@ -1,14 +1,14 @@
 ---
 name: alter-action-trigger
 description: Trigger Alter macOS app actions via x-callback-urls. Catalog of 84+ actions including ask-anything, translate, summarize, grammar correction, and more.
-metadata: {"clawdbot":{"requires":{"os":["darwin"]},"emoji":"🌀"}}
+metadata: {"bot":{"requires":{"os":["darwin"]},"emoji":"🌀"}}
 user-invocable: true
 homepage: https://alterhq.com/blog/alter-callback-urls-guide
 ---
 
 # Alter Action Trigger
 
-Trigger Alter actions via x-callback-urls from Clawdbot or the command line.
+Trigger Alter actions via x-callback-urls from Bot or the command line.
 
 ## Quick Start
 
@@ -231,7 +231,7 @@ Builds an x-callback-url without executing it.
 
 ## Usage Examples
 
-### From Clawdbot
+### From Bot
 
 ```javascript
 // Trigger ask-anything with a question

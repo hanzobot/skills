@@ -2,7 +2,7 @@
 name: idea
 description: "Launch background Claude sessions to explore and analyze business ideas. Say 'Idea: [description]' to trigger."
 homepage: https://github.com/anthropics/claude-code
-metadata: {"clawdbot":{"emoji":"💡","requires":{"bins":["claude","tmux","telegram"]}}}
+metadata: {"bot":{"emoji":"💡","requires":{"bins":["claude","tmux","telegram"]}}}
 ---
 
 # Idea Exploration Skill
@@ -14,7 +14,7 @@ Launch autonomous Claude Code sessions to explore business ideas in depth. Get m
 **Trigger phrase:** Say `Idea: [description]` and the assistant will:
 1. Spin up a Claude Code session in tmux
 2. Research and analyze the idea comprehensively
-3. Save results to `~/clawd/ideas/<slug>/research.md`
+3. Save results to `~/bot/ideas/<slug>/research.md`
 4. Send file to your Telegram Saved Messages
 5. Notify you via cron when complete
 
@@ -42,11 +42,11 @@ User: "Idea: AI calendar assistant"
 - `claude` CLI (Claude Code)
 - `tmux`
 - `telegram` CLI (supertelegram)
-- Clawdbot with cron enabled
+- Bot with cron enabled
 
 ### 1. Create Scripts
 
-See `~/clawd/scripts/explore-idea.sh` for the full implementation.
+See `~/bot/scripts/explore-idea.sh` for the full implementation.
 
 Key components:
 - Creates idea directory with prompt and runner script
@@ -64,7 +64,7 @@ Key components:
   wakeMode: "now",
   payload: {
     kind: "agentTurn",
-    message: "Check ~/.clawdbot/notify-queue/ for .json files...",
+    message: "Check ~/.bot/notify-queue/ for .json files...",
     deliver: true,
     channel: "telegram",
     to: "YOUR_CHAT_ID"
@@ -78,7 +78,7 @@ Key components:
 ```markdown
 **When user says "Idea: [description]":**
 1. Extract the idea description
-2. Execute: `CLAWD_SESSION_KEY="main" ~/clawd/scripts/explore-idea.sh "[idea]"`
+2. Execute: `CLAWD_SESSION_KEY="main" ~/bot/scripts/explore-idea.sh "[idea]"`
 3. Confirm: "Idea exploration started. You'll be notified when complete."
 ```
 
@@ -104,7 +104,7 @@ The exploration covers:
 ## Example Output
 
 ```
-~/clawd/ideas/ai-calendar-assistant/
+~/bot/ideas/ai-calendar-assistant/
 ├── metadata.txt
 ├── prompt.txt
 ├── run-claude.sh
@@ -116,4 +116,4 @@ The exploration covers:
 - Ideas typically take 3-5 minutes to analyze
 - Monitor progress: `tmux attach -t idea-<slug>-<timestamp>`
 - File goes to Saved Messages even if notification fails
-- Check `~/.clawdbot/notify-queue/` for stuck notifications
+- Check `~/.bot/notify-queue/` for stuck notifications

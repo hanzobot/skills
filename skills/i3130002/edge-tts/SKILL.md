@@ -21,9 +21,9 @@ Generate high-quality text-to-speech audio using Microsoft Edge's neural TTS ser
 
 When you detect TTS intent from triggers or user request:
 
-1. **Call the tts tool** (Clawdbot built-in) to convert text to speech
+1. **Call the tts tool** (Bot built-in) to convert text to speech
 2. The tool returns a MEDIA: path
-3. Clawdbot routes the audio to the current channel
+3. Bot routes the audio to the current channel
 
 ```javascript
 // Example: Built-in tts tool usage
@@ -161,7 +161,7 @@ Refer to this when you need specific voice details or advanced features.
 To use the bundled scripts:
 
 ```bash
-cd /home/user/clawd/skills/public/tts-skill/scripts
+cd /home/user/bot/skills/public/tts-skill/scripts
 npm install
 ```
 
@@ -174,7 +174,7 @@ This installs:
 1. **Detect intent**: Check for trigger phrases or TTS keywords in user message
 2. **Choose method**: Use built-in `tts` tool for simple requests, or `scripts/tts-converter.js` for customization
 3. **Generate audio**: Convert the target text (message, search results, summary)
-4. **Return to user**: The tts tool returns a MEDIA: path; Clawdbot handles delivery
+4. **Return to user**: The tts tool returns a MEDIA: path; Bot handles delivery
 
 ## Notes
 
@@ -183,7 +183,7 @@ This installs:
 - Output is MP3 format by default
 - Requires internet connection
 - Supports subtitle generation (JSON format with word-level timing)
-- Audio files are temporary; Clawdbot handles cleanup
+- Audio files are temporary; Bot handles cleanup
 - **TTS keyword filtering**: The skill automatically filters out TTS-related keywords (tts, TTS, text-to-speech) from text before conversion to avoid converting the trigger words themselves to audio
 - For repeated preferences, use `config-manager.js` to set defaults
 - **Default voice**: `en-US-MichelleNeural` (female, natural)

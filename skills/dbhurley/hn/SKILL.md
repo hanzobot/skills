@@ -2,7 +2,7 @@
 name: hn
 description: Browse Hacker News - top stories, new, best, ask, show, jobs, and story details with comments.
 homepage: https://news.ycombinator.com
-metadata: {"clawdis":{"emoji":"📰","requires":{"bins":["curl"]}}}
+metadata: {"botis":{"emoji":"📰","requires":{"bins":["curl"]}}}
 ---
 
 # Hacker News

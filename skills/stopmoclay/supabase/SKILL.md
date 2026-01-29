@@ -1,7 +1,7 @@
 ---
 name: supabase
 description: Connect to Supabase for database operations, vector search, and storage. Use for storing data, running SQL queries, similarity search with pgvector, and managing tables. Triggers on requests involving databases, vector stores, embeddings, or Supabase specifically.
-metadata: {"clawdbot":{"requires":{"env":["SUPABASE_URL","SUPABASE_SERVICE_KEY"]}}}
+metadata: {"bot":{"requires":{"env":["SUPABASE_URL","SUPABASE_SERVICE_KEY"]}}}
 ---
 
 # Supabase CLI

@@ -3,7 +3,7 @@ name: trakt
 description: Track and view your watched movies and TV shows via trakt.tv. Use when user asks about their watch history, what they've been watching, or wants to search for movies/shows.
 homepage: https://trakt.tv
 metadata:
-  clawdbot:
+  bot:
     emoji: "🎬"
     requires:
       bins: ["trakt-cli"]

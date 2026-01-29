@@ -2,17 +2,17 @@
 name: antigravity-quota
 version: 1.1.0
 description: Check Antigravity account quotas for Claude and Gemini models. Shows remaining quota and reset times with ban detection.
-metadata: {"clawdbot":{"emoji":"📊","requires":{"bins":["node"]}}}
+metadata: {"bot":{"emoji":"📊","requires":{"bins":["node"]}}}
 ---
 
 # Antigravity Quota Skill
 
-Check quota status across all Antigravity accounts configured in Clawdbot.
+Check quota status across all Antigravity accounts configured in Bot.
 
 ## Prerequisites
 
-- Clawdbot with Antigravity accounts configured
-- Run `clawdbot configure` to add Antigravity accounts
+- Bot with Antigravity accounts configured
+- Run `bot configure` to add Antigravity accounts
 
 ## Quota Info
 

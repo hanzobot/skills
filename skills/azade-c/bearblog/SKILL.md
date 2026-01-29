@@ -1,7 +1,7 @@
 ---
 name: bearblog
 description: Create and manage blog posts on Bear Blog (bearblog.dev). Supports extended Markdown, custom attributes, and browser-based publishing.
-metadata: {"clawdbot":{"emoji":"🐻","homepage":"https://bearblog.dev","requires":{"config":["browser.enabled"]}}}
+metadata: {"bot":{"emoji":"🐻","homepage":"https://bearblog.dev","requires":{"config":["browser.enabled"]}}}
 ---
 
 # Bear Blog Skill

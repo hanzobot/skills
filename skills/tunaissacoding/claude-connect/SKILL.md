@@ -1,18 +1,18 @@
 ---
 name: claude-connect
-description: "Connect Claude to Clawdbot instantly and keep it connected 24/7. Run after setup to link your subscription, then auto-refreshes tokens forever."
+description: "Connect Claude to Bot instantly and keep it connected 24/7. Run after setup to link your subscription, then auto-refreshes tokens forever."
 ---
 
 # claude-connect
 
-**Connect your Claude subscription to Clawdbot in one step.**
+**Connect your Claude subscription to Bot in one step.**
 
 Automatically:
 - ✅ Reads Claude OAuth tokens from Keychain
-- ✅ Writes them to Clawdbot in proper OAuth format
+- ✅ Writes them to Bot in proper OAuth format
 - ✅ Auto-refreshes every 2 hours (before expiry)
 - ✅ Notifies you on success/failure
-- ✅ Works with `clawdbot onboard` (fixes OAuth auth-profiles bug)
+- ✅ Works with `bot onboard` (fixes OAuth auth-profiles bug)
 
 ---
 
@@ -20,8 +20,8 @@ Automatically:
 
 **1. Install the skill:**
 ```bash
-clawdhub install claude-connect
-cd ~/clawd/skills/claude-connect
+skills install claude-connect
+cd ~/bot/skills/claude-connect
 ```
 
 **2. Ensure Claude CLI is logged in:**
@@ -41,13 +41,13 @@ That's it! Tokens will refresh automatically every 2 hours.
 
 ## What It Does
 
-### Fixes `clawdbot onboard` OAuth Bug
+### Fixes `bot onboard` OAuth Bug
 
-When you run `clawdbot onboard --auth-choice claude-cli`, it sometimes doesn't properly write OAuth tokens to `auth-profiles.json`.
+When you run `bot onboard --auth-choice claude-cli`, it sometimes doesn't properly write OAuth tokens to `auth-profiles.json`.
 
 This skill:
 1. Reads OAuth tokens from macOS Keychain (where Claude CLI stores them)
-2. Writes them to `~/.clawdbot/agents/main/agent/auth-profiles.json` in **proper OAuth format**:
+2. Writes them to `~/.bot/agents/main/agent/auth-profiles.json` in **proper OAuth format**:
    ```json
    {
      "profiles": {
@@ -71,7 +71,7 @@ This skill:
 ### Automatic (Recommended)
 
 ```bash
-cd ~/clawd/skills/claude-connect
+cd ~/bot/skills/claude-connect
 ./install.sh
 ```
 
@@ -100,8 +100,8 @@ The installer will:
 
 4. Install launchd job (optional - for auto-refresh):
    ```bash
-   cp com.clawdbot.claude-oauth-refresher.plist ~/Library/LaunchAgents/
-   launchctl load ~/Library/LaunchAgents/com.clawdbot.claude-oauth-refresher.plist
+   cp com.bot.claude-oauth-refresher.plist ~/Library/LaunchAgents/
+   launchctl load ~/Library/LaunchAgents/com.bot.claude-oauth-refresher.plist
    ```
 
 ---
@@ -113,7 +113,7 @@ Edit `claude-oauth-refresh-config.json`:
 ```json
 {
   "refresh_buffer_minutes": 30,
-  "log_file": "~/clawd/logs/claude-oauth-refresh.log",
+  "log_file": "~/bot/logs/claude-oauth-refresh.log",
   "notifications": {
     "on_success": true,
     "on_failure": true
@@ -147,18 +147,18 @@ Edit `claude-oauth-refresh-config.json`:
 
 ```bash
 # View recent logs
-tail ~/clawd/logs/claude-oauth-refresh.log
+tail ~/bot/logs/claude-oauth-refresh.log
 
 # Check auth profile
-cat ~/.clawdbot/agents/main/agent/auth-profiles.json | jq '.profiles."anthropic:claude-cli"'
+cat ~/.bot/agents/main/agent/auth-profiles.json | jq '.profiles."anthropic:claude-cli"'
 
-# Check Clawdbot status
-clawdbot models status
+# Check Bot status
+bot models status
 ```
 
 ### Disable Notifications
 
-Ask Clawdbot:
+Ask Bot:
 ```
 Disable Claude refresh success notifications
 ```
@@ -189,15 +189,15 @@ Or edit config:
 
 ### Auto-Refresh (launchd)
 
-Runs every 2 hours via `~/Library/LaunchAgents/com.clawdbot.claude-oauth-refresher.plist`
+Runs every 2 hours via `~/Library/LaunchAgents/com.bot.claude-oauth-refresher.plist`
 
 **Controls:**
 ```bash
 # Stop auto-refresh
-launchctl unload ~/Library/LaunchAgents/com.clawdbot.claude-oauth-refresher.plist
+launchctl unload ~/Library/LaunchAgents/com.bot.claude-oauth-refresher.plist
 
 # Start auto-refresh
-launchctl load ~/Library/LaunchAgents/com.clawdbot.claude-oauth-refresher.plist
+launchctl load ~/Library/LaunchAgents/com.bot.claude-oauth-refresher.plist
 
 # Check if running
 launchctl list | grep claude
@@ -209,11 +209,11 @@ launchctl list | grep claude
 
 ### OAuth not working after onboard
 
-**Symptom:** `clawdbot onboard --auth-choice claude-cli` completes but Clawdbot can't use tokens
+**Symptom:** `bot onboard --auth-choice claude-cli` completes but Bot can't use tokens
 
 **Fix:**
 ```bash
-cd ~/clawd/skills/claude-connect
+cd ~/bot/skills/claude-connect
 ./refresh-token.sh --force
 ```
 
@@ -225,7 +225,7 @@ This will write tokens in proper OAuth format.
 
 **Fix:** Ensure launchd job is running:
 ```bash
-launchctl load ~/Library/LaunchAgents/com.clawdbot.claude-oauth-refresher.plist
+launchctl load ~/Library/LaunchAgents/com.bot.claude-oauth-refresher.plist
 launchctl list | grep claude
 ```
 
@@ -249,18 +249,18 @@ Then run refresh again:
 ## Uninstall
 
 ```bash
-cd ~/clawd/skills/claude-connect
+cd ~/bot/skills/claude-connect
 ./uninstall.sh
 ```
 
 Or manually:
 ```bash
 # Stop auto-refresh
-launchctl unload ~/Library/LaunchAgents/com.clawdbot.claude-oauth-refresher.plist
-rm ~/Library/LaunchAgents/com.clawdbot.claude-oauth-refresher.plist
+launchctl unload ~/Library/LaunchAgents/com.bot.claude-oauth-refresher.plist
+rm ~/Library/LaunchAgents/com.bot.claude-oauth-refresher.plist
 
 # Remove skill
-rm -rf ~/clawd/skills/claude-connect
+rm -rf ~/bot/skills/claude-connect
 ```
 
 ---
@@ -270,9 +270,9 @@ rm -rf ~/clawd/skills/claude-connect
 If you previously installed an older version:
 
 ```bash
-cd ~/clawd/skills/claude-connect
+cd ~/bot/skills/claude-connect
 ./validate-update.sh  # Check what changed
-clawdhub update claude-connect  # Update to latest
+skills update claude-connect  # Update to latest
 ./install.sh  # Re-run installer if needed
 ```
 
@@ -282,7 +282,7 @@ clawdhub update claude-connect  # Update to latest
 
 - [QUICKSTART.md](QUICKSTART.md) - 60-second setup guide
 - [UPGRADE.md](UPGRADE.md) - Upgrading from older versions
-- [Clawdbot docs](https://docs.clawd.bot) - Model authentication
+- [Bot docs](https://docs.hanzo.bot) - Model authentication
 
 ---
 

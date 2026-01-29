@@ -1,10 +1,10 @@
 {
-  "name": "clawdlink",
+  "name": "botlink",
   "version": "0.1.0",
-  "description": "Encrypted Clawdbot-to-Clawdbot messaging",
+  "description": "Encrypted Bot-to-Bot messaging",
   "type": "module",
   "bin": {
-    "clawdlink": "./cli.js"
+    "botlink": "./cli.js"
   },
   "scripts": {
     "setup": "node scripts/setup.js",

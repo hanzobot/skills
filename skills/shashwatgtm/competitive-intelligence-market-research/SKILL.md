@@ -1,7 +1,7 @@
 ---
 name: competitive-intelligence-market-research
 description: B2B SaaS competitive intelligence with 24 scenarios across Sales/HR/Fintech/Ops Tech
-metadata: {"clawdbot":{"emoji":"🔍","homepage":"https://github.com/shashwatgtm","always":true}}
+metadata: {"bot":{"emoji":"🔍","homepage":"https://github.com/shashwatgtm","always":true}}
 ---
 ## **🎯 Multi-Dimensional Navigator**
 

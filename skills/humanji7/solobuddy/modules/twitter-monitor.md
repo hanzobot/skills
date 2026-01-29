@@ -16,7 +16,7 @@ twitter-monitor.sh
 twitter-analyze.sh
   → filters new tweets (not in seen-tweets.json)
   → picks top 5 by engagement
-  → sends to clawdbot agent --deliver
+  → sends to bot agent --deliver
        ↓
 ClawdBot analyzes:
   • Resonance with voice profile
@@ -33,7 +33,7 @@ Telegram notification with:
 
 ## Configuration
 
-In `~/.clawdbot/clawdbot.json`:
+In `~/.bot/bot.json`:
 
 ```json
 {
@@ -52,12 +52,12 @@ In `~/.clawdbot/clawdbot.json`:
 ## Files
 
 ```
-~/.clawdbot/scripts/
+~/.bot/scripts/
 ├── twitter-monitor.sh     # Fetches tweets via bird CLI
 └── twitter-analyze.sh     # Sends to ClawdBot for analysis
 
 ~/Library/LaunchAgents/
-└── com.clawdbot.twitter-monitor.plist  # Runs on interval
+└── com.bot.twitter-monitor.plist  # Runs on interval
 
 {dataPath}/data/twitter/
 ├── latest-fetch.json      # Last fetched tweets
@@ -69,19 +69,19 @@ In `~/.clawdbot/clawdbot.json`:
 
 ```bash
 # Run manually
-~/.clawdbot/scripts/twitter-monitor.sh
+~/.bot/scripts/twitter-monitor.sh
 
 # Check logs
 tail -f /tmp/twitter-monitor.log
 
 # Stop auto-monitoring
-launchctl unload ~/Library/LaunchAgents/com.clawdbot.twitter-monitor.plist
+launchctl unload ~/Library/LaunchAgents/com.bot.twitter-monitor.plist
 
 # Start auto-monitoring
-launchctl load ~/Library/LaunchAgents/com.clawdbot.twitter-monitor.plist
+launchctl load ~/Library/LaunchAgents/com.bot.twitter-monitor.plist
 
 # Add to watchlist
-jq '.twitter.watchlist += ["newhandle"]' ~/.clawdbot/clawdbot.json > tmp && mv tmp ~/.clawdbot/clawdbot.json
+jq '.twitter.watchlist += ["newhandle"]' ~/.bot/bot.json > tmp && mv tmp ~/.bot/bot.json
 ```
 
 ## Telegram Triggers
@@ -130,8 +130,8 @@ export CT0="..."
 ## Troubleshooting
 
 **No notifications:**
-→ Check `clawdbot daemon status`
-→ Restart: `clawdbot daemon restart`
+→ Check `bot daemon status`
+→ Restart: `bot daemon restart`
 
 **bird: credentials not found:**
 → Re-login to x.com in browser
@@ -139,4 +139,4 @@ export CT0="..."
 
 **Logs:**
 → `/tmp/twitter-monitor.log`
-→ `/tmp/clawdbot/clawdbot-*.log`
+→ `/tmp/bot/bot-*.log`

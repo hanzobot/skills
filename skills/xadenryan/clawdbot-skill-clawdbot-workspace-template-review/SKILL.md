@@ -1,29 +1,29 @@
 ---
-name: clawdbot-workspace-template-review
-description: Compare a Clawdbot workspace against the official templates installed with Clawdbot (npm or source) and list missing sections to pull in, especially after upgrades.
+name: bot-workspace-template-review
+description: Compare a Bot workspace against the official templates installed with Bot (npm or source) and list missing sections to pull in, especially after upgrades.
 ---
 
 # Workspace Template Diff
 
-Use this skill when the user wants to compare their workspace `.md` files (AGENTS, SOUL, USER, IDENTITY, TOOLS, HEARTBEAT, etc.) against the official Clawdbot templates, then review missing sections and decide what to add.
+Use this skill when the user wants to compare their workspace `.md` files (AGENTS, SOUL, USER, IDENTITY, TOOLS, HEARTBEAT, etc.) against the official Bot templates, then review missing sections and decide what to add.
 
 ## Locate the official templates
 
-Find the installed Clawdbot source root:
+Find the installed Bot source root:
 
-- If `clawdbot` is installed via npm/pnpm globally:
-  - `command -v clawdbot`
-  - If it points into `.../node_modules/.bin/`, resolve to the sibling `node_modules/clawdbot`
-  - Or use `npm root -g` / `pnpm root -g` and look for `clawdbot/`
-- If Clawdbot runs from source, use that checkout root (must contain `package.json`).
+- If `bot` is installed via npm/pnpm globally:
+  - `command -v bot`
+  - If it points into `.../node_modules/.bin/`, resolve to the sibling `node_modules/bot`
+  - Or use `npm root -g` / `pnpm root -g` and look for `bot/`
+- If Bot runs from source, use that checkout root (must contain `package.json`).
 
 Templates live at:
 
 ```
-<clawdbot-root>/docs/reference/templates/
+<bot-root>/docs/reference/templates/
 ```
 
-If you can’t find the source root, ask the user where their Clawdbot is installed.
+If you can’t find the source root, ask the user where their Bot is installed.
 
 ## Comparison workflow
 
@@ -36,10 +36,10 @@ If you can’t find the source root, ask the user where their Clawdbot is instal
 Helpful commands (use ad‑hoc CLI tools like `diff`):
 
 ```
-ls <clawdbot-root>/docs/reference/templates
-sed -n '1,200p' <clawdbot-root>/docs/reference/templates/AGENTS.md
+ls <bot-root>/docs/reference/templates
+sed -n '1,200p' <bot-root>/docs/reference/templates/AGENTS.md
 sed -n '1,200p' <workspace>/AGENTS.md
-diff -u <clawdbot-root>/docs/reference/templates/AGENTS.md <workspace>/AGENTS.md
+diff -u <bot-root>/docs/reference/templates/AGENTS.md <workspace>/AGENTS.md
 ```
 
 When reporting diffs:

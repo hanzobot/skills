@@ -15,7 +15,7 @@ echo ""
     if [ -n "$lastmod" ]; then
         doc_date="${lastmod:0:10}"
         if [[ "$doc_date" > "$cutoff_date" ]] || [[ "$doc_date" == "$cutoff_date" ]]; then
-            short_url="${url#https://docs.clawd.bot/}"
+            short_url="${url#https://docs.hanzo.bot/}"
             echo "  $doc_date  $short_url"
         fi
     fi

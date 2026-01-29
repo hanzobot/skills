@@ -1,8 +1,8 @@
 # Web API Wrapper Pattern
 
-Wrap a web API for use through Clawdbot. Focuses on **clawdbot-specific integration** — execution methods, caching, polling, notifications — not generic REST/HTTP advice.
+Wrap a web API for use through Bot. Focuses on **bot-specific integration** — execution methods, caching, polling, notifications — not generic REST/HTTP advice.
 
-## Clawdbot Execution Methods
+## Bot Execution Methods
 
 Choose based on complexity:
 
@@ -14,23 +14,23 @@ Choose based on complexity:
 
 ### web_fetch (Simplest)
 
-Use for simple GET requests to public endpoints. See clawddocs for current `web_fetch` tool parameters.
+Use for simple GET requests to public endpoints. See botdocs for current `web_fetch` tool parameters.
 
 ### exec + curl (Flexible)
 
 For custom headers, POST/PUT/DELETE, or authentication. Use the `exec` tool with curl.
-Consult **clawddocs** `/tools/bash` for exec tool syntax.
+Consult **botdocs** `/tools/bash` for exec tool syntax.
 
 ### Script (Complex/Repeated)
 
 When API calls are complex or need caching, create `<skill>/scripts/client.py`.
 
-## Clawdbot-Specific Concerns
+## Bot-Specific Concerns
 
 ### 1. Polling via Cron
 
-For APIs that need periodic checking, use Clawdbot's cron system.
-Consult **clawddocs** `/automation/cron-jobs` for configuration format and options.
+For APIs that need periodic checking, use Bot's cron system.
+Consult **botdocs** `/automation/cron-jobs` for configuration format and options.
 
 **Skill documents:**
 - What endpoint to poll
@@ -62,15 +62,15 @@ For large responses or analysis:
 sessions_spawn task:"Fetch all items from example API, analyze trends, summarize. API key is in EXAMPLE_API_KEY env var."
 ```
 
-**Path considerations:** If sub-agent needs workspace files, consult **clawddocs** `/tools/subagents` for current sandbox configuration and include path context in the task.
+**Path considerations:** If sub-agent needs workspace files, consult **botdocs** `/tools/subagents` for current sandbox configuration and include path context in the task.
 
 ### 4. Notifications (message)
 
-Push results to channels using the `message` tool. Consult **clawddocs** `/concepts/messages` for current parameters and channel options.
+Push results to channels using the `message` tool. Consult **botdocs** `/concepts/messages` for current parameters and channel options.
 
 ### 5. Channel-Aware Formatting
 
-Use **clawddocs** to check `/providers/` docs for channel-specific capabilities. Common considerations:
+Use **botdocs** to check `/providers/` docs for channel-specific capabilities. Common considerations:
 - Some channels don't support tables — use bullet lists
 - Long responses should be summarized, offer full on request
 - Rich formatting availability varies by channel
@@ -94,7 +94,7 @@ For OAuth flows, document the process and where tokens are stored (`<skill>/auth
 
 ## Checklist
 
-Clawdbot-specific concerns for API wrappers:
+Bot-specific concerns for API wrappers:
 
 - [ ] Execution method chosen (web_fetch vs curl vs script)
 - [ ] Cron polling documented (if periodic)

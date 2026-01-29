@@ -18,7 +18,7 @@ This skill is **macOS-only** and requires:
 1. **macOS** (uses Keychain for secure credential storage)
 2. **Claude Code CLI** already installed (`claude` command available)
 3. **Already logged into your Claude account** (run `claude` then `login` - stores tokens in Keychain)
-4. **Clawdbot** installed and running
+4. **Bot** installed and running
 
 **Not sure if you're set up?** Run the verification script:
 ```bash
@@ -44,7 +44,7 @@ This skill is **macOS-only** and requires:
 ### Quick Setup (Recommended)
 
 ```bash
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./install.sh
 ```
 
@@ -60,7 +60,7 @@ The installer will:
 **After installation:**
 - Config changes apply automatically (refresh script reads config each run)
 - Edit `claude-oauth-refresh-config.json` to change settings
-- Ask Clawdbot to modify settings for you
+- Ask Bot to modify settings for you
 - **Only re-run installer** if you need to reinstall or fix the job
 
 ### Interactive Notification Setup
@@ -71,8 +71,8 @@ During installation, you'll be prompted:
 Configure Notifications:
 💡 Recommendation: Keep all enabled for the first run to verify it works.
    You can disable them later by:
-   1. Editing ~/clawd/claude-oauth-refresh-config.json
-   2. Asking Clawdbot: "disable Claude refresh notifications"
+   1. Editing ~/bot/claude-oauth-refresh-config.json
+   2. Asking Bot: "disable Claude refresh notifications"
 
 Enable "🔄 Refreshing token..." notification? [Y/n]: 
 Enable "✅ Token refreshed!" notification? [Y/n]: 
@@ -83,9 +83,9 @@ Enable "❌ Refresh failed" notification? [Y/n]:
 
 ---
 
-## Managing Notifications with Clawdbot
+## Managing Notifications with Bot
 
-**You can ask Clawdbot to change notification settings for you!** No need to edit JSON manually.
+**You can ask Bot to change notification settings for you!** No need to edit JSON manually.
 
 ### Examples
 
@@ -122,8 +122,8 @@ Enable "❌ Refresh failed" notification? [Y/n]:
 
 ### How It Works
 
-Clawdbot will:
-1. Read your `~/clawd/claude-oauth-refresh-config.json`
+Bot will:
+1. Read your `~/bot/claude-oauth-refresh-config.json`
 2. Update the appropriate notification flags
 3. Save the file
 4. Confirm the changes
@@ -136,7 +136,7 @@ Clawdbot will:
 
 **The install script automatically detects your notification settings!**
 
-It reads `~/.clawdbot/clawdbot.json` to find:
+It reads `~/.bot/bot.json` to find:
 - Which messaging channels you have enabled
 - Your chat ID, phone number, or user ID
 - Automatically populates `claude-oauth-refresh-config.json` with these values
@@ -171,14 +171,14 @@ To receive notifications, you need to configure your `notification_target` in `c
 
 **How to find:**
 ```bash
-# Option 1: Use Clawdbot CLI
-clawdbot message telegram account list
+# Option 1: Use Bot CLI
+bot message telegram account list
 
 # Option 2: Message @userinfobot on Telegram
 # Send any message, it will reply with your ID
 
 # Option 3: Check recent messages
-clawdbot message telegram message search --limit 1 --from-me true
+bot message telegram message search --limit 1 --from-me true
 ```
 
 **Example config:**
@@ -198,10 +198,10 @@ clawdbot message telegram message search --limit 1 --from-me true
 **How to find:**
 ```bash
 # List channels
-clawdbot message slack channel list
+bot message slack channel list
 
 # Find user ID
-clawdbot message slack user list | grep "your.email@company.com"
+bot message slack user list | grep "your.email@company.com"
 
 # Or click on your profile in Slack → More → Copy member ID
 ```
@@ -226,7 +226,7 @@ clawdbot message slack user list | grep "your.email@company.com"
 # Then right-click your username → Copy ID
 
 # Or list channels
-clawdbot message discord channel list
+bot message discord channel list
 ```
 
 **Example config:**
@@ -265,7 +265,7 @@ clawdbot message discord channel list
 **How to find:**
 ```bash
 # List recent chats to find your chat_id
-clawdbot message imessage thread list --limit 10
+bot message imessage thread list --limit 10
 
 # Find the chat with yourself or your preferred device
 ```
@@ -307,7 +307,7 @@ clawdbot message imessage thread list --limit 10
 ```json
 {
   "refresh_buffer_minutes": 30,
-  "log_file": "~/clawd/logs/claude-oauth-refresh.log",
+  "log_file": "~/bot/logs/claude-oauth-refresh.log",
   "notifications": {
     "on_start": true,
     "on_success": true,
@@ -323,7 +323,7 @@ clawdbot message imessage thread list --limit 10
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `refresh_buffer_minutes` | number | `30` | Refresh tokens this many minutes before expiry |
-| `log_file` | string | `~/clawd/logs/claude-oauth-refresh.log` | Where to write logs |
+| `log_file` | string | `~/bot/logs/claude-oauth-refresh.log` | Where to write logs |
 | `notifications.on_start` | boolean | `true` | Send "🔄 Refreshing token..." notification |
 | `notifications.on_success` | boolean | `true` | Send "✅ Token refreshed!" notification |
 | `notifications.on_failure` | boolean | `true` | Send "❌ Refresh failed" notification with details |
@@ -404,10 +404,10 @@ Details: Connection timed out after 30s
 Troubleshooting:
 - Check your internet connection
 - Verify you can reach auth.anthropic.com
-- Try running manually: ~/clawd/skills/claude-oauth-refresher/refresh-token.sh
+- Try running manually: ~/bot/skills/claude-oauth-refresher/refresh-token.sh
 
-Need help? Message Clawdbot or check logs:
-~/clawd/logs/claude-oauth-refresh.log
+Need help? Message Bot or check logs:
+~/bot/logs/claude-oauth-refresh.log
 ```
 
 ### Common Errors and Solutions
@@ -452,19 +452,19 @@ Troubleshooting:
 
 ```bash
 # View recent logs
-tail -f ~/clawd/logs/claude-oauth-refresh.log
+tail -f ~/bot/logs/claude-oauth-refresh.log
 
 # Check launchd status
 launchctl list | grep claude-oauth-refresher
 
 # Manual refresh (for testing)
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./refresh-token.sh
 ```
 
 ### Modify Settings
 
-**Option 1: Ask Clawdbot (easiest)**
+**Option 1: Ask Bot (easiest)**
 ```
 "disable Claude refresh start notifications"
 "show Claude refresh notification settings"
@@ -472,7 +472,7 @@ cd ~/clawd/skills/claude-oauth-refresher
 
 **Option 2: Edit config file**
 ```bash
-nano ~/clawd/skills/claude-oauth-refresher/claude-oauth-refresh-config.json
+nano ~/bot/skills/claude-oauth-refresher/claude-oauth-refresh-config.json
 ```
 
 Changes apply automatically on next refresh (every 2 hours, or when you run manually).
@@ -513,12 +513,12 @@ claude auth
 1. Check your `notification_target` format matches the examples above
 2. Test manually:
    ```bash
-   clawdbot message [channel] send --target "[your_target]" --message "Test"
+   bot message [channel] send --target "[your_target]" --message "Test"
    ```
-3. Check Clawdbot is running: `clawdbot gateway status`
+3. Check Bot is running: `bot gateway status`
 4. Verify notification settings:
    ```bash
-   cat ~/clawd/skills/claude-oauth-refresher/claude-oauth-refresh-config.json | jq .notifications
+   cat ~/bot/skills/claude-oauth-refresher/claude-oauth-refresh-config.json | jq .notifications
    ```
 
 ---
@@ -532,7 +532,7 @@ claude auth logout
 claude auth
 
 # Test refresh again
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./refresh-token.sh
 ```
 
@@ -545,7 +545,7 @@ The config file was renamed from `config.json` to `claude-oauth-refresh-config.j
 
 ```bash
 # If you have an old config.json, run the installer to migrate:
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./install.sh
 # Choose to keep existing config when prompted
 ```
@@ -557,7 +557,7 @@ cd ~/clawd/skills/claude-oauth-refresher
 **Solution:**
 ```bash
 # Re-run the installer (safe to run multiple times)
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./install.sh
 ```
 
@@ -571,7 +571,7 @@ The installer will:
 ## Uninstall
 
 ```bash
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./uninstall.sh
 ```
 
@@ -603,11 +603,11 @@ This will:
      - Sends success notification (if enabled)
    - If refresh fails:
      - Sends detailed failure notification with troubleshooting
-   - All activity logged to `~/clawd/logs/claude-oauth-refresh.log`
+   - All activity logged to `~/bot/logs/claude-oauth-refresh.log`
 
 4. **Config Changes** - Applied automatically:
    - Edit `claude-oauth-refresh-config.json` anytime
-   - Ask Clawdbot to edit for you
+   - Ask Bot to edit for you
    - Changes take effect on next refresh
    - No restart needed!
 
@@ -625,7 +625,7 @@ This will:
 
 ## Support
 
-**Logs:** `~/clawd/logs/claude-oauth-refresh.log`
+**Logs:** `~/bot/logs/claude-oauth-refresh.log`
 
 **Issues:**
 1. Run `./verify-setup.sh` to diagnose
@@ -635,6 +635,6 @@ This will:
 
 **Need help?** Open an issue with:
 - Output of `./verify-setup.sh`
-- Last 20 lines of logs: `tail -20 ~/clawd/logs/claude-oauth-refresh.log`
+- Last 20 lines of logs: `tail -20 ~/bot/logs/claude-oauth-refresh.log`
 - macOS version: `sw_vers`
 - Config (redacted): `cat claude-oauth-refresh-config.json | jq 'del(.notification_target)'`

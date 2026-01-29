@@ -1,6 +1,6 @@
 # Bear Blog Post Workflow
 
-Step-by-step workflow for creating a post using Clawdbot's browser tool.
+Step-by-step workflow for creating a post using Bot's browser tool.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ Manage torrents via qBittorrent's WebUI API (v4.1+).
 
 ## Setup
 
-Config: `~/.clawdbot/credentials/qbittorrent/config.json`
+Config: `~/.bot/credentials/qbittorrent/config.json`
 
 ```json
 {

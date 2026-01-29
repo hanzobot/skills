@@ -43,9 +43,9 @@ find_api_key() {
     return
   fi
 
-  # Check clawdbot config
-  if [ -f "$HOME/.clawdbot/clawdbot.json" ]; then
-    local key=$(grep -A2 '"ensue-learning-memory"' "$HOME/.clawdbot/clawdbot.json" | grep '"apiKey"' | cut -d'"' -f4)
+  # Check bot config
+  if [ -f "$HOME/.bot/bot.json" ]; then
+    local key=$(grep -A2 '"ensue-learning-memory"' "$HOME/.bot/bot.json" | grep '"apiKey"' | cut -d'"' -f4)
     if [ -n "$key" ]; then
       echo "$key"
       return
@@ -58,7 +58,7 @@ find_api_key() {
 ENSUE_API_KEY=$(find_api_key)
 
 if [ -z "$ENSUE_API_KEY" ]; then
-  echo '{"error":"ENSUE_API_KEY not found. Get a free API key at https://www.ensue-network.ai/login then configure it in clawdbot.json under skills.entries.ensue-learning-memory.apiKey or set as ENSUE_API_KEY environment variable."}'
+  echo '{"error":"ENSUE_API_KEY not found. Get a free API key at https://www.ensue-network.ai/login then configure it in bot.json under skills.entries.ensue-learning-memory.apiKey or set as ENSUE_API_KEY environment variable."}'
   exit 1
 fi
 

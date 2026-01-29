@@ -166,11 +166,11 @@ The Judge Agent must:
 **CRITICAL: Ground your synthesis in the ACTUAL research content, not your pre-existing knowledge.**
 
 Read the research output carefully. Pay attention to:
-- **Exact product/tool names** mentioned (e.g., if research mentions "ClawdBot" or "@clawdbot", that's a DIFFERENT product than "Claude Code" - don't conflate them)
+- **Exact product/tool names** mentioned (e.g., if research mentions "ClawdBot" or "@bot", that's a DIFFERENT product than "Claude Code" - don't conflate them)
 - **Specific quotes and insights** from the sources - use THESE, not generic knowledge
 - **What the sources actually say**, not what you assume the topic is about
 
-**ANTI-PATTERN TO AVOID**: If user asks about "clawdbot skills" and research returns ClawdBot content (self-hosted AI agent), do NOT synthesize this as "Claude Code skills" just because both involve "skills". Read what the research actually says.
+**ANTI-PATTERN TO AVOID**: If user asks about "bot skills" and research returns ClawdBot content (self-hosted AI agent), do NOT synthesize this as "Claude Code skills" just because both involve "skills". Read what the research actually says.
 
 ### If QUERY_TYPE = RECOMMENDATIONS
 

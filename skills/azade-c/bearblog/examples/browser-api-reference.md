@@ -1,10 +1,10 @@
 # Bear Blog Browser API Reference
 
-Complete reference for interacting with Bear Blog via Clawdbot's browser tool.
+Complete reference for interacting with Bear Blog via Bot's browser tool.
 
 ## Prerequisites
 
-1. Browser enabled: `DISPLAY=:99` in `~/.clawdbot/.env`
+1. Browser enabled: `DISPLAY=:99` in `~/.bot/.env`
 2. Browser started: `POST http://127.0.0.1:18791/start`
 3. Logged in (session persists in cookies)
 

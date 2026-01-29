@@ -282,10 +282,10 @@ export EXA_API_KEY="your-key"      # https://exa.ai
 **Q: Rate limited?**
 > Each provider has limits. Spread queries across providers or wait. Serper: 100/month free, Tavily: 1000/month free.
 
-### For Clawdbot Users
+### For Bot Users
 
 **Q: How do I use this in chat?**
-> Just ask! Clawdbot auto-detects search intent. Or explicitly: "search with web-search-plus for..."
+> Just ask! Bot auto-detects search intent. Or explicitly: "search with web-search-plus for..."
 
 **Q: Does it replace built-in Brave Search?**
 > No, it's complementary. Use Brave for quick lookups, web-search-plus for research/shopping/discovery.

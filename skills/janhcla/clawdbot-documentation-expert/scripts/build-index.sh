@@ -3,7 +3,7 @@
 # Requires: qmd (for vector/BM25 search)
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-INDEX_DIR="${HOME}/.cache/clawddocs/index"
+INDEX_DIR="${HOME}/.cache/botdocs/index"
 DOCS_DIR="${INDEX_DIR}/docs"
 
 mkdir -p "$DOCS_DIR"
@@ -17,7 +17,7 @@ fetch_all() {
     
     echo "$urls" | while read -r url; do
         count=$((count + 1))
-        local path="${url#https://docs.clawd.bot/}"
+        local path="${url#https://docs.hanzo.bot/}"
         local filename="${path//\//_}.md"
         
         # Skip if recently fetched

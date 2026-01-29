@@ -1,7 +1,7 @@
 ---
 name: last30days
 description: Research any topic across Reddit, X/Twitter, and the web from the last 30 days. Synthesizes findings into actionable insights or copy-paste prompts.
-metadata: {"clawdbot":{"emoji":"📅","requires":{"bins":["bird"]}}}
+metadata: {"bot":{"emoji":"📅","requires":{"bins":["bird"]}}}
 ---
 
 # last30days 📅
@@ -25,7 +25,7 @@ The AI world reinvents itself monthly. This skill keeps you current by researchi
 - Fast-moving topics where recency matters
 
 **Requirements:**
-- Brave Search (built into Clawdbot)
+- Brave Search (built into Bot)
 - `bird` CLI for X/Twitter (optional but recommended)
 - No extra API keys needed
 

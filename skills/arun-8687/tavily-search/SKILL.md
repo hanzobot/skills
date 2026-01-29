@@ -2,7 +2,7 @@
 name: tavily
 description: AI-optimized web search via Tavily API. Returns concise, relevant results for AI agents.
 homepage: https://tavily.com
-metadata: {"clawdbot":{"emoji":"🔍","requires":{"bins":["node"],"env":["TAVILY_API_KEY"]},"primaryEnv":"TAVILY_API_KEY"}}
+metadata: {"bot":{"emoji":"🔍","requires":{"bins":["node"],"env":["TAVILY_API_KEY"]},"primaryEnv":"TAVILY_API_KEY"}}
 ---
 
 # Tavily Search

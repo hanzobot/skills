@@ -1,4 +1,4 @@
-# Strava Skill for Clawdbot
+# Strava Skill for Bot
 
 🏃 **Load and analyze your Strava activities, stats, and workouts** using the Strava API.
 
@@ -24,7 +24,7 @@ Follow the setup instructions in [SKILL.md](./SKILL.md) to obtain your access to
 
 ### 3. Configure
 
-Add to `~/.clawdbot/clawdbot.json`:
+Add to `~/.bot/bot.json`:
 
 ```json
 {
@@ -91,8 +91,8 @@ MIT
 
 ## Author
 
-Created for Clawdbot AI Assistant
+Created for Bot AI Assistant
 
 ---
 
-🦞 Part of the Clawdbot skill ecosystem
+🦞 Part of the Bot skill ecosystem

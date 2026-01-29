@@ -6,7 +6,7 @@ author: chip1cr
 license: MIT
 repository: https://github.com/pinkpixel/fix-life-in-1-day
 metadata:
-  clawdbot:
+  bot:
     emoji: "🧠"
     triggers: ["/life", "/architect"]
   tags: ["psychology", "self-improvement", "coaching", "life-design", "dan-koe"]
@@ -19,7 +19,7 @@ metadata:
 Based on:
 - 📝 [@thedankoe](https://x.com/thedankoe) — "How to fix your entire life in 1 day"
 - 🔧 [@alex_prompter](https://x.com/alex_prompter) — 10 AI prompts reverse-engineered from Dan's article
-- ⚡ [@chip1cr](https://x.com/chip1cr) — Clawdbot skill implementation
+- ⚡ [@chip1cr](https://x.com/chip1cr) — Bot skill implementation
 
 ## What It Does
 

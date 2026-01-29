@@ -1,18 +1,18 @@
 ---
-name: clawdbot-release-check
-description: Check for new clawdbot releases and notify once per new version.
-homepage: https://github.com/clawdbot/clawdbot
-metadata: {"clawdbot":{"emoji":"🔄","requires":{"bins":["curl","jq"]}}}
+name: bot-release-check
+description: Check for new bot releases and notify once per new version.
+homepage: https://github.com/bot/bot
+metadata: {"bot":{"emoji":"🔄","requires":{"bins":["curl","jq"]}}}
 ---
 
-# Clawdbot Release Check
+# Bot Release Check
 
-Checks for new clawdbot releases from GitHub and notifies you once per version. No nagging.
+Checks for new bot releases from GitHub and notifies you once per version. No nagging.
 
 ## Installation
 
 ```bash
-clawdhub install clawdbot-release-check
+skills install bot-release-check
 ```
 
 ## Quick Setup (with cron)
@@ -30,7 +30,7 @@ clawdhub install clawdbot-release-check
 
 After setup, restart the gateway:
 ```bash
-launchctl kickstart -k gui/$(id -u)/com.clawdis.gateway
+launchctl kickstart -k gui/$(id -u)/com.botis.gateway
 ```
 
 ## Manual Usage
@@ -57,7 +57,7 @@ launchctl kickstart -k gui/$(id -u)/com.clawdis.gateway
 
 ## How It Works
 
-1. Fetches latest release from `github.com/clawdbot/clawdbot/releases`
+1. Fetches latest release from `github.com/bot/bot/releases`
 2. Compares with your installed version (from `package.json`)
 3. If behind, shows highlights from release notes
 4. Saves state to prevent repeat notifications
@@ -65,7 +65,7 @@ launchctl kickstart -k gui/$(id -u)/com.clawdis.gateway
 ## Example Output
 
 ```
-🔄 **Clawdbot Update Available!**
+🔄 **Bot Update Available!**
 
 Current: `2.0.0-beta5`
 Latest:  `2026.1.5-3`
@@ -77,14 +77,14 @@ _(3 versions behind)_
 - Agent tools: new `image` tool
 - Config: default model shorthands
 
-🔗 https://github.com/clawdbot/clawdbot/releases/tag/v2026.1.5-3
+🔗 https://github.com/bot/bot/releases/tag/v2026.1.5-3
 
-To update: `cd /path/to/clawdis && git pull && pnpm install && pnpm build`
+To update: `cd /path/to/botis && git pull && pnpm install && pnpm build`
 ```
 
 ## Files
 
-**State** — `~/.clawdbot/clawdbot-release-check-state.json`:
+**State** — `~/.bot/bot-release-check-state.json`:
 ```json
 {
   "lastNotifiedVersion": "v2026.1.5-3",
@@ -92,7 +92,7 @@ To update: `cd /path/to/clawdis && git pull && pnpm install && pnpm build`
 }
 ```
 
-**Cache** — `~/.clawdbot/clawdbot-release-check-cache.json`:
+**Cache** — `~/.bot/bot-release-check-cache.json`:
 - Release data cached for 24 hours (saves API calls)
 - Highlights extracted once per release (saves tokens)
 - Use `--clear-cache` to force refresh
@@ -100,7 +100,7 @@ To update: `cd /path/to/clawdis && git pull && pnpm install && pnpm build`
 ## Configuration
 
 Environment variables:
-- `CLAWDBOT_DIR` — Path to clawdbot source (auto-detected from `~/dev/clawdis`, `~/clawdbot`, or npm global)
+- `BOT_DIR` — Path to bot source (auto-detected from `~/dev/botis`, `~/bot`, or npm global)
 - `CACHE_MAX_AGE_HOURS` — Cache TTL in hours (default: 24)
 
 

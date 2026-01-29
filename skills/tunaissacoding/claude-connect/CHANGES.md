@@ -42,8 +42,8 @@ This installer runs ONCE to set up automatic token refresh.
 The refresh job will run every 2 hours in the background.
 
 To change settings later:
-  1. Edit: ~/clawd/claude-oauth-refresh-config.json
-  2. Ask Clawdbot: "disable Claude refresh notifications"
+  1. Edit: ~/bot/claude-oauth-refresh-config.json
+  2. Ask Bot: "disable Claude refresh notifications"
   3. Changes apply automatically - no need to re-run installer!
 ```
 
@@ -86,8 +86,8 @@ To change settings later:
 Configure Notifications:
 💡 Recommendation: Keep all enabled for the first run to verify it works.
    You can disable them later by:
-   1. Editing ~/clawd/claude-oauth-refresh-config.json
-   2. Asking Clawdbot: "disable Claude refresh notifications"
+   1. Editing ~/bot/claude-oauth-refresh-config.json
+   2. Asking Bot: "disable Claude refresh notifications"
 
 Enable "🔄 Refreshing token..." notification? [Y/n]: 
 Enable "✅ Token refreshed!" notification? [Y/n]: 
@@ -159,15 +159,15 @@ Details: Connection timed out after 30s
 Troubleshooting:
 - Check your internet connection
 - Verify you can reach auth.anthropic.com
-- Try running manually: ~/clawd/skills/claude-oauth-refresher/refresh-token.sh
+- Try running manually: ~/bot/skills/claude-oauth-refresher/refresh-token.sh
 
-Need help? Message Clawdbot or check logs:
-~/clawd/logs/claude-oauth-refresh.log
+Need help? Message Bot or check logs:
+~/bot/logs/claude-oauth-refresh.log
 ```
 
 ---
 
-### 6. Clawdbot Control for Notifications ✅
+### 6. Bot Control for Notifications ✅
 
 **Added comprehensive section to SKILL.md:**
 
@@ -180,8 +180,8 @@ Need help? Message Clawdbot or check logs:
 - "reset Claude refresh notifications to defaults"
 
 **How It Works:**
-1. User asks Clawdbot with natural language
-2. Clawdbot reads ~/clawd/claude-oauth-refresh-config.json
+1. User asks Bot with natural language
+2. Bot reads ~/bot/claude-oauth-refresh-config.json
 3. Updates appropriate notification flags
 4. Saves file
 5. Confirms changes
@@ -295,7 +295,7 @@ Need help? Message Clawdbot or check logs:
 - [ ] Keychain error - permission steps provided
 - [ ] Missing profile - setup steps provided
 
-### Clawdbot Integration
+### Bot Integration
 - [ ] Ask to disable notifications - config updated
 - [ ] Ask to show settings - current config displayed
 - [ ] Ask to enable all - all set to true
@@ -324,7 +324,7 @@ Need help? Message Clawdbot or check logs:
 - [x] Auto-detection
 - [x] Clear documentation
 - [x] Easy troubleshooting
-- [x] Clawdbot integration
+- [x] Bot integration
 
 ### Maintainability ✅
 - [x] Clear code structure
@@ -372,7 +372,7 @@ Need help? Message Clawdbot or check logs:
 2. **Notification Relevance:** Users can disable noisy notifications
 3. **Troubleshooting Speed:** Detailed errors reduce support burden
 4. **Migration Success:** Automatic migration prevents user frustration
-5. **User Satisfaction:** Clawdbot integration for hands-free control
+5. **User Satisfaction:** Bot integration for hands-free control
 
 ---
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Claude Code Usage Monitor
-# Detects usage resets and sends notifications via Clawdbot
+# Detects usage resets and sends notifications via Bot
 
 set -euo pipefail
 
@@ -86,8 +86,8 @@ if [ "$SESSION_RESET" -eq 1 ] || [ "$WEEKLY_RESET" -eq 1 ]; then
   
   MESSAGE+="\nFresh usage available! 🦞"
   
-  # Send via clawdbot message tool
-  # Note: This script is typically run by Clawdbot cron, which will capture output
+  # Send via bot message tool
+  # Note: This script is typically run by Bot cron, which will capture output
   # and send it as a notification automatically. For manual testing, print to stdout.
   echo -e "$MESSAGE"
   

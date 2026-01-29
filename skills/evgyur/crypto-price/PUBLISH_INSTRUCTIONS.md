@@ -4,7 +4,7 @@
 
 All files are prepared and committed locally:
 - ✅ README.md with full documentation
-- ✅ SKILL.md (Clawdbot skill definition)
+- ✅ SKILL.md (Bot skill definition)
 - ✅ Python script with chart generation
 - ✅ requirements.txt
 - ✅ LICENSE (MIT)
@@ -18,15 +18,15 @@ All files are prepared and committed locally:
 
 1. Go to: https://github.com/new
 2. Repository name: `crypto-price`
-3. Description: `📈 Clawdbot skill for cryptocurrency price lookup and candlestick chart generation`
-4. Visibility: **Public** (required for ClawdHub)
+3. Description: `📈 Bot skill for cryptocurrency price lookup and candlestick chart generation`
+4. Visibility: **Public** (required for Skills)
 5. **Important**: Do NOT initialize with README, .gitignore, or license
 6. Click "Create repository"
 
 ### 2. Push to GitHub
 
 ```bash
-cd /home/eyurc/clawd/skills/crypto-price
+cd /home/eyurc/bot/skills/crypto-price
 
 # Add remote
 git remote add origin git@github.com:evgyur/crypto-price.git
@@ -52,28 +52,28 @@ Or via GitHub UI:
 - Title: `v1.0.0 - Initial Release`
 - Description: Copy from README.md Features section
 
-### 4. Publish to ClawdHub
+### 4. Publish to Skills
 
-ClawdHub auto-discovers skills from GitHub. After pushing:
+Skills auto-discovers skills from GitHub. After pushing:
 
 1. **Wait 24-48 hours** for auto-discovery, OR
 2. **Manual submission**:
-   - Visit https://clawdhub.com
+   - Visit https://skills.com
    - Contact maintainers or use submission form
    - Provide: `https://github.com/evgyur/crypto-price`
 
 ### 5. Verify Publication
 
-Once on ClawdHub:
-- Skill page: `https://clawdhub.com/evgyur/crypto-price`
-- Installation: `clawdhub install evgyur/crypto-price`
+Once on Skills:
+- Skill page: `https://skills.com/evgyur/crypto-price`
+- Installation: `skills install evgyur/crypto-price`
 
 ## 📁 Repository Structure
 
 ```
 crypto-price/
-├── .clawdhub/
-│   └── origin.json          # ClawdHub metadata
+├── .skills/
+│   └── origin.json          # Skills metadata
 ├── .github/
 │   └── workflows/
 │       └── test.yml          # CI/CD tests
@@ -85,7 +85,7 @@ crypto-price/
 ├── QUICK_START.md           # Quick start guide
 ├── README.md                # Full documentation
 ├── requirements.txt         # Python dependencies
-└── SKILL.md                 # Clawdbot skill definition
+└── SKILL.md                 # Bot skill definition
 ```
 
 ## ✨ Features to Highlight
@@ -101,12 +101,12 @@ crypto-price/
 
 After creating the repo, consider:
 - ✅ Enable GitHub Actions
-- ✅ Add topics: `clawdbot`, `clawdbot-skill`, `cryptocurrency`, `trading`, `charts`
-- ✅ Add description: `📈 Clawdbot skill for cryptocurrency price lookup and candlestick chart generation`
+- ✅ Add topics: `bot`, `bot-skill`, `cryptocurrency`, `trading`, `charts`
+- ✅ Add description: `📈 Bot skill for cryptocurrency price lookup and candlestick chart generation`
 
-## 🎯 ClawdHub Description
+## 🎯 Skills Description
 
-When submitting to ClawdHub, use this description:
+When submitting to Skills, use this description:
 
 > Get cryptocurrency token prices and generate beautiful candlestick charts. Supports CoinGecko and Hyperliquid APIs with smart caching. Works with popular slash commands like /hype, /token, /btc, /eth, and more. Generates 8x8 square charts with dark theme.
 
@@ -116,6 +116,6 @@ When submitting to ClawdHub, use this description:
 - [ ] Code pushed to GitHub
 - [ ] GitHub release v1.0.0 created
 - [ ] Repository topics added
-- [ ] ClawdHub submission (auto or manual)
-- [ ] Skill verified on ClawdHub
-- [ ] Installation tested: `clawdhub install evgyur/crypto-price`
+- [ ] Skills submission (auto or manual)
+- [ ] Skill verified on Skills
+- [ ] Installation tested: `skills install evgyur/crypto-price`

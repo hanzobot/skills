@@ -1,4 +1,4 @@
-# Reddit Skill for Clawdbot
+# Reddit Skill for Bot
 
 Browse, search, post to, and moderate any subreddit from your agent.
 
@@ -24,7 +24,7 @@ node scripts/reddit.mjs search all "breaking news"
 1. Go to https://www.reddit.com/prefs/apps
 2. Scroll down and click **"create another app..."**
 3. Fill in:
-   - **name**: anything (e.g., "clawdbot")
+   - **name**: anything (e.g., "bot")
    - **type**: select **script**
    - **redirect uri**: `http://localhost:8080/callback`
 4. Click **Create app**
@@ -34,7 +34,7 @@ node scripts/reddit.mjs search all "breaking news"
 
 ### 2. Set Environment Variables
 
-Add these to your shell profile or Clawdbot's environment:
+Add these to your shell profile or Bot's environment:
 
 ```bash
 export REDDIT_CLIENT_ID="your_client_id"
@@ -89,7 +89,7 @@ In `scripts/reddit.mjs`, you can personalize the User-Agent string:
 
 ```javascript
 // Find this line near the top:
-const USER_AGENT = 'script:clawdbot-reddit:v1.0.0';
+const USER_AGENT = 'script:bot-reddit:v1.0.0';
 
 // Change to something like:
 const USER_AGENT = 'script:my-reddit-bot:v1.0.0 (by /u/your_username)';
@@ -136,7 +136,7 @@ The skill handles token refresh automatically.
 ## Troubleshooting
 
 **"Missing REDDIT_CLIENT_ID or REDDIT_CLIENT_SECRET"**  
-→ Environment variables aren't set. Check your shell profile or Clawdbot config.
+→ Environment variables aren't set. Check your shell profile or Bot config.
 
 **"Not logged in. Run: node reddit.mjs login"**  
 → You need to authorize first. Run the login command.

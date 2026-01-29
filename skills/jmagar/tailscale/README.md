@@ -1,6 +1,6 @@
 # Tailscale Skill
 
-Manage your Tailscale tailnet from Clawdbot.
+Manage your Tailscale tailnet from Bot.
 
 ## What It Does
 
@@ -40,8 +40,8 @@ tailscale file cp document.pdf my-phone:
 #### 2. Create Credentials File
 
 ```bash
-mkdir -p ~/.clawdbot/credentials/tailscale
-cp config.json.example ~/.clawdbot/credentials/tailscale/config.json
+mkdir -p ~/.bot/credentials/tailscale
+cp config.json.example ~/.bot/credentials/tailscale/config.json
 # Edit with your actual API key
 ```
 
@@ -123,7 +123,7 @@ export TS_TAILNET="-"
 ## Troubleshooting
 
 **"No API key configured"**  
-→ Create config file at `~/.clawdbot/credentials/tailscale/config.json` or set `TS_API_KEY`
+→ Create config file at `~/.bot/credentials/tailscale/config.json` or set `TS_API_KEY`
 
 **401 Unauthorized**  
 → API key is invalid or expired — generate a new one

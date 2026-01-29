@@ -1,8 +1,8 @@
 ---
 name: audio-gen
 description: Generate audiobooks, podcasts, or educational audio content on demand. User provides an idea or topic, Claude AI writes a script, and ElevenLabs converts it to high-quality audio. Supports multiple formats (audiobook, podcast, educational), custom lengths, and voice effects. Use when asked to create audio content, make a podcast, generate an audiobook, or produce educational audio. Returns MP3 audio file via MEDIA token.
-homepage: https://github.com/clawdbot/clawdbot
-metadata: {"clawdbot":{"emoji":"🎙️","requires":{"skills":["sag"],"env":["ANTHROPIC_API_KEY","ELEVENLABS_API_KEY"]},"primaryEnv":"ANTHROPIC_API_KEY"}}
+homepage: https://github.com/bot/bot
+metadata: {"bot":{"emoji":"🎙️","requires":{"skills":["sag"],"env":["ANTHROPIC_API_KEY","ELEVENLABS_API_KEY"]},"primaryEnv":"ANTHROPIC_API_KEY"}}
 ---
 
 # 🎙️ Audio Content Generator
@@ -182,7 +182,7 @@ If user approves:
 **IMPORTANT:** The `ELEVENLABS_API_KEY` environment variable is already configured in the system. Simply invoke the TTS script directly.
 
 ```bash
-uv run /home/clawdbot/clawdbot/skills/sag/scripts/tts.py \
+uv run /home/bot/bot/skills/sag/scripts/tts.py \
   -o /tmp/audio-gen-[timestamp]-[topic-slug].mp3 \
   -m eleven_multilingual_v2 \
   "[formatted_script]"
@@ -190,7 +190,7 @@ uv run /home/clawdbot/clawdbot/skills/sag/scripts/tts.py \
 
 **For long scripts, use heredoc:**
 ```bash
-uv run /home/clawdbot/clawdbot/skills/sag/scripts/tts.py \
+uv run /home/bot/bot/skills/sag/scripts/tts.py \
   -o /tmp/audio-gen-[timestamp]-[topic-slug].mp3 \
   -m eleven_multilingual_v2 \
   "$(cat <<'EOF'
@@ -299,7 +299,7 @@ That length would require [X] words and take significant time to generate. I rec
 ## Technical Notes
 
 **TTS Implementation:**
-- Uses Python script: `~/.clawdbot/clawdbot/skills/sag/scripts/tts.py`
+- Uses Python script: `~/.bot/bot/skills/sag/scripts/tts.py`
 - No binary installation required (pure Python + requests)
 - Directly calls ElevenLabs API
 - Compatible with Linux and macOS

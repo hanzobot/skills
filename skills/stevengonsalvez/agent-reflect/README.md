@@ -15,17 +15,17 @@ Transform your AI assistant into a continuously improving partner. The reflect s
 
 ## Installation
 
-### Via ClawdHub CLI
+### Via Skills CLI
 
 ```bash
-clawdhub install reflect
+skills install reflect
 ```
 
 ### Manual Installation
 
 Copy the `reflect/` folder to your skills directory:
 - Claude Code: `~/.claude/skills/reflect/`
-- Clawdbot: `~/.clawdbot/skills/reflect/`
+- Bot: `~/.bot/skills/reflect/`
 
 ## Usage
 

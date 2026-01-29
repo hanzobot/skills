@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Manage Dokploy deployments, projects, applications, and domains via Dokploy API.",
   "keywords": ["dokploy", "deployment", "docker", "devops"],
-  "author": "Clawdbot Community",
+  "author": "Bot Community",
   "license": "MIT",
-  "clawdhub": {
+  "skills": {
     "slug": "dokploy",
     "category": "devops",
     "requires": {

@@ -1,10 +1,10 @@
 #!/bin/bash
-# Cache management for clawddocs
+# Cache management for botdocs
 # Caches sitemap with 1-hour TTL
 
-CACHE_DIR="${HOME}/.cache/clawddocs"
+CACHE_DIR="${HOME}/.cache/botdocs"
 SITEMAP_CACHE="${CACHE_DIR}/sitemap.xml"
-SITEMAP_URL="https://docs.clawd.bot/sitemap.xml"
+SITEMAP_URL="https://docs.hanzo.bot/sitemap.xml"
 TTL_SECONDS=3600  # 1 hour
 
 mkdir -p "$CACHE_DIR"

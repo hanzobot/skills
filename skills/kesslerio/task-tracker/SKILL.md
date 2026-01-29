@@ -1,13 +1,13 @@
 ---
 name: task-tracker
 description: "Personal task management with daily standups and weekly reviews. Use when: (1) User says 'daily standup' or asks what's on their plate, (2) User says 'weekly review' or asks about last week's progress, (3) User wants to add/update/complete tasks, (4) User asks about blockers or deadlines, (5) User shares meeting notes and wants tasks extracted, (6) User asks 'what's due this week' or similar."
-homepage: https://github.com/kesslerio/task-tracker-clawdbot-skill
-metadata: {"clawdbot":{"emoji":"📋","requires":{"files":["~/clawd/memory/work/TASKS.md"]},"install":[{"id":"init","kind":"script","script":"python3 scripts/init.py","label":"Initialize TASKS.md from template"}]}}
+homepage: https://github.com/kesslerio/task-tracker-bot-skill
+metadata: {"bot":{"emoji":"📋","requires":{"files":["~/bot/memory/work/TASKS.md"]},"install":[{"id":"init","kind":"script","script":"python3 scripts/init.py","label":"Initialize TASKS.md from template"}]}}
 ---
 
 <div align="center">
 
-![Task Tracker](https://img.shields.io/badge/Task_Tracker-Clawdbot_skill-blue?style=for-the-badge&logo=checklist)
+![Task Tracker](https://img.shields.io/badge/Task_Tracker-Bot_skill-blue?style=for-the-badge&logo=checklist)
 ![Python](https://img.shields.io/badge/Python-3.10+-yellow?style=flat-square&logo=python)
 ![Status](https://img.shields.io/badge/Status-Production-green?style=flat-square)
 ![Issues](https://img.shields.io/badge/Issues-0-black?style=flat-square)
@@ -15,7 +15,7 @@ metadata: {"clawdbot":{"emoji":"📋","requires":{"files":["~/clawd/memory/work/
 
 **Personal task management with daily standups and weekly reviews**
 
-[Homepage](https://github.com/kesslerio/task-tracker-clawdbot-skill) • [Trigger Patterns](#what-this-skill-does) • [Commands](#commands-reference)
+[Homepage](https://github.com/kesslerio/task-tracker-bot-skill) • [Trigger Patterns](#what-this-skill-does) • [Commands](#commands-reference)
 
 </div>
 
@@ -41,7 +41,7 @@ A personal task management skill for daily standups and weekly reviews. Tracks w
 ## File Structure
 
 ```
-~/clawd/memory/work/
+~/bot/memory/work/
 ├── TASKS.md              # Active tasks (source of truth)
 ├── ARCHIVE-2026-Q1.md    # Completed tasks by quarter
 └── WORKFLOW.md           # Workflow documentation
@@ -70,17 +70,17 @@ A personal task management skill for daily standups and weekly reviews. Tracks w
 
 ### View Your Tasks
 ```bash
-python3 ~/clawd/skills/task-tracker/scripts/tasks.py list
+python3 ~/bot/skills/task-tracker/scripts/tasks.py list
 ```
 
 ### Daily Standup
 ```bash
-python3 ~/clawd/skills/task-tracker/scripts/standup.py
+python3 ~/bot/skills/task-tracker/scripts/standup.py
 ```
 
 ### Weekly Review
 ```bash
-python3 ~/clawd/skills/task-tracker/scripts/weekly_review.py
+python3 ~/bot/skills/task-tracker/scripts/weekly_review.py
 ```
 
 ---
@@ -241,7 +241,7 @@ python3 scripts/init.py
 ```
 
 **Tasks not showing up**
-- Check TASKS.md exists at `~/clawd/memory/work/TASKS.md`
+- Check TASKS.md exists at `~/bot/memory/work/TASKS.md`
 - Verify task format (checkboxes `- [ ]`, headers `## 🔴`)
 - Run `tasks.py list` to debug
 

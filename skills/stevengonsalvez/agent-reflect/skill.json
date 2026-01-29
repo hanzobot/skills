@@ -38,7 +38,7 @@
     "auto_reflect": false,
     "confidence_threshold": "medium"
   },
-  "clawdbot": {
+  "bot": {
     "triggers": [
       "reflect",
       "self-reflect",

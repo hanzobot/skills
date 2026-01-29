@@ -39,7 +39,7 @@ notectl add "New Idea"
 notectl add "Project Plan" --folder research --body "Initial thoughts..."
 
 # Search all notes
-notectl search "clawdbot"
+notectl search "bot"
 notectl search "API"
 
 # Append to a note (daily log style)

@@ -39,20 +39,20 @@ Or with a custom title:
 
 1. **Create credentials directory:**
    ```bash
-   mkdir -p ~/.clawdbot/credentials/pocket-casts
-   chmod 700 ~/.clawdbot/credentials/pocket-casts
+   mkdir -p ~/.bot/credentials/pocket-casts
+   chmod 700 ~/.bot/credentials/pocket-casts
    ```
 
 2. **Add Pocket Casts refresh token:**
    
    Get your refresh token from browser dev tools while logged into pocketcasts.com, then:
    ```bash
-   cat > ~/.clawdbot/credentials/pocket-casts/config.json << 'EOF'
+   cat > ~/.bot/credentials/pocket-casts/config.json << 'EOF'
    {
      "refreshToken": "YOUR_REFRESH_TOKEN_HERE"
    }
    EOF
-   chmod 600 ~/.clawdbot/credentials/pocket-casts/config.json
+   chmod 600 ~/.bot/credentials/pocket-casts/config.json
    ```
    
    The refresh token lasts ~1 year. Access tokens are fetched automatically.
@@ -64,10 +64,10 @@ Or with a custom title:
    - Install "Get cookies.txt LOCALLY" browser extension (or similar)
    - Go to youtube.com while logged in
    - Export cookies via the extension
-   - Save to `~/.clawdbot/credentials/pocket-casts/cookies.txt`
+   - Save to `~/.bot/credentials/pocket-casts/cookies.txt`
    
    ```bash
-   chmod 600 ~/.clawdbot/credentials/pocket-casts/cookies.txt
+   chmod 600 ~/.bot/credentials/pocket-casts/cookies.txt
    ```
 
 ## How It Works
@@ -80,7 +80,7 @@ Or with a custom title:
 
 ## Environment Variables
 
-- `CLAWDBOT_CREDENTIALS` - Override credentials directory (default: `~/.clawdbot/credentials`)
+- `BOT_CREDENTIALS` - Override credentials directory (default: `~/.bot/credentials`)
 
 ## Notes
 

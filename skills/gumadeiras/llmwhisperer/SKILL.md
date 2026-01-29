@@ -1,7 +1,7 @@
 ---
 name: llmwhisperer
 description: Extract text and layout from images and PDFs using LLMWhisperer API. Good for handwriting and complex forms.
-metadata: {"clawdbot":{"emoji":"📄","scripts":["scripts/llmwhisperer"]}}
+metadata: {"bot":{"emoji":"📄","scripts":["scripts/llmwhisperer"]}}
 ---
 
 # LLMWhisperer
@@ -10,9 +10,9 @@ Extract text from images and PDFs using the [LLMWhisperer API](https://unstract.
 
 ## Configuration
 
-Requires `LLMWHISPERER_API_KEY` in `~/.clawdbot/.env`:
+Requires `LLMWHISPERER_API_KEY` in `~/.bot/.env`:
 ```bash
-echo "LLMWHISPERER_API_KEY=your_key_here" >> ~/.clawdbot/.env
+echo "LLMWHISPERER_API_KEY=your_key_here" >> ~/.bot/.env
 ```
 
 ### Get an API Key
@@ -34,14 +34,14 @@ The executable script is located at `scripts/llmwhisperer`.
 # Extract text using LLMWhisperer API
 
 if [ -z "$LLMWHISPERER_API_KEY" ]; then
-  if [ -f ~/.clawdbot/.env ]; then
+  if [ -f ~/.bot/.env ]; then
     # shellcheck disable=SC2046
-    export $(grep -v '^#' ~/.clawdbot/.env | grep 'LLMWHISPERER_API_KEY' | xargs)
+    export $(grep -v '^#' ~/.bot/.env | grep 'LLMWHISPERER_API_KEY' | xargs)
   fi
 fi
 
 if [ -z "$LLMWHISPERER_API_KEY" ]; then
-  echo "Error: LLMWHISPERER_API_KEY not found in env or ~/.clawdbot/.env"
+  echo "Error: LLMWHISPERER_API_KEY not found in env or ~/.bot/.env"
   exit 1
 fi
 

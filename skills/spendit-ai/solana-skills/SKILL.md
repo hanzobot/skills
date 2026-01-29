@@ -13,7 +13,7 @@ triggers:
   - pump.fun
   - launch token
 metadata:
-  clawdbot:
+  bot:
     emoji: "◎"
     requires:
       env:

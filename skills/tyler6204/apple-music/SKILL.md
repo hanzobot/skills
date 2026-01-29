@@ -1,12 +1,12 @@
 ---
 name: apple-music
 description: Search Apple Music, add songs to library, manage playlists, control playback and AirPlay.
-metadata: {"clawdbot":{"emoji":"🎵","os":["darwin"],"requires":{"bins":["node","curl"]}}}
+metadata: {"bot":{"emoji":"🎵","os":["darwin"],"requires":{"bins":["node","curl"]}}}
 ---
 
 # Apple Music
 
-Control Apple Music via MusicKit API and AppleScript. Path: `~/.clawdbot/skills/apple-music/`
+Control Apple Music via MusicKit API and AppleScript. Path: `~/.bot/skills/apple-music/`
 
 ## Local (No Setup)
 

@@ -2,7 +2,7 @@
 name: solobuddy
 description: Build-in-public companion for indie hackers — content workflow, Twitter engagement, project soul creation. A living assistant, not a tool.
 homepage: https://github.com/gHashTag/bip-buddy
-metadata: {"clawdbot":{"emoji":"🎯","requires":{"bins":["gh"],"optional":["bird"]},"config":["solobuddy.dataPath","solobuddy.voice"]}}
+metadata: {"bot":{"emoji":"🎯","requires":{"bins":["gh"],"optional":["bird"]},"config":["solobuddy.dataPath","solobuddy.voice"]}}
 ---
 
 # SoloBuddy
@@ -11,7 +11,7 @@ Build-in-public content assistant. A living companion, not a tool.
 
 ## Quick Start
 
-1. Set your data path in `~/.clawdbot/clawdbot.json`:
+1. Set your data path in `~/.bot/bot.json`:
 ```json
 {
   "solobuddy": {
@@ -150,7 +150,7 @@ When responding in Telegram, include inline buttons for actions.
 ### Send Message with Buttons
 
 ```bash
-clawdbot message send --channel telegram --to "$CHAT_ID" --message "Text" \
+bot message send --channel telegram --to "$CHAT_ID" --message "Text" \
   --buttons '[
     [{"text":"📋 Backlog","callback_data":"sb:backlog"}],
     [{"text":"✍️ Drafts","callback_data":"sb:drafts"}],

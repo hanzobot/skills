@@ -1,6 +1,6 @@
-# Plan2Meal ClawdHub Skill
+# Plan2Meal Skills Skill
 
-A ClawdHub skill for managing recipes and grocery lists via chat. Connects to [Plan2Meal](https://plan2meal.app), a React Native recipe app.
+A Skills skill for managing recipes and grocery lists via chat. Connects to [Plan2Meal](https://plan2meal.app), a React Native recipe app.
 
 ## Features
 
@@ -12,8 +12,8 @@ A ClawdHub skill for managing recipes and grocery lists via chat. Connects to [P
 ## Quick Start
 
 ```bash
-# Install via ClawdHub
-clawdhub install plan2meal
+# Install via Skills
+skills install plan2meal
 
 # Login (no configuration needed!)
 plan2meal login

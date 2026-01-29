@@ -83,7 +83,7 @@ python3 scripts/bookstack.py create_shelf "Name" ["Desc"]  # Neues Regal
 
 ## Konfiguration
 
-Setze die Umgebungsvariablen in `~/.clawdbot/clawdbot.json`:
+Setze die Umgebungsvariablen in `~/.bot/bot.json`:
 
 ```json
 {

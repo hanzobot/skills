@@ -25,7 +25,7 @@ A TypeScript-based MCP skill for ClawdBot that makes file sharing easy. Upload f
 ## Quick Start
 
 ```bash
-cd ~/clawd/skills/r2-upload
+cd ~/bot/skills/r2-upload
 pnpm install
 pnpm run onboard
 ```

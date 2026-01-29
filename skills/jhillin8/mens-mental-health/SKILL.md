@@ -1,7 +1,7 @@
 ---
 name: mens-mental-health
 description: Mental health support for men with emotion check-ins, stress tools, and no-judgment space
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "mens mental health"

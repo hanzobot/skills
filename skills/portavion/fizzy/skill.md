@@ -18,7 +18,7 @@ brew install robzolkos/fizzy-cli/fizzy-cli
 
 The CLI needs your API token and account. You can set these via environment variables or config files.
 
-**Environment variables (recommended for Clawdbot):**
+**Environment variables (recommended for Bot):**
 
 ```bash
 # Set these before running fizzy commands

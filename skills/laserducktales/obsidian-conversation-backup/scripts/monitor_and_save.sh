@@ -2,11 +2,11 @@
 # Token-free conversation monitoring and auto-save
 # Runs via cron, no LLM calls unless warning needed
 
-SESSION_DIR="/root/.clawdbot/agents/main/sessions"
+SESSION_DIR="/root/.bot/agents/main/sessions"
 VAULT_DIR="/root/ObsidianVault/Clawd Markdowns"
-LAST_SAVE_FILE="/root/clawd/.last_save_line_count"
-LAST_SNAPSHOT_FILE="/root/clawd/.last_snapshot_timestamp"
-WARNING_SENT_FILE="/root/clawd/.token_warning_sent"
+LAST_SAVE_FILE="/root/bot/.last_save_line_count"
+LAST_SNAPSHOT_FILE="/root/bot/.last_snapshot_timestamp"
+WARNING_SENT_FILE="/root/bot/.token_warning_sent"
 
 # Get most recent session file
 get_latest_session() {
@@ -41,7 +41,7 @@ jsonl_to_markdown() {
     
     # Use jq to parse JSONL properly, starting from specific line
     tail -n +$start_line "$jsonl_file" | while IFS= read -r line; do
-        echo "$line" | jq -r -f /root/clawd/format_message_v2.jq.txt 2>/dev/null
+        echo "$line" | jq -r -f /root/bot/format_message_v2.jq.txt 2>/dev/null
     done
 }
 
@@ -114,7 +114,7 @@ fi
 if [[ $TOKENS -gt 900000 ]]; then
     if [[ ! -f "$WARNING_SENT_FILE" ]] || [[ $(cat "$WARNING_SENT_FILE") != "900k" ]]; then
         # Send urgent warning via Telegram
-        BOT_TOKEN=$(jq -r '.telegram.token' /root/.clawdbot/clawdbot.json 2>/dev/null)
+        BOT_TOKEN=$(jq -r '.telegram.token' /root/.bot/bot.json 2>/dev/null)
         if [[ -n "$BOT_TOKEN" && -n "$CHAT_ID" ]]; then
             curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
                 -d "chat_id=${CHAT_ID}" \
@@ -124,7 +124,7 @@ if [[ $TOKENS -gt 900000 ]]; then
     fi
 elif [[ $TOKENS -gt 800000 ]]; then
     if [[ ! -f "$WARNING_SENT_FILE" ]] || [[ $(cat "$WARNING_SENT_FILE") != "800k" ]]; then
-        BOT_TOKEN=$(jq -r '.telegram.token' /root/.clawdbot/clawdbot.json 2>/dev/null)
+        BOT_TOKEN=$(jq -r '.telegram.token' /root/.bot/bot.json 2>/dev/null)
         if [[ -n "$BOT_TOKEN" && -n "$CHAT_ID" ]]; then
             curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
                 -d "chat_id=${CHAT_ID}" \

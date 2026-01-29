@@ -1,19 +1,19 @@
 ---
-name: idea-clawdbot
-description: "Launch background Clawdbot sessions to explore and analyze business ideas. Say 'Idea: [description]' to trigger. Fork of 'idea' skill rewritten to use sessions_spawn instead of claude CLI + tmux + telegram CLI. Results sent to current chat, not Saved Messages. Zero external dependencies."
-metadata: {"clawdbot":{"emoji":"💡"}}
+name: idea-bot
+description: "Launch background Bot sessions to explore and analyze business ideas. Say 'Idea: [description]' to trigger. Fork of 'idea' skill rewritten to use sessions_spawn instead of claude CLI + tmux + telegram CLI. Results sent to current chat, not Saved Messages. Zero external dependencies."
+metadata: {"bot":{"emoji":"💡"}}
 ---
 
-# Idea Exploration Skill (Clawdbot Native)
+# Idea Exploration Skill (Bot Native)
 
-Launch autonomous background sessions to explore business ideas in depth. Get market research, technical analysis, GTM strategy, and actionable recommendations—all using built-in Clawdbot features.
+Launch autonomous background sessions to explore business ideas in depth. Get market research, technical analysis, GTM strategy, and actionable recommendations—all using built-in Bot features.
 
 ## Quick Start
 
 **Trigger phrase:** Say `Idea: [description]` and the assistant will:
 1. Spawn a background sub-agent session using `sessions_spawn`
 2. Research and analyze the idea comprehensively
-3. Save results to `~/clawd/ideas/<slug>/research.md`
+3. Save results to `~/bot/ideas/<slug>/research.md`
 4. Send the file + summary back to this Telegram chat
 
 ## How It Works
@@ -33,7 +33,7 @@ User: "Idea: AI calendar assistant"
 
 ## Prerequisites
 
-- Clawdbot with `sessions_spawn` enabled
+- Bot with `sessions_spawn` enabled
 - No external CLIs needed (fully native)
 
 ## AGENTS.md Integration
@@ -48,14 +48,14 @@ Add this to your `AGENTS.md`:
 1. Extract the idea description
 2. Create a slug from the idea (lowercase, hyphens)
 3. Use `sessions_spawn` to launch a background research session:
-   - **task**: Use the template from `skills/idea-clawdbot/templates/idea-exploration-prompt.md`
+   - **task**: Use the template from `skills/idea-bot/templates/idea-exploration-prompt.md`
    - **label**: `idea-research-<slug>`
    - **cleanup**: keep (so we can review the session later)
 4. Confirm: "🔬 Research started for: [idea]. I'll ping you when done (usually 3-5 minutes)."
 5. When the sub-agent completes, send the research file to the chat
 
 **Result handling:**
-- Research saved to: `~/clawd/ideas/<slug>/research.md`
+- Research saved to: `~/bot/ideas/<slug>/research.md`
 - Send file as document via Telegram
 - Include brief summary of verdict (🟢/🟡/🟠/🔴)
 ```
@@ -82,7 +82,7 @@ The exploration covers:
 ## Example Output
 
 ```
-~/clawd/ideas/ai-calendar-assistant/
+~/bot/ideas/ai-calendar-assistant/
 ├── metadata.txt
 ├── research.md    # 400-500 line comprehensive analysis
 ```
@@ -90,8 +90,8 @@ The exploration covers:
 ## Tips
 
 - Ideas typically take 3-5 minutes to analyze
-- Check session progress: `clawdbot sessions list --kinds spawn`
-- Monitor sub-agent: `clawdbot sessions history <session-key>`
+- Check session progress: `bot sessions list --kinds spawn`
+- Monitor sub-agent: `bot sessions history <session-key>`
 - Results come back to the same chat automatically
 
 ## Template Variables

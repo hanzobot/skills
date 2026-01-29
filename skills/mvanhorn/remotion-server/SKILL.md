@@ -2,7 +2,7 @@
 name: remotion-server
 description: Headless video rendering with Remotion. Works on any Linux server - no Mac or GUI needed. Templates for chat demos, promos, and more.
 homepage: https://remotion.dev
-metadata: {"clawdbot":{"emoji":"🎬"}}
+metadata: {"bot":{"emoji":"🎬"}}
 ---
 
 # Remotion Server

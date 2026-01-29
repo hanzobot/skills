@@ -5,23 +5,23 @@ description: Track deep work sessions locally (start/stop/status) and generate a
 
 # Deepwork Tracker
 
-Use the local deepwork app (SQLite-backed) at `~/clawd/deepwork/deepwork.js`.
+Use the local deepwork app (SQLite-backed) at `~/bot/deepwork/deepwork.js`.
 
 ## Bootstrap (if the script is missing)
 
-If `~/clawd/deepwork/deepwork.js` does not exist, bootstrap it from the public repo:
+If `~/bot/deepwork/deepwork.js` does not exist, bootstrap it from the public repo:
 
 ```bash
-mkdir -p ~/clawd
-cd ~/clawd
+mkdir -p ~/bot
+cd ~/bot
 
 # Clone if missing
-[ -d ~/clawd/deepwork-tracker/.git ] || git clone https://github.com/adunne09/deepwork-tracker.git ~/clawd/deepwork-tracker
+[ -d ~/bot/deepwork-tracker/.git ] || git clone https://github.com/adunne09/deepwork-tracker.git ~/bot/deepwork-tracker
 
 # Ensure expected runtime path exists
-mkdir -p ~/clawd/deepwork
-cp -f ~/clawd/deepwork-tracker/app/deepwork.js ~/clawd/deepwork/deepwork.js
-chmod +x ~/clawd/deepwork/deepwork.js
+mkdir -p ~/bot/deepwork
+cp -f ~/bot/deepwork-tracker/app/deepwork.js ~/bot/deepwork/deepwork.js
+chmod +x ~/bot/deepwork/deepwork.js
 ```
 
 (Do not fail the user request if clone/copy fails—still attempt other steps and report what’s missing.)
@@ -31,29 +31,29 @@ chmod +x ~/clawd/deepwork/deepwork.js
 Run via exec:
 
 - Start a session (also starts a macOS Clock timer; default target 60m):
-  - `~/clawd/deepwork/deepwork.js start --target-min 60`
+  - `~/bot/deepwork/deepwork.js start --target-min 60`
 - Stop a session:
-  - `~/clawd/deepwork/deepwork.js stop`
+  - `~/bot/deepwork/deepwork.js stop`
 - Check status:
-  - `~/clawd/deepwork/deepwork.js status`
+  - `~/bot/deepwork/deepwork.js status`
 - Generate a report:
-  - Last 7 days (default): `~/clawd/deepwork/deepwork.js report --days 7 --format text`
-  - Telegram-ready last 7 days: `~/clawd/deepwork/deepwork.js report --days 7 --format telegram`
-  - Heatmap (optional): `~/clawd/deepwork/deepwork.js report --mode heatmap --weeks 52 --format telegram`
+  - Last 7 days (default): `~/bot/deepwork/deepwork.js report --days 7 --format text`
+  - Telegram-ready last 7 days: `~/bot/deepwork/deepwork.js report --days 7 --format telegram`
+  - Heatmap (optional): `~/bot/deepwork/deepwork.js report --mode heatmap --weeks 52 --format telegram`
 
 ## Chat workflows
 
 ### Start deep work
-1) Run `~/clawd/deepwork/deepwork.js start --target-min 60` (or another target if the user specifies it).
+1) Run `~/bot/deepwork/deepwork.js start --target-min 60` (or another target if the user specifies it).
 2) This should also start a macOS Clock timer for the target duration (best-effort; may require Accessibility permissions).
 3) Reply with the confirmation line.
 
 ### Stop deep work
-1) Run `~/clawd/deepwork/deepwork.js stop`.
+1) Run `~/bot/deepwork/deepwork.js stop`.
 2) Reply with duration.
 
 ### Show deep work graph
-1) Run `~/clawd/deepwork/deepwork.js report --days 7 --format telegram`.
+1) Run `~/bot/deepwork/deepwork.js report --days 7 --format telegram`.
 2) **Always send** the output to Alex on Telegram (id `8551040296`) using the `message` tool with a Markdown monospace code block.
 3) Optionally acknowledge in the current chat that it was sent.
 

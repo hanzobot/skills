@@ -1,7 +1,7 @@
 ---
 name: newsletter-digest
 description: Summarize newsletters and articles, extract key insights, create reading lists
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "summarize newsletter"
@@ -58,7 +58,7 @@ Processes forwarded newsletters and linked articles, extracts key insights, crea
 
 ## Tips
 
-- Forward newsletters to Clawd for processing
+- Forward newsletters to Bot for processing
 - Say "brief" for 2-sentence summaries, "detailed" for deep analysis
 - Ask "what did I miss this week?" for catch-up digest
 - Works with any text content—not just newsletters

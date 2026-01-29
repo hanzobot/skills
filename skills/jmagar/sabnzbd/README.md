@@ -1,6 +1,6 @@
 # SABnzbd Skill
 
-Manage Usenet downloads via SABnzbd from Clawdbot.
+Manage Usenet downloads via SABnzbd from Bot.
 
 ## What It Does
 
@@ -21,8 +21,8 @@ Manage Usenet downloads via SABnzbd from Clawdbot.
 ### 2. Create Credentials File
 
 ```bash
-mkdir -p ~/.clawdbot/credentials/sabnzbd
-cat > ~/.clawdbot/credentials/sabnzbd/config.json << 'EOF'
+mkdir -p ~/.bot/credentials/sabnzbd
+cat > ~/.bot/credentials/sabnzbd/config.json << 'EOF'
 {
   "url": "http://localhost:8080",
   "apiKey": "your-api-key-here"
@@ -98,7 +98,7 @@ export SAB_API_KEY="your-api-key"
 ## Troubleshooting
 
 **"Missing URL or API key"**  
-→ Check your config file exists at `~/.clawdbot/credentials/sabnzbd/config.json`
+→ Check your config file exists at `~/.bot/credentials/sabnzbd/config.json`
 
 **Connection refused**  
 → Verify your SABnzbd URL is correct and accessible

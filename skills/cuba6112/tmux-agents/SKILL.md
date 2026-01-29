@@ -3,7 +3,7 @@ name: tmux-agents
 description: Manage background coding agents in tmux sessions. Spawn Claude Code or other agents, check progress, get results.
 version: 1.0.0
 author: Jose Munoz
-homepage: https://clawdhub.com/skills/tmux-agents
+homepage: https://skills.com/skills/tmux-agents
 triggers:
   - spawn agent
   - coding task
@@ -14,7 +14,7 @@ triggers:
   - local agent
   - ollama agent
 metadata:
-  clawdbot:
+  bot:
     emoji: "🖥️"
     requires:
       bins: ["tmux"]
@@ -136,7 +136,7 @@ ollama launch codex --model glm-4.7-flash --config
 
 ## Tips
 
-- Sessions persist even if Clawdbot restarts
+- Sessions persist even if Bot restarts
 - Use local agents for risky/experimental work
 - Use cloud for production-critical tasks
 - Check `tmux ls` to see all active work

@@ -2,17 +2,17 @@
 name: track17
 description: Track parcels via the 17TRACK API (local SQLite DB, polling + optional webhook ingestion)
 user-invocable: true
-metadata: {"clawdbot":{"emoji":"📦","requires":{"anyBins":["python3","python"],"env":["TRACK17_TOKEN"]},"primaryEnv":"TRACK17_TOKEN"}}
+metadata: {"bot":{"emoji":"📦","requires":{"anyBins":["python3","python"],"env":["TRACK17_TOKEN"]},"primaryEnv":"TRACK17_TOKEN"}}
 ---
 
 # track17 (17TRACK parcel tracking)
 
-This skill lets Clawdbot keep a local list of your parcels, track their state via the **17TRACK Tracking API v2.2**, and summarise changes.
+This skill lets Bot keep a local list of your parcels, track their state via the **17TRACK Tracking API v2.2**, and summarise changes.
 
 It stores everything in a small **SQLite DB** under your **workspace** (by default: `<workspace>/packages/track17/track17.sqlite3`).
 
 `<workspace>` is auto-detected as the parent directory of the nearest `skills/` directory that contains this skill.
-For example, if you install it at `/clawd/skills/track17/`, data will be stored at `/clawd/packages/track17/`.
+For example, if you install it at `/bot/skills/track17/`, data will be stored at `/bot/packages/track17/`.
 
 ## Requirements
 

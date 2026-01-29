@@ -18,7 +18,7 @@ METHOD="$1"
 ARGS="$2"
 
 if [ -z "$ENSUE_API_KEY" ]; then
-  echo '{"error":"ENSUE_API_KEY not set. Configure in clawdbot.json under skills.entries.second-brain.apiKey or get a key at https://ensue-network.ai/dashboard"}'
+  echo '{"error":"ENSUE_API_KEY not set. Configure in bot.json under skills.entries.second-brain.apiKey or get a key at https://ensue-network.ai/dashboard"}'
   exit 1
 fi
 

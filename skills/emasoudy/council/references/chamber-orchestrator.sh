@@ -19,7 +19,7 @@ CONTEXT=$("$SCRIPT_DIR/graphiti-bridge.sh" "$TOPIC" 10)
 
 # 2. Load Personas
 IDS_SQL=$(echo "$MEMBER_IDS" | sed "s/,/','/g")
-PERSONAS=$(sqlite3 ~/.clawdbot/council.db "
+PERSONAS=$(sqlite3 ~/.bot/council.db "
 SELECT '**' || name || '** (' || role || '):' || char(10) || system_message || char(10)
 FROM council_members 
 WHERE id IN ('$IDS_SQL')
@@ -46,7 +46,7 @@ Begin deliberation."
 
 # 4. Create session
 SESSION_ID=$(uuidgen 2>/dev/null || echo "council-$(date +%s)")
-sqlite3 ~/.clawdbot/council.db "
+sqlite3 ~/.bot/council.db "
 INSERT INTO council_sessions (id, topic, member_ids, status)
 VALUES ('$SESSION_ID', '$TOPIC', '[$MEMBER_IDS]', 'active');
 "

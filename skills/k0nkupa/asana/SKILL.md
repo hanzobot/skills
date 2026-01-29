@@ -1,9 +1,9 @@
 ---
 name: asana
-description: "Integrate Asana with Clawdbot via the Asana REST API. Use when you need to list/search/create/update Asana tasks/projects/workspaces, or to set up Asana OAuth (authorization code grant) for a personal local-only integration (OOB/manual code paste)."
+description: "Integrate Asana with Bot via the Asana REST API. Use when you need to list/search/create/update Asana tasks/projects/workspaces, or to set up Asana OAuth (authorization code grant) for a personal local-only integration (OOB/manual code paste)."
 ---
 
-# Asana (Clawdbot skill)
+# Asana (Bot skill)
 
 This skill is designed for a **personal local-only** Asana integration using **OAuth** with an **out-of-band/manual code paste** flow.
 
@@ -25,11 +25,11 @@ In Asana Developer Console (My apps):
 
 ### 1) Provide credentials (two options)
 
-**Option A (recommended for Clawdbot):** save to a local credentials file:
+**Option A (recommended for Bot):** save to a local credentials file:
 ```bash
 node scripts/configure.mjs --client-id "..." --client-secret "..."
 ```
-This writes `~/.clawdbot/asana/credentials.json`.
+This writes `~/.bot/asana/credentials.json`.
 
 **Option B:** set environment variables (shell/session):
 - `ASANA_CLIENT_ID`
@@ -49,7 +49,7 @@ node scripts/oauth_oob.mjs token --code "PASTE_CODE_HERE"
 ```
 
 Tokens are stored at:
-- `~/.clawdbot/asana/token.json`
+- `~/.bot/asana/token.json`
 
 ## Chat usage (support both explicit + natural language)
 
@@ -57,7 +57,7 @@ You can use either:
 - **Explicit commands**: start the message with `/asana ...`
 - **Natural language**: e.g. “list tasks assigned to me”
 
-For Clawdbot, implement the mapping by translating the user request into the appropriate `asana_api.mjs` command.
+For Bot, implement the mapping by translating the user request into the appropriate `asana_api.mjs` command.
 
 Examples:
 - `/asana tasks-assigned` → `tasks-assigned --assignee me`
@@ -136,7 +136,7 @@ node scripts/asana_api.mjs comment <task_gid> --text "Update: shipped"
 
 Create a task:
 ```bash
-node scripts/asana_api.mjs create-task --workspace <workspace_gid> --name "Test task" --notes "from clawdbot" --projects <project_gid>
+node scripts/asana_api.mjs create-task --workspace <workspace_gid> --name "Test task" --notes "from bot" --projects <project_gid>
 ```
 
 ## Notes / gotchas

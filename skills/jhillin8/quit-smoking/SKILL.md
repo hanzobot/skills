@@ -1,7 +1,7 @@
 ---
 name: quit-smoking
 description: Quit cigarettes with smoke-free tracking, craving support, and health recovery timeline
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "quit smoking"

@@ -1,12 +1,12 @@
 ---
 name: media-backup
-description: Archive Clawdbot conversation media (photos, videos) to a local folder. Works with any sync service (Dropbox, iCloud, Google Drive, OneDrive).
-metadata: {"clawdbot":{"env":["MEDIA_BACKUP_DEST"]}}
+description: Archive Bot conversation media (photos, videos) to a local folder. Works with any sync service (Dropbox, iCloud, Google Drive, OneDrive).
+metadata: {"bot":{"env":["MEDIA_BACKUP_DEST"]}}
 ---
 
 # Media Backup
 
-Simple backup of Clawdbot inbound media to a local folder. No APIs, no OAuth - just file copy.
+Simple backup of Bot inbound media to a local folder. No APIs, no OAuth - just file copy.
 
 Works with any cloud sync service since it's just copying to a local folder.
 
@@ -14,14 +14,14 @@ Works with any cloud sync service since it's just copying to a local folder.
 
 Set your destination folder:
 ```bash
-export MEDIA_BACKUP_DEST="$HOME/Dropbox/Clawdbot/media"
+export MEDIA_BACKUP_DEST="$HOME/Dropbox/Bot/media"
 # or
-export MEDIA_BACKUP_DEST="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Clawdbot/media"  # iCloud
+export MEDIA_BACKUP_DEST="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Bot/media"  # iCloud
 # or  
-export MEDIA_BACKUP_DEST="$HOME/Google Drive/Clawdbot/media"
+export MEDIA_BACKUP_DEST="$HOME/Google Drive/Bot/media"
 ```
 
-Or add to clawdbot config:
+Or add to bot config:
 ```json
 {
   "skills": {
@@ -46,7 +46,7 @@ uv run skills/media-backup/scripts/backup.py
 uv run skills/media-backup/scripts/backup.py --dry-run
 
 # Custom source/destination
-uv run skills/media-backup/scripts/backup.py --source ~/.clawdbot/media/inbound --dest ~/Backups/media
+uv run skills/media-backup/scripts/backup.py --source ~/.bot/media/inbound --dest ~/Backups/media
 
 # Check status
 uv run skills/media-backup/scripts/backup.py status
@@ -54,7 +54,7 @@ uv run skills/media-backup/scripts/backup.py status
 
 ## How It Works
 
-1. Scans `~/.clawdbot/media/inbound/` for media files
+1. Scans `~/.bot/media/inbound/` for media files
 2. Organizes by date: `YYYY-MM-DD/filename.jpg`
 3. Tracks archived files by content hash (no duplicates)
 4. Your cloud service syncs the folder automatically
@@ -63,10 +63,10 @@ uv run skills/media-backup/scripts/backup.py status
 
 Run hourly backup:
 ```
-0 * * * * cd ~/clawd && uv run skills/media-backup/scripts/backup.py >> /tmp/media-backup.log 2>&1
+0 * * * * cd ~/bot && uv run skills/media-backup/scripts/backup.py >> /tmp/media-backup.log 2>&1
 ```
 
-Or via Clawdbot cron job with task:
+Or via Bot cron job with task:
 ```
 Run media backup: uv run skills/media-backup/scripts/backup.py
 If files archived, reply: 📸 Archived [N] media files

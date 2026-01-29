@@ -15,12 +15,12 @@ A living assistant, not a tool. SoloBuddy helps you maintain a consistent build-
 ## Install
 
 ```bash
-npx clawdhub@latest install solobuddy
+npx skills@latest install solobuddy
 ```
 
 ## Quick Setup
 
-1. Configure in `~/.clawdbot/clawdbot.json`:
+1. Configure in `~/.bot/bot.json`:
 
 ```json
 {
@@ -97,6 +97,6 @@ SoloBuddy notices patterns, asks questions, and connects ideas across projects. 
 
 ## Links
 
-- [ClawdHub](https://clawdhub.com/skills/solobuddy)
+- [Skills](https://skills.com/skills/solobuddy)
 - [GitHub](https://github.com/gHashTag/bip-buddy)
-- [Clawdbot](https://clawd.bot)
+- [Bot](https://hanzo.bot)

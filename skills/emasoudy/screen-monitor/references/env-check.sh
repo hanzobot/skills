@@ -1,8 +1,8 @@
 #!/bin/bash
 # Vision Model Environment Discovery
 
-# Try Clawdbot config first
-VISION_URL=$(clawdbot config get skills.screen-monitor.visionUrl 2>/dev/null || echo "")
+# Try Bot config first
+VISION_URL=$(bot config get skills.screen-monitor.visionUrl 2>/dev/null || echo "")
 
 # Fallback to environment variable
 VISION_URL=${VISION_URL:-"http://localhost:8080"}

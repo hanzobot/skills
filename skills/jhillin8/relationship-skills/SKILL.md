@@ -1,7 +1,7 @@
 ---
 name: relationship-skills
 description: Improve relationships with communication tools, conflict resolution, and connection ideas
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "relationship help"

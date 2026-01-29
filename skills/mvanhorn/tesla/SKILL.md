@@ -2,12 +2,12 @@
 name: tesla
 description: Control your Tesla vehicles - lock/unlock, climate, location, charge status, and more. Supports multiple vehicles.
 homepage: https://tesla-api.timdorr.com
-metadata: {"clawdbot":{"emoji":"🚗","requires":{"env":["TESLA_EMAIL"]}}}
+metadata: {"bot":{"emoji":"🚗","requires":{"env":["TESLA_EMAIL"]}}}
 ---
 
 # Tesla
 
-Control your Tesla vehicles from Clawdbot. Supports multiple cars on one account.
+Control your Tesla vehicles from Bot. Supports multiple cars on one account.
 
 ## Setup
 

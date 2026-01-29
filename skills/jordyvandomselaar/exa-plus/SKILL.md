@@ -2,7 +2,7 @@
 name: exa-plus
 version: 1.0.0
 description: Neural web search via Exa AI. Search people, companies, news, research, code. Supports deep search, domain filters, date ranges.
-metadata: {"clawdbot":{"emoji":"🧠","requires":{"bins":["curl","jq"]}}}
+metadata: {"bot":{"emoji":"🧠","requires":{"bins":["curl","jq"]}}}
 ---
 
 # Exa - Neural Web Search
@@ -11,7 +11,7 @@ Powerful AI-powered search with LinkedIn, news, research papers, and more.
 
 ## Setup
 
-Create `~/.clawdbot/credentials/exa/config.json`:
+Create `~/.bot/credentials/exa/config.json`:
 ```json
 {"apiKey": "your-exa-api-key"}
 ```

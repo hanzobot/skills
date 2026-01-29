@@ -1,7 +1,7 @@
 ---
 name: rlm
 description: Use RLM (Recursive Language Models) for verified code execution, calculations, data analysis, and task decomposition. Executes Python code iteratively until producing verified results - no LLM guessing.
-metadata: {"clawdbot":{"emoji":"🔄","requires":{"bins":["mcporter"]},"install":[{"id":"node","kind":"node","package":"mcporter","bins":["mcporter"],"label":"Install mcporter (npm)"}]}}
+metadata: {"bot":{"emoji":"🔄","requires":{"bins":["mcporter"]},"install":[{"id":"node","kind":"node","package":"mcporter","bins":["mcporter"],"label":"Install mcporter (npm)"}]}}
 ---
 
 # RLM - Recursive Language Models

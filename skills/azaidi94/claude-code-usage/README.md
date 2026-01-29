@@ -1,6 +1,6 @@
 # Claude Code Usage Skill
 
-Check your Claude Code OAuth API usage limits directly from Clawdbot.
+Check your Claude Code OAuth API usage limits directly from Bot.
 
 ## Features
 
@@ -14,7 +14,7 @@ Check your Claude Code OAuth API usage limits directly from Clawdbot.
 ## Quick Test
 
 ```bash
-cd /Users/ali/clawd/skills/claude-code-usage
+cd /Users/ali/bot/skills/claude-code-usage
 ./scripts/claude-usage.sh
 ```
 
@@ -30,7 +30,7 @@ cd /Users/ali/clawd/skills/claude-code-usage
    Resets in: 6d 21h
 ```
 
-## Usage in Clawdbot
+## Usage in Bot
 
 Just ask:
 - "How much Claude usage do I have left?"
@@ -47,7 +47,7 @@ Get notified exactly when your 5-hour session quota refreshes!
 
 **One-command setup:**
 ```bash
-cd /Users/ali/clawd/skills/claude-code-usage
+cd /Users/ali/bot/skills/claude-code-usage
 ./scripts/session-reminder.sh
 ```
 
@@ -68,13 +68,13 @@ Alternatively, monitor for quota resets by polling:
 
 See `SKILL.md` for detailed comparison and configuration options.
 
-## Publishing to ClawdHub
+## Publishing to Skills
 
 To share with the community:
 
 ```bash
-cd /Users/ali/clawd/skills
-clawdhub publish claude-code-usage \
+cd /Users/ali/bot/skills
+skills publish claude-code-usage \
   --slug claude-code-usage \
   --name "Claude Code Usage" \
   --version 1.0.0 \
@@ -83,4 +83,4 @@ clawdhub publish claude-code-usage \
 
 ## Author
 
-Created for Clawdbot by RZA 🦞
+Created for Bot by RZA 🦞

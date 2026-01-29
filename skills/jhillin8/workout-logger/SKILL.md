@@ -1,7 +1,7 @@
 ---
 name: workout-logger
 description: Log workouts, track progress, get exercise suggestions and PR tracking
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "log workout"

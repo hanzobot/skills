@@ -5,7 +5,7 @@ set -euo pipefail
 # Sets up cron jobs for automated bookmark curation
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CONFIG_FILE="$HOME/clawd/twitter-bookmark-sync-config.json"
+CONFIG_FILE="$HOME/bot/twitter-bookmark-sync-config.json"
 
 echo "🚀 twitter-bookmark-sync installer"
 echo ""
@@ -60,7 +60,7 @@ EOF
 fi
 
 # Initialize ranking criteria from USER.md
-CRITERIA_FILE="$HOME/clawd/twitter-bookmark-sync-criteria.json"
+CRITERIA_FILE="$HOME/bot/twitter-bookmark-sync-criteria.json"
 
 echo ""
 echo "Initializing self-learning ranking algorithm..."
@@ -87,7 +87,7 @@ chmod +x "$SCRIPT_DIR/scripts/"*.py
 
 echo ""
 
-# Set up cron jobs using Clawdbot
+# Set up cron jobs using Bot
 echo "[3/4] Setting up schedule..."
 
 FETCH_TIME=$(jq -r '.fetch_time' "$CONFIG_FILE")
@@ -100,7 +100,7 @@ NOTIFY_HOUR=$(echo "$NOTIFY_TIME" | cut -d: -f1)
 NOTIFY_MIN=$(echo "$NOTIFY_TIME" | cut -d: -f2)
 
 # Remove old jobs (if any)
-clawdbot cron list 2>/dev/null | grep -q "twitter-bookmark-fetch" && {
+bot cron list 2>/dev/null | grep -q "twitter-bookmark-fetch" && {
     echo "Removing old fetch job..."
     # Would remove old job here
 }
@@ -111,7 +111,7 @@ echo "  - Notify: Daily at $NOTIFY_TIME"
 echo ""
 
 cat << EOF
-To set up cron jobs, ask Clawdbot:
+To set up cron jobs, ask Bot:
 
 "Set up daily cron job at $FETCH_TIME to run:
 bash $SCRIPT_DIR/scripts/sync.sh
@@ -141,5 +141,5 @@ echo "✅ Installation complete!"
 echo ""
 echo "Next steps:"
 echo "1. Edit config if needed: $CONFIG_FILE"
-echo "2. Ask Clawdbot to set up the cron jobs (see above)"
+echo "2. Ask Bot to set up the cron jobs (see above)"
 echo "3. Check tomorrow morning for your reading list!"

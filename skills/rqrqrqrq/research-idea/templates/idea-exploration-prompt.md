@@ -109,12 +109,12 @@ If not pursuing:
 1. **Research thoroughly**: Use web_search for competitors, market size, pricing benchmarks, etc.
 2. **Be critical**: Don't just find reasons to pursue—find reasons NOT to pursue
 3. **Be specific**: "Large market" → "X million potential users spending $Y annually"
-4. **Save your work**: Write comprehensive markdown to `~/clawd/ideas/{IDEA_SLUG}/research.md`
+4. **Save your work**: Write comprehensive markdown to `~/bot/ideas/{IDEA_SLUG}/research.md`
 5. **When complete**: Your findings will automatically return to the main session
 
 **Save format:**
-- Create directory: `~/clawd/ideas/{IDEA_SLUG}/`
-- Write file: `~/clawd/ideas/{IDEA_SLUG}/research.md`
+- Create directory: `~/bot/ideas/{IDEA_SLUG}/`
+- Write file: `~/bot/ideas/{IDEA_SLUG}/research.md`
 - Include metadata header: date, idea, verdict
 
 Be thorough but practical. Focus on actionable insights.

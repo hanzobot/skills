@@ -26,7 +26,7 @@ Never miss important bookmarks. Automatically rank your Twitter bookmarks based 
 - macOS 10.15 or later
 - Twitter account with bookmarks
 - bird CLI (`brew install steipete/tap/bird`)
-- Clawdbot (for scheduling and notifications)
+- Bot (for scheduling and notifications)
 - Twitter auth cookies configured (see Getting Ready)
 
 ---
@@ -71,8 +71,8 @@ bird whoami
 ## Installation
 
 ```bash
-clawdhub install twitter-bookmark-sync
-cd ~/clawd/skills/twitter-bookmark-sync
+skills install twitter-bookmark-sync
+cd ~/bot/skills/twitter-bookmark-sync
 ./install.sh
 ```
 
@@ -85,7 +85,7 @@ The installer will:
 
 ## Configuration
 
-Edit `~/clawd/twitter-bookmark-sync-config.json`:
+Edit `~/bot/twitter-bookmark-sync-config.json`:
 
 ```json5
 {
@@ -98,7 +98,7 @@ Edit `~/clawd/twitter-bookmark-sync-config.json`:
 ```
 
 **Ranking criteria** (self-evolving):  
-`~/clawd/twitter-bookmark-sync-criteria.json`
+`~/bot/twitter-bookmark-sync-criteria.json`
 
 This file updates automatically based on your bookmarking patterns.  
 **Do not edit manually** — let it learn from your behavior.
@@ -196,14 +196,14 @@ Day 30: crypto_insights: 100, AI_tools: 75 (discovered), relationships: 35
 
 **Run immediately:**
 ```bash
-cd ~/clawd/skills/twitter-bookmark-sync
+cd ~/bot/skills/twitter-bookmark-sync
 ./scripts/sync.sh
 ```
 
 **Change schedule:**
 ```bash
 # Edit config
-nano ~/clawd/twitter-bookmark-sync-config.json
+nano ~/bot/twitter-bookmark-sync-config.json
 
 # Reload cron jobs
 ./install.sh
@@ -222,9 +222,9 @@ nano ~/clawd/twitter-bookmark-sync-config.json
 - Verify cookies are valid (they expire)
 
 **"Notification not sent"**
-- Check Clawdbot is running: `clawdbot status`
+- Check Bot is running: `bot status`
 - Verify notification channel in config
-- Check logs: `~/clawd/logs/twitter-bookmark-sync.log`
+- Check logs: `~/bot/logs/twitter-bookmark-sync.log`
 
 ---
 

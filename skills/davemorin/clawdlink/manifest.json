@@ -1,7 +1,7 @@
 {
-  "name": "clawdlink",
+  "name": "botlink",
   "version": "1.0.0",
-  "description": "Encrypted Clawdbot-to-Clawdbot messaging",
+  "description": "Encrypted Bot-to-Bot messaging",
   "author": "Dave Morin",
   
   "entrypoints": {
@@ -19,11 +19,11 @@
   "setup": {
     "required": true,
     "script": "./cli.js setup",
-    "instructions": "Run: clawdlink setup \"Your Name\""
+    "instructions": "Run: botlink setup \"Your Name\""
   },
   
   "triggers": [
-    "clawdlink",
+    "botlink",
     "friend link", 
     "add friend",
     "send message to",
@@ -33,6 +33,6 @@
   ],
   
   "dependencies": {
-    "relay": "https://clawdlink-relay.vercel.app"
+    "relay": "https://botlink-relay.vercel.app"
   }
 }

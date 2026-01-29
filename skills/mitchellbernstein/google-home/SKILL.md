@@ -1,7 +1,7 @@
 ---
 name: google-home
 description: Control Google Nest devices (thermostats, cameras, doorbells) via the Google Smart Device Management API using curl and jq.
-metadata: {"clawdbot":{"emoji":"🏠","requires":{"bins":["curl","jq"]}}
+metadata: {"bot":{"emoji":"🏠","requires":{"bins":["curl","jq"]}}
 ---
 
 # Google Home / Nest CLI
@@ -100,7 +100,7 @@ A `nest` CLI helper is included at `scripts/nest`:
 
 ```bash
 # Make it available globally
-ln -sf /Users/mitchellbernstein/clawd/skills/google-home/scripts/nest /usr/local/bin/nest
+ln -sf /Users/mitchellbernstein/bot/skills/google-home/scripts/nest /usr/local/bin/nest
 
 # List devices
 nest list

@@ -3,7 +3,7 @@ name: paprika
 description: Access recipes, meal plans, and grocery lists from Paprika Recipe Manager. Use when user asks about recipes, meal planning, or cooking.
 homepage: https://www.paprikaapp.com
 metadata:
-  clawdbot:
+  bot:
     emoji: "📖"
     requires:
       bins: ["paprika"]

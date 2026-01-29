@@ -16,10 +16,10 @@ if [ -z "$doc_path" ]; then
     echo "  fetch-doc.sh concepts/queue"
     echo ""
     echo "This script provides the URL for browser-based reading."
-    echo "The clawdbot docs require JavaScript rendering."
+    echo "The bot docs require JavaScript rendering."
     echo ""
     echo "Available docs (first 20):"
-    "$SCRIPT_DIR/cache.sh" urls | sed 's|https://docs.clawd.bot/||' | head -20
+    "$SCRIPT_DIR/cache.sh" urls | sed 's|https://docs.hanzo.bot/||' | head -20
     echo "  ... (use 'cache.sh urls' for full list)"
     exit 1
 fi
@@ -29,9 +29,9 @@ doc_path="${doc_path#/}"
 doc_path="${doc_path%/}"
 
 # Remove base URL if included
-doc_path="${doc_path#https://docs.clawd.bot/}"
+doc_path="${doc_path#https://docs.hanzo.bot/}"
 
-url="https://docs.clawd.bot/${doc_path}"
+url="https://docs.hanzo.bot/${doc_path}"
 
 # Verify URL exists in sitemap
 if ! "$SCRIPT_DIR/cache.sh" urls | grep -q "$url"; then

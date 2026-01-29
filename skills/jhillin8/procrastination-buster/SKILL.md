@@ -1,7 +1,7 @@
 ---
 name: procrastination-buster
 description: Beat procrastination with task breakdown, 2-minute starts, and accountability tracking
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "stop procrastinating"
@@ -27,27 +27,27 @@ Procrastination-Buster breaks the cycle of avoidance by combining behavioral sci
 ## Usage
 
 ### Break Down Task
-Ask clawd: *"Break down [task name] into 5 startable steps"*
+Ask bot: *"Break down [task name] into 5 startable steps"*
 - Returns concrete first action with time estimate
 - Eliminates ambiguity that feeds avoidance
 
 ### 2-Minute Start
-Ask clawd: *"Give me a 2-minute start for [task]"*
+Ask bot: *"Give me a 2-minute start for [task]"*
 - Identifies the single smallest action (open file, write one sentence, gather materials)
 - Momentum compounds once friction drops
 
 ### Log Blockers
-Ask clawd: *"What's stopping me from starting [task]?"*
+Ask bot: *"What's stopping me from starting [task]?"*
 - Tracks emotional, practical, or skill-based barriers
 - Suggests removal strategies per blocker type
 
 ### Accountability Partner
-Ask clawd: *"Track my progress on [task]—check in tomorrow"*
+Ask bot: *"Track my progress on [task]—check in tomorrow"*
 - Simple commit → simple check-in
 - Persistent memory remembers your pattern, builds trust
 
 ### Celebrate Wins
-Ask clawd: *"What did I finish this week?"*
+Ask bot: *"What did I finish this week?"*
 - Surfaces completed work (easy to forget)
 - Feeds motivation for next task
 

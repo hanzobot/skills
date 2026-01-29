@@ -1,12 +1,12 @@
 ---
 name: holocube
-description: Control GeekMagic HelloCubic-Lite holographic cube display with HoloClawd firmware. Supports drawing API, pomodoro timer with lobster mascot, GIF uploads, and procedural animations.
+description: Control GeekMagic HelloCubic-Lite holographic cube display with HoloBot firmware. Supports drawing API, pomodoro timer with lobster mascot, GIF uploads, and procedural animations.
 homepage: https://github.com/andrewjiang/HoloClawd-Open-Firmware
-metadata: {"clawdbot":{"emoji":"🦞","os":["darwin","linux"]}}
+metadata: {"bot":{"emoji":"🦞","os":["darwin","linux"]}}
 triggers:
   - holocube
   - holo cube
-  - holoclawd
+  - holobot
   - cubic
   - geekmagic
   - display gif
@@ -20,13 +20,13 @@ triggers:
 
 # HoloCube Controller
 
-Control the GeekMagic HelloCubic-Lite with HoloClawd firmware via REST API.
+Control the GeekMagic HelloCubic-Lite with HoloBot firmware via REST API.
 
 **Firmware:** https://github.com/andrewjiang/HoloClawd-Open-Firmware
 
 ## Device Info
 
-- **Model:** HelloCubic-Lite with HoloClawd Firmware
+- **Model:** HelloCubic-Lite with HoloBot Firmware
 - **Display:** 240x240px ST7789 TFT
 - **Default IP:** 192.168.7.80 (configurable)
 
@@ -37,16 +37,16 @@ Control the GeekMagic HelloCubic-Lite with HoloClawd firmware via REST API.
 ```bash
 # Run pomodoro timer with lobster mascot (25 min work, 5 min break)
 # Uses hardcoded Spotify URIs for focus/break music
-cd ~/Bao/clawd && uv run --script pomodoro.py
+cd ~/Bao/bot && uv run --script pomodoro.py
 
 # With custom task label (max 20 chars)
-cd ~/Bao/clawd && uv run --script pomodoro.py --task "BUILD NETWORK"
+cd ~/Bao/bot && uv run --script pomodoro.py --task "BUILD NETWORK"
 
 # Custom timings
-cd ~/Bao/clawd && uv run --script pomodoro.py --work 50 --short 10 --long 20
+cd ~/Bao/bot && uv run --script pomodoro.py --work 50 --short 10 --long 20
 
 # Disable Spotify
-cd ~/Bao/clawd && uv run --script pomodoro.py --no-spotify
+cd ~/Bao/bot && uv run --script pomodoro.py --no-spotify
 ```
 
 **Drawing API** (requires holocube_client.py from repo):
@@ -95,11 +95,11 @@ draw_confetti(cube, 120, 120, frame=1)             # Animate confetti
 
 ## Pomodoro Timer
 
-Full pomodoro timer with cute lobster buddy. **Use Andrew's local version** at `~/Bao/clawd/pomodoro.py`:
+Full pomodoro timer with cute lobster buddy. **Use Andrew's local version** at `~/Bao/bot/pomodoro.py`:
 
 ```bash
 # Always run from local directory
-cd ~/Bao/clawd
+cd ~/Bao/bot
 
 # Default: 25 min work, 5 min break (with Spotify)
 uv run --script pomodoro.py
@@ -115,11 +115,11 @@ uv run --script pomodoro.py --work 50 --short 10 --long 20
 uv run --script pomodoro.py --no-spotify
 ```
 
-**Andrew's Version** (~/Bao/clawd/pomodoro.py):
+**Andrew's Version** (~/Bao/bot/pomodoro.py):
 - Hardcoded Spotify URIs:
   - Focus: `spotify:episode:5yJKH11UlF3sS3gcKKaUYx`
   - Break: `spotify:episode:4U4OloHPFBNHWt0GOKENVF`
-- Uses `~/clawd/skills/spotify-applescript/spotify.sh` for playback
+- Uses `~/bot/skills/spotify-applescript/spotify.sh` for playback
 
 Options:
 - `--task`, `-t`: Task label displayed during work (max 20 chars, auto-uppercased)
@@ -142,7 +142,7 @@ Features:
 Track daily water consumption with a cute water drop icon in the top-left corner:
 
 ```bash
-cd ~/Bao/clawd
+cd ~/Bao/bot
 
 # Show current count
 uv run --script water.py
@@ -186,7 +186,7 @@ uv run --script gifgen.py sparkle output.gif
 
 ## Drawing API Endpoints
 
-HoloClawd firmware exposes these REST endpoints:
+HoloBot firmware exposes these REST endpoints:
 
 ```bash
 # Clear screen

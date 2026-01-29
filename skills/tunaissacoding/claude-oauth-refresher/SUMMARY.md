@@ -7,7 +7,7 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 ### Core Files
 
 ```
-~/clawd/skills/claude-oauth-refresher/
+~/bot/skills/claude-oauth-refresher/
 ├── README.md                    # Quick start guide
 ├── SKILL.md                     # Complete documentation (8+ KB)
 ├── config.example.json          # Config template
@@ -24,7 +24,7 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 ## Key Features
 
 ### ✅ Auto-Detection (Smart Defaults) ⭐ NEW
-**Reads `~/.clawdbot/clawdbot.json` to auto-configure notifications:**
+**Reads `~/.bot/bot.json` to auto-configure notifications:**
 - Detects enabled channels (Telegram, Slack, Discord, WhatsApp, iMessage, Signal)
 - Extracts your chat ID, user ID, or phone number
 - Auto-populates `config.json` with detected values
@@ -32,7 +32,7 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 
 **Detection logic:**
 1. Check config file for enabled channels + targets
-2. Fall back to Clawdbot CLI commands
+2. Fall back to Bot CLI commands
 3. Prioritize Telegram (most common)
 4. Show detected values during install
 
@@ -42,7 +42,7 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 - **macOS requirement** stated upfront (Keychain dependency)
 - Claude CLI must be installed
 - Must be authenticated via `claude auth`
-- Clawdbot must be installed
+- Bot must be installed
 
 ### ✅ Pre-Flight Verification
 **`verify-setup.sh` checks:**
@@ -50,8 +50,8 @@ A **single-purpose, bulletproof OAuth token refresher** for Claude Code CLI on m
 2. Claude CLI installed (with version)
 3. `auth-profiles.json` exists
 4. Keychain has credentials
-5. Clawdbot installed (with version)
-6. Clawdbot Gateway running
+5. Bot installed (with version)
+6. Bot Gateway running
 7. Config file valid JSON
 8. `jq` installed (recommended)
 9. Log directory exists
@@ -82,7 +82,7 @@ Each has:
 - Makes OAuth request to `auth.anthropic.com`
 - Updates `auth-profiles.json` atomically
 - Updates Keychain if refresh token rotates
-- Sends notifications via Clawdbot
+- Sends notifications via Bot
 - Comprehensive error handling with actionable messages
 
 **Security:**
@@ -170,7 +170,7 @@ Error: Keychain query failed
 ### For Experienced Users:
 1. **Manual install path** documented (4 steps)
 2. **Config file** simple JSON (editable by hand)
-3. **Logs** to predictable location (`~/clawd/logs/`)
+3. **Logs** to predictable location (`~/bot/logs/`)
 4. **Scripts** use standard bash (no exotic dependencies except `jq`)
 
 ### For Debugging:
@@ -227,7 +227,7 @@ Error: Keychain query failed
 ## Next Steps for User
 
 ```bash
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 
 # 1. Verify system (shows detected notification config)
 ./verify-setup.sh
@@ -236,7 +236,7 @@ cd ~/clawd/skills/claude-oauth-refresher
 ./install.sh
 
 # 3. Monitor (optional)
-tail -f ~/clawd/logs/claude-oauth-refresh.log
+tail -f ~/bot/logs/claude-oauth-refresh.log
 ```
 
 ---
@@ -246,7 +246,7 @@ tail -f ~/clawd/logs/claude-oauth-refresh.log
 | Original | New |
 |----------|-----|
 | Multi-provider (complex) | **Claude-only (focused)** |
-| Manual notification config | **⭐ Auto-detects from Clawdbot config** |
+| Manual notification config | **⭐ Auto-detects from Bot config** |
 | Generic target IDs | **Channel-specific examples** |
 | No verification script | **✓ Pre-flight checks (11 checks)** |
 | Manual install only | **✓ One-shot installer + auto-config** |
@@ -289,7 +289,7 @@ Total: ~53 KB (scripts + docs)
 - `security` command (macOS built-in)
 - `curl` (macOS built-in)
 - Claude CLI
-- Clawdbot
+- Bot
 
 **Optional:**
 - None (all features work with above)

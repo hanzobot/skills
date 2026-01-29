@@ -32,7 +32,7 @@ Learned from fixing tools that failed on other devices despite working perfectly
 ## 🚀 Installation
 
 ```bash
-clawdhub install portable-tools
+skills install portable-tools
 ```
 
 ---
@@ -99,7 +99,7 @@ Verify with: command_to_check"
 **Before publishing, run the automated checklist:**
 
 ```bash
-bash ~/clawd/skills/portable-tools/pre-publish-checklist.sh /path/to/your/code
+bash ~/bot/skills/portable-tools/pre-publish-checklist.sh /path/to/your/code
 ```
 
 Output:

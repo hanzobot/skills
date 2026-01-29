@@ -185,9 +185,9 @@ homeycli flow trigger <flow-id>
 homeycli zones
 ```
 
-## Integration with Clawdbot
+## Integration with Bot
 
-This skill is designed for ClawdHub. Once installed via Clawdbot, the AI can:
+This skill is designed for Skills. Once installed via Bot, the AI can:
 
 - List devices and their current state
 - Turn lights/switches on/off
@@ -214,7 +214,7 @@ homeycli/
 │   ├── fuzzy.js            # Fuzzy name matching
 │   └── config.js           # Token/session management
 ├── package.json
-├── SKILL.md                # Clawdbot skill definition
+├── SKILL.md                # Bot skill definition
 └── README.md               # This file
 ```
 
@@ -249,20 +249,20 @@ Default `HOMEY_MODE=auto` prefers local when an address is configured.
 
 See `homeycli devices` for device-specific capabilities.
 
-## CI publish to ClawdHub
+## CI publish to Skills
 
-This repo includes a GitHub Actions workflow to publish to ClawdHub using the official `clawdhub` CLI:
+This repo includes a GitHub Actions workflow to publish to Skills using the official `skills` CLI:
 
-- Workflow: `.github/workflows/publish-clawdhub.yml`
+- Workflow: `.github/workflows/publish-skills.yml`
 - Trigger: manual (`workflow_dispatch`) or tag push (`v*`)
 
 To enable it, add this GitHub repo secret:
 
-- `CLAWDHUB_API_KEY` – ClawdHub API token (used by `clawdhub login --token ...`)
+- `SKILLS_API_KEY` – Skills API token (used by `skills login --token ...`)
 
 Notes:
-- The workflow installs `clawdhub` pinned (see `CLAWDHUB_CLI_VERSION` in `.github/workflows/publish-clawdhub.yml`).
-- The publish step is implemented in `scripts/publish-clawdhub.sh`.
+- The workflow installs `skills` pinned (see `SKILLS_CLI_VERSION` in `.github/workflows/publish-skills.yml`).
+- The publish step is implemented in `scripts/publish-skills.sh`.
 - The default publish slug is taken from `SKILL.md` frontmatter (`name:`). You can override it via workflow inputs.
 
 ### Releasing (version bumps)
@@ -278,7 +278,7 @@ npm run release:patch   # or release:minor / release:major
 git push origin HEAD --follow-tags
 ```
 
-This triggers the `publish-clawdhub` workflow.
+This triggers the `publish-skills` workflow.
 
 ## Security (prevent secrets in git)
 
@@ -329,4 +329,4 @@ MIT
 
 Max Sumrall (@maxsumrall)
 
-Built for Clawdbot/ClawdHub 🦞
+Built for Bot/Skills 🦞

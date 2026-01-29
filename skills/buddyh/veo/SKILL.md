@@ -20,11 +20,11 @@ Options
 
 API key
 - `GEMINI_API_KEY` env var (preferred)
-- Or set `skills."veo".env.GEMINI_API_KEY` in `~/.clawdbot/clawdbot.json`
+- Or set `skills."veo".env.GEMINI_API_KEY` in `~/.bot/bot.json`
 
 Notes
 - Veo 3.1 supports higher quality and longer durations
 - Output is MP4 format
 - Use `--model veo-3.1-generate-preview` for best results
 - Veo 3.0-fast-generate-001 is faster but lower quality
-- The script prints a `MEDIA:` line for Clawdbot to auto-attach on supported chat providers.
+- The script prints a `MEDIA:` line for Bot to auto-attach on supported chat providers.

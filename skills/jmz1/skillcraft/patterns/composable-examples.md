@@ -1,6 +1,6 @@
 # Composable Pattern Examples
 
-These illustrate how Clawdbot primitives combine in non-obvious ways. Use clawddocs to verify current tool capabilities.
+These illustrate how Bot primitives combine in non-obvious ways. Use botdocs to verify current tool capabilities.
 
 ## 1. Visual Monitoring Pipeline
 **Tools:** nodes + image + canvas + message
@@ -83,7 +83,7 @@ A skill for multi-step processes requiring user decisions:
 - On approve: skill executes action, logs to memory
 - On reject: logs reason, notifies relevant parties
 - State machine tracks workflow progress across sessions
-- `gateway` config changes if workflow modifies Clawdbot behavior
+- `gateway` config changes if workflow modifies Bot behavior
 
 **Composition:** request → validation → interactive decision → conditional execution. Agent becomes workflow orchestrator.
 

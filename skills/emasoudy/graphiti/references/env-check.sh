@@ -1,8 +1,8 @@
 #!/bin/bash
 # Graphiti Environment Discovery
 
-# Try Clawdbot config first
-GRAPHITI_URL=$(clawdbot config get skills.graphiti.baseUrl 2>/dev/null || echo "")
+# Try Bot config first
+GRAPHITI_URL=$(bot config get skills.graphiti.baseUrl 2>/dev/null || echo "")
 
 # Fallback to environment variable
 GRAPHITI_URL=${GRAPHITI_URL:-"http://localhost:8001"}

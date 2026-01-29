@@ -3,7 +3,7 @@ name: nomad
 version: 1.0.0
 description: Query HashiCorp Nomad clusters. List jobs, nodes, allocations, evaluations, and services. Read-only operations for monitoring and troubleshooting.
 homepage: https://github.com/danfedick/nomad-skill
-metadata: {"clawdbot":{"emoji":"📦","requires":{"bins":["nomad"]}}}
+metadata: {"bot":{"emoji":"📦","requires":{"bins":["nomad"]}}}
 ---
 
 # Nomad Skill

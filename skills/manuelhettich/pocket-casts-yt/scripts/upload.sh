@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CREDS_DIR="${CLAWDBOT_CREDENTIALS:-$HOME/.clawdbot/credentials}/pocket-casts"
+CREDS_DIR="${BOT_CREDENTIALS:-$HOME/.bot/credentials}/pocket-casts"
 CONFIG_FILE="$CREDS_DIR/config.json"
 COOKIES_FILE="$CREDS_DIR/cookies.txt"
 TEMP_DIR="/tmp/pocket-casts-upload"

@@ -69,7 +69,7 @@ Load relevant references when user is:
 
 References auto-refresh weekly (Sundays 5am ET) from the upstream repo:
 ```bash
-~/clawd-duke-leto/skills/sysadmin-toolbox/scripts/refresh.sh
+~/bot-duke-leto/skills/sysadmin-toolbox/scripts/refresh.sh
 ```
 
 Manual refresh anytime:

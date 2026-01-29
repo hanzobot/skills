@@ -1,7 +1,7 @@
 ---
 name: pinch-to-post
-description: WordPress automation for Clawdbot. Manage posts, pages, WooCommerce products, orders, inventory, comments, SEO (Yoast/RankMath), media via REST API or WP-CLI. Multi-site support, bulk operations, content health checks, markdown to Gutenberg, social cross-posting. 50+ features—just ask.
-metadata: {"clawdbot":{"emoji":"🦞","skillKey":"pinch-to-post","primaryEnv":"WP_APP_PASSWORD","requires":{"anyBins":["curl","wp"]}}}
+description: WordPress automation for Bot. Manage posts, pages, WooCommerce products, orders, inventory, comments, SEO (Yoast/RankMath), media via REST API or WP-CLI. Multi-site support, bulk operations, content health checks, markdown to Gutenberg, social cross-posting. 50+ features—just ask.
+metadata: {"bot":{"emoji":"🦞","skillKey":"pinch-to-post","primaryEnv":"WP_APP_PASSWORD","requires":{"anyBins":["curl","wp"]}}}
 user-invocable: true
 ---
 
@@ -734,7 +734,7 @@ When you need to do ALL THE THINGS.
 
 ## AI-Powered Workflows 🤖
 
-Ask Clawdbot to help with these:
+Ask Bot to help with these:
 
 - "Write a blog post about sustainable fashion with 3 sections"
 - "Generate 10 headline variations for my post"

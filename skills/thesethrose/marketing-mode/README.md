@@ -5,10 +5,10 @@
 ## Activation
 
 ```bash
-clawdhub install marketing-mode
+skills install marketing-mode
 ```
 
-Then tell Clawdbot to switch modes.
+Then tell Bot to switch modes.
 
 ## Who is Mark?
 

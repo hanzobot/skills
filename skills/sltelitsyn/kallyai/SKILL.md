@@ -1,7 +1,7 @@
 ---
 name: kallyai
 description: Make phone calls via KallyAI API - an AI phone assistant that calls businesses on your behalf. Use when users want to make restaurant reservations, schedule appointments, or inquire at businesses by phone.
-metadata: {"clawdbot":{"emoji":"📞","requires":{"bins":["kallyai"]},"install":[{"id":"pip","kind":"pip","package":"kallyai-cli","bins":["kallyai"],"label":"Install via pip"}]}}
+metadata: {"bot":{"emoji":"📞","requires":{"bins":["kallyai"]},"install":[{"id":"pip","kind":"pip","package":"kallyai-cli","bins":["kallyai"],"label":"Install via pip"}]}}
 ---
 
 # KallyAI API Integration

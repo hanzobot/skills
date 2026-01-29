@@ -1,4 +1,4 @@
-# Common Clawdbot Configuration Snippets
+# Common Bot Configuration Snippets
 
 Quick-reference config patterns extracted from documentation.
 
@@ -55,7 +55,7 @@ Quick-reference config patterns extracted from documentation.
   }
 }
 ```
-Then run: `clawdbot login` to scan QR code.
+Then run: `bot login` to scan QR code.
 
 ## Signal Setup
 

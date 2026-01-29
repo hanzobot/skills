@@ -32,15 +32,15 @@ Control the Parcel API CLI.
 **List Deliveries:**
 ```bash
 # List recent deliveries
-node ~/.clawdbot/skills/parcel/parcel-api.js list
+node ~/.bot/skills/parcel/parcel-api.js list
 
 # List active deliveries
-node ~/.clawdbot/skills/parcel/parcel-api.js list --mode=active
+node ~/.bot/skills/parcel/parcel-api.js list --mode=active
 ```
 
 **Add Delivery:**
 ```bash
-node ~/.clawdbot/skills/parcel/parcel-api.js add \
+node ~/.bot/skills/parcel/parcel-api.js add \
   --tracking "1Z1234567890" \
   --carrier "ups" \
   --description "New Shoes" \
@@ -49,5 +49,5 @@ node ~/.clawdbot/skills/parcel/parcel-api.js add \
 
 **List Carriers:**
 ```bash
-node ~/.clawdbot/skills/parcel/parcel-api.js carriers "ups"
+node ~/.bot/skills/parcel/parcel-api.js carriers "ups"
 ```

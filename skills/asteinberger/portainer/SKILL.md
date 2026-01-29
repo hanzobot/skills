@@ -1,7 +1,7 @@
 ---
 name: portainer
 description: Control Docker containers and stacks via Portainer API. List containers, start/stop/restart, view logs, and redeploy stacks from git.
-metadata: {"clawdbot":{"emoji":"🐳","requires":{"bins":["curl","jq"],"env":["PORTAINER_API_KEY"]},"primaryEnv":"PORTAINER_API_KEY"}}
+metadata: {"bot":{"emoji":"🐳","requires":{"bins":["curl","jq"],"env":["PORTAINER_API_KEY"]},"primaryEnv":"PORTAINER_API_KEY"}}
 ---
 
 # 🐳 Portainer Skill
@@ -53,7 +53,7 @@ The **Portainer Skill** gives you control over your Docker infrastructure throug
 
 2. **Configure credentials:**
    ```bash
-   # Add to ~/.clawdbot/.env
+   # Add to ~/.bot/.env
    PORTAINER_URL=https://your-portainer-server:9443
    PORTAINER_API_KEY=ptr_your_token_here
    ```
@@ -251,9 +251,9 @@ This will:
 
 **Solution:**
 ```bash
-# Add to ~/.clawdbot/.env
-echo "PORTAINER_URL=https://your-server:9443" >> ~/.clawdbot/.env
-echo "PORTAINER_API_KEY=ptr_your_token" >> ~/.clawdbot/.env
+# Add to ~/.bot/.env
+echo "PORTAINER_URL=https://your-server:9443" >> ~/.bot/.env
+echo "PORTAINER_API_KEY=ptr_your_token" >> ~/.bot/.env
 ```
 
 ---
@@ -293,15 +293,15 @@ echo "PORTAINER_API_KEY=ptr_your_token" >> ~/.clawdbot/.env
  ^^  ^^     for your code to hop around!"
 ```
 
-**Author:** Andy Steinberger (with help from his Clawdbot Owen the Frog 🐸)  
+**Author:** Andy Steinberger (with help from his Bot Owen the Frog 🐸)  
 **Powered by:** [Portainer](https://portainer.io/) API  
-**Part of:** [Clawdbot](https://clawdhub.com) Skills Collection
+**Part of:** [Bot](https://skills.com) Skills Collection
 
 ---
 
 <div align="center">
 
-**Made with 💚 for the Clawdbot Community**
+**Made with 💚 for the Bot Community**
 
 *Ribbit!* 🐸
 

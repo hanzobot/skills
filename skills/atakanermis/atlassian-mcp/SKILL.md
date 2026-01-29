@@ -37,9 +37,9 @@ JIRA_API_TOKEN=your_token bash scripts/run_mcp_atlassian.sh
 - **JIRA_USERNAME**: Your Jira email address
 - **JIRA_API_TOKEN**: Your Jira API token (create in [Account Settings → Security](https://id.atlassian.com/manage-profile/security/api-tokens))
 
-## Using MCP Atlassian with Clawdbot
+## Using MCP Atlassian with Bot
 
-Once running, the MCP server exposes Jira tools for use. Reference the container as an MCP source in your Clawdbot config to query issues, create tasks, or manage Jira directly from your agent.
+Once running, the MCP server exposes Jira tools for use. Reference the container as an MCP source in your Bot config to query issues, create tasks, or manage Jira directly from your agent.
 
 ## Resources
 

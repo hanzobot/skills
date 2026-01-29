@@ -8,7 +8,7 @@
 
 ## 📦 Package Contents
 
-This ZIP contains everything you need to use the MILKEE skill with Clawdbot.
+This ZIP contains everything you need to use the MILKEE skill with Bot.
 
 ```
 ├── milkee.skill              ← The skill (upload to Skill Hub)
@@ -34,8 +34,8 @@ This ZIP contains everything you need to use the MILKEE skill with Clawdbot.
 
 ### Option B: Manual Installation
 
-1. Extract to `~/.clawdbot/skills/milkee/`
-2. Configure in `~/.clawdbot/clawdbot.json`:
+1. Extract to `~/.bot/skills/milkee/`
+2. Configure in `~/.bot/bot.json`:
    ```json
    {
      "skills": {

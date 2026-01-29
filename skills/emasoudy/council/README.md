@@ -5,14 +5,14 @@ Council Chamber pattern for structured debate with Memory Bridge integration.
 ## Installation
 
 ```bash
-clawdhub install council
+skills install council
 ```
 
 Or manual:
 ```bash
-git clone https://github.com/emasoudy/clawdbot-skills.git
-cp -r clawdbot-skills/council ~/.clawdbot/skills/
-~/.clawdbot/skills/council/init-db.sh
+git clone https://github.com/emasoudy/bot-skills.git
+cp -r bot-skills/council ~/.bot/skills/
+~/.bot/skills/council/init-db.sh
 ```
 
 ## Usage

@@ -7,7 +7,7 @@ triggers:
   - xai
   - ask grok
 metadata:
-  clawdbot:
+  bot:
     emoji: "🤖"
 ---
 
@@ -20,8 +20,8 @@ Chat with xAI's Grok models. Supports text and vision.
 Set your API key in the skill config:
 
 ```bash
-# Via clawdbot config
-clawdbot config set skills.entries.xai.apiKey "xai-YOUR-KEY"
+# Via bot config
+bot config set skills.entries.xai.apiKey "xai-YOUR-KEY"
 
 # Or environment variable
 export XAI_API_KEY="xai-YOUR-KEY"

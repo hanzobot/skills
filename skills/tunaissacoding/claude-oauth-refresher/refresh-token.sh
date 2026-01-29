@@ -1,5 +1,5 @@
 #!/bin/bash
-# refresh-token.sh - Clawdbot OAuth token refresh
+# refresh-token.sh - Bot OAuth token refresh
 # Matches the exact process: Keychain JSON → OAuth API → Update auth-profiles.json + Keychain
 # Usage: ./refresh-token.sh [--force]
 
@@ -14,11 +14,11 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/claude-oauth-refresh-config.json"
 
-# Defaults for Clawdbot setup
+# Defaults for Bot setup
 DEFAULT_KEYCHAIN_SERVICE="Claude Code-credentials"
 DEFAULT_KEYCHAIN_ACCOUNT="claude"  # Most common, but will auto-discover if needed
 DEFAULT_KEYCHAIN_FIELD="claudeAiOauth"
-DEFAULT_AUTH_FILE="$HOME/.clawdbot/agents/main/agent/auth-profiles.json"
+DEFAULT_AUTH_FILE="$HOME/.bot/agents/main/agent/auth-profiles.json"
 DEFAULT_PROFILE_NAME="anthropic:default"
 DEFAULT_CLIENT_ID="9d1c250a-e61b-44d9-88ed-5944d1962f5e"
 DEFAULT_TOKEN_URL="https://console.anthropic.com/v1/oauth/token"
@@ -27,7 +27,7 @@ DEFAULT_REFRESH_BUFFER=30
 # Load config or use defaults
 if [[ -f "$CONFIG_FILE" ]]; then
     REFRESH_BUFFER=$(jq -r '.refresh_buffer_minutes // 30' "$CONFIG_FILE")
-    LOG_FILE=$(jq -r '.log_file // "~/clawd/logs/claude-oauth-refresh.log"' "$CONFIG_FILE" | sed "s|^~|$HOME|")
+    LOG_FILE=$(jq -r '.log_file // "~/bot/logs/claude-oauth-refresh.log"' "$CONFIG_FILE" | sed "s|^~|$HOME|")
     NOTIFY_SUCCESS=$(jq -r '.notifications.on_success // true' "$CONFIG_FILE")
     NOTIFY_FAILURE=$(jq -r '.notifications.on_failure // true' "$CONFIG_FILE")
     NOTIFY_CHANNEL=$(jq -r '.notification_channel // "telegram"' "$CONFIG_FILE")
@@ -42,7 +42,7 @@ if [[ -f "$CONFIG_FILE" ]]; then
     TOKEN_URL=$(jq -r '.token_url // ""' "$CONFIG_FILE")
 else
     REFRESH_BUFFER=$DEFAULT_REFRESH_BUFFER
-    LOG_FILE="$HOME/clawd/logs/claude-oauth-refresh.log"
+    LOG_FILE="$HOME/bot/logs/claude-oauth-refresh.log"
     NOTIFY_SUCCESS=true
     NOTIFY_FAILURE=true
     NOTIFY_CHANNEL="telegram"
@@ -89,8 +89,8 @@ notify() {
         return
     fi
     
-    if command -v clawdbot &> /dev/null; then
-        clawdbot message send --target "$NOTIFY_TARGET" --message "$message" >> "$LOG_FILE" 2>&1 || true
+    if command -v bot &> /dev/null; then
+        bot message send --target "$NOTIFY_TARGET" --message "$message" >> "$LOG_FILE" 2>&1 || true
     fi
 }
 

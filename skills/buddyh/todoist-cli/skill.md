@@ -2,7 +2,7 @@
 name: todoist
 description: Manage Todoist tasks, projects, labels, and sections via the `todoist` CLI. Use when a user asks to add/complete/list tasks, show today's tasks, search tasks, or manage projects.
 homepage: https://github.com/buddyh/todoist-cli
-metadata: {"clawdbot":{"emoji":"✅","requires":{"bins":["todoist"]},"install":[{"id":"brew","kind":"brew","formula":"buddyh/tap/todoist","bins":["todoist"],"label":"Install todoist (brew)"},{"id":"go","kind":"go","module":"github.com/buddyh/todoist-cli/cmd/todoist@latest","bins":["todoist"],"label":"Install todoist-cli (go)"}]}}
+metadata: {"bot":{"emoji":"✅","requires":{"bins":["todoist"]},"install":[{"id":"brew","kind":"brew","formula":"buddyh/tap/todoist","bins":["todoist"],"label":"Install todoist (brew)"},{"id":"go","kind":"go","module":"github.com/buddyh/todoist-cli/cmd/todoist@latest","bins":["todoist"],"label":"Install todoist-cli (go)"}]}}
 ---
 
 # Todoist CLI

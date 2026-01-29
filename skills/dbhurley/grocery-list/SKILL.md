@@ -1,8 +1,8 @@
 ---
 name: grocery-list
 description: Standalone grocery lists, recipes, and meal planning with local storage. No external service required.
-homepage: https://clawdhub.com/skills/grocery-list
-metadata: { "clawdbot": { "emoji": "🛒", "requires": { "bins": ["uv"] } } }
+homepage: https://skills.com/skills/grocery-list
+metadata: { "bot": { "emoji": "🛒", "requires": { "bins": ["uv"] } } }
 ---
 
 # Grocery List & Meal Planner
@@ -100,7 +100,7 @@ uv run {baseDir}/scripts/grocery.py meals --json
 
 ## Data Storage
 
-Data is stored locally at `~/.clawdbot/grocery-list/data.json`. No cloud account required.
+Data is stored locally at `~/.bot/grocery-list/data.json`. No cloud account required.
 
 ## Usage Examples
 

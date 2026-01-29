@@ -66,22 +66,22 @@ Your 5-hour quota will reset soon! 🦞"
 # Send notification
 echo -e "$MESSAGE"
 
-# Schedule next reminder using clawdbot cron
-if command -v clawdbot >/dev/null 2>&1; then
+# Schedule next reminder using bot cron
+if command -v bot >/dev/null 2>&1; then
   # Try to remove existing session reminder (ignore errors if none exists)
-  EXISTING=$(clawdbot cron list 2>/dev/null | grep "Claude Code Session Reminder" | head -1 || echo "")
+  EXISTING=$(bot cron list 2>/dev/null | grep "Claude Code Session Reminder" | head -1 || echo "")
   if [ -n "$EXISTING" ]; then
     # Extract ID from the output (format: "id: <uuid>")
     EXISTING_ID=$(echo "$EXISTING" | grep -o 'id: [a-f0-9-]*' | sed 's/id: //')
     if [ -n "$EXISTING_ID" ]; then
-      clawdbot cron remove --id "$EXISTING_ID" >/dev/null 2>&1 || true
+      bot cron remove --id "$EXISTING_ID" >/dev/null 2>&1 || true
     fi
   fi
   
   # Add new one-time cron for next session reset
   # Note: Using session target to send results back to this session
   NEXT_TIME=$(date -r "$RESET_TS" "+%Y-%m-%d %H:%M")
-  clawdbot cron add \
+  bot cron add \
     --cron "$CRON_MINUTE $CRON_HOUR $CRON_DAY $CRON_MONTH *" \
     --message "Run Claude Code session reminder: $SCRIPT_DIR/session-reminder.sh" \
     --name "Claude Code Session Reminder" \
@@ -95,5 +95,5 @@ if command -v clawdbot >/dev/null 2>&1; then
   echo ""
   echo "✅ Next reminder scheduled for: $(date -r "$RESET_TS" "+%b %d at %I:%M %p")"
 else
-  echo "⚠️  clawdbot not found - cannot schedule next reminder" >&2
+  echo "⚠️  bot not found - cannot schedule next reminder" >&2
 fi

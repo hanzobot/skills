@@ -16,13 +16,13 @@ Manage Todoist via the REST API v2.
    ```
 3. Make CLI executable:
    ```bash
-   chmod +x ~/clawd/skills/todoist/scripts/todoist
+   chmod +x ~/bot/skills/todoist/scripts/todoist
    ```
 
 ## CLI Location
 
 ```bash
-~/clawd/skills/todoist/scripts/todoist
+~/bot/skills/todoist/scripts/todoist
 ```
 
 ## Quick Reference

@@ -27,7 +27,7 @@ fi
 
 target="$1"
 
-export PATH="/home/claw/clawd/bin:$PATH"
+export PATH="/home/claw/bot/bin:$PATH"
 
 cache_dir="${HOME}/.cache/charger-notify"
 mkdir -p "$cache_dir"

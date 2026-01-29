@@ -45,7 +45,7 @@ fi
 
 # Check 3: auth-profiles.json exists
 echo -n "Checking auth profiles... "
-AUTH_PROFILES="$HOME/.clawdbot/agents/main/agent/auth-profiles.json"
+AUTH_PROFILES="$HOME/.bot/agents/main/agent/auth-profiles.json"
 if [[ -f "$AUTH_PROFILES" ]]; then
     echo -e "${GREEN}✓${NC} Found"
     
@@ -126,33 +126,33 @@ else
     ((ERRORS++))
 fi
 
-# Check 5: Clawdbot installed
-echo -n "Checking Clawdbot... "
-if command -v clawdbot &> /dev/null; then
-    CLAWDBOT_VERSION=$(clawdbot --version 2>&1 | head -n1 || echo "unknown")
-    echo -e "${GREEN}✓${NC} Found ($CLAWDBOT_VERSION)"
+# Check 5: Bot installed
+echo -n "Checking Bot... "
+if command -v bot &> /dev/null; then
+    BOT_VERSION=$(bot --version 2>&1 | head -n1 || echo "unknown")
+    echo -e "${GREEN}✓${NC} Found ($BOT_VERSION)"
 else
     echo -e "${RED}✗${NC} Not found"
-    echo "  → Install from: https://clawdbot.com"
+    echo "  → Install from: https://bot.com"
     ((ERRORS++))
 fi
 
-# Check 6: Clawdbot Gateway running
-if command -v clawdbot &> /dev/null; then
-    echo -n "Checking Clawdbot Gateway... "
-    if clawdbot gateway status &> /dev/null; then
+# Check 6: Bot Gateway running
+if command -v bot &> /dev/null; then
+    echo -n "Checking Bot Gateway... "
+    if bot gateway status &> /dev/null; then
         echo -e "${GREEN}✓${NC} Running"
     else
         echo -e "${YELLOW}⚠${NC} Not running"
-        echo "  → Start: clawdbot gateway start"
+        echo "  → Start: bot gateway start"
         ((WARNINGS++))
     fi
 fi
 
-# Check 7: Clawdbot config (for auto-detection)
-echo -n "Checking Clawdbot config... "
-CLAWDBOT_CONFIG="$HOME/.clawdbot/clawdbot.json"
-if [[ -f "$CLAWDBOT_CONFIG" ]]; then
+# Check 7: Bot config (for auto-detection)
+echo -n "Checking Bot config... "
+BOT_CONFIG="$HOME/.bot/bot.json"
+if [[ -f "$BOT_CONFIG" ]]; then
     echo -e "${GREEN}✓${NC} Found"
     
     # Try auto-detection
@@ -222,7 +222,7 @@ fi
 
 # Check 10: Log directory
 echo -n "Checking log directory... "
-LOG_DIR="$HOME/clawd/logs"
+LOG_DIR="$HOME/bot/logs"
 if [[ -d "$LOG_DIR" ]]; then
     echo -e "${GREEN}✓${NC} Found"
 else

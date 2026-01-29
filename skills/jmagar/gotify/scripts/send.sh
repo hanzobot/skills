@@ -2,7 +2,7 @@
 # Send Gotify notification
 set -euo pipefail
 
-CONFIG_FILE="${GOTIFY_CONFIG_FILE:-$HOME/.clawdbot/credentials/gotify/config.json}"
+CONFIG_FILE="${GOTIFY_CONFIG_FILE:-$HOME/.bot/credentials/gotify/config.json}"
 
 if [ ! -f "$CONFIG_FILE" ]; then
   echo "Error: Gotify not configured. Create $CONFIG_FILE with {\"url\": \"https://...\", \"token\": \"...\"}" >&2

@@ -2,7 +2,7 @@
 name: vikunja
 description: Manage projects and tasks in Vikunja, an open-source project management tool. Create projects, tasks, set due dates, priorities, and track completion.
 homepage: https://vikunja.io
-metadata: {"clawdbot":{"emoji":"📋","requires":{"bins":["uv"],"env":["VIKUNJA_URL","VIKUNJA_USER","VIKUNJA_PASSWORD"]},"primaryEnv":"VIKUNJA_URL"}}
+metadata: {"bot":{"emoji":"📋","requires":{"bins":["uv"],"env":["VIKUNJA_URL","VIKUNJA_USER","VIKUNJA_PASSWORD"]},"primaryEnv":"VIKUNJA_URL"}}
 ---
 
 # Vikunja Project Management

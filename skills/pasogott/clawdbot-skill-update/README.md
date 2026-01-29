@@ -1,23 +1,23 @@
-# Clawdbot Update Skill
+# Bot Update Skill
 
-Complete **modular** backup, update, and restore workflow for Clawdbot installations.
+Complete **modular** backup, update, and restore workflow for Bot installations.
 
-**Repository**: https://github.com/clawdbot/clawdbot
+**Repository**: https://github.com/bot/bot
 
 ## Quick Start
 
 ```bash
 # 0. Dry run (see what would be backed up)
-~/.skills/clawdbot-skill-update/backup-clawdbot-dryrun.sh
+~/.skills/bot-skill-update/backup-bot-dryrun.sh
 
 # 1. Create backup
-~/.skills/clawdbot-skill-update/backup-clawdbot-full.sh
+~/.skills/bot-skill-update/backup-bot-full.sh
 
 # 2. Follow checklist
-cat ~/.skills/clawdbot-skill-update/UPDATE_CHECKLIST.md
+cat ~/.skills/bot-skill-update/UPDATE_CHECKLIST.md
 
 # 3. Restore if needed
-~/.skills/clawdbot-skill-update/restore-clawdbot.sh <backup-dir>
+~/.skills/bot-skill-update/restore-bot.sh <backup-dir>
 ```
 
 ## Files
@@ -25,9 +25,9 @@ cat ~/.skills/clawdbot-skill-update/UPDATE_CHECKLIST.md
 | File | Purpose |
 |------|---------|
 | `SKILL.md` | Complete skill documentation |
-| `backup-clawdbot-dryrun.sh` | **Dry run** - preview backup without changes |
-| `backup-clawdbot-full.sh` | Full backup script |
-| `restore-clawdbot.sh` | Restore from backup |
+| `backup-bot-dryrun.sh` | **Dry run** - preview backup without changes |
+| `backup-bot-full.sh` | Full backup script |
+| `restore-bot.sh` | Restore from backup |
 | `validate-setup.sh` | Validate configuration |
 | `check-upstream.sh` | Check for updates |
 | `UPDATE_CHECKLIST.md` | Step-by-step update guide |
@@ -36,7 +36,7 @@ cat ~/.skills/clawdbot-skill-update/UPDATE_CHECKLIST.md
 
 ## What Gets Backed Up
 
-- ✅ Configuration (`~/.clawdbot/clawdbot.json`)
+- ✅ Configuration (`~/.bot/bot.json`)
 - ✅ Sessions state
 - ✅ Agent states (multi-agent)
 - ✅ Credentials & auth tokens
@@ -69,8 +69,8 @@ No hardcoded paths! Works with any agent configuration.
 ## Backup Location
 
 ```
-~/.clawdbot-backups/pre-update-YYYYMMDD-HHMMSS/
-├── clawdbot.json
+~/.bot-backups/pre-update-YYYYMMDD-HHMMSS/
+├── bot.json
 ├── sessions.tar.gz
 ├── agents.tar.gz
 ├── credentials.tar.gz
@@ -88,36 +88,36 @@ No hardcoded paths! Works with any agent configuration.
 
 ```bash
 # Full backup with validation
-~/.skills/clawdbot-update/backup-clawdbot-full.sh
+~/.skills/bot-update/backup-bot-full.sh
 
 # Review what was backed up
-ls -lh ~/.clawdbot-backups/pre-update-*/
+ls -lh ~/.bot-backups/pre-update-*/
 ```
 
 ### After Update (if issues)
 
 ```bash
 # Find latest backup
-ls -t ~/.clawdbot-backups/ | head -1
+ls -t ~/.bot-backups/ | head -1
 
 # Restore
-~/.skills/clawdbot-update/restore-clawdbot.sh ~/.clawdbot-backups/<dir>
+~/.skills/bot-update/restore-bot.sh ~/.bot-backups/<dir>
 ```
 
 ### Check Backup Status
 
 ```bash
-LATEST=$(ls -t ~/.clawdbot-backups/ | head -1)
-cat ~/.clawdbot-backups/$LATEST/BACKUP_INFO.txt
+LATEST=$(ls -t ~/.bot-backups/ | head -1)
+cat ~/.bot-backups/$LATEST/BACKUP_INFO.txt
 ```
 
 ## Testing After Update
 
 ```bash
 # New CLI features
-pnpm clawdbot agents list
-pnpm clawdbot logs --tail 50
-pnpm clawdbot providers list --usage
+pnpm bot agents list
+pnpm bot logs --tail 50
+pnpm bot providers list --usage
 
 # Web UI
 open http://localhost:3001/logs
@@ -128,31 +128,31 @@ open http://localhost:3001/logs
 
 ## Installation
 
-### Via ClawdHub (Recommended)
+### Via Skills (Recommended)
 
 ```bash
-# Install from ClawdHub
-clawdhub install clawdbot-skill-update
+# Install from Skills
+skills install bot-skill-update
 
-# Make scripts executable (required after ClawdHub install)
-chmod +x ~/.skills/clawdbot-skill-update/*.sh
+# Make scripts executable (required after Skills install)
+chmod +x ~/.skills/bot-skill-update/*.sh
 ```
 
 ### Via Git
 
 ```bash
 # Clone to your skills directory
-git clone https://github.com/pasogott/clawdbot-skill-update.git ~/.skills/clawdbot-skill-update
+git clone https://github.com/pasogott/bot-skill-update.git ~/.skills/bot-skill-update
 
 # Make scripts executable
-chmod +x ~/.skills/clawdbot-skill-update/*.sh
+chmod +x ~/.skills/bot-skill-update/*.sh
 ```
 
 ### Quick Test
 
 ```bash
 # Test with dry run
-~/.skills/clawdbot-skill-update/backup-clawdbot-dryrun.sh
+~/.skills/bot-skill-update/backup-bot-dryrun.sh
 ```
 
 ## Support
@@ -160,8 +160,8 @@ chmod +x ~/.skills/clawdbot-skill-update/*.sh
 For issues, consult:
 1. `UPDATE_CHECKLIST.md` for step-by-step guidance
 2. `SKILL.md` for detailed troubleshooting
-3. Clawdbot logs: `pnpm clawdbot logs --follow`
-4. Run doctor: `pnpm clawdbot doctor`
+3. Bot logs: `pnpm bot logs --follow`
+4. Run doctor: `pnpm bot doctor`
 
 ## License
 
@@ -171,5 +171,5 @@ MIT - see [LICENSE](LICENSE)
 
 **Pascal Schott** ([@pasogott](https://github.com/pasogott))
 
-Contribution for Clawdbot  
-Repository: https://github.com/clawdbot/clawdbot
+Contribution for Bot  
+Repository: https://github.com/bot/bot

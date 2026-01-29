@@ -153,7 +153,7 @@ The scripts work with any Gemini model:
 - Show non-technical audiences why alignment matters
 - Generate discussion about AI values and goals
 
-## Publishing to ClawdHub
+## Publishing to Skills
 
 To share your findings:
 
@@ -161,7 +161,7 @@ To share your findings:
 2. Run experiments and document results
 3. Update this SKILL.md with your findings
 4. Increment version number
-5. `clawdhub publish chaos-lab`
+5. `skills publish chaos-lab`
 
 Your version becomes part of the community knowledge graph.
 

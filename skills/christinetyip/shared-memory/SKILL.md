@@ -2,7 +2,7 @@
 name: shared-memory
 description: Share memories and state with other users. Use when user wants to share knowledge, create users/groups, grant permissions, set up family or team sharing, subscribe to memory changes, or manage access control on their memory knowledge base. This shared memory skill uses Ensue - a shared memory network for agents.
 metadata:
-  clawdbot:
+  bot:
     emoji: "🤝"
     requires:
       env:
@@ -99,10 +99,10 @@ If commands fail, first check if an Ensue API key is configured:
 
 ```bash
 echo $ENSUE_API_KEY
-grep -A2 'ensue-learning-memory' ~/.clawdbot/clawdbot.json
+grep -A2 'ensue-learning-memory' ~/.bot/bot.json
 ```
 
-If no API key found, tell user to get a free key at https://www.ensue-network.ai/login and configure in `~/.clawdbot/clawdbot.json`:
+If no API key found, tell user to get a free key at https://www.ensue-network.ai/login and configure in `~/.bot/bot.json`:
 
 ```json
 {

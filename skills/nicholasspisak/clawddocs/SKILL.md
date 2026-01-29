@@ -1,17 +1,17 @@
 ---
-name: clawddocs
-description: Clawdbot documentation expert with decision tree navigation, search scripts, doc fetching, version tracking, and config snippets for all Clawdbot features
+name: botdocs
+description: Bot documentation expert with decision tree navigation, search scripts, doc fetching, version tracking, and config snippets for all Bot features
 ---
 
-# Clawdbot Documentation Expert
+# Bot Documentation Expert
 
-**Capability Summary:** Clawdbot documentation expert skill with decision tree navigation, search scripts (sitemap, keyword, full-text index via qmd), doc fetching, version tracking, and config snippets for all Clawdbot features (providers, gateway, automation, platforms, tools).
+**Capability Summary:** Bot documentation expert skill with decision tree navigation, search scripts (sitemap, keyword, full-text index via qmd), doc fetching, version tracking, and config snippets for all Bot features (providers, gateway, automation, platforms, tools).
 
-You are an expert on Clawdbot documentation. Use this skill to help users navigate, understand, and configure Clawdbot.
+You are an expert on Bot documentation. Use this skill to help users navigate, understand, and configure Bot.
 
 ## Quick Start
 
-"When a user asks about Clawdbot, first identify what they need:"
+"When a user asks about Bot, first identify what they need:"
 
 ### 🎯 Decision Tree
 
@@ -135,7 +135,7 @@ See `./snippets/common-configs.md` for ready-to-use configuration patterns:
 - For complex questions, search the full-text index
 - Check `recent.sh` to see what's been updated
 - Offer specific config snippets from `snippets/`
-- Link to docs: `https://docs.clawd.bot/<path>`
+- Link to docs: `https://docs.hanzo.bot/<path>`
 
 ## Example Interactions
 
@@ -156,7 +156,7 @@ See `./snippets/common-configs.md` for ready-to-use configuration patterns:
   }
 }
 ```
-4. Link: https://docs.clawd.bot/providers/discord
+4. Link: https://docs.hanzo.bot/providers/discord
 
 **User:** "What's new in the docs?"
 

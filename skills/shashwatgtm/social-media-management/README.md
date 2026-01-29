@@ -307,10 +307,10 @@ Each vertical includes 6 content scenarios covering:
 
 ## 📦 Installation
 
-### Method 1: Using Clawd CLI
+### Method 1: Using Bot CLI
 
 ```bash
-clawdhub install shashwatgtm/content-writing-thought-leadership
+skills install shashwatgtm/content-writing-thought-leadership
 ```
 
 ### Method 2: Using Claude.ai

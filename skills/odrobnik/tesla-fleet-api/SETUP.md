@@ -19,7 +19,7 @@ If you just want the CLI command reference, see `SKILL.md`.
 
 All runtime state lives outside the skill folder:
 
-`~/.clawdbot/tesla-fleet-api/`
+`~/.bot/tesla-fleet-api/`
 
 Files:
 - `.env` — **provider creds** (client id/secret) and optional overrides
@@ -40,7 +40,7 @@ cd skills/tesla-fleet-api
 ```
 
 This builds `tesla-http-proxy` and generates TLS material under:
-`~/.clawdbot/tesla-fleet-api/proxy/`
+`~/.bot/tesla-fleet-api/proxy/`
 
 ---
 
@@ -56,21 +56,21 @@ openssl ec -in private-key.pem -pubout -out public-key.pem
 ```
 
 Store your private key securely (recommended location):
-`~/.clawdbot/tesla-fleet-api/YOUR_DOMAIN.tesla.private-key.pem`
+`~/.bot/tesla-fleet-api/YOUR_DOMAIN.tesla.private-key.pem`
 
 ---
 
 ## 3) Put provider credentials into .env
 
 Create:
-`~/.clawdbot/tesla-fleet-api/.env`
+`~/.bot/tesla-fleet-api/.env`
 
 ```bash
-cat > ~/.clawdbot/tesla-fleet-api/.env <<'EOF'
+cat > ~/.bot/tesla-fleet-api/.env <<'EOF'
 TESLA_CLIENT_ID=YOUR_CLIENT_ID
 TESLA_CLIENT_SECRET=YOUR_CLIENT_SECRET
 EOF
-chmod 600 ~/.clawdbot/tesla-fleet-api/.env
+chmod 600 ~/.bot/tesla-fleet-api/.env
 ```
 
 Optional overrides you *can* also set in `.env`:
@@ -125,7 +125,7 @@ Then, on your phone (Tesla app installed):
 Start the proxy:
 
 ```bash
-./scripts/start_proxy.sh ~/.clawdbot/tesla-fleet-api/YOUR_DOMAIN.tesla.private-key.pem
+./scripts/start_proxy.sh ~/.bot/tesla-fleet-api/YOUR_DOMAIN.tesla.private-key.pem
 ```
 
 Configure the scripts to talk to the local proxy:
@@ -133,7 +133,7 @@ Configure the scripts to talk to the local proxy:
 ```bash
 python3 scripts/auth.py config set \
   --base-url "https://localhost:4443" \
-  --ca-cert "$HOME/.clawdbot/tesla-fleet-api/proxy/tls-cert.pem"
+  --ca-cert "$HOME/.bot/tesla-fleet-api/proxy/tls-cert.pem"
 ```
 
 ---

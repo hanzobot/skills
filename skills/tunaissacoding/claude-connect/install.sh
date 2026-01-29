@@ -13,7 +13,7 @@ NC='\033[0m'
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/claude-oauth-refresh-config.json"
-PLIST_FILE="com.clawdbot.claude-oauth-refresher.plist"
+PLIST_FILE="com.bot.claude-oauth-refresher.plist"
 LAUNCHAGENTS_DIR="$HOME/Library/LaunchAgents"
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
@@ -25,7 +25,7 @@ echo -e "${CYAN}The refresh job will run every 2 hours in the background.${NC}"
 echo ""
 echo -e "${CYAN}To change settings later:${NC}"
 echo -e "  1. Edit: $CONFIG_FILE"
-echo -e "  2. Ask Clawdbot: \"disable Claude refresh notifications\""
+echo -e "  2. Ask Bot: \"disable Claude refresh notifications\""
 echo -e "  3. Changes apply automatically - no need to re-run installer!"
 echo ""
 read -p "Press Enter to continue..." -r
@@ -108,7 +108,7 @@ if [[ "$CREATE_NEW_CONFIG" == "true" ]]; then
     echo -e "${YELLOW}💡 Recommendation:${NC} Keep all enabled for the first run to verify it works."
     echo "   You can disable them later by:"
     echo "   1. Editing: $CONFIG_FILE"
-    echo "   2. Asking Clawdbot: \"disable Claude refresh notifications\""
+    echo "   2. Asking Bot: \"disable Claude refresh notifications\""
     echo ""
     
     # Prompt for each notification type
@@ -137,7 +137,7 @@ if [[ "$CREATE_NEW_CONFIG" == "true" ]]; then
         cat > "$CONFIG_FILE" << EOF
 {
   "refresh_buffer_minutes": 30,
-  "log_file": "~/clawd/logs/claude-oauth-refresh.log",
+  "log_file": "~/bot/logs/claude-oauth-refresh.log",
   "notifications": {
     "on_success": $NOTIFY_SUCCESS,
     "on_failure": $NOTIFY_FAILURE
@@ -153,7 +153,7 @@ EOF
         cat > "$CONFIG_FILE" << EOF
 {
   "refresh_buffer_minutes": 30,
-  "log_file": "~/clawd/logs/claude-oauth-refresh.log",
+  "log_file": "~/bot/logs/claude-oauth-refresh.log",
   "notifications": {
     "on_success": $NOTIFY_SUCCESS,
     "on_failure": $NOTIFY_FAILURE
@@ -180,7 +180,7 @@ if "$SCRIPT_DIR/refresh-token.sh"; then
     echo -e "${GREEN}✓${NC} Refresh successful"
 else
     echo -e "${RED}✗${NC} Refresh failed - check logs"
-    tail -10 ~/clawd/logs/claude-oauth-refresh.log
+    tail -10 ~/bot/logs/claude-oauth-refresh.log
     exit 1
 fi
 echo ""
@@ -193,7 +193,7 @@ cat > "$SCRIPT_DIR/$PLIST_FILE" << EOF
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.clawdbot.claude-oauth-refresher</string>
+    <string>com.bot.claude-oauth-refresher</string>
     
     <key>ProgramArguments</key>
     <array>
@@ -207,10 +207,10 @@ cat > "$SCRIPT_DIR/$PLIST_FILE" << EOF
     <true/>
     
     <key>StandardOutPath</key>
-    <string>$HOME/clawd/logs/claude-oauth-refresher-stdout.log</string>
+    <string>$HOME/bot/logs/claude-oauth-refresher-stdout.log</string>
     
     <key>StandardErrorPath</key>
-    <string>$HOME/clawd/logs/claude-oauth-refresher-stderr.log</string>
+    <string>$HOME/bot/logs/claude-oauth-refresher-stderr.log</string>
     
     <key>WorkingDirectory</key>
     <string>$SCRIPT_DIR</string>
@@ -231,7 +231,7 @@ echo -e "${BLUE}[5/6]${NC} Installing launchd service..."
 mkdir -p "$LAUNCHAGENTS_DIR"
 
 # Unload if already loaded
-if launchctl list | grep -q "com.clawdbot.claude-oauth-refresher"; then
+if launchctl list | grep -q "com.bot.claude-oauth-refresher"; then
     launchctl unload "$LAUNCHAGENTS_DIR/$PLIST_FILE" 2>/dev/null || true
     echo "  → Unloaded existing service"
 fi
@@ -244,7 +244,7 @@ echo ""
 # Step 6: Verify
 echo -e "${BLUE}[6/6]${NC} Verifying installation..."
 sleep 2
-if launchctl list | grep -q "com.clawdbot.claude-oauth-refresher"; then
+if launchctl list | grep -q "com.bot.claude-oauth-refresher"; then
     echo -e "${GREEN}✓${NC} Service is running"
 else
     echo -e "${YELLOW}⚠${NC} Service may not be loaded (check: launchctl list)"
@@ -272,10 +272,10 @@ fi
 echo ""
 echo "Change settings:"
 echo "  • Edit: $CONFIG_FILE"
-echo "  • Or ask Clawdbot: \"disable Claude refresh notifications\""
+echo "  • Or ask Bot: \"disable Claude refresh notifications\""
 echo ""
 echo "Monitor:"
-echo "  • Logs: tail -f ~/clawd/logs/claude-oauth-refresh.log"
+echo "  • Logs: tail -f ~/bot/logs/claude-oauth-refresh.log"
 echo "  • Status: launchctl list | grep claude-oauth-refresher"
 echo "  • Manual test: $SCRIPT_DIR/refresh-token.sh"
 echo ""

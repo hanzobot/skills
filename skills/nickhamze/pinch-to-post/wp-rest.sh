@@ -1,5 +1,5 @@
 #!/bin/bash
-# Pinch to Post v3.0 - Ultimate WordPress REST API Helper for Clawdbot 🦞
+# Pinch to Post v3.0 - Ultimate WordPress REST API Helper for Bot 🦞
 # Usage: wp-rest.sh <command> [options]
 
 set -e

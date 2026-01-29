@@ -2,7 +2,7 @@
 name: codexmonitor
 description: List/inspect/watch local OpenAI Codex sessions (CLI + VS Code) using the CodexMonitor Homebrew formula.
 homepage: https://github.com/Cocoanetics/CodexMonitor
-metadata: {"clawdbot":{"emoji":"🧾","os":["darwin"],"requires":{"bins":["codexmonitor"]},"install":[{"id":"brew","kind":"brew","formula":"cocoanetics/tap/codexmonitor","bins":["codexmonitor"],"label":"Install codexmonitor (brew)"}]}}
+metadata: {"bot":{"emoji":"🧾","os":["darwin"],"requires":{"bins":["codexmonitor"]},"install":[{"id":"brew","kind":"brew","formula":"cocoanetics/tap/codexmonitor","bins":["codexmonitor"],"label":"Install codexmonitor (brew)"}]}}
 ---
 
 # codexmonitor

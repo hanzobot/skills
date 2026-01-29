@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Garmin Health Analysis - Clawdbot Skill Installation
-# Run this after cloning the skill to your Clawdbot skills directory
+# Garmin Health Analysis - Bot Skill Installation
+# Run this after cloning the skill to your Bot skills directory
 
 set -e  # Exit on error
 
@@ -47,7 +47,7 @@ echo "Next steps:"
 echo "  1. Add your Garmin credentials:"
 echo "     - Edit config.json, or"
 echo "     - Set GARMIN_EMAIL and GARMIN_PASSWORD env vars, or"
-echo "     - Add to ~/.clawdbot/clawdbot.json skills config"
+echo "     - Add to ~/.bot/bot.json skills config"
 echo
 echo "  2. Authenticate:"
 echo "     python3 scripts/garmin_auth.py login"

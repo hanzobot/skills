@@ -2,7 +2,7 @@
 name: sonarr
 version: 1.0.0
 description: Search and add TV shows to Sonarr. Supports monitor options, search-on-add.
-metadata: {"clawdbot":{"emoji":"📺","requires":{"bins":["curl","jq"]}}}
+metadata: {"bot":{"emoji":"📺","requires":{"bins":["curl","jq"]}}}
 ---
 
 # Sonarr
@@ -11,7 +11,7 @@ Add TV shows to your Sonarr library.
 
 ## Setup
 
-Create `~/.clawdbot/credentials/sonarr/config.json`:
+Create `~/.bot/credentials/sonarr/config.json`:
 ```json
 {
   "url": "http://localhost:8989",

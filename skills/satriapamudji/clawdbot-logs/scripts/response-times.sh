@@ -1,5 +1,5 @@
 #!/bin/bash
-# Calculate response times from clawdbot journal logs
+# Calculate response times from bot journal logs
 # Usage: response-times.sh [count]
 
 COUNT=${1:-10}
@@ -7,7 +7,7 @@ COUNT=${1:-10}
 echo "=== Last $COUNT Response Times ==="
 echo ""
 
-journalctl --user -u clawdbot-gateway.service --no-pager --since "2 hours ago" 2>/dev/null | \
+journalctl --user -u bot-gateway.service --no-pager --since "2 hours ago" 2>/dev/null | \
 grep -E "session state.*run_(started|completed)" | \
 tail -$((COUNT * 2)) | \
 awk '
@@ -45,8 +45,8 @@ BEGIN { start_time = 0; session = "" }
 
 echo ""
 echo "=== Summary ==="
-journalctl --user -u clawdbot-gateway.service --no-pager --since "1 hour ago" 2>/dev/null | \
+journalctl --user -u bot-gateway.service --no-pager --since "1 hour ago" 2>/dev/null | \
 grep -c "run_completed" | xargs -I{} echo "Completed runs (1h): {}"
 
-journalctl --user -u clawdbot-gateway.service --no-pager --since "1 hour ago" 2>/dev/null | \
+journalctl --user -u bot-gateway.service --no-pager --since "1 hour ago" 2>/dev/null | \
 grep -iE "(error|fail)" | wc -l | xargs -I{} echo "Errors (1h): {}"

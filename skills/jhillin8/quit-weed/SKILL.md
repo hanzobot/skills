@@ -1,7 +1,7 @@
 ---
 name: quit-weed
 description: Take a tolerance break or quit cannabis with streak tracking and craving support
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "quit weed"
@@ -28,12 +28,12 @@ Stay clear-headed. Track your streak. Build the habit.
 ## Usage
 
 ### Start a Break
-Ask clawd to initiate a new streak:
+Ask bot to initiate a new streak:
 - "Start a tolerance break"
 - "Begin weed quit journey"
 - "Set a 30-day cannabis goal"
 
-Clawd will record the start date and your goal duration.
+Bot will record the start date and your goal duration.
 
 ### Handle Cravings
 When urges strike, trigger immediate support:
@@ -57,7 +57,7 @@ Define what success looks like:
 - "Set a 90-day goal"
 - "Make this permanent"
 
-Clawd stores your target and adjusts the clarity timeline accordingly.
+Bot stores your target and adjusts the clarity timeline accordingly.
 
 ### Benefits Check
 Understand what's happening in your body/mind:

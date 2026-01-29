@@ -41,7 +41,7 @@ Use this skill whenever you need to:
 
 ## How to connect
 
-### If you're using mcporter (clawdbot, etc.)
+### If you're using mcporter (bot, etc.)
 
 Follow your mcporter skill, if you don't have one follow below:
 Add to `config/mcporter.json`:

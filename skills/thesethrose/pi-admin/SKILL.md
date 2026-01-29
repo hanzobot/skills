@@ -1,7 +1,7 @@
 ---
 name: pi-admin
 description: Raspberry Pi system administration. Monitor resources, manage services, perform updates and maintenance.
-metadata: {"clawdis":{"emoji":"🥧","requires":{"bins":[]}}}
+metadata: {"botis":{"emoji":"🥧","requires":{"bins":[]}}}
 ---
 
 # Raspberry Pi Administration
@@ -20,7 +20,7 @@ Complete system monitoring and introspection for the Raspberry Pi host. Access n
 
 ```bash
 # Information Commands
-cd /home/srose/clawd/skills/pi-admin
+cd /home/srose/bot/skills/pi-admin
 ./skill.sh overview
 ./skill.sh network
 ./skill.sh tailscale
@@ -33,7 +33,7 @@ cd /home/srose/clawd/skills/pi-admin
 ./skill.sh update       # Update system packages
 ./skill.sh clean        # Clean unused packages, logs, Docker
 ./skill.sh reboot       # Reboot with countdown
-./skill.sh restart-gateway  # Restart the Clawdis Gateway
+./skill.sh restart-gateway  # Restart the Bot Gateway
 
 # Complete system info
 ./skill.sh all
@@ -132,7 +132,7 @@ Graceful system reboot:
 - **Dry run:** `./skill.sh reboot --dry-run` shows countdown without rebooting
 
 ### `restart-gateway`
-Restart the Clawdis Gateway service:
+Restart the Bot Gateway service:
 - Stops all running gateway processes
 - Starts fresh gateway on port 18789
 - Confirms port is listening

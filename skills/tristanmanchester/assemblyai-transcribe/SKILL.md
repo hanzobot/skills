@@ -3,7 +3,7 @@ name: assemblyai-transcribe
 description: Transcribe audio/video with AssemblyAI (local upload or URL), plus subtitles + paragraph/sentence exports.
 homepage: https://www.assemblyai.com/docs
 user-invocable: true
-metadata: {"clawdbot":{"skillKey":"assemblyai","emoji":"🎙️","requires":{"bins":["node"],"env":["ASSEMBLYAI_API_KEY"]},"primaryEnv":"ASSEMBLYAI_API_KEY"}}
+metadata: {"bot":{"skillKey":"assemblyai","emoji":"🎙️","requires":{"bins":["node"],"env":["ASSEMBLYAI_API_KEY"]},"primaryEnv":"ASSEMBLYAI_API_KEY"}}
 ---
 
 # AssemblyAI transcription + exports
@@ -23,13 +23,13 @@ This skill requires:
 - `node` on PATH (Node.js 18+ recommended; script uses built-in fetch)
 - `ASSEMBLYAI_API_KEY` in the environment
 
-Recommended Clawdbot config (`~/.clawdbot/clawdbot.json`):
+Recommended Bot config (`~/.bot/bot.json`):
 
 ```js
 {
   skills: {
     entries: {
-      // This skill declares metadata.clawdbot.skillKey = "assemblyai"
+      // This skill declares metadata.bot.skillKey = "assemblyai"
       assemblyai: {
         enabled: true,
         // Because this skill declares primaryEnv = ASSEMBLYAI_API_KEY,

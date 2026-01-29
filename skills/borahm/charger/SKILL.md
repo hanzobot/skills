@@ -2,7 +2,7 @@
 name: charger
 description: Check EV charger availability (favorites, nearby search) via Google Places.
 metadata:
-  clawdbot:
+  bot:
     config:
       requiredEnv:
         - GOOGLE_PLACES_API_KEY
@@ -20,11 +20,11 @@ This skill includes a `bin/charger` CLI (Node.js) for checking charger availabil
 ## Setup
 
 - Requirements:
-  - Node.js 18+ (Clawdbot already has Node)
-  - `GOOGLE_PLACES_API_KEY` (recommended in `~/.clawdbot/.env`)
+  - Node.js 18+ (Bot already has Node)
+  - `GOOGLE_PLACES_API_KEY` (recommended in `~/.bot/.env`)
 
 - Put the CLI on your PATH (example):
-  - `ln -sf "$(pwd)"/bin/charger /home/claw/clawd/bin/charger`
+  - `ln -sf "$(pwd)"/bin/charger /home/claw/bot/bin/charger`
 
 - Add a favorite:
   - `charger favorites add home --place-id <placeId>`
@@ -73,7 +73,7 @@ Because the helper prints **only when it becomes available**, you only get messa
 Check every 10 minutes:
 - `*/10 * * * *`
 
-If you want me to wire this into Clawdbot Gateway cron (so you get Telegram pings), tell me:
+If you want me to wire this into Bot Gateway cron (so you get Telegram pings), tell me:
 - target (`home`)
 - interval (every 5/10/20 min)
 - quiet hours (optional)

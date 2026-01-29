@@ -1,6 +1,6 @@
 # 📈 Crypto Price & Chart
 
-A Clawdbot skill for fetching cryptocurrency token prices and generating beautiful candlestick charts.
+A Bot skill for fetching cryptocurrency token prices and generating beautiful candlestick charts.
 
 ## Features
 
@@ -12,17 +12,17 @@ A Clawdbot skill for fetching cryptocurrency token prices and generating beautif
 
 ## Installation
 
-### Via ClawdHub
+### Via Skills
 
 ```bash
-clawdhub install evgyur/crypto-price
+skills install evgyur/crypto-price
 ```
 
 ### Manual Installation
 
-1. Clone or copy this skill to your Clawdbot workspace:
+1. Clone or copy this skill to your Bot workspace:
    ```bash
-   cd ~/.clawdbot/workspace/skills
+   cd ~/.bot/workspace/skills
    git clone https://github.com/evgyur/crypto-price.git
    ```
 
@@ -38,7 +38,7 @@ clawdhub install evgyur/crypto-price
 
 4. Verify installation:
    ```bash
-   clawdbot skills info crypto-price
+   bot skills info crypto-price
    ```
 
 ## Usage
@@ -155,7 +155,7 @@ MIT
 
 ## Author
 
-Created for Clawdbot community. Originally part of Clawdbot bundled skills, restored and enhanced.
+Created for Bot community. Originally part of Bot bundled skills, restored and enhanced.
 
 ## Contributing
 
@@ -171,8 +171,8 @@ This skill works with slash command skills:
 ## Links
 
 - [GitHub Repository](https://github.com/evgyur/crypto-price)
-- [ClawdHub](https://clawdhub.com/evgyur/crypto-price)
-- [Clawdbot Documentation](https://docs.clawd.bot)
+- [Skills](https://skills.com/evgyur/crypto-price)
+- [Bot Documentation](https://docs.hanzo.bot)
 
 ## Changelog
 

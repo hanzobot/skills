@@ -3,7 +3,7 @@
 # Usage: ./save_full_snapshot.sh [optional-topic-name]
 
 VAULT_DIR="/root/ObsidianVault/Clawd Markdowns"
-SESSION_FILE=$(ls -t /root/.clawdbot/agents/main/sessions/*.jsonl 2>/dev/null | head -1)
+SESSION_FILE=$(ls -t /root/.bot/agents/main/sessions/*.jsonl 2>/dev/null | head -1)
 
 if [[ ! -f "$SESSION_FILE" ]]; then
     echo "No session file found"
@@ -31,7 +31,7 @@ EOF
 
 # Parse JSONL to markdown (Obsidian chat format - FIXED)
 cat "$SESSION_FILE" | while IFS= read -r line; do
-    echo "$line" | jq -r -f /root/clawd/format_message_v2.jq.txt 2>/dev/null
+    echo "$line" | jq -r -f /root/bot/format_message_v2.jq.txt 2>/dev/null
 done >> "$SNAPSHOT_FILE"
 
 echo "✅ Saved full snapshot: $SNAPSHOT_FILE"

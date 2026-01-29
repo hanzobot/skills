@@ -2,7 +2,7 @@
 name: whcli
 description: Willhaben CLI for searching Austria's largest classifieds marketplace. Search listings, view details, check seller profiles.
 homepage: https://github.com/pasogott/whcli
-metadata: {"clawdis":{"emoji":"🏠","requires":{"bins":["whcli"]},"install":[{"id":"brew","kind":"brew","formula":"pasogott/tap/whcli","bins":["whcli"],"label":"Install whcli (Homebrew)"},{"id":"source","kind":"shell","command":"git clone https://github.com/pasogott/whcli.git && cd whcli && uv sync","label":"Install from source (uv)"}]}}
+metadata: {"botis":{"emoji":"🏠","requires":{"bins":["whcli"]},"install":[{"id":"brew","kind":"brew","formula":"pasogott/tap/whcli","bins":["whcli"],"label":"Install whcli (Homebrew)"},{"id":"source","kind":"shell","command":"git clone https://github.com/pasogott/whcli.git && cd whcli && uv sync","label":"Install from source (uv)"}]}}
 ---
 
 # whcli - Willhaben CLI 🏠

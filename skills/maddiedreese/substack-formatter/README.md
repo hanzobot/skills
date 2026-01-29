@@ -71,9 +71,9 @@ python3 test_formatter.py
 python3 formatter.py "Your content" micro-story
 ```
 
-## 🔧 Integration with Clawdbot
+## 🔧 Integration with Bot
 
-Just tell Clawdbot:
+Just tell Bot:
 
 > "Format this for Substack: [your content]"
 

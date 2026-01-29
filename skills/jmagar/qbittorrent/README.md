@@ -1,6 +1,6 @@
 # qBittorrent Skill
 
-Manage torrents via qBittorrent WebUI from Clawdbot.
+Manage torrents via qBittorrent WebUI from Bot.
 
 ## What It Does
 
@@ -23,8 +23,8 @@ Manage torrents via qBittorrent WebUI from Clawdbot.
 ### 2. Create Credentials File
 
 ```bash
-mkdir -p ~/.clawdbot/credentials/qbittorrent
-cat > ~/.clawdbot/credentials/qbittorrent/config.json << 'EOF'
+mkdir -p ~/.bot/credentials/qbittorrent
+cat > ~/.bot/credentials/qbittorrent/config.json << 'EOF'
 {
   "url": "http://localhost:8080",
   "username": "admin",
@@ -106,7 +106,7 @@ export QBIT_PASS="your-password"
 ## Troubleshooting
 
 **"QBIT_URL must be set"**  
-→ Check your config file exists at `~/.clawdbot/credentials/qbittorrent/config.json`
+→ Check your config file exists at `~/.bot/credentials/qbittorrent/config.json`
 
 **Connection refused**  
 → Make sure WebUI is enabled in qBittorrent settings

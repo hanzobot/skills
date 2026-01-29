@@ -4,7 +4,7 @@
 
 Track soccer, football, basketball, hockey, baseball, F1, and more!
 
-Built for [Clawdbot](https://clawdbot.com) but works standalone too.
+Built for [Bot](https://bot.com) but works standalone too.
 
 ## ✨ Features
 
@@ -14,7 +14,7 @@ Built for [Clawdbot](https://clawdbot.com) but works standalone too.
 - ⏸️ **Period updates** — Halftime, quarters, intermissions
 - 🏁 **Final results** with WIN/LOSS/DRAW
 - 📊 **Multi-team support** — track as many teams as you want
-- 🔄 **Auto-scheduling** — cron jobs for match days (Clawdbot)
+- 🔄 **Auto-scheduling** — cron jobs for match days (Bot)
 - 💰 **100% FREE** — no API keys, no subscriptions!
 
 ## 🎯 The Secret Sauce: ESPN API
@@ -55,7 +55,7 @@ This skill uses ESPN's public API which provides:
 
 ```bash
 # Clone or copy to your skills directory
-clawdhub install sports-ticker
+skills install sports-ticker
 
 # Or manually
 git clone https://github.com/your-repo/sports-ticker
@@ -191,7 +191,7 @@ Oilers 3-2 Maple Leafs
 Kansas City Chiefs 31-24 Buffalo Bills
 ```
 
-## 🤖 Clawdbot Integration
+## 🤖 Bot Integration
 
 ### Automatic Cron Setup
 

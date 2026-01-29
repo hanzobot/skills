@@ -3,7 +3,7 @@ name: mole-mac-cleanup
 description: Mac cleanup & optimization tool combining CleanMyMac, AppCleaner, DaisyDisk features. Deep cleaning, smart uninstaller, disk insights, and project artifact purge.
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 metadata:
-  clawdbot:
+  bot:
     emoji: "🧹"
     os: ["darwin"]
     requires:

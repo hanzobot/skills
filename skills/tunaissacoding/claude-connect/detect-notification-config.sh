@@ -1,14 +1,14 @@
 #!/bin/bash
-# detect-notification-config.sh - Auto-detect notification settings from Clawdbot config
-# Follows target formats from Clawdbot docs: https://docs.clawd.bot/channels/
+# detect-notification-config.sh - Auto-detect notification settings from Bot config
+# Follows target formats from Bot docs: https://docs.hanzo.bot/channels/
 
 set -euo pipefail
 
-CLAWDBOT_CONFIG="$HOME/.clawdbot/clawdbot.json"
-SESSIONS_FILE="$HOME/.clawdbot/agents/main/sessions/sessions.json"
+BOT_CONFIG="$HOME/.bot/bot.json"
+SESSIONS_FILE="$HOME/.bot/agents/main/sessions/sessions.json"
 
 # Output format: channel|target
-# Target formats (per Clawdbot docs https://docs.clawd.bot/channels/):
+# Target formats (per Bot docs https://docs.hanzo.bot/channels/):
 #   telegram: numeric ID (123456789) or @username
 #   discord:  user:<id> for DMs, channel:<channelId> for guild channels
 #   slack:    user:<id> for DMs, channel:<id> for channels

@@ -123,11 +123,11 @@ node scripts/imap.js list-mailboxes
 
 ## Cron Integration
 
-Set up periodic email checking with Clawdbot cron:
+Set up periodic email checking with Bot cron:
 
 ```bash
 # Check email every 15 minutes, deliver to iMessage
-clawdbot cron add \
+bot cron add \
   --name "email-check" \
   --cron "*/15 * * * *" \
   --session isolated \
@@ -139,7 +139,7 @@ clawdbot cron add \
 
 Inside the isolated session, the agent can run:
 ```bash
-node /Users/mike/clawd/skills/imap-email/scripts/imap.js check --limit 5
+node /Users/mike/bot/skills/imap-email/scripts/imap.js check --limit 5
 ```
 
 ## Workflow Examples

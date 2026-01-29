@@ -9,9 +9,9 @@ if echo "$OUTPUT" | grep -q "Reset notification sent"; then
   # Extract just the notification message (before "✅ Reset notification sent")
   MESSAGE=$(echo "$OUTPUT" | sed '/✅ Reset notification sent/q' | sed '$ d')
   
-  # Send via Telegram using clawdbot
-  if command -v clawdbot >/dev/null 2>&1; then
+  # Send via Telegram using bot
+  if command -v bot >/dev/null 2>&1; then
     # Use printf to handle newlines properly
-    printf '%s' "$MESSAGE" | clawdbot message send --telegram --target 5259918241
+    printf '%s' "$MESSAGE" | bot message send --telegram --target 5259918241
   fi
 fi

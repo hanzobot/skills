@@ -1,9 +1,9 @@
 ---
-name: clawd-modifier
-description: Modify Clawd, the Claude Code mascot. Use this skill when users want to customize Clawd's appearance in their Claude Code CLI, including changing colors (blue Clawd, green Clawd, holiday themes), adding features (arms, hats, accessories), or creating custom ASCII art variants. Triggers include "change Clawd color", "give Clawd arms", "customize the mascot", "modify Clawd", "make Clawd [color]", or any request to personalize the Claude Code terminal mascot.
+name: bot-modifier
+description: Modify Clawd, the Claude Code mascot. Use this skill when users want to customize Clawd's appearance in their Claude Code CLI, including changing colors (blue Clawd, green Clawd, holiday themes), adding features (arms, hats, accessories), or creating custom ASCII art variants. Triggers include "change Bot color", "give Bot arms", "customize the mascot", "modify Clawd", "make Bot [color]", or any request to personalize the Claude Code terminal mascot.
 ---
 
-# Clawd Modifier
+# Bot Modifier
 
 Customize the Claude Code mascot's appearance by modifying colors and ASCII art.
 
@@ -11,7 +11,7 @@ Customize the Claude Code mascot's appearance by modifying colors and ASCII art.
 
 **CLI location**: `/opt/node22/lib/node_modules/@anthropic-ai/claude-code/cli.js`
 
-**Clawd colors**:
+**Bot colors**:
 - Body: `rgb(215,119,87)` / `ansi:redBright`
 - Background: `rgb(0,0,0)` / `ansi:black`
 
@@ -63,10 +63,10 @@ python scripts/patch_art.py --restore
 
 ### Extract Current Clawd
 
-Use `scripts/extract_clawd.py` to see current state:
+Use `scripts/extract_bot.py` to see current state:
 
 ```bash
-python scripts/extract_clawd.py
+python scripts/extract_bot.py
 ```
 
 ### Manual Modifications
@@ -81,7 +81,7 @@ For custom changes not covered by scripts, edit cli.js directly:
 Pattern examples:
 ```bash
 # Find color definitions
-grep -o 'clawd_body:"[^"]*"' cli.js | head -5
+grep -o 'bot_body:"[^"]*"' cli.js | head -5
 
 # Replace color
 sed -i 's/rgb(215,119,87)/rgb(100,149,237)/g' cli.js
@@ -90,8 +90,8 @@ sed -i 's/rgb(215,119,87)/rgb(100,149,237)/g' cli.js
 ## Resources
 
 - **Unicode reference**: See `references/unicode-blocks.md` for block characters
-- **Technical details**: See `references/clawd-anatomy.md` for rendering internals
-- **Design gallery**: See `assets/clawd-variants.txt` for inspiration
+- **Technical details**: See `references/bot-anatomy.md` for rendering internals
+- **Design gallery**: See `assets/bot-variants.txt` for inspiration
 
 ## Notes
 

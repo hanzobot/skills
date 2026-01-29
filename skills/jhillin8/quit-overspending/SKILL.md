@@ -1,7 +1,7 @@
 ---
 name: quit-overspending
 description: Break impulse buying habits with spending streaks, urge tracking, and savings milestones
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "stop overspending"

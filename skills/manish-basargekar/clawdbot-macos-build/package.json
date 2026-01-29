@@ -1,6 +1,6 @@
 {
-  "name": "clawdbot-macos-build",
+  "name": "bot-macos-build",
   "version": "1.0.0",
-  "description": "Build the Clawdbot macOS menu bar app from source",
+  "description": "Build the Bot macOS menu bar app from source",
   "private": true
 }

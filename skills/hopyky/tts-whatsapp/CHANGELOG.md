@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - 🎙️ High-quality text-to-speech using Piper TTS
 - 🌍 Support for 40+ languages (French, English, Spanish, German, and more)
-- 📤 Automatic WhatsApp message sending via Clawdbot
+- 📤 Automatic WhatsApp message sending via Bot
 - 👥 Support for WhatsApp groups (use group ID as target)
 - 🎛️ Multiple quality levels (x_low, low, medium, high)
 - 🎵 Automatic conversion to OGG/Opus format for WhatsApp
@@ -37,8 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Node.js script with minimal dependencies
 - Integration with Piper TTS for speech synthesis
 - FFmpeg for audio format conversion
-- Clawdbot CLI for WhatsApp delivery
+- Bot CLI for WhatsApp delivery
 - Automatic cleanup of temporary files
 - Comprehensive error handling
 
-[1.0.0]: https://github.com/clawdbot/clawdhub/releases/tag/tts-whatsapp-v1.0.0
+[1.0.0]: https://github.com/bot/skills/releases/tag/tts-whatsapp-v1.0.0

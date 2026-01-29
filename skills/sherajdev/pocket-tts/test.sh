@@ -20,9 +20,9 @@ print('✅ TTSModel imported successfully')
 
 echo ""
 echo "📋 Skill files created:"
-ls -la /home/clawdbot/clawd/skills/pocket-tts/
+ls -la /home/bot/bot/skills/pocket-tts/
 
 echo ""
 echo "💡 Usage:"
 echo "   pocket-tts \"Hello world\" --output test.wav"
-echo "   python /home/clawdbot/clawd/skills/pocket-tts/cli.py \"Test\""
+echo "   python /home/bot/bot/skills/pocket-tts/cli.py \"Test\""

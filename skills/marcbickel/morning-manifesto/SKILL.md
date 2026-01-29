@@ -1,7 +1,7 @@
 ---
 name: morning-manifesto
 description: Daily morning reflection workflow with task sync to Obsidian, Apple Reminders, and Linear
-metadata: {"clawdbot":{"emoji":"🌅","trigger":"/morning_manifesto"}}
+metadata: {"bot":{"emoji":"🌅","trigger":"/morning_manifesto"}}
 ---
 
 # Morning Manifesto 🌅

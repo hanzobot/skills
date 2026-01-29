@@ -1,7 +1,7 @@
 ---
 name: factory-ai
 description: Use Factory AI's droid CLI for software engineering tasks. Supports interactive mode, exec mode, MCP servers, and plugins.
-metadata: {"clawdbot":{"emoji":"🤖","requires":{"bins":["droid"]}}
+metadata: {"bot":{"emoji":"🤖","requires":{"bins":["droid"]}}
 ---
 
 # Factory AI Droid CLI

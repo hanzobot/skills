@@ -3,7 +3,7 @@ name: trimet
 description: Get Portland transit information including arrivals, trip planning, and alerts. Use when user asks about buses, MAX, trains, or transit in Portland.
 homepage: https://trimet.org
 metadata:
-  clawdbot:
+  bot:
     emoji: "🚃"
     requires:
       bins: ["trimet"]

@@ -1,7 +1,7 @@
 ---
 name: portfolio-watcher
 description: Monitor stock/crypto holdings, get price alerts, track portfolio performance
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "check portfolio"
@@ -17,7 +17,7 @@ Monitor your investments through natural conversation. Real-time prices, alerts,
 
 ## What it does
 
-Tracks your stock and crypto holdings, fetches real-time prices, sends alerts when targets are hit, and calculates portfolio performance. No brokerage connection needed—just tell Clawd what you own.
+Tracks your stock and crypto holdings, fetches real-time prices, sends alerts when targets are hit, and calculates portfolio performance. No brokerage connection needed—just tell Bot what you own.
 
 ## Usage
 

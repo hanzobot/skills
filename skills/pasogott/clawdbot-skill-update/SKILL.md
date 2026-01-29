@@ -1,23 +1,23 @@
 ---
-name: clawdbot-skill-update
+name: bot-skill-update
 description: Comprehensive backup, update, and restore workflow with dynamic workspace detection
-homepage: https://github.com/pasogott/clawdbot-skill-update
-metadata: {"clawdbot":{"emoji":"💾","requires":{"bins":["bash","jq","tar","git"]},"tags":["backup","restore","update","multi-agent"]}}
+homepage: https://github.com/pasogott/bot-skill-update
+metadata: {"bot":{"emoji":"💾","requires":{"bins":["bash","jq","tar","git"]},"tags":["backup","restore","update","multi-agent"]}}
 ---
 
-# Clawdbot Update Skill
+# Bot Update Skill
 
-Comprehensive backup, update, and restore workflow for Clawdbot installations.
+Comprehensive backup, update, and restore workflow for Bot installations.
 
 ## Repository
 
-- **GitHub**: https://github.com/clawdbot/clawdbot
+- **GitHub**: https://github.com/bot/bot
 - **Upstream**: `origin/main`
-- **Local Clone**: `~/code/clawdbot` (default)
+- **Local Clone**: `~/code/bot` (default)
 
 ## Description
 
-This skill provides a complete, **modular** update workflow for Clawdbot with **dynamic workspace detection**:
+This skill provides a complete, **modular** update workflow for Bot with **dynamic workspace detection**:
 - Configuration files
 - Agent states and sessions
 - Credentials and auth tokens
@@ -37,9 +37,9 @@ This skill provides a complete, **modular** update workflow for Clawdbot with **
 ## Files
 
 - `config.json` - Skill configuration (repo URLs, paths)
-- `backup-clawdbot-dryrun.sh` - **Dry run** preview (no changes)
-- `backup-clawdbot-full.sh` - **Dynamic** full backup script
-- `restore-clawdbot.sh` - **Dynamic** restore script
+- `backup-bot-dryrun.sh` - **Dry run** preview (no changes)
+- `backup-bot-full.sh` - **Dynamic** full backup script
+- `restore-bot.sh` - **Dynamic** restore script
 - `validate-setup.sh` - Pre/post update validation
 - `check-upstream.sh` - Check for available updates
 - `UPDATE_CHECKLIST.md` - Step-by-step update checklist
@@ -50,7 +50,7 @@ This skill provides a complete, **modular** update workflow for Clawdbot with **
 ### Dynamic Features
 
 Both backup and restore scripts now:
-- Read workspace paths from `~/.clawdbot/clawdbot.json`
+- Read workspace paths from `~/.bot/bot.json`
 - Support any number of agents
 - Handle missing workspaces gracefully
 - Generate safe filenames from agent IDs
@@ -58,18 +58,18 @@ Both backup and restore scripts now:
 ## When to Use
 
 Trigger this skill when asked to:
-- "update clawdbot"
+- "update bot"
 - "upgrade to latest version"
-- "backup clawdbot before update"
-- "restore clawdbot from backup"
-- "rollback clawdbot update"
+- "backup bot before update"
+- "restore bot from backup"
+- "rollback bot update"
 
 ## Usage
 
 ### 1. Preview Backup (Dry Run)
 
 ```bash
-~/.skills/clawdbot-update/backup-clawdbot-dryrun.sh
+~/.skills/bot-update/backup-bot-dryrun.sh
 ```
 
 **Shows:**
@@ -84,27 +84,27 @@ Trigger this skill when asked to:
 ### 2. Create Full Backup
 
 ```bash
-~/.skills/clawdbot-update/backup-clawdbot-full.sh
+~/.skills/bot-update/backup-bot-full.sh
 ```
 
 **Backs up:**
-- `~/.clawdbot/clawdbot.json` (config)
-- `~/.clawdbot/sessions/` (session state)
-- `~/.clawdbot/agents/` (multi-agent state)
-- `~/.clawdbot/credentials/` (auth tokens)
-- `~/.clawdbot/cron/` (scheduled jobs)
-- `~/.clawdbot/sandboxes/` (sandbox state)
+- `~/.bot/bot.json` (config)
+- `~/.bot/sessions/` (session state)
+- `~/.bot/agents/` (multi-agent state)
+- `~/.bot/credentials/` (auth tokens)
+- `~/.bot/cron/` (scheduled jobs)
+- `~/.bot/sandboxes/` (sandbox state)
 - All agent workspaces (dynamically detected!)
 - Git commit and status
 
-**Output:** `~/.clawdbot-backups/pre-update-YYYYMMDD-HHMMSS/`
+**Output:** `~/.bot-backups/pre-update-YYYYMMDD-HHMMSS/`
 
-### 3. Update Clawdbot
+### 3. Update Bot
 
 Follow the checklist:
 
 ```bash
-cat ~/.skills/clawdbot-update/UPDATE_CHECKLIST.md
+cat ~/.skills/bot-update/UPDATE_CHECKLIST.md
 ```
 
 **Key steps:**
@@ -119,7 +119,7 @@ cat ~/.skills/clawdbot-update/UPDATE_CHECKLIST.md
 ### 4. Restore from Backup
 
 ```bash
-~/.skills/clawdbot-update/restore-clawdbot.sh ~/.clawdbot-backups/pre-update-YYYYMMDD-HHMMSS
+~/.skills/bot-update/restore-bot.sh ~/.bot-backups/pre-update-YYYYMMDD-HHMMSS
 ```
 
 **Restores:**
@@ -149,13 +149,13 @@ This skill is designed for multi-agent setups with:
 
 After backup, always verify:
 ```bash
-BACKUP_DIR=~/.clawdbot-backups/pre-update-YYYYMMDD-HHMMSS
+BACKUP_DIR=~/.bot-backups/pre-update-YYYYMMDD-HHMMSS
 cat "$BACKUP_DIR/BACKUP_INFO.txt"
 ls -lh "$BACKUP_DIR"
 ```
 
 Should contain:
-- ✅ `clawdbot.json`
+- ✅ `bot.json`
 - ✅ `credentials.tar.gz`
 - ✅ `workspace-*.tar.gz` (one per agent)
 
@@ -163,12 +163,12 @@ Should contain:
 
 **Example: Switch WhatsApp to pairing:**
 ```bash
-jq '.whatsapp.dmPolicy = "pairing"' ~/.clawdbot/clawdbot.json | sponge ~/.clawdbot/clawdbot.json
+jq '.whatsapp.dmPolicy = "pairing"' ~/.bot/bot.json | sponge ~/.bot/bot.json
 ```
 
 **Example: Set explicit sandbox scope:**
 ```bash
-jq '.agent.sandbox.scope = "agent"' ~/.clawdbot/clawdbot.json | sponge ~/.clawdbot/clawdbot.json
+jq '.agent.sandbox.scope = "agent"' ~/.bot/bot.json | sponge ~/.bot/bot.json
 ```
 
 ## Workflow
@@ -177,20 +177,20 @@ jq '.agent.sandbox.scope = "agent"' ~/.clawdbot/clawdbot.json | sponge ~/.clawdb
 
 ```bash
 # 1. Check for updates
-~/.skills/clawdbot-update/check-upstream.sh
+~/.skills/bot-update/check-upstream.sh
 
 # 2. Validate current setup
-~/.skills/clawdbot-update/validate-setup.sh
+~/.skills/bot-update/validate-setup.sh
 
 # 3. Dry run
-~/.skills/clawdbot-update/backup-clawdbot-dryrun.sh
+~/.skills/bot-update/backup-bot-dryrun.sh
 
 # 4. Backup
-~/.skills/clawdbot-update/backup-clawdbot-full.sh
+~/.skills/bot-update/backup-bot-full.sh
 
 # 5. Stop gateway
-cd ~/code/clawdbot
-pnpm clawdbot gateway stop
+cd ~/code/bot
+pnpm bot gateway stop
 
 # 6. Update code
 git checkout main
@@ -199,28 +199,28 @@ pnpm install
 pnpm build
 
 # 7. Run doctor
-pnpm clawdbot doctor --yes
+pnpm bot doctor --yes
 
 # 8. Test
-pnpm clawdbot gateway start  # foreground for testing
+pnpm bot gateway start  # foreground for testing
 
 # 9. Deploy
-pnpm clawdbot gateway stop
-pnpm clawdbot gateway start --daemon
+pnpm bot gateway stop
+pnpm bot gateway start --daemon
 ```
 
 ### Rollback Flow
 
 ```bash
 # Quick rollback
-~/.skills/clawdbot-update/restore-clawdbot.sh <backup-dir>
+~/.skills/bot-update/restore-bot.sh <backup-dir>
 
 # Manual rollback
-cd ~/code/clawdbot
+cd ~/code/bot
 git checkout <old-commit>
 pnpm install && pnpm build
-cp <backup-dir>/clawdbot.json ~/.clawdbot/
-pnpm clawdbot gateway restart
+cp <backup-dir>/bot.json ~/.bot/
+pnpm bot gateway restart
 ```
 
 ## Testing After Update
@@ -236,24 +236,24 @@ pnpm clawdbot gateway restart
 
 ### New Features
 ```bash
-pnpm clawdbot agents list
-pnpm clawdbot logs --tail 50
-pnpm clawdbot providers list --usage
-pnpm clawdbot skills list
+pnpm bot agents list
+pnpm bot logs --tail 50
+pnpm bot providers list --usage
+pnpm bot skills list
 ```
 
 ### Monitoring
 
 ```bash
 # Live logs
-pnpm clawdbot logs --follow
+pnpm bot logs --follow
 
 # Or Web UI
 open http://localhost:3001/logs
 
 # Check status
-pnpm clawdbot status
-pnpm clawdbot gateway status
+pnpm bot status
+pnpm bot gateway status
 ```
 
 ## Troubleshooting
@@ -262,23 +262,23 @@ pnpm clawdbot gateway status
 
 **Gateway won't start:**
 ```bash
-pnpm clawdbot logs --grep error
-pnpm clawdbot doctor
+pnpm bot logs --grep error
+pnpm bot doctor
 ```
 
 **Auth errors:**
 ```bash
 # OAuth profiles might need re-login
-pnpm clawdbot providers login <provider>
+pnpm bot providers login <provider>
 ```
 
 **Sandbox issues:**
 ```bash
 # Check sandbox config
-jq '.agent.sandbox' ~/.clawdbot/clawdbot.json
+jq '.agent.sandbox' ~/.bot/bot.json
 
 # Check per-agent sandbox
-jq '.routing.agents[] | {name, sandbox}' ~/.clawdbot/clawdbot.json
+jq '.routing.agents[] | {name, sandbox}' ~/.bot/bot.json
 ```
 
 ### Emergency Restore
@@ -287,29 +287,29 @@ If something goes wrong:
 
 ```bash
 # 1. Stop gateway
-pnpm clawdbot gateway stop
+pnpm bot gateway stop
 
 # 2. Full restore
-LATEST_BACKUP=$(ls -t ~/.clawdbot-backups/ | head -1)
-~/.skills/clawdbot-update/restore-clawdbot.sh ~/.clawdbot-backups/$LATEST_BACKUP
+LATEST_BACKUP=$(ls -t ~/.bot-backups/ | head -1)
+~/.skills/bot-update/restore-bot.sh ~/.bot-backups/$LATEST_BACKUP
 
 # 3. Restart
-pnpm clawdbot gateway start
+pnpm bot gateway start
 ```
 
 ## Installation
 
-### Via ClawdHub
+### Via Skills
 
 ```bash
-clawdbot skills install clawdbot-update
+bot skills install bot-update
 ```
 
 ### Manual
 
 ```bash
-git clone <repo-url> ~/.skills/clawdbot-update
-chmod +x ~/.skills/clawdbot-update/*.sh
+git clone <repo-url> ~/.skills/bot-update
+chmod +x ~/.skills/bot-update/*.sh
 ```
 
 ## License
@@ -320,5 +320,5 @@ MIT - see [LICENSE](LICENSE)
 
 **Pascal Schott** ([@pasogott](https://github.com/pasogott))
 
-Contribution for Clawdbot  
-https://github.com/clawdbot/clawdbot
+Contribution for Bot  
+https://github.com/bot/bot

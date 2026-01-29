@@ -1,7 +1,7 @@
 ---
 name: npm-search
 description: Search npm packages. Use for finding Node.js/JavaScript packages, libraries, and tools.
-metadata: {"clawdbot":{"emoji":"📦","requires":{"bins":["jq","npm-search-mcp-server"]}}}
+metadata: {"bot":{"emoji":"📦","requires":{"bins":["jq","npm-search-mcp-server"]}}}
 ---
 
 # NPM Search

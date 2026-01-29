@@ -35,9 +35,9 @@ Get from MILKEE URL or Settings:
 
 ---
 
-## Clawdbot Configuration
+## Bot Configuration
 
-Add to `~/.clawdbot/clawdbot.json`:
+Add to `~/.bot/bot.json`:
 
 ```json
 {

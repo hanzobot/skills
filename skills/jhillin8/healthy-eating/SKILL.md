@@ -1,7 +1,7 @@
 ---
 name: healthy-eating
 description: Build healthy eating habits with meal logging, nutrition tracking, and food choices
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "log meal"

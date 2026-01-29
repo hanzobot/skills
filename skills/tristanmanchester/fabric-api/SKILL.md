@@ -2,7 +2,7 @@
 name: fabric-api
 description: Create/search Fabric resources via HTTP API (notepads, folders, bookmarks, files).
 homepage: https://fabric.so
-metadata: {"clawdbot":{"emoji":"🧵","requires":{"env":["FABRIC_API_KEY"],"bins":["curl"]},"primaryEnv":"FABRIC_API_KEY"}}
+metadata: {"bot":{"emoji":"🧵","requires":{"env":["FABRIC_API_KEY"],"bins":["curl"]},"primaryEnv":"FABRIC_API_KEY"}}
 ---
 
 # Fabric API (HTTP via curl)
@@ -23,13 +23,13 @@ Use this skill to read/write content in a user's Fabric workspace using the Fabr
 
 When the user doesn't specify a destination folder: default to `parentId: "@alias::inbox"`.
 
-## Setup (Clawdbot)
+## Setup (Bot)
 
 This skill expects the API key in:
 
 - `FABRIC_API_KEY`
 
-Recommended config (use `apiKey`; Clawdbot will inject `FABRIC_API_KEY` because `primaryEnv` is set):
+Recommended config (use `apiKey`; Bot will inject `FABRIC_API_KEY` because `primaryEnv` is set):
 
 ```json5
 {
@@ -89,7 +89,7 @@ curl -sS --fail-with-body -X POST "https://api.fabric.so/v2/notepads" \
   --data-binary @- <<'JSON'
 {
   "name": "Calendar Test Note",
-  "text": "Created via Clawdbot",
+  "text": "Created via Bot",
   "parentId": "@alias::inbox",
   "tags": [{"name":"calendar"},{"name":"draft"}]
 }

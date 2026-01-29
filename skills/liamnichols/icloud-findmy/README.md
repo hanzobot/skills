@@ -20,7 +20,7 @@ Teaches your agent how to:
 ## Installation
 
 ```bash
-clawdhub install icloud-findmy
+skills install icloud-findmy
 ```
 
 This will guide you to install PyiCloud. Your agent will then help you authenticate with your Apple ID.

@@ -1,8 +1,8 @@
 {
-  "name": "clawdbot-skill-xai",
+  "name": "bot-skill-xai",
   "version": "1.0.0",
-  "description": "xAI/Grok integration for Clawdbot",
-  "keywords": ["clawdbot-skill", "xai", "grok", "ai", "chat"],
+  "description": "xAI/Grok integration for Bot",
+  "keywords": ["bot-skill", "xai", "grok", "ai", "chat"],
   "author": "Lobster",
   "license": "MIT",
   "scripts": {

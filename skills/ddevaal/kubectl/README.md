@@ -14,17 +14,17 @@ An Agent Skills-compatible skill package for kubectl command-line operations on 
 
 ## Installation
 
-### Via ClawdHub
+### Via Skills
 ```bash
-clawdhub install kubectl-skill
+skills install kubectl-skill
 ```
 
 ### Manual Installation
 Copy the `kubectl-skill` directory to one of these locations:
 
 - **Workspace skills** (per-project): `<workspace>/skills/`
-- **Local skills** (user-wide): `~/.clawdbot/skills/`
-- **Extra skills folder**: Configured via `~/.clawdbot/clawdbot.json`
+- **Local skills** (user-wide): `~/.bot/skills/`
+- **Extra skills folder**: Configured via `~/.bot/bot.json`
 
 ## Requirements
 
@@ -136,7 +136,7 @@ kubectl-skill/
 
 ## Contributing
 
-This skill is part of the Clawdbot project. To contribute:
+This skill is part of the Bot project. To contribute:
 
 1. Test changes locally
 2. Update documentation
@@ -151,10 +151,10 @@ MIT License — See LICENSE file for details
 
 - **GitHub Issues**: Report bugs and request features
 - **Official Docs**: https://kubernetes.io/docs/reference/kubectl/
-- **ClawdHub**: https://clawdhub.com/
+- **Skills**: https://skills.com/
 
 ---
 
 **Version**: 1.0.0  
 **Last Updated**: January 24, 2026  
-**Maintainer**: Clawdbot Contributors
+**Maintainer**: Bot Contributors

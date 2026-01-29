@@ -6,7 +6,7 @@ Send voice messages on WhatsApp with high-quality text-to-speech in 40+ language
 
 - 🎙️ **High-quality TTS** powered by Piper (40+ languages)
 - 🎵 **Automatic conversion** to OGG/Opus (WhatsApp format)
-- 📤 **Automatic sending** via Clawdbot
+- 📤 **Automatic sending** via Bot
 - 👥 **Group support** - Send to individuals or WhatsApp groups
 - 🌍 **Multi-language** - French, English, Spanish, German, and 40+ more
 - 🧹 **Smart cleanup** - Auto-delete files after successful send
@@ -30,7 +30,7 @@ Send voice messages on WhatsApp with high-quality text-to-speech in 40+ language
 
 3. **Piper voice models** downloaded:
    - Download from [Hugging Face](https://huggingface.co/rhasspy/piper-voices)
-   - Place in `~/.clawdbot/skills/piper-tts/models/`
+   - Place in `~/.bot/skills/piper-tts/models/`
    - Default: `fr_FR-siwis-medium.onnx`
 
 ## 🚀 Quick Start
@@ -82,7 +82,7 @@ tts-whatsapp "Test" --no-send
 
 ### Environment Variables
 
-Set these in `~/.clawdbot/clawdbot.json` under the skill configuration:
+Set these in `~/.bot/bot.json` under the skill configuration:
 
 ```json
 {
@@ -164,7 +164,7 @@ Options:
 
 1. **Text → Speech** - Piper generates high-quality audio (~1s)
 2. **Convert** - FFmpeg converts to OGG/Opus format (~0.2s)
-3. **Send** - Clawdbot sends to WhatsApp (~1s)
+3. **Send** - Bot sends to WhatsApp (~1s)
 4. **Cleanup** - File deleted after successful send
 
 **Total time: ~2.3s** for a 10-second message
@@ -218,7 +218,7 @@ tts-whatsapp "Welcome to my podcast" --quality high --lang en_US --voice lessac
 ### Model not found error
 
 ```
-ERROR: Modèle introuvable: ~/.clawdbot/skills/piper-tts/models/en_US-lessac-medium.onnx
+ERROR: Modèle introuvable: ~/.bot/skills/piper-tts/models/en_US-lessac-medium.onnx
 ```
 
 **Solution:** Download the model from [Hugging Face](https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US/lessac/medium)
@@ -231,9 +231,9 @@ ERROR: Modèle introuvable: ~/.clawdbot/skills/piper-tts/models/en_US-lessac-med
 
 **Solution:** Either set `WHATSAPP_DEFAULT_TARGET` in your config or use `--target`
 
-### Clawdbot not found
+### Bot not found
 
-**Solution:** Make sure Clawdbot is installed and in your PATH
+**Solution:** Make sure Bot is installed and in your PATH
 
 ## 📄 License
 
@@ -242,12 +242,12 @@ MIT License - Feel free to use and modify
 ## 🙏 Credits
 
 - **Piper TTS** by [Rhasspy](https://github.com/rhasspy/piper)
-- **Clawdbot** by [clawdbot team](https://github.com/clawdbot/clawdbot)
+- **Bot** by [bot team](https://github.com/bot/bot)
 - **FFmpeg** by the FFmpeg team
 
 ## 🔗 Links
 
 - [Piper Voice Samples](https://rhasspy.github.io/piper-samples/)
 - [Download Voice Models](https://huggingface.co/rhasspy/piper-voices)
-- [Clawdbot Documentation](https://docs.clawd.bot)
-- [ClawdHub](https://clawdhub.com)
+- [Bot Documentation](https://docs.hanzo.bot)
+- [Skills](https://skills.com)

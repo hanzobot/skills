@@ -5,13 +5,13 @@ Browser-based screen sharing with vision analysis. Works with any multimodal LLM
 ## Installation
 
 ```bash
-clawdhub install screen-monitor
+skills install screen-monitor
 ```
 
 Or manual:
 ```bash
-git clone https://github.com/emasoudy/clawdbot-skills.git
-cp -r clawdbot-skills/screen-monitor ~/.clawdbot/skills/
+git clone https://github.com/emasoudy/bot-skills.git
+cp -r bot-skills/screen-monitor ~/.bot/skills/
 ```
 
 ## Usage

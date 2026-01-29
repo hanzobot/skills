@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PLIST_FILE="com.clawdbot.claude-oauth-refresher.plist"
+PLIST_FILE="com.bot.claude-oauth-refresher.plist"
 LAUNCHAGENTS_DIR="$HOME/Library/LaunchAgents"
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
@@ -21,7 +21,7 @@ echo ""
 
 # Step 1: Stop service
 echo -e "${BLUE}[1/4]${NC} Stopping launchd service..."
-if launchctl list | grep -q "com.clawdbot.claude-oauth-refresher"; then
+if launchctl list | grep -q "com.bot.claude-oauth-refresher"; then
     launchctl unload "$LAUNCHAGENTS_DIR/$PLIST_FILE" 2>/dev/null || true
     echo -e "${GREEN}✓${NC} Service unloaded"
 else
@@ -47,9 +47,9 @@ echo ""
 # Step 3: Clean logs (optional)
 echo -e "${BLUE}[3/4]${NC} Cleaning logs..."
 LOG_FILES=(
-    "$HOME/clawd/logs/claude-oauth-refresh.log"
-    "$HOME/clawd/logs/claude-oauth-refresher-stdout.log"
-    "$HOME/clawd/logs/claude-oauth-refresher-stderr.log"
+    "$HOME/bot/logs/claude-oauth-refresh.log"
+    "$HOME/bot/logs/claude-oauth-refresher-stdout.log"
+    "$HOME/bot/logs/claude-oauth-refresher-stderr.log"
 )
 
 LOG_EXISTS=false

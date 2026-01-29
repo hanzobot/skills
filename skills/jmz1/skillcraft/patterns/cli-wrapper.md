@@ -1,14 +1,14 @@
 # CLI Wrapper Pattern
 
-Wrap a CLI tool for use through Clawdbot. Focuses on **clawdbot-specific integration** — channel formatting, scheduling, memory — not generic CLI documentation.
+Wrap a CLI tool for use through Bot. Focuses on **bot-specific integration** — channel formatting, scheduling, memory — not generic CLI documentation.
 
-## What Makes It Clawdbot-Specific
+## What Makes It Bot-Specific
 
 Standard CLI wrapper advice (document commands, handle errors) applies. What's different:
 
 ### 1. Channel-Aware Output
 
-Output goes to different surfaces with different capabilities. Use **clawddocs** to check `/providers/` docs for channel-specific capabilities — they vary by platform and configuration.
+Output goes to different surfaces with different capabilities. Use **botdocs** to check `/providers/` docs for channel-specific capabilities — they vary by platform and configuration.
 
 **Pattern:** Check channel in runtime context, adapt formatting. Or document format in SKILL.md and let agent adapt based on current channel capabilities.
 
@@ -25,11 +25,11 @@ Use the `exec` tool for running CLI commands. Key considerations:
 - **Background execution:** For long-running commands, use background mode and poll via `process` tool
 - **Output handling:** Capture and parse output appropriately
 
-Consult **clawddocs** `/tools/bash` for current exec tool syntax and parameters.
+Consult **botdocs** `/tools/bash` for current exec tool syntax and parameters.
 
 ### 3. Scheduled Execution (cron)
 
-For periodic execution, use Clawdbot's cron system. Consult **clawddocs** `/automation/cron-jobs` for:
+For periodic execution, use Bot's cron system. Consult **botdocs** `/automation/cron-jobs` for:
 - Configuration format and options
 - Prompt patterns for triggering skills
 - Job management via the `cron` tool
@@ -44,7 +44,7 @@ For long-running or output-heavy operations:
 sessions_spawn task:"Run tool export --full. Summarize results and notify when done."
 ```
 
-**Path considerations:** If sub-agent needs workspace files, use **clawddocs** `/tools/subagents` for current sandbox mount configuration and include path context in the task.
+**Path considerations:** If sub-agent needs workspace files, use **botdocs** `/tools/subagents` for current sandbox mount configuration and include path context in the task.
 
 ### 5. Results Delivery (message)
 
@@ -83,11 +83,11 @@ CLI wrappers are usually **stateless**. Exceptions:
 <workspace>/state/tool.json   # shared state (if multiple skills use it)
 ```
 
-`~/.clawdbot/` is not suitable for storing state — skills don't own user home.
+`~/.bot/` is not suitable for storing state — skills don't own user home.
 
 ## Checklist
 
-Clawdbot-specific concerns for CLI wrappers:
+Bot-specific concerns for CLI wrappers:
 
 - [ ] Output formatting considers channel constraints (check docs)
 - [ ] Timeouts set for all exec calls

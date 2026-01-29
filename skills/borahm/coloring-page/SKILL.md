@@ -2,7 +2,7 @@
 name: coloring-page
 description: Turn an uploaded photo into a printable black-and-white coloring page.
 metadata:
-  clawdbot:
+  bot:
     config:
       requiredEnv:
         - GEMINI_API_KEY
@@ -21,7 +21,7 @@ Under the hood, this uses the Nano Banana Pro (Gemini 3 Pro Image) image model.
 
 ## Requirements
 
-- `GEMINI_API_KEY` set (recommended in `~/.clawdbot/.env`)
+- `GEMINI_API_KEY` set (recommended in `~/.bot/.env`)
 - `uv` available (used by the underlying nano-banana-pro skill)
 
 ## How the assistant should use this

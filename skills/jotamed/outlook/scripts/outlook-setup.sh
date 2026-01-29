@@ -8,7 +8,7 @@ CONFIG_DIR="$HOME/.outlook-mcp"
 CONFIG_FILE="$CONFIG_DIR/config.json"
 CREDS_FILE="$CONFIG_DIR/credentials.json"
 
-APP_NAME="Clawdbot-Outlook"
+APP_NAME="Bot-Outlook"
 REDIRECT_URI="http://localhost"
 SCOPES="https://graph.microsoft.com/Mail.ReadWrite https://graph.microsoft.com/Mail.Send https://graph.microsoft.com/Calendars.ReadWrite offline_access"
 
@@ -104,7 +104,7 @@ create_secret() {
     
     SECRET_RESULT=$(az ad app credential reset \
         --id "$APP_ID" \
-        --display-name "clawdbot-secret" \
+        --display-name "bot-secret" \
         --years 2 \
         --query "{clientId: appId, clientSecret: password}" -o json 2>&1)
     

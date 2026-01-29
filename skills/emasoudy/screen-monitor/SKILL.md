@@ -1,7 +1,7 @@
 ---
 name: screen-monitor
 description: Dual-mode screen sharing and analysis. Model-agnostic (Gemini/Claude/Qwen3-VL).
-metadata: {"clawdbot":{"emoji":"🖥️","requires":{"model_features":["vision"]}}}
+metadata: {"bot":{"emoji":"🖥️","requires":{"model_features":["vision"]}}}
 ---
 
 # Screen Monitor
@@ -30,9 +30,9 @@ bash command:"{baseDir}/references/screen-analyze.sh"
 *Best for: Deep debugging, UI automation, and clicking/typing in tabs.*
 
 ### Setup
-1. Run `clawdbot browser extension install`.
-2. Load the unpacked extension from `clawdbot browser extension path`.
-3. Click the Clawdbot icon in your Chrome toolbar to **Attach**.
+1. Run `bot browser extension install`.
+2. Load the unpacked extension from `bot browser extension path`.
+3. Click the Bot icon in your Chrome toolbar to **Attach**.
 
 ### Tools
 - **`browser action:snapshot`**: Take a precise screenshot of the attached tab.

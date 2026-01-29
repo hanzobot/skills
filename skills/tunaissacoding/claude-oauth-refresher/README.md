@@ -15,7 +15,7 @@ Automatically refreshes your Claude tokens before they expire. No more authentic
 The tool:
 - Checks your Claude token every few hours
 - Refreshes it 30 minutes before expiry
-- Updates both Keychain and Clawdbot config
+- Updates both Keychain and Bot config
 - Runs silently in the background
 
 Zero manual intervention needed.
@@ -74,7 +74,7 @@ No manual configuration needed - it handles duplicates and incomplete entries au
 **After completing prerequisites above:**
 
 ```bash
-clawdhub install claude-oauth-refresher
+skills install claude-oauth-refresher
 ```
 
 ### First-Time Setup
@@ -82,7 +82,7 @@ clawdhub install claude-oauth-refresher
 **Run the refresher to verify setup:**
 
 ```bash
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./refresh-token.sh
 ```
 
@@ -101,13 +101,13 @@ The script will refresh your token automatically 30 minutes before it expires. Y
 
 ---
 
-### Already Have Clawdbot Running?
+### Already Have Bot Running?
 
-If you already have Clawdbot running with a model, you have two options:
+If you already have Bot running with a model, you have two options:
 
-#### Option 1: Ask Clawdbot to Run It
+#### Option 1: Ask Bot to Run It
 
-Just send a message to Clawdbot:
+Just send a message to Bot:
 
 ```
 Run the Claude token refresher for me
@@ -116,15 +116,15 @@ Run the Claude token refresher for me
 or
 
 ```
-cd ~/clawd/skills/claude-oauth-refresher && ./refresh-token.sh
+cd ~/bot/skills/claude-oauth-refresher && ./refresh-token.sh
 ```
 
-Clawdbot will execute it and show you the output.
+Bot will execute it and show you the output.
 
 #### Option 2: Run From Terminal
 
 ```bash
-cd ~/clawd/skills/claude-oauth-refresher
+cd ~/bot/skills/claude-oauth-refresher
 ./refresh-token.sh
 ```
 
@@ -138,7 +138,7 @@ The installation:
 - Finds your tokens in Keychain automatically
 - Validates token structure
 - Sets up automatic refresh schedule
-- Logs all operations to `~/clawd/logs/`
+- Logs all operations to `~/bot/logs/`
 
 ---
 
@@ -151,7 +151,7 @@ The installation:
 1. **Reads** your current token from macOS Keychain
 2. **Checks** expiry time (refreshes 30 min before expiry)
 3. **Calls** Anthropic OAuth API with your refresh token
-4. **Updates** both Keychain and Clawdbot config automatically
+4. **Updates** both Keychain and Bot config automatically
 
 **Smart fallback:** If your account name isn't "claude", it tries common alternatives: "Claude Code", "default", "oauth", "anthropic"
 
@@ -198,7 +198,7 @@ Create `claude-oauth-refresh-config.json` if you need to customize:
   "refresh_buffer_minutes": 30,
   "keychain_service": "Claude Code-credentials",
   "keychain_account": "claude",
-  "auth_file": "~/.clawdbot/agents/main/agent/auth-profiles.json"
+  "auth_file": "~/.bot/agents/main/agent/auth-profiles.json"
 }
 ```
 
@@ -315,7 +315,7 @@ Update auth-profiles.json (just accessToken)
 
 ### Automatic Scheduling
 
-After refresh, creates a Clawdbot cron job:
+After refresh, creates a Bot cron job:
 ```bash
 Next refresh = (new_expiry - buffer_minutes)
 ```

@@ -3,11 +3,11 @@
 ## Installation
 
 ```bash
-# Install via ClawdHub (recommended)
-clawdhub install evgyur/crypto-price
+# Install via Skills (recommended)
+skills install evgyur/crypto-price
 
 # Or clone manually
-cd ~/.clawdbot/workspace/skills
+cd ~/.bot/workspace/skills
 git clone https://github.com/evgyur/crypto-price.git
 pip install -r crypto-price/requirements.txt
 ```
@@ -54,8 +54,8 @@ The script returns JSON with price data and chart path:
 ## Troubleshooting
 
 **Script not found?**
-- Ensure skill is installed in your Clawdbot workspace
-- Check path: `~/.clawdbot/workspace/skills/crypto-price/`
+- Ensure skill is installed in your Bot workspace
+- Check path: `~/.bot/workspace/skills/crypto-price/`
 
 **Missing matplotlib?**
 ```bash

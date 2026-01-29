@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Markdown-to-HTML conversion
 - JSON output for scripting
 - `--feature-image` flag for post editing
-- SKILL.md for Clawdbot integration
+- SKILL.md for Bot integration
 
 [Unreleased]: https://github.com/visionik/ecto/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/visionik/ecto/releases/tag/v0.1.0

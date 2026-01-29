@@ -1,7 +1,7 @@
 ---
 name: daily-recap
 description: Generate a daily recap image with your agent holding a posterboard of accomplishments. Cron-driven, weather-aware, customizable to any agent identity.
-metadata: {"clawdbot":{"emoji":"📋","requires":{"skills":["nano-banana-pro"]}}}
+metadata: {"bot":{"emoji":"📋","requires":{"skills":["nano-banana-pro"]}}}
 ---
 
 # Daily Recap Skill
@@ -22,7 +22,7 @@ A cron-driven skill that reviews your agent's daily memory files and accomplishm
 
 ## Configuration
 
-Set these in your `clawdbot.json` under `skills.entries.daily-recap`:
+Set these in your `bot.json` under `skills.entries.daily-recap`:
 
 ```json
 {
@@ -71,7 +71,7 @@ The skill reads your agent's `IDENTITY.md` for visual appearance details. Includ
 The skill includes a sample cron job. After installation, create your cron:
 
 ```bash
-clawdbot cron add --name "daily-recap" --schedule "0 17 * * *" --tz "America/New_York"
+bot cron add --name "daily-recap" --schedule "0 17 * * *" --tz "America/New_York"
 ```
 
 ## How It Works
@@ -102,4 +102,4 @@ TODAY'S WINS
 
 ## Credits
 
-Created by the Clawdbot community.
+Created by the Bot community.

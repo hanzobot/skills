@@ -3,18 +3,18 @@
   "version": "1.0.1",
   "description": "Multi-agent deliberation with Memory Bridge. Council Chamber pattern for structured debate.",
   "author": "Essam Masoudy",
-  "homepage": "https://github.com/emasoudy/clawdbot-skills",
-  "repository": "https://github.com/emasoudy/clawdbot-skills",
+  "homepage": "https://github.com/emasoudy/bot-skills",
+  "repository": "https://github.com/emasoudy/bot-skills",
   "license": "MIT",
   "keywords": ["multi-agent", "deliberation", "council", "memory-bridge", "graphiti"],
-  "clawdhub": {
+  "skills": {
     "category": "agents",
     "featured": true
   },
   "dependencies": {
     "system": ["sqlite3"],
     "services_optional": ["graphiti"],
-    "clawdbot": ">=2026.1.17"
+    "bot": ">=2026.1.17"
   },
   "install": [
     {

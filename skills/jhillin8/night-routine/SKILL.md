@@ -1,7 +1,7 @@
 ---
 name: night-routine
 description: Build a restful night routine with wind-down habits, sleep prep, and next-day planning
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "night routine"
@@ -25,7 +25,7 @@ End your day intentionally. Wind down, prepare for sleep, plan ahead, and build 
 ## Usage
 
 **Start wind-down**
-Ask for a guided wind-down session. Clawd walks you through screen cutoff, breathing exercises, and transition activities.
+Ask for a guided wind-down session. Bot walks you through screen cutoff, breathing exercises, and transition activities.
 
 **Plan tomorrow**
 Review tomorrow's calendar, top 3 priorities, and any prep needed. Sets you up for a purposeful morning.
@@ -41,7 +41,7 @@ View weekly or monthly routine adherence. Identify patterns in nights you sleep 
 
 ## Common Elements
 
-- **Screen cutoff** — Set a time to stop checking devices; Clawd reminds you
+- **Screen cutoff** — Set a time to stop checking devices; Bot reminds you
 - **Tomorrow's priorities** — 3 specific tasks or intentions for the next day
 - **Gratitude** — Brief reflection on the day—what went well
 - **Reading** — Recommended books or articles for wind-down time

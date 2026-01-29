@@ -1,6 +1,6 @@
 #!/bin/bash
 # Logic to choose between Portal frame or OS screenshot
-FRAME_PATH="/tmp/clawdbot-screen-latest.png"
+FRAME_PATH="/tmp/bot-screen-latest.png"
 
 if [ -f "$FRAME_PATH" ]; then
     echo "📸 Found active WebRTC frame. Analyzing..."
@@ -19,4 +19,4 @@ else
 fi
 
 # Call the internal agent vision analysis
-clawdbot agent --message "Read the image at $SCREENSHOT and describe the main content clearly."
+bot agent --message "Read the image at $SCREENSHOT and describe the main content clearly."

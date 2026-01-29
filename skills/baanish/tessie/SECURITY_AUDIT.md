@@ -1,7 +1,7 @@
 # Tessie Skill - Security Audit
 
 **Date**: 2026-01-14
-**Auditor**: Orion (Clawdbot)
+**Auditor**: Orion (Bot)
 **Status**: ✅ APPROVED (with fixes)
 
 ---
@@ -208,7 +208,7 @@ fi
 - [x] Script updated with correct API paths
 - [x] Documentation updated
 - [ ] User review and approval
-- [ ] Deploy to ClawdHub (if approved)
+- [ ] Deploy to Skills (if approved)
 
 ---
 

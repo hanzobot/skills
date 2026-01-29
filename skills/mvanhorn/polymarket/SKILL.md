@@ -2,7 +2,7 @@
 name: polymarket
 description: Query Polymarket prediction markets - check odds, trending markets, search events, track prices.
 homepage: https://polymarket.com
-metadata: {"clawdbot":{"emoji":"📊"}}
+metadata: {"bot":{"emoji":"📊"}}
 ---
 
 # Polymarket

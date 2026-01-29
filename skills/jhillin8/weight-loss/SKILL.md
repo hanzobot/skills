@@ -1,7 +1,7 @@
 ---
 name: weight-loss
 description: Track weight loss journey with weigh-ins, trend analysis, and goal milestones
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "log weight"
@@ -26,13 +26,13 @@ Sustainable progress tracking for your health journey—data stays local, accoun
 ## Usage
 
 ### Log Weight
-Simply tell Clawd your weight: *"Log 185 pounds"* or *"Weigh-in: 82.5 kg"*. Include the date or use today's date by default.
+Simply tell Bot your weight: *"Log 185 pounds"* or *"Weigh-in: 82.5 kg"*. Include the date or use today's date by default.
 
 ### Check Progress
 Ask for a snapshot: *"How much weight have I lost?"* or *"Show me my last 4 weeks of weigh-ins"*. Get totals, averages, and velocity.
 
 ### Set Goal
-Define your target: *"My goal weight is 170 pounds"* or *"I want to lose 25 pounds in 6 months"*. Clawd calculates the weekly pace needed.
+Define your target: *"My goal weight is 170 pounds"* or *"I want to lose 25 pounds in 6 months"*. Bot calculates the weekly pace needed.
 
 ### View Trends
 Visualize your journey: *"Plot my weight trend"* or *"Show me month-over-month progress"*. Smoothed curves reveal the real direction underneath daily noise.

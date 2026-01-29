@@ -1,7 +1,7 @@
 [project]
 name = "otter-skill"
 version = "0.1.0"
-description = "Otter.ai transcription CLI for Clawdbot"
+description = "Otter.ai transcription CLI for Bot"
 requires-python = ">=3.10"
 dependencies = [
     "requests>=2.28.0",

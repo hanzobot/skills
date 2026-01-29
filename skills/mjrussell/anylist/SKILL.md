@@ -3,7 +3,7 @@ name: anylist
 description: Manage grocery and shopping lists via AnyList. Use when user asks about shopping lists, groceries, or adding/checking off items to buy.
 homepage: https://www.anylist.com
 metadata:
-  clawdbot:
+  bot:
     emoji: "🛒"
     requires:
       bins: ["anylist"]

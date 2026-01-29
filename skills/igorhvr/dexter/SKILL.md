@@ -1,10 +1,10 @@
 ---
 name: dexter
 description: Autonomous financial research agent for stock analysis, financial statements, metrics, prices, SEC filings, and crypto data.
-metadata: {"clawdbot":{"emoji":"📊","os":["darwin","linux"],"requires":{"bins":["bun","git"]}}}
+metadata: {"bot":{"emoji":"📊","os":["darwin","linux"],"requires":{"bins":["bun","git"]}}}
 ---
 
-# Dexter Skill (Clawdbot)
+# Dexter Skill (Bot)
 
 Dexter is an autonomous financial research agent that plans, executes, and synthesizes financial data analysis. Use it for any financial research question involving stocks, crypto, company fundamentals, or market data.
 
@@ -31,7 +31,7 @@ If Dexter is not installed, follow these steps:
 ### 1. Clone and Install
 
 ```bash
-DEXTER_DIR="/root/clawd-workspace/dexter"
+DEXTER_DIR="/root/bot-workspace/dexter"
 
 # Clone if not exists
 if [ ! -d "$DEXTER_DIR" ]; then
@@ -161,7 +161,7 @@ Complete installation script (requires API keys as environment variables):
 #!/bin/bash
 set -e
 
-DEXTER_DIR="/root/clawd-workspace/dexter"
+DEXTER_DIR="/root/bot-workspace/dexter"
 
 # Clone
 [ ! -d "$DEXTER_DIR" ] && git clone https://github.com/virattt/dexter.git "$DEXTER_DIR"
@@ -191,7 +191,7 @@ echo "Dexter installed successfully!"
 ## Location
 
 ```
-/root/clawd-workspace/dexter
+/root/bot-workspace/dexter
 ```
 
 ## Quick Query (Non-Interactive)
@@ -199,7 +199,7 @@ echo "Dexter installed successfully!"
 For quick financial questions, use the query script:
 
 ```bash
-cd /root/clawd-workspace/dexter && bun query.ts "Your financial question here"
+cd /root/bot-workspace/dexter && bun query.ts "Your financial question here"
 ```
 
 Examples:
@@ -221,13 +221,13 @@ DEXTER_VERBOSE=1 bun query.ts "Your question"
 For multi-turn research sessions or follow-up questions, use the interactive CLI via tmux:
 
 ```bash
-SOCKET_DIR="${CLAWDBOT_TMUX_SOCKET_DIR:-${TMPDIR:-/tmp}/clawdbot-tmux-sockets}"
-SOCKET="$SOCKET_DIR/clawdbot.sock"
+SOCKET_DIR="${BOT_TMUX_SOCKET_DIR:-${TMPDIR:-/tmp}/bot-tmux-sockets}"
+SOCKET="$SOCKET_DIR/bot.sock"
 SESSION=dexter
 
 # Start Dexter (if not running)
 tmux -S "$SOCKET" kill-session -t "$SESSION" 2>/dev/null || true
-tmux -S "$SOCKET" new -d -s "$SESSION" -n shell -c /root/clawd-workspace/dexter
+tmux -S "$SOCKET" new -d -s "$SESSION" -n shell -c /root/bot-workspace/dexter
 tmux -S "$SOCKET" send-keys -t "$SESSION":0.0 -- 'bun start' Enter
 sleep 3
 

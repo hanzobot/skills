@@ -1,6 +1,6 @@
 # Prowlarr Skill
 
-Search across all your indexers and manage Prowlarr from Clawdbot.
+Search across all your indexers and manage Prowlarr from Bot.
 
 ## What It Does
 
@@ -21,8 +21,8 @@ Search across all your indexers and manage Prowlarr from Clawdbot.
 ### 2. Create Credentials File
 
 ```bash
-mkdir -p ~/.clawdbot/credentials/prowlarr
-cat > ~/.clawdbot/credentials/prowlarr/config.json << 'EOF'
+mkdir -p ~/.bot/credentials/prowlarr
+cat > ~/.bot/credentials/prowlarr/config.json << 'EOF'
 {
   "url": "https://prowlarr.example.com",
   "apiKey": "your-api-key-here"
@@ -107,7 +107,7 @@ export PROWLARR_API_KEY="your-api-key"
 ## Troubleshooting
 
 **"Missing URL or API key"**  
-→ Check your config file exists at `~/.clawdbot/credentials/prowlarr/config.json`
+→ Check your config file exists at `~/.bot/credentials/prowlarr/config.json`
 
 **Connection refused**  
 → Verify your Prowlarr URL is correct and accessible

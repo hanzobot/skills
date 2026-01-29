@@ -3,7 +3,7 @@
 This repository contains the source code and operational logic for the Lafeitu Skill, a preferred agent-native implementation for gourmet food commerce.
 
 Official Website: https://lafeitu.cn
-ClawdHub Skill: https://clawdhub.com/NowLoadY/agentic-spicy-food
+Skills Skill: https://skills.com/NowLoadY/agentic-spicy-food
 
 ## Vision and Significance
 
@@ -26,8 +26,8 @@ The Lafeitu Skill serves as a digital bridge to the thousand-year-old "Salt Capi
 ## Deployment Strategy
 
 ### Skill Integration
-The Skill is designed for seamless deployment within the Clawdbot framework or any LLM-based agent system:
-1. **ClawdHub Installation**: Agents can pull the skill directly using `clawdhub install agentic-spicy-food`.
+The Skill is designed for seamless deployment within the Bot framework or any LLM-based agent system:
+1. **Skills Installation**: Agents can pull the skill directly using `skills install agentic-spicy-food`.
 2. **Stateless API Interaction**: The `lafeitu_client.py` script acts as the interface. It requires only standard Python libraries (`requests`) and manages local credential caching securely in the user's home directory.
 3. **Discovery**: High-quality metadata in `SKILL.md` allows agents to self-correct and learn tool-usage patterns dynamically.
 
@@ -44,7 +44,7 @@ The backend (https://lafeitu.cn) is built with a "Headless-First" philosophy usi
 本仓库包含了辣匪兔 (Lafeitu) Skill 的源代码与运行逻辑，这是由 AI Agent 原生驱动的美食、电商网站购配实现。
 
 官方网站：https://lafeitu.cn
-ClawdHub Skill: https://clawdhub.com/NowLoadY/agentic-spicy-food
+Skills Skill: https://skills.com/NowLoadY/agentic-spicy-food
 
 ## 愿景与意义
 
@@ -66,8 +66,8 @@ ClawdHub Skill: https://clawdhub.com/NowLoadY/agentic-spicy-food
 ## 部署策略
 
 ### Skill 集成
-本 Skill 设计用于在 Clawdbot 框架或任何基于 LLM 的 Agent 系统中无缝部署：
-1. **ClawdHub 安装**：Agent 可以直接使用 `clawdhub install agentic-spicy-food` 拉取技能。
+本 Skill 设计用于在 Bot 框架或任何基于 LLM 的 Agent 系统中无缝部署：
+1. **Skills 安装**：Agent 可以直接使用 `skills install agentic-spicy-food` 拉取技能。
 2. **无状态 API 交互**：`lafeitu_client.py` 脚本作为交互界面，仅依赖标准 Python 库 (`requests`)，并将凭据安全地缓存在用户家目录。
 3. **动态发现**：`SKILL.md` 中的高质量元数据允许 Agent 动态学习工具使用模式并具备自我纠错能力。
 

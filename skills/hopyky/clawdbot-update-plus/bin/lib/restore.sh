@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Clawdbot Update Plus - Restore functions
+# Bot Update Plus - Restore functions
 # Version: 2.1.1
 
 # Restore from backup
@@ -106,7 +106,7 @@ restore_legacy_backup() {
   log_info "Detected legacy backup format"
 
   # Get default skills dir
-  local skills_dir=$(echo "$SKILLS_DIRS_JSON" | jq -r '.[0].path // "~/.clawdbot/skills"')
+  local skills_dir=$(echo "$SKILLS_DIRS_JSON" | jq -r '.[0].path // "~/.bot/skills"')
   skills_dir=$(expand_path "$skills_dir")
 
   if [[ "$force_restore" != "--force" ]]; then
@@ -151,11 +151,11 @@ restore_labeled_backup() {
   fi
 
   # Default mappings for common labels
-  [[ -z "${restore_map[config]}" ]] && restore_map["config"]="${HOME}/.clawdbot"
-  [[ -z "${restore_map[workspace]}" ]] && restore_map["workspace"]="${HOME}/clawd"
-  [[ -z "${restore_map[prod]}" ]] && restore_map["prod"]="${HOME}/.clawdbot/skills"
-  [[ -z "${restore_map[dev]}" ]] && restore_map["dev"]="${HOME}/clawd/skills"
-  [[ -z "${restore_map[default]}" ]] && restore_map["default"]="${HOME}/.clawdbot/skills"
+  [[ -z "${restore_map[config]}" ]] && restore_map["config"]="${HOME}/.bot"
+  [[ -z "${restore_map[workspace]}" ]] && restore_map["workspace"]="${HOME}/bot"
+  [[ -z "${restore_map[prod]}" ]] && restore_map["prod"]="${HOME}/.bot/skills"
+  [[ -z "${restore_map[dev]}" ]] && restore_map["dev"]="${HOME}/bot/skills"
+  [[ -z "${restore_map[default]}" ]] && restore_map["default"]="${HOME}/.bot/skills"
 
   # Show restore plan
   echo ""

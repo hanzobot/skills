@@ -1,11 +1,11 @@
 ---
-name: clawdbot-sync
+name: bot-sync
 version: 1.0.0
-description: "Synchronize memory, preferences, and skills between multiple Clawdbot instances. Supports bi-directional sync via SSH/rsync over Tailscale. Use when asked to sync with another Clawdbot, share memory between instances, or keep multiple agents in sync. Triggers: /sync, 'sync with mac', 'update other clawdbot', 'share this with my other bot'."
-author: clawdbot
+description: "Synchronize memory, preferences, and skills between multiple Bot instances. Supports bi-directional sync via SSH/rsync over Tailscale. Use when asked to sync with another Bot, share memory between instances, or keep multiple agents in sync. Triggers: /sync, 'sync with mac', 'update other bot', 'share this with my other bot'."
+author: bot
 license: MIT
 metadata:
-  clawdbot:
+  bot:
     emoji: "🔄"
     triggers: ["/sync"]
     requires:
@@ -13,13 +13,13 @@ metadata:
   tags: ["sync", "multi-agent", "collaboration", "backup"]
 ---
 
-# Clawdbot Sync 🔄
+# Bot Sync 🔄
 
-Synchronize memory, preferences, and skills between multiple Clawdbot instances over Tailscale/SSH.
+Synchronize memory, preferences, and skills between multiple Bot instances over Tailscale/SSH.
 
 ## Features
 
-- **Bi-directional sync** between Clawdbot instances
+- **Bi-directional sync** between Bot instances
 - **Smart conflict resolution** (newest wins, or merge for logs)
 - **Selective sync** — choose what to sync
 - **Peer discovery** via Tailscale
@@ -44,15 +44,15 @@ Synchronize memory, preferences, and skills between multiple Clawdbot instances 
 ### 1. Configure Peers
 
 ```bash
-handler.sh add mac-mini 100.95.193.55 clawdbot /Users/clawdbot/clawd $WORKSPACE
-handler.sh add server 100.89.48.26 clawdbot /home/clawdbot/clawd $WORKSPACE
+handler.sh add mac-mini 100.95.193.55 bot /Users/bot/bot $WORKSPACE
+handler.sh add server 100.89.48.26 bot /home/bot/bot $WORKSPACE
 ```
 
 ### 2. Ensure SSH Access
 
 Both machines need SSH key auth:
 ```bash
-ssh-copy-id clawdbot@100.95.193.55
+ssh-copy-id bot@100.95.193.55
 ```
 
 ### 3. Test Connection
@@ -95,7 +95,7 @@ handler.sh auto <on|off> $WORKSPACE             # Auto-sync on heartbeat
 
 ## Data Files
 
-Stored in `$WORKSPACE/memory/clawdbot-sync/`:
+Stored in `$WORKSPACE/memory/bot-sync/`:
 
 | File | Purpose |
 |------|---------|

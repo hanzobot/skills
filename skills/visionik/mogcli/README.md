@@ -409,4 +409,4 @@ MIT
 
 ## 👨‍💻 Developed By
 
-**[visionik](mailto:visionik@pobox.com)** and **Vinston 🐺** ([Clawdbot](https://github.com/clawdbot/clawdbot)) using the visionik.md framework.
+**[visionik](mailto:visionik@pobox.com)** and **Vinston 🐺** ([Bot](https://github.com/bot/bot)) using the visionik.md framework.

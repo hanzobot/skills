@@ -7,7 +7,7 @@
 
 ## 📦 Skill Files
 
-Located at: `/root/clawdbot/skills/milkee/`
+Located at: `/root/bot/skills/milkee/`
 
 ### SKILL.md
 - Complete documentation
@@ -109,7 +109,7 @@ python3 scripts/milkee.py update_product 789 --price 175
 
 ## 🔐 Configuration
 
-**File**: `~/.clawdbot/clawdbot.json`
+**File**: `~/.bot/bot.json`
 
 ```json
 "milkee": {

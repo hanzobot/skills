@@ -2,7 +2,7 @@
 name: monarch-money
 description: TypeScript library and CLI for Monarch Money budget management. Search transactions by date/merchant/amount, update categories, list accounts and budgets, manage authentication. Use when user asks about Monarch Money transactions, wants to categorize spending, needs to find specific transactions, or wants to automate budget tasks.
 metadata:
-  clawdbot:
+  bot:
     requires:
       env: ["MONARCH_EMAIL", "MONARCH_PASSWORD", "MONARCH_MFA_SECRET"]
     install:

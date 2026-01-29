@@ -1,4 +1,4 @@
-# Publishing just-fucking-cancel to ClawdHub
+# Publishing just-fucking-cancel to Skills
 
 ## Attribution
 - **Original**: https://github.com/rohunvora/just-fucking-cancel by @rohunvora
@@ -8,15 +8,15 @@
 ## Publish Command
 
 ```bash
-# 1. Install ClawdHub CLI (if not already)
-npm i -g clawdhub
+# 1. Install Skills CLI (if not already)
+npm i -g skills
 
-# 2. Login to ClawdHub
-clawdhub login
+# 2. Login to Skills
+skills login
 
 # 3. Publish the skill
-cd /path/to/clawdbot-railway
-clawdhub publish ./skills/just-fucking-cancel \
+cd /path/to/bot-railway
+skills publish ./skills/just-fucking-cancel \
   --slug just-fucking-cancel \
   --name "just-fucking-cancel" \
   --version 1.0.0 \
@@ -40,17 +40,17 @@ DM @chipagosfinest on X if you need anything."
 
 The skill will be available at:
 ```
-https://clawdhub.com/chipagosfinest/just-fucking-cancel
+https://skills.com/chipagosfinest/just-fucking-cancel
 ```
 
-Add to any clawdbot.json:
+Add to any bot.json:
 ```json
 "just-fucking-cancel": {
-  "location": "https://clawdhub.com/chipagosfinest/just-fucking-cancel"
+  "location": "https://skills.com/chipagosfinest/just-fucking-cancel"
 }
 ```
 
 Or install via CLI:
 ```bash
-clawdhub install chipagosfinest/just-fucking-cancel
+skills install chipagosfinest/just-fucking-cancel
 ```

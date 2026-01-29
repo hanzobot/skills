@@ -9,30 +9,30 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-echo -e "${CYAN}🔍 Clawdbot Backup Dry Run${NC}"
+echo -e "${CYAN}🔍 Bot Backup Dry Run${NC}"
 echo -e "${CYAN}===========================${NC}"
 echo ""
 echo -e "${YELLOW}This is a DRY RUN - no files will be created or modified${NC}"
 echo ""
 
 # Config check
-if [ ! -f ~/.clawdbot/clawdbot.json ]; then
-  echo -e "${RED}❌ Config file not found: ~/.clawdbot/clawdbot.json${NC}"
+if [ ! -f ~/.bot/bot.json ]; then
+  echo -e "${RED}❌ Config file not found: ~/.bot/bot.json${NC}"
   exit 1
 fi
 
 # What backup directory would be created
-BACKUP_DIR=~/.clawdbot-backups/pre-update-$(date +%Y%m%d-%H%M%S)
+BACKUP_DIR=~/.bot-backups/pre-update-$(date +%Y%m%d-%H%M%S)
 echo -e "${BLUE}📁 Would create backup at:${NC}"
 echo "   $BACKUP_DIR"
 echo ""
 
 # Config analysis
 echo -e "${YELLOW}📋 Configuration Analysis${NC}"
-CONFIG_SIZE=$(du -h ~/.clawdbot/clawdbot.json | cut -f1)
-echo -e "${GREEN}✓${NC} Config file: ~/.clawdbot/clawdbot.json ($CONFIG_SIZE)"
+CONFIG_SIZE=$(du -h ~/.bot/bot.json | cut -f1)
+echo -e "${GREEN}✓${NC} Config file: ~/.bot/bot.json ($CONFIG_SIZE)"
 
-BACKUP_COUNT=$(find ~/.clawdbot -maxdepth 1 -name "*.backup*" -o -name "*.json.*" 2>/dev/null | wc -l | tr -d ' ')
+BACKUP_COUNT=$(find ~/.bot -maxdepth 1 -name "*.backup*" -o -name "*.json.*" 2>/dev/null | wc -l | tr -d ' ')
 if [ "$BACKUP_COUNT" -gt 0 ]; then
   echo -e "${GREEN}✓${NC} Found $BACKUP_COUNT additional backup files"
 fi
@@ -40,9 +40,9 @@ fi
 # Sessions check
 echo ""
 echo -e "${YELLOW}💾 Sessions Analysis${NC}"
-if [ -d ~/.clawdbot/sessions ]; then
-  SESSION_COUNT=$(find ~/.clawdbot/sessions -type f -name "*.jsonl" 2>/dev/null | wc -l | tr -d ' ')
-  SESSION_SIZE=$(du -sh ~/.clawdbot/sessions 2>/dev/null | cut -f1)
+if [ -d ~/.bot/sessions ]; then
+  SESSION_COUNT=$(find ~/.bot/sessions -type f -name "*.jsonl" 2>/dev/null | wc -l | tr -d ' ')
+  SESSION_SIZE=$(du -sh ~/.bot/sessions 2>/dev/null | cut -f1)
   echo -e "${GREEN}✓${NC} Sessions directory exists"
   echo "   Files: $SESSION_COUNT session files"
   echo "   Size: $SESSION_SIZE"
@@ -54,16 +54,16 @@ fi
 # Agents check
 echo ""
 echo -e "${YELLOW}🤖 Agents Analysis${NC}"
-if [ -d ~/.clawdbot/agents ]; then
-  AGENT_DIRS=$(find ~/.clawdbot/agents -maxdepth 1 -type d | tail -n +2 | wc -l | tr -d ' ')
-  AGENT_SIZE=$(du -sh ~/.clawdbot/agents 2>/dev/null | cut -f1)
+if [ -d ~/.bot/agents ]; then
+  AGENT_DIRS=$(find ~/.bot/agents -maxdepth 1 -type d | tail -n +2 | wc -l | tr -d ' ')
+  AGENT_SIZE=$(du -sh ~/.bot/agents 2>/dev/null | cut -f1)
   echo -e "${GREEN}✓${NC} Agents directory exists"
   echo "   Agents: $AGENT_DIRS"
   echo "   Size: $AGENT_SIZE"
   echo -e "${CYAN}→${NC} Would create: agents.tar.gz"
   
   # List agent directories
-  for agent_dir in ~/.clawdbot/agents/*/; do
+  for agent_dir in ~/.bot/agents/*/; do
     if [ -d "$agent_dir" ]; then
       agent_name=$(basename "$agent_dir")
       agent_size=$(du -sh "$agent_dir" 2>/dev/null | cut -f1)
@@ -77,9 +77,9 @@ fi
 # Credentials check
 echo ""
 echo -e "${YELLOW}🔐 Credentials Analysis${NC}"
-if [ -d ~/.clawdbot/credentials ]; then
-  CRED_COUNT=$(find ~/.clawdbot/credentials -type f 2>/dev/null | wc -l | tr -d ' ')
-  CRED_SIZE=$(du -sh ~/.clawdbot/credentials 2>/dev/null | cut -f1)
+if [ -d ~/.bot/credentials ]; then
+  CRED_COUNT=$(find ~/.bot/credentials -type f 2>/dev/null | wc -l | tr -d ' ')
+  CRED_SIZE=$(du -sh ~/.bot/credentials 2>/dev/null | cut -f1)
   echo -e "${GREEN}✓${NC} Credentials directory exists"
   echo "   Files: $CRED_COUNT credential files"
   echo "   Size: $CRED_SIZE"
@@ -92,9 +92,9 @@ fi
 # Cron check
 echo ""
 echo -e "${YELLOW}⏰ Cron Analysis${NC}"
-if [ -d ~/.clawdbot/cron ]; then
-  CRON_COUNT=$(find ~/.clawdbot/cron -type f 2>/dev/null | wc -l | tr -d ' ')
-  CRON_SIZE=$(du -sh ~/.clawdbot/cron 2>/dev/null | cut -f1)
+if [ -d ~/.bot/cron ]; then
+  CRON_COUNT=$(find ~/.bot/cron -type f 2>/dev/null | wc -l | tr -d ' ')
+  CRON_SIZE=$(du -sh ~/.bot/cron 2>/dev/null | cut -f1)
   echo -e "${GREEN}✓${NC} Cron directory exists"
   echo "   Jobs: $CRON_COUNT cron files"
   echo "   Size: $CRON_SIZE"
@@ -106,9 +106,9 @@ fi
 # Sandboxes check
 echo ""
 echo -e "${YELLOW}📦 Sandboxes Analysis${NC}"
-if [ -d ~/.clawdbot/sandboxes ]; then
-  SANDBOX_COUNT=$(find ~/.clawdbot/sandboxes -maxdepth 1 -type d 2>/dev/null | tail -n +2 | wc -l | tr -d ' ')
-  SANDBOX_SIZE=$(du -sh ~/.clawdbot/sandboxes 2>/dev/null | cut -f1)
+if [ -d ~/.bot/sandboxes ]; then
+  SANDBOX_COUNT=$(find ~/.bot/sandboxes -maxdepth 1 -type d 2>/dev/null | tail -n +2 | wc -l | tr -d ' ')
+  SANDBOX_SIZE=$(du -sh ~/.bot/sandboxes 2>/dev/null | cut -f1)
   echo -e "${GREEN}✓${NC} Sandboxes directory exists"
   echo "   Sandboxes: $SANDBOX_COUNT"
   echo "   Size: $SANDBOX_SIZE"
@@ -122,7 +122,7 @@ echo ""
 echo -e "${YELLOW}🏠 Workspaces Analysis (Dynamic Detection)${NC}"
 
 # Read workspaces from config
-WORKSPACE_DATA=$(jq -r '.routing.agents // {} | to_entries[] | "\(.key)|\(.value.workspace // "none")|\(.value.name // .key)"' ~/.clawdbot/clawdbot.json)
+WORKSPACE_DATA=$(jq -r '.routing.agents // {} | to_entries[] | "\(.key)|\(.value.workspace // "none")|\(.value.name // .key)"' ~/.bot/bot.json)
 
 if [ -z "$WORKSPACE_DATA" ]; then
   echo -e "${BLUE}ℹ${NC}  No agents configured in routing.agents"
@@ -166,8 +166,8 @@ fi
 # Git state check
 echo ""
 echo -e "${YELLOW}🔧 Git Repository Analysis${NC}"
-if [ -d ~/code/clawdbot/.git ]; then
-  cd ~/code/clawdbot
+if [ -d ~/code/bot/.git ]; then
+  cd ~/code/bot
   CURRENT_COMMIT=$(git log -1 --oneline)
   CURRENT_BRANCH=$(git branch --show-current)
   UNCOMMITTED=$(git status --short | wc -l | tr -d ' ')
@@ -178,7 +178,7 @@ if [ -d ~/code/clawdbot/.git ]; then
   echo "   Uncommitted changes: $UNCOMMITTED"
   echo -e "${CYAN}→${NC} Would create: git-version.txt, git-status.txt, git-remotes.txt"
 else
-  echo -e "${YELLOW}⚠${NC}  Git repository not found at ~/code/clawdbot"
+  echo -e "${YELLOW}⚠${NC}  Git repository not found at ~/code/bot"
   echo -e "${CYAN}→${NC} Would skip git state backup"
 fi
 
@@ -187,11 +187,11 @@ echo ""
 echo -e "${YELLOW}📊 Backup Size Estimation${NC}"
 
 TOTAL_SIZE=0
-[ -d ~/.clawdbot/sessions ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.clawdbot/sessions 2>/dev/null | cut -f1)))
-[ -d ~/.clawdbot/agents ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.clawdbot/agents 2>/dev/null | cut -f1)))
-[ -d ~/.clawdbot/credentials ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.clawdbot/credentials 2>/dev/null | cut -f1)))
-[ -d ~/.clawdbot/cron ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.clawdbot/cron 2>/dev/null | cut -f1)))
-[ -d ~/.clawdbot/sandboxes ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.clawdbot/sandboxes 2>/dev/null | cut -f1)))
+[ -d ~/.bot/sessions ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.bot/sessions 2>/dev/null | cut -f1)))
+[ -d ~/.bot/agents ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.bot/agents 2>/dev/null | cut -f1)))
+[ -d ~/.bot/credentials ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.bot/credentials 2>/dev/null | cut -f1)))
+[ -d ~/.bot/cron ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.bot/cron 2>/dev/null | cut -f1)))
+[ -d ~/.bot/sandboxes ] && TOTAL_SIZE=$((TOTAL_SIZE + $(du -sk ~/.bot/sandboxes 2>/dev/null | cut -f1)))
 
 # Add workspaces
 if [ -n "$WORKSPACE_DATA" ]; then
@@ -218,16 +218,16 @@ echo "   Compressed size: ~$(echo "scale=1; $TOTAL_SIZE*0.3/1024" | bc)M (estima
 # Check disk space
 echo ""
 echo -e "${YELLOW}💿 Disk Space Check${NC}"
-BACKUP_PARENT=$(dirname ~/.clawdbot-backups)
+BACKUP_PARENT=$(dirname ~/.bot-backups)
 DISK_AVAIL=$(df -h "$BACKUP_PARENT" 2>/dev/null | tail -1 | awk '{print $4}')
 DISK_USED=$(df -h "$BACKUP_PARENT" 2>/dev/null | tail -1 | awk '{print $5}')
 
 echo "   Available space: $DISK_AVAIL"
 echo "   Disk usage: $DISK_USED"
 
-if [ -d ~/.clawdbot-backups ]; then
-  EXISTING_BACKUPS=$(find ~/.clawdbot-backups -maxdepth 1 -type d 2>/dev/null | tail -n +2 | wc -l | tr -d ' ')
-  BACKUPS_SIZE=$(du -sh ~/.clawdbot-backups 2>/dev/null | cut -f1)
+if [ -d ~/.bot-backups ]; then
+  EXISTING_BACKUPS=$(find ~/.bot-backups -maxdepth 1 -type d 2>/dev/null | tail -n +2 | wc -l | tr -d ' ')
+  BACKUPS_SIZE=$(du -sh ~/.bot-backups 2>/dev/null | cut -f1)
   echo "   Existing backups: $EXISTING_BACKUPS ($BACKUPS_SIZE total)"
 fi
 
@@ -242,12 +242,12 @@ FILES_TO_CREATE=0
 FILES_TO_SKIP=0
 
 echo -e "${GREEN}Files that would be created:${NC}"
-[ -f ~/.clawdbot/clawdbot.json ] && echo "   ✓ clawdbot.json" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
-[ -d ~/.clawdbot/sessions ] && echo "   ✓ sessions.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
-[ -d ~/.clawdbot/agents ] && echo "   ✓ agents.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
-[ -d ~/.clawdbot/credentials ] && echo "   ✓ credentials.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
-[ -d ~/.clawdbot/cron ] && echo "   ✓ cron.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
-[ -d ~/.clawdbot/sandboxes ] && echo "   ✓ sandboxes.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -f ~/.bot/bot.json ] && echo "   ✓ bot.json" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -d ~/.bot/sessions ] && echo "   ✓ sessions.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -d ~/.bot/agents ] && echo "   ✓ agents.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -d ~/.bot/credentials ] && echo "   ✓ credentials.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -d ~/.bot/cron ] && echo "   ✓ cron.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -d ~/.bot/sandboxes ] && echo "   ✓ sandboxes.tar.gz" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
 
 # Workspace files
 if [ -n "$WORKSPACE_DATA" ]; then
@@ -260,19 +260,19 @@ if [ -n "$WORKSPACE_DATA" ]; then
   done <<< "$WORKSPACE_DATA"
 fi
 
-[ -d ~/code/clawdbot/.git ] && echo "   ✓ git-version.txt" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
-[ -d ~/code/clawdbot/.git ] && echo "   ✓ git-status.txt" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
-[ -d ~/code/clawdbot/.git ] && echo "   ✓ git-remotes.txt" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -d ~/code/bot/.git ] && echo "   ✓ git-version.txt" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -d ~/code/bot/.git ] && echo "   ✓ git-status.txt" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
+[ -d ~/code/bot/.git ] && echo "   ✓ git-remotes.txt" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
 echo "   ✓ BACKUP_INFO.txt" && FILES_TO_CREATE=$((FILES_TO_CREATE+1))
 
 echo ""
 echo -e "${YELLOW}Files that would be skipped:${NC}"
-[ ! -d ~/.clawdbot/sessions ] && echo "   ⊘ sessions.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
-[ ! -d ~/.clawdbot/agents ] && echo "   ⊘ agents.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
-[ ! -d ~/.clawdbot/credentials ] && echo "   ⊘ credentials.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
-[ ! -d ~/.clawdbot/cron ] && echo "   ⊘ cron.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
-[ ! -d ~/.clawdbot/sandboxes ] && echo "   ⊘ sandboxes.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
-[ ! -d ~/code/clawdbot/.git ] && echo "   ⊘ git-*.txt (no repository)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
+[ ! -d ~/.bot/sessions ] && echo "   ⊘ sessions.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
+[ ! -d ~/.bot/agents ] && echo "   ⊘ agents.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
+[ ! -d ~/.bot/credentials ] && echo "   ⊘ credentials.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
+[ ! -d ~/.bot/cron ] && echo "   ⊘ cron.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
+[ ! -d ~/.bot/sandboxes ] && echo "   ⊘ sandboxes.tar.gz (no directory)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
+[ ! -d ~/code/bot/.git ] && echo "   ⊘ git-*.txt (no repository)" && FILES_TO_SKIP=$((FILES_TO_SKIP+1))
 
 if [ "$FILES_TO_SKIP" -eq 0 ]; then
   echo "   (none - all sources available)"
@@ -287,5 +287,5 @@ echo ""
 echo -e "${GREEN}✨ Dry run complete!${NC}"
 echo ""
 echo -e "${YELLOW}💡 To perform the actual backup:${NC}"
-echo "   ~/.skills/clawdbot-update/backup-clawdbot-full.sh"
+echo "   ~/.skills/bot-update/backup-bot-full.sh"
 echo ""

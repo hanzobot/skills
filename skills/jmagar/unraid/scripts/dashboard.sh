@@ -4,8 +4,8 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 QUERY_SCRIPT="$SCRIPT_DIR/unraid-query.sh"
-CONFIG_FILE="$HOME/.clawdbot/credentials/unraid/config.json"
-OUTPUT_FILE="$HOME/clawd/memory/bank/unraid-inventory.md"
+CONFIG_FILE="$HOME/.bot/credentials/unraid/config.json"
+OUTPUT_FILE="$HOME/bot/memory/bank/unraid-inventory.md"
 
 # Ensure output directory exists
 mkdir -p "$(dirname "$OUTPUT_FILE")"

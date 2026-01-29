@@ -1,125 +1,125 @@
-# Clawdbot Update - Quick Reference Card
+# Bot Update - Quick Reference Card
 
 ## 🚀 One-Liner Commands
 
 ```bash
 # Dry run (preview backup)
-~/.skills/clawdbot-update/backup-clawdbot-dryrun.sh
+~/.skills/bot-update/backup-bot-dryrun.sh
 
 # Backup everything
-~/.skills/clawdbot-update/backup-clawdbot-full.sh
+~/.skills/bot-update/backup-bot-full.sh
 
 # Show checklist
-cat ~/.skills/clawdbot-update/UPDATE_CHECKLIST.md
+cat ~/.skills/bot-update/UPDATE_CHECKLIST.md
 
 # Restore from backup
-~/.skills/clawdbot-update/restore-clawdbot.sh <backup-dir>
+~/.skills/bot-update/restore-bot.sh <backup-dir>
 
 # List backups
-ls -lth ~/.clawdbot-backups/
+ls -lth ~/.bot-backups/
 
 # View last backup
-cat $(ls -td ~/.clawdbot-backups/*/ | head -1)/BACKUP_INFO.txt
+cat $(ls -td ~/.bot-backups/*/ | head -1)/BACKUP_INFO.txt
 ```
 
 ## ⚡ Emergency Rollback
 
 ```bash
 # Stop gateway
-cd ~/code/clawdbot && pnpm clawdbot gateway stop
+cd ~/code/bot && pnpm bot gateway stop
 
 # Restore latest backup
-LATEST=$(ls -t ~/.clawdbot-backups/ | head -1)
-~/.skills/clawdbot-update/restore-clawdbot.sh ~/.clawdbot-backups/$LATEST
+LATEST=$(ls -t ~/.bot-backups/ | head -1)
+~/.skills/bot-update/restore-bot.sh ~/.bot-backups/$LATEST
 
 # Start gateway
-pnpm clawdbot gateway start
+pnpm bot gateway start
 ```
 
 ## 🔧 Config Quick Fixes
 
 ```bash
 # Switch to pairing (recommended)
-jq '.whatsapp.dmPolicy = "pairing" | .telegram.dmPolicy = "pairing"' ~/.clawdbot/clawdbot.json | sponge ~/.clawdbot/clawdbot.json
+jq '.whatsapp.dmPolicy = "pairing" | .telegram.dmPolicy = "pairing"' ~/.bot/bot.json | sponge ~/.bot/bot.json
 
 # Set explicit sandbox scope
-jq '.agent.sandbox.scope = "agent"' ~/.clawdbot/clawdbot.json | sponge ~/.clawdbot/clawdbot.json
+jq '.agent.sandbox.scope = "agent"' ~/.bot/bot.json | sponge ~/.bot/bot.json
 
 # Set user timezone
-jq '.agent.userTimezone = "America/New_York"' ~/.clawdbot/clawdbot.json | sponge ~/.clawdbot/clawdbot.json
+jq '.agent.userTimezone = "America/New_York"' ~/.bot/bot.json | sponge ~/.bot/bot.json
 
 # View current config
-jq '.' ~/.clawdbot/clawdbot.json | less
+jq '.' ~/.bot/bot.json | less
 ```
 
 ## 📊 Status Checks
 
 ```bash
 # Gateway status
-pnpm clawdbot gateway status
+pnpm bot gateway status
 
 # Live logs
-pnpm clawdbot logs --follow
+pnpm bot logs --follow
 
 # Agents
-pnpm clawdbot agents list
+pnpm bot agents list
 
 # Providers with usage
-pnpm clawdbot providers list --usage
+pnpm bot providers list --usage
 
 # Full status
-pnpm clawdbot status
+pnpm bot status
 ```
 
 ## 🧪 Test Commands
 
 ```bash
 # New CLIs
-pnpm clawdbot agents list
-pnpm clawdbot logs --tail 50
-pnpm clawdbot providers list --usage
-pnpm clawdbot skills list
+pnpm bot agents list
+pnpm bot logs --tail 50
+pnpm bot providers list --usage
+pnpm bot skills list
 
 # Web UI
 open http://localhost:3001/logs
 
 # Check routing
-jq '.routing.bindings' ~/.clawdbot/clawdbot.json
+jq '.routing.bindings' ~/.bot/bot.json
 ```
 
 ## 🎯 Critical Checks
 
 ```bash
 # DM policies
-jq '.whatsapp.dmPolicy, .telegram.dmPolicy' ~/.clawdbot/clawdbot.json
+jq '.whatsapp.dmPolicy, .telegram.dmPolicy' ~/.bot/bot.json
 
 # Groups config
-jq '.telegram.groups, .whatsapp.groups' ~/.clawdbot/clawdbot.json
+jq '.telegram.groups, .whatsapp.groups' ~/.bot/bot.json
 
 # Sandbox config
-jq '.agent.sandbox' ~/.clawdbot/clawdbot.json
+jq '.agent.sandbox' ~/.bot/bot.json
 
 # Per-agent config
-jq '.routing.agents[] | {name, workspace, sandbox}' ~/.clawdbot/clawdbot.json
+jq '.routing.agents[] | {name, workspace, sandbox}' ~/.bot/bot.json
 
 # Workspaces list
-jq -r '.routing.agents | to_entries[] | "\(.key): \(.value.workspace)"' ~/.clawdbot/clawdbot.json
+jq -r '.routing.agents | to_entries[] | "\(.key): \(.value.workspace)"' ~/.bot/bot.json
 ```
 
 ## 🔥 Troubleshooting
 
 ```bash
 # Logs with errors
-pnpm clawdbot logs --grep error
+pnpm bot logs --grep error
 
 # Run doctor
-pnpm clawdbot doctor --yes
+pnpm bot doctor --yes
 
 # Restart gateway
-pnpm clawdbot gateway restart
+pnpm bot gateway restart
 
 # Kill stuck processes
-pkill -f "clawdbot gateway"
+pkill -f "bot gateway"
 
 # Check gateway ports
 lsof -i :3001 -i :3002
@@ -129,13 +129,13 @@ lsof -i :3001 -i :3002
 
 ```bash
 # 0. Dry run (optional)
-~/.skills/clawdbot-update/backup-clawdbot-dryrun.sh
+~/.skills/bot-update/backup-bot-dryrun.sh
 
 # 1. Backup
-~/.skills/clawdbot-update/backup-clawdbot-full.sh
+~/.skills/bot-update/backup-bot-full.sh
 
 # 2. Stop
-cd ~/code/clawdbot && pnpm clawdbot gateway stop
+cd ~/code/bot && pnpm bot gateway stop
 
 # 3. Update
 git checkout main
@@ -144,25 +144,25 @@ pnpm install
 pnpm build
 
 # 4. Config (adjust as needed)
-jq '.whatsapp.dmPolicy = "pairing"' ~/.clawdbot/clawdbot.json | sponge ~/.clawdbot/clawdbot.json
-jq '.agent.sandbox.scope = "agent"' ~/.clawdbot/clawdbot.json | sponge ~/.clawdbot/clawdbot.json
+jq '.whatsapp.dmPolicy = "pairing"' ~/.bot/bot.json | sponge ~/.bot/bot.json
+jq '.agent.sandbox.scope = "agent"' ~/.bot/bot.json | sponge ~/.bot/bot.json
 
 # 5. Doctor
-pnpm clawdbot doctor --yes
+pnpm bot doctor --yes
 
 # 6. Start
-pnpm clawdbot gateway start --daemon
+pnpm bot gateway start --daemon
 
 # 7. Verify
-pnpm clawdbot gateway status
-pnpm clawdbot logs --tail 20
+pnpm bot gateway status
+pnpm bot logs --tail 20
 ```
 
 ## 🎓 Version Check
 
 ```bash
 # Current version
-cd ~/code/clawdbot && git log -1 --oneline
+cd ~/code/bot && git log -1 --oneline
 
 # Upstream version
 git fetch origin && git log main..origin/main --oneline | head -5
@@ -175,29 +175,29 @@ git fetch origin && git diff --stat main..origin/main
 
 ```bash
 # List configured workspaces
-jq -r '.routing.agents | to_entries[] | "\(.key): \(.value.workspace)"' ~/.clawdbot/clawdbot.json
+jq -r '.routing.agents | to_entries[] | "\(.key): \(.value.workspace)"' ~/.bot/bot.json
 
 # Check workspace sizes
-du -sh ~/clawd*
+du -sh ~/bot*
 
-# Check .clawdbot size
-du -sh ~/.clawdbot
+# Check .bot size
+du -sh ~/.bot
 
 # Backup size
-du -sh ~/.clawdbot-backups/
+du -sh ~/.bot-backups/
 ```
 
 ## 🔐 Auth Check
 
 ```bash
 # List credentials
-ls -la ~/.clawdbot/credentials/
+ls -la ~/.bot/credentials/
 
 # Check auth profiles
-jq '.models' ~/.clawdbot/clawdbot.json
+jq '.models' ~/.bot/bot.json
 
 # Provider login status
-pnpm clawdbot providers list
+pnpm bot providers list
 ```
 
 ## ⏱️ Time Estimates
@@ -213,13 +213,13 @@ pnpm clawdbot providers list
 
 ## 📞 Emergency Contacts
 
-**Logs:** `~/.clawdbot/logs/`  
-**Backups:** `~/.clawdbot-backups/`  
-**Config:** `~/.clawdbot/clawdbot.json`  
-**Skill:** `~/.skills/clawdbot-update/`
+**Logs:** `~/.bot/logs/`  
+**Backups:** `~/.bot-backups/`  
+**Config:** `~/.bot/bot.json`  
+**Skill:** `~/.skills/bot-update/`
 
 ---
 
 **Last Updated:** 2026-01-08  
 **Target Version:** v2026.1.8  
-**Repository:** https://github.com/clawdbot/clawdbot
+**Repository:** https://github.com/bot/bot

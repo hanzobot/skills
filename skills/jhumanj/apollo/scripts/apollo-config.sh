@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # Loads config for Apollo API scripts.
-# Expected file: /Users/jhumanj/clawd/config/apollo.env
+# Expected file: /Users/jhumanj/bot/config/apollo.env
 
-CONFIG_FILE="/Users/jhumanj/clawd/config/apollo.env"
+CONFIG_FILE="/Users/jhumanj/bot/config/apollo.env"
 
 if [ -f "$CONFIG_FILE" ]; then
   # shellcheck disable=SC1090
@@ -12,12 +12,12 @@ if [ -f "$CONFIG_FILE" ]; then
 fi
 
 if [ -z "${APOLLO_BASE_URL:-}" ]; then
-  echo "Missing APOLLO_BASE_URL. Create $CONFIG_FILE (see /Users/jhumanj/clawd/config/apollo.env.example)." >&2
+  echo "Missing APOLLO_BASE_URL. Create $CONFIG_FILE (see /Users/jhumanj/bot/config/apollo.env.example)." >&2
   exit 1
 fi
 
 if [ -z "${APOLLO_API_KEY:-}" ]; then
-  echo "Missing APOLLO_API_KEY. Create $CONFIG_FILE (see /Users/jhumanj/clawd/config/apollo.env.example)." >&2
+  echo "Missing APOLLO_API_KEY. Create $CONFIG_FILE (see /Users/jhumanj/bot/config/apollo.env.example)." >&2
   exit 1
 fi
 

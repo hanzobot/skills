@@ -6,7 +6,7 @@
 
 - Python 3.8+
 - MILKEE account with API access
-- Clawdbot installed
+- Bot installed
 
 ---
 
@@ -35,7 +35,7 @@
 ### Method A: Upload to Skill Hub (Recommended)
 
 1. Extract `milkee.skill` from this package
-2. Go to your Skill Hub (https://hub.clawdbot.com or your instance)
+2. Go to your Skill Hub (https://hub.bot.com or your instance)
 3. Click "Upload New Skill"
 4. Select `milkee.skill`
 5. Fill in metadata:
@@ -44,19 +44,19 @@
    - Tags: `time-tracking, accounting, projects, swiss`
    - Description: See README.md
 6. Review and publish
-7. Install via Clawdbot: `clawdbot skill install milkee`
+7. Install via Bot: `bot skill install milkee`
 
 ### Method B: Manual Installation
 
 1. Extract the ZIP package
-2. Unzip `milkee.skill` to `~/.clawdbot/skills/milkee/`
-3. Configure Clawdbot (see Step 3 below)
+2. Unzip `milkee.skill` to `~/.bot/skills/milkee/`
+3. Configure Bot (see Step 3 below)
 
 ---
 
-## Step 3: Configure Clawdbot
+## Step 3: Configure Bot
 
-Edit `~/.clawdbot/clawdbot.json` and add:
+Edit `~/.bot/bot.json` and add:
 
 ```json
 {
@@ -99,7 +99,7 @@ Run this command to verify everything works:
 export MILKEE_API_TOKEN="USER_ID|API_KEY"
 export MILKEE_COMPANY_ID="YOUR_COMPANY_ID"
 
-python3 ~/.clawdbot/skills/milkee/scripts/milkee.py list_projects
+python3 ~/.bot/skills/milkee/scripts/milkee.py list_projects
 ```
 
 **Expected output**:
@@ -156,7 +156,7 @@ python3 scripts/milkee.py list_projects
 
 ### "Command not found: milkee.py"
 - Make sure path is correct
-- Try full path: `python3 ~/.clawdbot/skills/milkee/scripts/milkee.py`
+- Try full path: `python3 ~/.bot/skills/milkee/scripts/milkee.py`
 
 ---
 

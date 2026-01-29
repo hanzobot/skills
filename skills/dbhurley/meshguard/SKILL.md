@@ -1,7 +1,7 @@
 ---
 name: meshguard
 description: Manage MeshGuard AI agent governance - agents, policies, audit logs, and monitoring.
-metadata: {"clawdbot":{"requires":{"bins":["curl","jq"]}}}
+metadata: {"bot":{"requires":{"bins":["curl","jq"]}}}
 ---
 
 # MeshGuard

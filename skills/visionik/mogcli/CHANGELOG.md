@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Keychain storage option for OAuth tokens (`--storage keychain`)
-- SKILL.md for Clawdbot integration
+- SKILL.md for Bot integration
 - Calendar ACL and OneNote commands
 - Comprehensive unit tests with ≥85% coverage
 - CHANGELOG.md

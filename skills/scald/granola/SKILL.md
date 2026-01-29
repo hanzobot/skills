@@ -2,7 +2,7 @@
 name: granola
 description: Access Granola meeting transcripts and notes.
 homepage: https://granola.ai
-metadata: {"clawdbot":{"emoji":"🥣","requires":{"bins":["python3"]}}}
+metadata: {"bot":{"emoji":"🥣","requires":{"bins":["python3"]}}}
 ---
 
 # granola
@@ -20,12 +20,12 @@ pip install requests
 
 2. **Run initial sync:**
 ```bash
-python ~/path/to/clawdbot/skills/granola/scripts/sync.py ~/granola-meetings
+python ~/path/to/bot/skills/granola/scripts/sync.py ~/granola-meetings
 ```
 
-3. **Set up automatic sync via clawdbot cron:**
+3. **Set up automatic sync via bot cron:**
 ```javascript
-clawdbot_cron({
+bot_cron({
   action: "add",
   job: {
     name: "Granola Sync",

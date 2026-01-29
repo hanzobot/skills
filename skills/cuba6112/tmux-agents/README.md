@@ -13,7 +13,7 @@ Run coding agents in persistent tmux sessions. They work in the background while
 ## Installation
 
 ```bash
-clawdhub install tmux-agents
+skills install tmux-agents
 ```
 
 Requires: `tmux` (auto-installs via brew if missing)

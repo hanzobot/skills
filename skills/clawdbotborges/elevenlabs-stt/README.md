@@ -1,6 +1,6 @@
 # 🎙️ ElevenLabs Speech-to-Text Skill
 
-A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for transcribing audio files using ElevenLabs' Scribe v2 model.
+A [Bot](https://github.com/bot/bot) skill for transcribing audio files using ElevenLabs' Scribe v2 model.
 
 ## Features
 
@@ -12,16 +12,16 @@ A [Clawdbot](https://github.com/clawdbot/clawdbot) skill for transcribing audio 
 
 ## Installation
 
-### For Clawdbot
+### For Bot
 
-Add to your `clawdbot.json`:
+Add to your `bot.json`:
 
 ```json5
 {
   skills: {
     entries: {
       "elevenlabs-stt": {
-        source: "github:clawdbotborges/elevenlabs-stt",
+        source: "github:botborges/elevenlabs-stt",
         apiKey: "sk_your_api_key_here"
       }
     }
@@ -32,7 +32,7 @@ Add to your `clawdbot.json`:
 ### Standalone
 
 ```bash
-git clone https://github.com/clawdbotborges/elevenlabs-stt.git
+git clone https://github.com/botborges/elevenlabs-stt.git
 cd elevenlabs-stt
 export ELEVENLABS_API_KEY="sk_your_api_key_here"
 ```
@@ -123,4 +123,4 @@ MIT
 
 - [ElevenLabs Speech-to-Text](https://elevenlabs.io/speech-to-text)
 - [API Documentation](https://elevenlabs.io/docs/api-reference/speech-to-text)
-- [Clawdbot](https://github.com/clawdbot/clawdbot)
+- [Bot](https://github.com/bot/bot)

@@ -10,9 +10,9 @@ PIHOLE_API_URL="${PIHOLE_API_URL:-http://pi-hole.local/admin/api.php}"
 PIHOLE_API_TOKEN="${PIHOLE_API_TOKEN:-}"
 PIHOLE_INSECURE="${PIHOLE_INSECURE:-false}"
 
-# Get API URL from clawdbot config if env not set
+# Get API URL from bot config if env not set
 if [[ -z "$PIHOLE_API_TOKEN" ]]; then
-    CONFIG_FILE="$HOME/.clawdbot/clawdbot.json"
+    CONFIG_FILE="$HOME/.bot/bot.json"
     if [[ -f "$CONFIG_FILE" ]]; then
         PIHOLE_API_URL=$(jq -r '.skills.entries.pihole.apiUrl // empty' "$CONFIG_FILE" 2>/dev/null || echo "")
         PIHOLE_API_TOKEN=$(jq -r '.skills.entries.pihole.apiToken // empty' "$CONFIG_FILE" 2>/dev/null || echo "")
@@ -23,13 +23,13 @@ fi
 # Validate API URL and token
 if [[ -z "$PIHOLE_API_URL" ]] || [[ "$PIHOLE_API_URL" == "empty" ]]; then
     echo "⚠️  Pi-hole API URL not configured"
-    echo "Set PIHOLE_API_URL environment variable or configure in clawdbot.json"
+    echo "Set PIHOLE_API_URL environment variable or configure in bot.json"
     exit 1
 fi
 
 if [[ -z "$PIHOLE_API_TOKEN" ]] || [[ "$PIHOLE_API_TOKEN" == "empty" ]]; then
     echo "⚠️  Pi-hole API token not configured"
-    echo "Set PIHOLE_API_TOKEN environment variable or configure in clawdbot.json"
+    echo "Set PIHOLE_API_TOKEN environment variable or configure in bot.json"
     exit 1
 fi
 
@@ -311,7 +311,7 @@ Examples:
   ./pihole.sh stats
 
 Configuration:
-  Set PIHOLE_API_URL and PIHOLE_API_TOKEN in clawdbot.json skills.entries.pihole
+  Set PIHOLE_API_URL and PIHOLE_API_TOKEN in bot.json skills.entries.pihole
   Set insecure: true to bypass SSL cert validation
 
 EOF

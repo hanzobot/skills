@@ -3,7 +3,7 @@ name: beestat
 description: Query ecobee thermostat data via Beestat API including temperature, humidity, air quality (CO2, VOC), sensors, and HVAC runtime. Use when user asks about home temperature, thermostat status, air quality, or heating/cooling usage.
 homepage: https://beestat.io
 metadata:
-  clawdbot:
+  bot:
     emoji: "🌡️"
     requires:
       bins: ["beestat"]

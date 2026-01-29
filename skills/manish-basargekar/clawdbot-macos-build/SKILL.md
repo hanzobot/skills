@@ -1,9 +1,9 @@
 ---
-name: clawdbot-macos-build
-description: Build the Clawdbot macOS menu bar app from source. Use when you need to install the Clawdbot.app companion (for menu bar status, permissions, and Mac hardware access like camera/screen recording). Handles dependency installation, UI build, Swift compilation, code signing, and app packaging automatically.
+name: bot-macos-build
+description: Build the Bot macOS menu bar app from source. Use when you need to install the Bot.app companion (for menu bar status, permissions, and Mac hardware access like camera/screen recording). Handles dependency installation, UI build, Swift compilation, code signing, and app packaging automatically.
 ---
 
-# Clawdbot macOS App Build
+# Bot macOS App Build
 
 The macOS companion app provides menu-bar status, native notifications, and access to Mac hardware (camera, screen recording, system commands). This skill builds it from source.
 
@@ -20,10 +20,10 @@ The macOS companion app provides menu-bar status, native notifications, and acce
 
 ```bash
 # Clone repo
-cd /tmp && rm -rf clawdbot-build && git clone https://github.com/clawdbot/clawdbot.git clawdbot-build
+cd /tmp && rm -rf bot-build && git clone https://github.com/bot/bot.git bot-build
 
 # Install + build
-cd /tmp/clawdbot-build
+cd /tmp/bot-build
 pnpm install
 pnpm ui:build
 
@@ -34,16 +34,16 @@ sudo xcodebuild -license accept
 ALLOW_ADHOC_SIGNING=1 bash scripts/package-mac-app.sh
 
 # Install to /Applications
-cp -r dist/Clawdbot.app /Applications/Clawdbot.app
+cp -r dist/Bot.app /Applications/Bot.app
 
 # Launch
-open /Applications/Clawdbot.app
+open /Applications/Bot.app
 ```
 
 ## Build Steps Explained
 
 ### 1. Clone Repository
-Clones the latest Clawdbot source from GitHub. This includes the macOS app source in `apps/macos/`.
+Clones the latest Bot source from GitHub. This includes the macOS app source in `apps/macos/`.
 
 ### 2. Install Dependencies (pnpm install)
 Installs Node.js dependencies for the entire workspace (~1 minute). Warnings about missing binaries in some extensions are harmless.
@@ -103,7 +103,7 @@ ALLOW_ADHOC_SIGNING=1 bash scripts/package-mac-app.sh
 ### App won't launch after build
 Check that it's properly signed:
 ```bash
-codesign -v /Applications/Clawdbot.app
+codesign -v /Applications/Bot.app
 ```
 
 If signing failed, rebuild with `ALLOW_ADHOC_SIGNING=1`.
@@ -116,16 +116,16 @@ If signing failed, rebuild with `ALLOW_ADHOC_SIGNING=1`.
   - **Local:** Gateway runs on your Mac; app manages launchd service
   - **Remote:** App connects to Gateway on another machine (VPS, home server) via SSH/Tailscale; keeps your Mac accessible even while sleeping
 - **Mac hardware access:** Camera, screen recording, Canvas, voice wake-word
-- **Deep linking:** Trigger agent requests via `clawdbot://` URL scheme
+- **Deep linking:** Trigger agent requests via `bot://` URL scheme
 
-See the official docs: https://docs.clawd.bot/platforms/macos
+See the official docs: https://docs.hanzo.bot/platforms/macos
 
 ## Building for Distribution
 
 For production distribution, you'll need:
 - Apple Developer ID certificate (paid)
 - Notarization credentials
-- See: https://docs.clawd.bot/platforms/mac/release
+- See: https://docs.hanzo.bot/platforms/mac/release
 
 For personal use, ad-hoc signing is fine.
 
@@ -134,11 +134,11 @@ For personal use, ad-hoc signing is fine.
 After the app launches:
 1. Complete the permission checklist (TCC prompts)
 2. Choose **Local** or **Remote** mode
-3. If Local: ensure the Gateway is running (`clawdbot gateway status`)
-4. Open Clawdbot.app menu bar icon to configure
+3. If Local: ensure the Gateway is running (`bot gateway status`)
+4. Open Bot.app menu bar icon to configure
 
 Then from the terminal, you can manage the Gateway:
 ```bash
-clawdbot gateway status
-clawdbot gateway restart
+bot gateway status
+bot gateway restart
 ```

@@ -16,7 +16,7 @@ Query health metrics from the Whoop API and generate interactive HTML charts.
 3. Create a Team if prompted (any name works)
 4. Click **Create App** (or go to [apps/create](https://developer-dashboard.whoop.com/apps/create))
 5. Fill in:
-   - **App name**: anything (e.g., "Clawdbot")
+   - **App name**: anything (e.g., "Bot")
    - **Scopes**: select ALL: `read:recovery`, `read:cycles`, `read:workout`, `read:sleep`, `read:profile`, `read:body_measurement`
    - **Redirect URI**: `http://localhost:9876/callback`
 6. Click **Create** — you'll get a **Client ID** and **Client Secret**
@@ -31,7 +31,7 @@ python3 scripts/whoop_auth.py login \
   --client-secret YOUR_CLIENT_SECRET
 ```
 
-This opens a browser for Whoop authorization. Log in and approve access. Tokens are stored in `~/.clawdbot/whoop-tokens.json` and auto-refresh.
+This opens a browser for Whoop authorization. Log in and approve access. Tokens are stored in `~/.bot/whoop-tokens.json` and auto-refresh.
 
 Check status: `python3 scripts/whoop_auth.py status`
 

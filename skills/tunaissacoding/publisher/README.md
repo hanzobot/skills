@@ -13,7 +13,7 @@ Make your skills easy to understand and impossible to ignore.
 - bash
 - `jq` (`brew install jq`)
 - `gh` CLI (`brew install gh`)
-- `clawdhub` CLI (`npm install -g clawdhub`)
+- `skills` CLI (`npm install -g skills`)
 - git
 
 ---
@@ -26,7 +26,7 @@ The tool:
 - Generates compelling one-liners that explain your skill's value
 - Creates clear, scannable descriptions following proven patterns
 - Makes installation and setup obvious
-- Publishes to GitHub and ClawdHub automatically
+- Publishes to GitHub and Skills automatically
 
 One command turns technical skills into must-have tools.
 
@@ -35,7 +35,7 @@ One command turns technical skills into must-have tools.
 ## 🚀 Installation
 
 ```bash
-clawdhub install publisher
+skills install publisher
 ```
 
 ### First-Time Setup
@@ -45,7 +45,7 @@ clawdhub install publisher
 ```bash
 # Install dependencies
 brew install jq gh
-npm install -g clawdhub
+npm install -g skills
 
 # Authenticate GitHub CLI
 gh auth login
@@ -79,7 +79,7 @@ The installation:
    - How to install (the steps)
    - How it works (the process)
 4. **Publishes** to GitHub (creates repo if needed)
-5. **Publishes** to ClawdHub with version from VERSION file
+5. **Publishes** to Skills with version from VERSION file
 
 **Smart workflow:**
 - Detects existing GitHub repos (won't duplicate)
@@ -90,7 +90,7 @@ The installation:
 **Example:**
 
 ```bash
-cd ~/clawd/skills/my-skill
+cd ~/bot/skills/my-skill
 publisher
 ```
 
@@ -106,13 +106,13 @@ Choose one-liner (A/B/C/D): A
 
 ✅ Chosen: Keep your thing updated automatically 24/7
 📄 Generating README.md...
-📤 Publish to GitHub and ClawdHub? (y/n): y
+📤 Publish to GitHub and Skills? (y/n): y
 
 🐙 Creating GitHub repository...
 ✅ Published successfully!
 
 📍 GitHub: https://github.com/user/my-skill
-📍 ClawdHub: https://clawdhub.com/skills/my-skill
+📍 Skills: https://skills.com/skills/my-skill
 ```
 
 ---
@@ -320,7 +320,7 @@ skill-publisher
 - Checks for existing GitHub repo
 - Creates repo if needed (via `gh`)
 - Pushes code
-- Publishes to ClawdHub (via `clawdhub`)
+- Publishes to Skills (via `skills`)
 
 ### Future Enhancements (v1.1.0+)
 

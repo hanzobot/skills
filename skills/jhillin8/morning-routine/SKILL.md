@@ -1,7 +1,7 @@
 ---
 name: morning-routine
 description: Build a powerful morning routine with habit checklists, timing, and streak tracking
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "morning routine"
@@ -32,7 +32,7 @@ The Morning Routine skill transforms your first hours into a structured, trackab
 "begin my routine"
 "morning routine go"
 ```
-Launches your checklist. Clawd guides you through each habit with timing reminders.
+Launches your checklist. Bot guides you through each habit with timing reminders.
 
 **Check off habit**
 ```
@@ -41,7 +41,7 @@ Launches your checklist. Clawd guides you through each habit with timing reminde
 "movement done"
 "planning finished"
 ```
-Mark individual habits as complete. Clawd tracks completion time and logs the action.
+Mark individual habits as complete. Bot tracks completion time and logs the action.
 
 **Routine status**
 ```
@@ -59,7 +59,7 @@ Get a real-time snapshot of your current routine—how many habits done, how man
 "change routine"
 "swap habit"
 ```
-Customize habits on the fly. Clawd saves changes and adapts your checklist immediately.
+Customize habits on the fly. Bot saves changes and adapts your checklist immediately.
 
 **Review streak**
 ```

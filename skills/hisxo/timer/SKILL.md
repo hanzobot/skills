@@ -1,7 +1,7 @@
 ---
 name: timer
 description: Set timers and alarms. When a background timer completes, you receive a System notification - respond with the reminder message (NOT HEARTBEAT_OK) to notify the user.
-metadata: {"clawdbot":{"emoji":"⏱️","requires":{"bins":["node"]}}}
+metadata: {"bot":{"emoji":"⏱️","requires":{"bins":["node"]}}}
 ---
 
 # Timer

@@ -4,12 +4,12 @@ description: >-
   Browse and search Reddit in read-only mode using public JSON endpoints.
   Use when the user asks to browse subreddits, search for posts by topic,
   inspect comment threads, or build a shortlist of links to review and reply to manually.
-metadata: {"clawdbot":{"emoji":"🔎","requires":{"bins":["node"]}}}
+metadata: {"bot":{"emoji":"🔎","requires":{"bins":["node"]}}}
 ---
 
 # Reddit Readonly
 
-Read-only Reddit browsing for Clawdbot.
+Read-only Reddit browsing for Bot.
 
 ## What this skill is for
 
@@ -112,5 +112,5 @@ node {baseDir}/scripts/reddit-readonly.mjs find \
 export REDDIT_RO_MIN_DELAY_MS=800
 export REDDIT_RO_MAX_DELAY_MS=1800
 export REDDIT_RO_TIMEOUT_MS=25000
-export REDDIT_RO_USER_AGENT='script:clawdbot-reddit-readonly:v1.0.0 (personal)'
+export REDDIT_RO_USER_AGENT='script:bot-reddit-readonly:v1.0.0 (personal)'
 ```

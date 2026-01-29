@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Clawdbot Update Plus - Configuration management
+# Bot Update Plus - Configuration management
 # Version: 2.1.1
 
 # Default paths
-WORKSPACE_DEFAULT="${HOME}/clawd"
-BACKUP_DIR_DEFAULT="${HOME}/.clawdbot/backups"
-CONFIG_FILE="${HOME}/.clawdbot/clawdbot-update.json"
-LOG_FILE="${HOME}/.clawdbot/backups/update.log"
+WORKSPACE_DEFAULT="${HOME}/bot"
+BACKUP_DIR_DEFAULT="${HOME}/.bot/backups"
+CONFIG_FILE="${HOME}/.bot/bot-update.json"
+LOG_FILE="${HOME}/.bot/backups/update.log"
 
 # Load configuration from JSON
 load_config() {
@@ -73,12 +73,12 @@ load_config() {
       SKILLS_DIRS_JSON=$(jq -c '.skills_dirs' "$CONFIG_FILE")
     else
       # Legacy: single skills_dir
-      local skills_dir=$(jq -r '.skills_dir // "'"${HOME}/.clawdbot/skills"'"' "$CONFIG_FILE")
+      local skills_dir=$(jq -r '.skills_dir // "'"${HOME}/.bot/skills"'"' "$CONFIG_FILE")
       SKILLS_DIRS_JSON=$(jq -n --arg path "$skills_dir" '[{path: $path, label: "default", update: true}]')
     fi
   else
     # No config file, use defaults
-    SKILLS_DIRS_JSON=$(jq -n '[{path: "~/.clawdbot/skills", label: "default", update: true}]')
+    SKILLS_DIRS_JSON=$(jq -n '[{path: "~/.bot/skills", label: "default", update: true}]')
   fi
 
   # Ensure directories exist

@@ -1,7 +1,7 @@
 ---
 name: morning-email-rollup
 description: Daily morning rollup of important emails and calendar events at 8am with AI-generated summaries
-metadata: {"clawdbot":{"emoji":"📧","requires":{"bins":["gog","gemini","jq","date"]}}}
+metadata: {"bot":{"emoji":"📧","requires":{"bins":["gog","gemini","jq","date"]}}}
 ---
 
 # Morning Email Rollup
@@ -45,7 +45,7 @@ MAX_EMAILS=5 bash skills/morning-email-rollup/rollup.sh
 
 ### View Log
 ```bash
-cat $HOME/clawd/morning-email-rollup-log.md
+cat $HOME/bot/morning-email-rollup-log.md
 ```
 
 ## How It Works
@@ -55,7 +55,7 @@ cat $HOME/clawd/morning-email-rollup-log.md
 3. **Fetches details** - Gets sender, subject, date, and body for each email
 4. **AI Summarization** - Uses Gemini CLI to generate natural language summaries
 5. **Formats output** - Creates readable summary with read/unread markers
-6. **Sends to Telegram** - Delivers via Clawdbot's messaging system
+6. **Sends to Telegram** - Delivers via Bot's messaging system
 
 ## Calendar Integration
 
@@ -225,7 +225,7 @@ bash skills/morning-email-rollup/rollup.sh
 
 All rollup runs are logged to:
 ```
-$HOME/clawd/morning-email-rollup-log.md
+$HOME/bot/morning-email-rollup-log.md
 ```
 
 Format:

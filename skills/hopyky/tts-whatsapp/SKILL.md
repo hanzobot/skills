@@ -12,7 +12,7 @@ tags:
   - multilingual
   - audio
 author: Community
-repository: https://github.com/clawdbot/clawdhub
+repository: https://github.com/bot/skills
 ---
 
 # 🎙️ TTS WhatsApp - Voice Messages in 40+ Languages
@@ -23,7 +23,7 @@ Send high-quality text-to-speech voice messages on WhatsApp with automatic deliv
 
 - 🎙️ **High-quality TTS** powered by Piper (40+ languages)
 - 🎵 **Automatic conversion** to OGG/Opus (WhatsApp format)
-- 📤 **Automatic sending** via Clawdbot
+- 📤 **Automatic sending** via Bot
 - 👥 **Group support** - Send to individuals or WhatsApp groups
 - 🌍 **Multi-language** - French, English, Spanish, German, and 40+ more
 - 🧹 **Smart cleanup** - Auto-delete files after successful send
@@ -34,7 +34,7 @@ Send high-quality text-to-speech voice messages on WhatsApp with automatic deliv
 1. **Piper TTS**: `pip3 install --user piper-tts`
 2. **FFmpeg**: `brew install ffmpeg` (macOS) or `apt install ffmpeg` (Linux)
 3. **Voice models**: Download from [Hugging Face](https://huggingface.co/rhasspy/piper-voices)
-   - Place in `~/.clawdbot/skills/piper-tts/models/`
+   - Place in `~/.bot/skills/piper-tts/models/`
    - Example: `fr_FR-siwis-medium.onnx`
 
 ## 🚀 Quick Start
@@ -76,7 +76,7 @@ tts-whatsapp "High quality" --quality high --target "+1..."
 
 ## 🔧 Configuration
 
-Configure in `~/.clawdbot/clawdbot.json`:
+Configure in `~/.bot/bot.json`:
 
 ```json
 {

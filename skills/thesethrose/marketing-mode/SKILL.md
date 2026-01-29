@@ -4,7 +4,7 @@ description: "Marketing Mode combines 23 comprehensive marketing skills covering
 metadata:
   version: 1.0.0
   tags: ["marketing", "growth", "seo", "copywriting", "cro", "paid-ads", "strategy", "psychology", "launch", "pricing", "email", "social"]
-  clawdbot:
+  bot:
     mode:
       name: "Mark the Marketer"
       role: "Growth & Marketing Strategist"
@@ -17,7 +17,7 @@ metadata:
     install:
       - id: "skill-install"
         kind: "skill"
-        source: "clawdhub"
+        source: "skills"
         slug: "marketing-mode"
         label: "Activate Marketing Mode"
 ---

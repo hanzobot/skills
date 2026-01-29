@@ -15,13 +15,13 @@ User runs: ./install.sh
            v
     [Execute detect-notification-config.sh]
            |
-           +-- Read ~/.clawdbot/clawdbot.json
+           +-- Read ~/.bot/bot.json
            |         |
            |         +-- Check if file exists
            |         |        |
            |         |        +-- NO --> Try CLI detection
            |         |        |              |
-           |         |        |              +-- clawdbot message telegram message search
+           |         |        |              +-- bot message telegram message search
            |         |        |              |         |
            |         |        |              |         +-- Parse chat ID from JSON
            |         |        |              |                    |
@@ -92,7 +92,7 @@ Detection tries channels in this order:
 
 1. **Telegram** (most common)
    - Config: `.channels.telegram.default_chat_id` or `.channels.telegram.user_id`
-   - CLI fallback: `clawdbot message telegram message search`
+   - CLI fallback: `bot message telegram message search`
 
 2. **Slack**
    - Config: `.channels.slack.user_id` → prefixed as `user:ID`
@@ -184,7 +184,7 @@ Output:
 
 Output includes:
 ```
-Checking Clawdbot config... ✓ Found
+Checking Bot config... ✓ Found
   → Auto-detected: telegram → 123456789
 Checking config file... ✓ Found
 ```
@@ -222,15 +222,15 @@ Please configure your notification target:
 ```
 
 **Causes:**
-1. No `~/.clawdbot/clawdbot.json` file
-2. No messaging channels enabled in Clawdbot
+1. No `~/.bot/bot.json` file
+2. No messaging channels enabled in Bot
 3. Config file missing target ID fields
 4. `jq` not installed
 
 **Solutions:**
 ```bash
 # Check if config exists
-ls -la ~/.clawdbot/clawdbot.json
+ls -la ~/.bot/bot.json
 
 # Check if jq is installed
 which jq || brew install jq

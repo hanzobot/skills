@@ -3,18 +3,18 @@
   "version": "1.0.1",
   "description": "Browser-based screen sharing with vision analysis. Works with any multimodal LLM from any PC.",
   "author": "Essam Masoudy",
-  "homepage": "https://github.com/emasoudy/clawdbot-skills",
-  "repository": "https://github.com/emasoudy/clawdbot-skills",
+  "homepage": "https://github.com/emasoudy/bot-skills",
+  "repository": "https://github.com/emasoudy/bot-skills",
   "license": "MIT",
   "keywords": ["screen-sharing", "vision", "webrtc", "multimodal", "analysis"],
-  "clawdhub": {
+  "skills": {
     "category": "vision",
     "featured": true
   },
   "dependencies": {
     "system": ["curl", "node"],
     "system_optional": ["imagemagick"],
-    "clawdbot": ">=2026.1.17",
+    "bot": ">=2026.1.17",
     "model_features": ["vision"]
   },
   "ports": {

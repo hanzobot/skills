@@ -69,7 +69,7 @@ BTC, ETH, BNB, SOL, XRP, ADA, DOGE, AVAX, DOT, MATIC, LINK, ATOM, UNI, LTC, BCH,
 
 ## Portfolio Storage
 
-Portfolios stored at: `~/.clawdbot/skills/stock-analysis/portfolios.json`
+Portfolios stored at: `~/.bot/skills/stock-analysis/portfolios.json`
 
 ## Version History
 

@@ -192,21 +192,21 @@ Visit [Hugging Face - Piper Voices](https://huggingface.co/rhasspy/piper-voices)
 
 ```bash
 # Create models directory
-mkdir -p ~/.clawdbot/skills/piper-tts/models/
+mkdir -p ~/.bot/skills/piper-tts/models/
 
 # Download French model
 wget https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/siwis/medium/fr_FR-siwis-medium.onnx \
-  -O ~/.clawdbot/skills/piper-tts/models/fr_FR-siwis-medium.onnx
+  -O ~/.bot/skills/piper-tts/models/fr_FR-siwis-medium.onnx
 
 wget https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/siwis/medium/fr_FR-siwis-medium.onnx.json \
-  -O ~/.clawdbot/skills/piper-tts/models/fr_FR-siwis-medium.onnx.json
+  -O ~/.bot/skills/piper-tts/models/fr_FR-siwis-medium.onnx.json
 
 # Download English model
 wget https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx \
-  -O ~/.clawdbot/skills/piper-tts/models/en_US-lessac-medium.onnx
+  -O ~/.bot/skills/piper-tts/models/en_US-lessac-medium.onnx
 
 wget https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx.json \
-  -O ~/.clawdbot/skills/piper-tts/models/en_US-lessac-medium.onnx.json
+  -O ~/.bot/skills/piper-tts/models/en_US-lessac-medium.onnx.json
 ```
 
 ## Listen to Samples

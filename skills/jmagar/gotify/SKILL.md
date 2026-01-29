@@ -3,7 +3,7 @@ name: gotify
 description: Send push notifications via Gotify when long-running tasks complete or important events occur. Use when the user asks to "send a Gotify notification", "notify me when this finishes", "push notification", "alert me via Gotify", or wants to be notified of task completion.
 version: 1.0.1
 metadata:
-  clawdbot:
+  bot:
     emoji: "🔔"
     requires:
       bins: ["curl", "jq"]
@@ -15,7 +15,7 @@ Send push notifications to your Gotify server when long-running tasks complete o
 
 ## Purpose
 
-This skill enables Clawdbot to send push notifications via Gotify, useful for:
+This skill enables Bot to send push notifications via Gotify, useful for:
 - Alerting when long-running tasks complete
 - Sending status updates for background operations
 - Notifying of important events or errors
@@ -23,7 +23,7 @@ This skill enables Clawdbot to send push notifications via Gotify, useful for:
 
 ## Setup
 
-Create the credentials file: `~/.clawdbot/credentials/gotify/config.json`
+Create the credentials file: `~/.bot/credentials/gotify/config.json`
 
 ```json
 {
@@ -73,18 +73,18 @@ bash scripts/send.sh --title "Deploy Summary" --markdown --message "
 
 ```bash
 # Run long task
-./deploy.sh && bash ~/clawd/skills/gotify/scripts/send.sh "Deploy finished"
+./deploy.sh && bash ~/bot/skills/gotify/scripts/send.sh "Deploy finished"
 ```
 
 ### Option 2: Hook Integration (Future)
 
-When Clawdbot supports task completion hooks, this skill can be triggered automatically:
+When Bot supports task completion hooks, this skill can be triggered automatically:
 
 ```bash
 # Example hook configuration (conceptual)
 {
   "on": "task_complete",
-  "run": "bash ~/clawd/skills/gotify/scripts/send.sh 'Task: {{task_name}} completed in {{duration}}'"
+  "run": "bash ~/bot/skills/gotify/scripts/send.sh 'Task: {{task_name}} completed in {{duration}}'"
 }
 ```
 

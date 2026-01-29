@@ -1,7 +1,7 @@
 ---
 name: muscle-gain
 description: Track muscle building with weight progression, protein tracking, and strength milestones
-author: clawd-team
+author: bot-team
 version: 1.0.0
 triggers:
   - "muscle gain"

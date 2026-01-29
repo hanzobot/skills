@@ -2,7 +2,7 @@
 name: dashlane
 description: Access passwords, secure notes, secrets and OTP codes from Dashlane vault.
 homepage: https://cli.dashlane.com
-metadata: {"clawdbot":{"emoji":"🔐","requires":{"bins":["dcli"]}}}
+metadata: {"bot":{"emoji":"🔐","requires":{"bins":["dcli"]}}}
 ---
 
 # Dashlane CLI

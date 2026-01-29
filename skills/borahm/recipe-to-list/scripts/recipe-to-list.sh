@@ -9,7 +9,7 @@ fi
 
 # Load keys/tokens
 set -a
-[[ -f ~/.clawdbot/.env ]] && source ~/.clawdbot/.env
+[[ -f ~/.bot/.env ]] && source ~/.bot/.env
 set +a
 
 python3 "$(dirname "$0")/recipe_to_list.py" --image "$IMG" --project "Shopping" --source "photo:$IMG"

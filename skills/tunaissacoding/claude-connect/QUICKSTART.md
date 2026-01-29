@@ -35,7 +35,7 @@ Check that all requirements are met:
 - ✓ macOS version
 - ✓ Claude CLI installed
 - ✓ Keychain credentials
-- ✓ Clawdbot running
+- ✓ Bot running
 - ✓ Auto-detected: telegram → 123456789
 
 ---
@@ -82,7 +82,7 @@ One command to set everything up:
 Watch the logs to see refreshes happen:
 
 ```bash
-tail -f ~/clawd/logs/claude-oauth-refresh.log
+tail -f ~/bot/logs/claude-oauth-refresh.log
 ```
 
 **You should see:**
@@ -99,7 +99,7 @@ tail -f ~/clawd/logs/claude-oauth-refresh.log
 Your Claude CLI will now:
 - Automatically refresh tokens before they expire
 - Notify you if anything goes wrong
-- Log all activity to `~/clawd/logs/`
+- Log all activity to `~/bot/logs/`
 
 ---
 
@@ -144,7 +144,7 @@ launchctl list | grep claude-oauth-refresher
 **Solution:**
 ```bash
 # Load manually
-launchctl load ~/Library/LaunchAgents/com.clawdbot.claude-oauth-refresher.plist
+launchctl load ~/Library/LaunchAgents/com.bot.claude-oauth-refresher.plist
 
 # Check status
 launchctl list | grep claude-oauth-refresher
@@ -161,7 +161,7 @@ nano claude-oauth-refresh-config.json
 # Changes apply automatically on next refresh
 ```
 
-Or ask Clawdbot:
+Or ask Bot:
 ```
 "disable Claude refresh start notifications"
 "enable all Claude refresh notifications"

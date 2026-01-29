@@ -1,32 +1,32 @@
 ---
-name: clawdlink
-description: Encrypted Clawdbot-to-Clawdbot messaging. Send messages to friends' Clawdbots with end-to-end encryption.
+name: botlink
+description: Encrypted Bot-to-Bot messaging. Send messages to friends' Bots with end-to-end encryption.
 triggers:
-  - clawdlink
+  - botlink
   - friend link
   - add friend
   - send message to
   - tell [name] that
   - message from
   - accept friend request
-  - clawdlink preferences
+  - botlink preferences
   - quiet hours
 ---
 
 # ClawdLink
 
-Encrypted peer-to-peer messaging between Clawdbots via central relay.
+Encrypted peer-to-peer messaging between Bots via central relay.
 
 ## Installation
 
 ```bash
-cd ~/clawd/skills/clawdlink
+cd ~/bot/skills/botlink
 npm install
 node scripts/install.js      # Adds to HEARTBEAT.md
 node cli.js setup "Your Name"
 ```
 
-## Quick Start for Clawdbot
+## Quick Start for Bot
 
 Use the handler for JSON output:
 
@@ -40,7 +40,7 @@ node handler.js <action> [args...]
 |--------|-------|
 | `check` | Poll for messages and requests |
 | `send` | `send "Matt" "Hello!" [--urgent] [--context=work]` |
-| `add` | `add "clawdlink://..."` |
+| `add` | `add "botlink://..."` |
 | `accept` | `accept "Matt"` |
 | `link` | Get your friend link |
 | `friends` | List friends |
@@ -146,7 +146,7 @@ node handler.js preferences set schedule.batchDelivery.times '["09:00","18:00"]'
 
 ## Data Storage
 
-`~/.clawdbot/clawdlink/`
+`~/.bot/botlink/`
 - `identity.json` — Keypair
 - `config.json` — Display name
 - `friends.json` — Friends with shared secrets
@@ -156,7 +156,7 @@ node handler.js preferences set schedule.batchDelivery.times '["09:00","18:00"]'
 
 ## Auto-Polling
 
-`heartbeat.js` runs on each Clawdbot heartbeat:
+`heartbeat.js` runs on each Bot heartbeat:
 - Polls relay for messages/requests
 - Applies delivery preferences
 - Holds messages during quiet hours

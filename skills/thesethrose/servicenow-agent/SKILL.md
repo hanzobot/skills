@@ -6,7 +6,7 @@ read_when:
   - Need to query a table or fetch a record by sys_id
   - Need to download attachment content or metadata
   - Need aggregate statistics or service catalog variables
-metadata: {"clawdbot":{"emoji":"🧾","requires":{"bins":["node"]}}}
+metadata: {"bot":{"emoji":"🧾","requires":{"bins":["node"]}}}
 ---
 
 # ServiceNow Table API Read Only

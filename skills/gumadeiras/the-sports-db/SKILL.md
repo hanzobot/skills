@@ -1,7 +1,7 @@
 ---
 name: the-sports-db
 description: Access sports data via TheSportsDB (teams, events, scores).
-metadata: {"clawdbot":{"emoji":"🏟️","requires":{"env":["THE_SPORTS_DB_KEY"]}}}
+metadata: {"bot":{"emoji":"🏟️","requires":{"env":["THE_SPORTS_DB_KEY"]}}}
 ---
 
 # TheSportsDB
@@ -9,7 +9,7 @@ metadata: {"clawdbot":{"emoji":"🏟️","requires":{"env":["THE_SPORTS_DB_KEY"]
 Free sports database.
 
 ## Configuration
-Ensure `THE_SPORTS_DB_KEY` is set in `~/.clawdbot/.env`. (Default test key is often `123` or `3`).
+Ensure `THE_SPORTS_DB_KEY` is set in `~/.bot/.env`. (Default test key is often `123` or `3`).
 
 ## Usage
 

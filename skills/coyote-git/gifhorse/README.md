@@ -1,10 +1,10 @@
-# GifHorse Skill for ClawdHub
+# GifHorse Skill for Skills
 
-A Clawdbot skill that enables dialogue search and reaction GIF creation from your video library.
+A Bot skill that enables dialogue search and reaction GIF creation from your video library.
 
 ## What is This?
 
-This is the ClawdHub skill package for [gifhorse](https://github.com/Coyote-git/gifhorse) - a CLI tool that lets you search dialogue in your video library and create reaction GIFs with timed subtitles.
+This is the Skills skill package for [gifhorse](https://github.com/Coyote-git/gifhorse) - a CLI tool that lets you search dialogue in your video library and create reaction GIFs with timed subtitles.
 
 ## Features
 
@@ -16,17 +16,17 @@ This is the ClawdHub skill package for [gifhorse](https://github.com/Coyote-git/
 
 ## Installation
 
-### Via ClawdHub
+### Via Skills
 
 ```bash
-clawdhub install gifhorse
+skills install gifhorse
 ```
 
 ### Manual Installation
 
-1. Copy `SKILL.md` to your Clawdbot skills directory
+1. Copy `SKILL.md` to your Bot skills directory
 2. Run the installation commands from the skill's install instructions
-3. Restart Clawdbot to load the skill
+3. Restart Bot to load the skill
 
 ## Prerequisites
 
@@ -38,9 +38,9 @@ The skill includes automated installation commands for:
 - gifhorse CLI tool
 - FFmpeg-full (macOS via Homebrew)
 
-## Usage with Clawdbot
+## Usage with Bot
 
-Once installed, you can ask Clawdbot naturally:
+Once installed, you can ask Bot naturally:
 
 ```
 Search my video library for quotes about "perfect"
@@ -54,7 +54,7 @@ Create a GIF from Blade Runner with the "cells" quote
 Make a high-quality reaction GIF with watermark from that scene
 ```
 
-Clawdbot will automatically invoke the gifhorse skill and execute the appropriate commands.
+Bot will automatically invoke the gifhorse skill and execute the appropriate commands.
 
 ## Direct Command Usage
 
@@ -66,32 +66,32 @@ gifhorse preview "memorable quote" 1
 gifhorse create "memorable quote" 1 --watermark "@me"
 ```
 
-## Publishing to ClawdHub
+## Publishing to Skills
 
-To publish this skill to ClawdHub:
+To publish this skill to Skills:
 
 1. **Fork or create your own copy** of this skill directory
-2. **Test locally** with your Clawdbot instance
-3. **Upload to ClawdHub:**
-   - Visit https://clawdhub.com
+2. **Test locally** with your Bot instance
+3. **Upload to Skills:**
+   - Visit https://skills.com
    - Sign in with GitHub
    - Upload the SKILL.md file
    - Add version information and changelog
    - Submit for review
 
-The skill will be available for others to install once approved by ClawdHub moderators.
+The skill will be available for others to install once approved by Skills moderators.
 
 ## Version Information
 
 - **Current Version:** 1.0.0
-- **Compatible With:** Clawdbot 2026.1.x+
+- **Compatible With:** Bot 2026.1.x+
 - **License:** MIT
 
 ## Learn More
 
 - **GifHorse Repository:** https://github.com/Coyote-git/gifhorse
-- **ClawdHub:** https://clawdhub.com
-- **Clawdbot Documentation:** https://docs.clawd.bot
+- **Skills:** https://skills.com
+- **Bot Documentation:** https://docs.hanzo.bot
 
 ## Contributing
 

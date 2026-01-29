@@ -13,21 +13,21 @@ A custom Telegram command that displays comprehensive session usage statistics i
 
 ## Installation
 
-### Option 1: Automatic (via ClawdHub)
+### Option 1: Automatic (via Skills)
 
 ```bash
-clawdhub install telegram-usage
+skills install telegram-usage
 ```
 
 ### Option 2: Manual (Already in workspace)
 
-The skill is located at `/skills/telegram-usage` in your Clawdbot workspace.
+The skill is located at `/skills/telegram-usage` in your Bot workspace.
 
 ## Setup
 
 ### 1. Enable the Skill
 
-Ensure the skill is enabled in `~/.clawdbot/clawdbot.json`:
+Ensure the skill is enabled in `~/.bot/bot.json`:
 
 ```json
 {
@@ -63,13 +63,13 @@ Register the command in Telegram's bot menu via config:
 ### 3. Restart Gateway
 
 ```bash
-clawdbot gateway restart
+bot gateway restart
 ```
 
 Or if running manually:
 
 ```bash
-clawdbot gateway
+bot gateway
 ```
 
 ## Usage
@@ -111,11 +111,11 @@ Model: Claude 3.5 Haiku
 
 ## Configuration
 
-No additional configuration required. The skill reads from Clawdbot's session state automatically.
+No additional configuration required. The skill reads from Bot's session state automatically.
 
 ### Optional: Adjust Reset Time
 
-The default session reset is 4:00 AM. Configure in `~/.clawdbot/clawdbot.json`:
+The default session reset is 4:00 AM. Configure in `~/.bot/bot.json`:
 
 ```json
 {
@@ -137,7 +137,7 @@ The default session reset is 4:00 AM. Configure in `~/.clawdbot/clawdbot.json`:
 
 ## How It Works
 
-1. **Runs as a skill** — Loads via Clawdbot's skill system
+1. **Runs as a skill** — Loads via Bot's skill system
 2. **Uses session data** — Reads from current session store
 3. **Formats with HTML** — Telegram-safe HTML formatting (bold, code blocks)
 4. **Single message** — Returns all info in one Telegram message
@@ -155,7 +155,7 @@ The default session reset is 4:00 AM. Configure in `~/.clawdbot/clawdbot.json`:
 ### Manual Test (CLI)
 
 ```bash
-node /home/drew-server/clawd/skills/telegram-usage/handler.js
+node /home/drew-server/bot/skills/telegram-usage/handler.js
 ```
 
 Expected output: Formatted usage report in HTML
@@ -163,7 +163,7 @@ Expected output: Formatted usage report in HTML
 ### JSON Output
 
 ```bash
-node /home/drew-server/clawd/skills/telegram-usage/handler.js json
+node /home/drew-server/bot/skills/telegram-usage/handler.js json
 ```
 
 Expected output: Raw statistics as JSON
@@ -178,15 +178,15 @@ Expected output: Raw statistics as JSON
 
 ### Command not appearing in Telegram
 
-- Make sure the skill is enabled: `clawdbot config get skills.entries.telegram-usage.enabled`
-- Restart the gateway: `clawdbot gateway restart`
-- Check logs: `clawdbot logs --follow`
+- Make sure the skill is enabled: `bot config get skills.entries.telegram-usage.enabled`
+- Restart the gateway: `bot gateway restart`
+- Check logs: `bot logs --follow`
 
 ### Stats show zero/wrong values
 
 - The skill reads from your current session state
 - Start a new session with `/new` and try again
-- Verify session file exists: `~/.clawdbot/agents/main/sessions/sessions.json`
+- Verify session file exists: `~/.bot/agents/main/sessions/sessions.json`
 
 ### HTML formatting looks wrong
 
@@ -240,10 +240,10 @@ Potential improvements:
 
 ## License
 
-This skill is part of the Clawdbot project.
+This skill is part of the Bot project.
 
 ## Support
 
-- **Docs**: https://docs.clawd.bot/tools/skills
-- **Issues**: Check Clawdbot GitHub
+- **Docs**: https://docs.hanzo.bot/tools/skills
+- **Issues**: Check Bot GitHub
 - **Questions**: See `/help` in Telegram

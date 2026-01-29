@@ -10,7 +10,7 @@ Query and manage bookmarks via the Linkding REST API.
 
 ## Setup
 
-Config: `~/.clawdbot/credentials/linkding/config.json`
+Config: `~/.bot/credentials/linkding/config.json`
 
 ```json
 {

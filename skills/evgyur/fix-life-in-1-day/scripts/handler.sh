@@ -5,11 +5,11 @@ command -v jq >/dev/null || { echo '{"status":"error","message":"jq required"}';
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(dirname "$SCRIPT_DIR")"
-WORKSPACE="${HOME}/clawd"
+WORKSPACE="${HOME}/bot"
 COMMAND="${1:-start}"
 shift || true
 
-for arg in "$@"; do [[ -d "$arg" || "$arg" == */clawd ]] && WORKSPACE="$arg"; done
+for arg in "$@"; do [[ -d "$arg" || "$arg" == */bot ]] && WORKSPACE="$arg"; done
 
 DATA_DIR="$WORKSPACE/memory/life-architect"
 STATE_FILE="$DATA_DIR/state.json"

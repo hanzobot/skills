@@ -2,7 +2,7 @@
 
 A simple Reddit CLI that uses your browser cookies for authentication. No API key needed.
 
-Built for [Clawdbot](https://github.com/clawdbot/clawdbot) but works standalone too.
+Built for [Bot](https://github.com/bot/bot) but works standalone too.
 
 ## Installation
 
@@ -56,15 +56,15 @@ node reddit-cli.js check
 | `info <subreddit>` | Get subreddit info |
 | `check` | Verify cookie authentication |
 
-## For Clawdbot Users
+## For Bot Users
 
 Install as a skill:
 ```bash
 # Copy to your skills folder
-cp -r reddit-cli /path/to/clawd/skills/
+cp -r reddit-cli /path/to/bot/skills/
 ```
 
-The skill will be available once Clawdbot restarts.
+The skill will be available once Bot restarts.
 
 ## Notes
 

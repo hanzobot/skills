@@ -1,7 +1,7 @@
 ---
 name: smalltalk
 description: Interact with live Smalltalk image (Cuis or Squeak). Use for evaluating Smalltalk code, browsing classes, viewing method source, defining classes/methods, querying hierarchy and categories.
-metadata: {"clawdbot":{"emoji":"💎","requires":{"bins":["python3","xvfb-run"]}}}
+metadata: {"bot":{"emoji":"💎","requires":{"bins":["python3","xvfb-run"]}}}
 ---
 
 # Smalltalk Skill
@@ -19,12 +19,12 @@ git clone https://github.com/CorporateSmalltalkConsultingLtd/ClaudeSmalltalk.git
 This repo contains:
 - MCP server code for Squeak (`MCP-Server-Squeak.st`)
 - Setup documentation (`SQUEAK-SETUP.md`, `CLAWDBOT-SETUP.md`)
-- This Clawdbot skill (`clawdbot/`)
+- This Bot skill (`bot/`)
 
 ## Setup
 
 1. **Set up Squeak with MCP server** — see [SQUEAK-SETUP.md](https://github.com/CorporateSmalltalkConsultingLtd/ClaudeSmalltalk/blob/main/SQUEAK-SETUP.md)
-2. **Configure Clawdbot** — see [CLAWDBOT-SETUP.md](https://github.com/CorporateSmalltalkConsultingLtd/ClaudeSmalltalk/blob/main/CLAWDBOT-SETUP.md)
+2. **Configure Bot** — see [CLAWDBOT-SETUP.md](https://github.com/CorporateSmalltalkConsultingLtd/ClaudeSmalltalk/blob/main/CLAWDBOT-SETUP.md)
 
 ## Usage
 

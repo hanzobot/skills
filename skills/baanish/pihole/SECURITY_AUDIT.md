@@ -35,7 +35,7 @@ The Pi-hole skill has been audited and refactored to support Pi-hole v6 API with
 
 **Fix:** Added `insecure` flag support:
 ```bash
-# In clawdbot.json skills.entries.pihole:
+# In bot.json skills.entries.pihole:
 {
   "apiUrl": "https://pi-hole.local/api",
   "apiToken": "...",
@@ -180,7 +180,7 @@ curl -d "{\"password\":\"$TOKEN\"}"
 
 ### 3. Rotate API Tokens Regularly
 - Change Pi-hole app password periodically
-- Update clawdbot.json configuration
+- Update bot.json configuration
 
 ---
 
@@ -209,7 +209,7 @@ The Pi-hole skill is **production-ready** with:
 - ✅ Session-based authentication
 - ✅ No known vulnerabilities
 
-**Status:** Ready for publishing to ClawdHub.
+**Status:** Ready for publishing to Skills.
 
 ---
 

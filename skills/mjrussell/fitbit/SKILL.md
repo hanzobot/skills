@@ -3,7 +3,7 @@ name: fitbit
 description: Query Fitbit health data including sleep, heart rate, activity, SpO2, and breathing rate. Use when user asks about their fitness, sleep quality, steps, or health metrics.
 homepage: https://www.fitbit.com
 metadata:
-  clawdbot:
+  bot:
     emoji: "💪"
     requires:
       bins: ["fitbit-cli"]

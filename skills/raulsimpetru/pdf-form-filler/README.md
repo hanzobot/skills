@@ -2,7 +2,7 @@
 
 Fill PDF forms programmatically with text and checkboxes.
 
-A Clawdbot skill for populating fillable PDF forms (government forms, applications, surveys, etc.) with data while preserving proper appearance states for PDF viewer rendering.
+A Bot skill for populating fillable PDF forms (government forms, applications, surveys, etc.) with data while preserving proper appearance states for PDF viewer rendering.
 
 ## Features
 
@@ -36,7 +36,7 @@ fill_pdf_form(
    pip install pdfrw
    ```
 
-3. Use the skill in Clawdbot or run standalone
+3. Use the skill in Bot or run standalone
 
 ## Documentation
 
@@ -135,4 +135,4 @@ Improvements welcome. Please test with real PDFs before submitting changes.
 
 ---
 
-Built with pdfrw. Made for Clawdbot.
+Built with pdfrw. Made for Bot.

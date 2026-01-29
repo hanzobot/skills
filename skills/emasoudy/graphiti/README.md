@@ -5,13 +5,13 @@ Query and manage your knowledge graph using Graphiti's REST API with automatic s
 ## Installation
 
 ```bash
-clawdhub install graphiti
+skills install graphiti
 ```
 
 Or manual:
 ```bash
-git clone https://github.com/emasoudy/clawdbot-skills.git
-cp -r clawdbot-skills/graphiti ~/.clawdbot/skills/
+git clone https://github.com/emasoudy/bot-skills.git
+cp -r bot-skills/graphiti ~/.bot/skills/
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Agent: [Queries Graphiti and returns relevant facts]
 
 ```bash
 # Set custom Graphiti URL
-clawdbot config set skills.graphiti.baseUrl "http://your-server:8001"
+bot config set skills.graphiti.baseUrl "http://your-server:8001"
 
 # Or use environment variable
 export GRAPHITI_URL="http://your-server:8001"

@@ -1,31 +1,31 @@
-# Clawdbot Integration Guide
+# Bot Integration Guide
 
-Complete setup and usage guide for integrating the self-improvement skill with Clawdbot's distributed learning model.
+Complete setup and usage guide for integrating the self-improvement skill with Bot's distributed learning model.
 
 ## Overview
 
-Clawdbot is a terminal-based AI coding assistant that uses workspace-based prompt injection. Unlike Claude Code's hook system, Clawdbot injects context from workspace files at session start and supports inter-agent communication.
+Bot is a terminal-based AI coding assistant that uses workspace-based prompt injection. Unlike Claude Code's hook system, Bot injects context from workspace files at session start and supports inter-agent communication.
 
 ## Architecture Comparison
 
-| Feature | Claude Code | Clawdbot |
+| Feature | Claude Code | Bot |
 |---------|------------|----------|
-| Learning storage | `.learnings/` in project | Workspace files (`~/clawd/`) |
+| Learning storage | `.learnings/` in project | Workspace files (`~/bot/`) |
 | Activation | Hooks (UserPromptSubmit) | Workspace injection at start |
 | Promotion targets | `CLAUDE.md`, `AGENTS.md` | `SOUL.md`, `TOOLS.md`, `AGENTS.md` |
 | Inter-agent comms | Not built-in | `sessions_*` tools |
-| Skill registry | Manual / agentskills.io | ClawdHub integration |
+| Skill registry | Manual / agentskills.io | Skills integration |
 
 ## Workspace Setup
 
 ### Default Structure
 
 ```
-~/clawd/                          # Configurable via ~/.clawdbot/clawdbot.json
+~/bot/                          # Configurable via ~/.bot/bot.json
 ├── AGENTS.md                    # Multi-agent coordination patterns
 ├── SOUL.md                      # Behavioral guidelines and personality
 ├── TOOLS.md                     # Tool capabilities and MCP gotchas
-├── skills/                      # ClawdHub skills cache
+├── skills/                      # Skills skills cache
 │   └── <skill-name>/
 │       └── SKILL.md
 └── sessions/                    # Auto-managed session transcripts
@@ -34,11 +34,11 @@ Clawdbot is a terminal-based AI coding assistant that uses workspace-based promp
 
 ### Configuration
 
-Edit `~/.clawdbot/clawdbot.json`:
+Edit `~/.bot/bot.json`:
 
 ```json
 {
-  "workspace": "~/clawd",
+  "workspace": "~/bot",
   "model": "claude-sonnet-4-20250514",
   "inject_files": ["AGENTS.md", "SOUL.md", "TOOLS.md"],
   "session_history": true
@@ -124,7 +124,7 @@ Purpose: Tool capabilities, MCP server knowledge, integration gotchas.
 ### Capturing Learnings
 
 1. **In-session**: Log to `.learnings/` as usual (project-specific)
-2. **Cross-project**: Promote to workspace files (clawdbot)
+2. **Cross-project**: Promote to workspace files (bot)
 
 ### Promotion Decision Tree
 
@@ -153,7 +153,7 @@ Is the learning project-specific?
 
 ## Inter-Agent Communication
 
-Clawdbot provides tools for cross-session communication:
+Bot provides tools for cross-session communication:
 
 ### sessions_list
 
@@ -192,35 +192,35 @@ When discovering something valuable in session A:
    ```
 
 3. Log to workspace file if broadly applicable:
-   - Edit `~/clawd/TOOLS.md` or appropriate file
+   - Edit `~/bot/TOOLS.md` or appropriate file
 
-## ClawdHub Integration
+## Skills Integration
 
-ClawdHub is Clawdbot's skill registry (similar to agentskills.io).
+Skills is Bot's skill registry (similar to agentskills.io).
 
 ### Installing Skills
 
 ```bash
-clawd skill install <skill-name>
+bot skill install <skill-name>
 ```
 
-Skills are cached in `~/clawd/skills/`.
+Skills are cached in `~/bot/skills/`.
 
 ### Publishing Skills
 
 1. Create skill following agentskills.io spec
-2. Register with ClawdHub
-3. Skills become available to all Clawdbot users
+2. Register with Skills
+3. Skills become available to all Bot users
 
 ### Skill Compatibility
 
 Skills from this repo are compatible with:
 - Claude Code (via hooks)
 - Codex CLI (via hooks)
-- Clawdbot (via ClawdHub)
+- Bot (via Skills)
 - GitHub Copilot (via manual setup)
 
-## Hybrid Setup: Claude Code + Clawdbot
+## Hybrid Setup: Claude Code + Bot
 
 When using both tools on the same codebase:
 
@@ -230,16 +230,16 @@ When using both tools on the same codebase:
 |---------|---------------|
 | Project conventions | `CLAUDE.md` (in repo) |
 | Project learnings | `.learnings/` (in repo) |
-| Personal preferences | `SOUL.md` (clawdbot workspace) |
-| Tool knowledge | `TOOLS.md` (clawdbot workspace) |
-| Cross-project workflows | `AGENTS.md` (clawdbot workspace) |
+| Personal preferences | `SOUL.md` (bot workspace) |
+| Tool knowledge | `TOOLS.md` (bot workspace) |
+| Cross-project workflows | `AGENTS.md` (bot workspace) |
 
 ### Sync Strategy
 
 High-value learnings should exist in both:
 
 1. Log to `.learnings/` first (project context)
-2. If broadly applicable, also add to clawdbot workspace
+2. If broadly applicable, also add to bot workspace
 3. Use consistent formatting for easy grep
 
 ### Example Dual Promotion
@@ -251,7 +251,7 @@ Learning: "Playwright tests require --headed flag for debugging"
 ## [LRN-20250126-001] correction
 
 **Status**: promoted
-**Promoted**: CLAUDE.md, TOOLS.md (clawdbot)
+**Promoted**: CLAUDE.md, TOOLS.md (bot)
 
 ### Summary
 Playwright tests require --headed flag for visual debugging
@@ -266,14 +266,14 @@ Playwright tests require --headed flag for visual debugging
 - Playwright debugging: use `--headed` flag
 ```
 
-**In `~/clawd/TOOLS.md`:**
+**In `~/bot/TOOLS.md`:**
 ```markdown
 ## Playwright
 - Debug mode: `npx playwright test --headed`
 - Trace viewer: `npx playwright show-trace trace.zip`
 ```
 
-## Detection Triggers for Clawdbot
+## Detection Triggers for Bot
 
 ### Standard Triggers (same as Claude Code)
 - User corrections
@@ -281,20 +281,20 @@ Playwright tests require --headed flag for visual debugging
 - API errors
 - Knowledge gaps
 
-### Clawdbot-Specific Triggers
+### Bot-Specific Triggers
 
 | Trigger | Action |
 |---------|--------|
 | MCP server error | Log to TOOLS.md with server name |
 | Session handoff confusion | Log to AGENTS.md with delegation pattern |
 | Model behavior surprise | Log to SOUL.md with expected vs actual |
-| ClawdHub skill issue | Log to TOOLS.md or report upstream |
+| Skills skill issue | Log to TOOLS.md or report upstream |
 
 ## Troubleshooting
 
 ### Workspace files not injected
 
-Check `~/.clawdbot/clawdbot.json`:
+Check `~/.bot/bot.json`:
 - Verify `workspace` path exists
 - Verify `inject_files` includes desired files
 
@@ -306,6 +306,6 @@ Check `~/.clawdbot/clawdbot.json`:
 
 ### Learning not persisting
 
-Clawdbot doesn't auto-persist learnings. You must:
+Bot doesn't auto-persist learnings. You must:
 1. Explicitly write to workspace files
 2. Or use `.learnings/` for project-specific storage

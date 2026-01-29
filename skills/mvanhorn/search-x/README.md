@@ -1,16 +1,16 @@
-# Search X — Real-time Twitter/X Search for Clawdbot
+# Search X — Real-time Twitter/X Search for Bot
 
 Search X/Twitter in real-time using Grok's `x_search` tool. Get actual tweets with citations.
 
 ## Installation
 
 ```bash
-clawdhub install search-x
+skills install search-x
 ```
 
 Or manually:
 ```bash
-cd ~/clawd/skills && git clone https://github.com/mvanhorn/clawdbot-skill-search-x search-x
+cd ~/bot/skills && git clone https://github.com/mvanhorn/bot-skill-search-x search-x
 ```
 
 ## Setup
@@ -18,7 +18,7 @@ cd ~/clawd/skills && git clone https://github.com/mvanhorn/clawdbot-skill-search
 Get your API key from [console.x.ai](https://console.x.ai), then:
 
 ```bash
-clawdbot config set skills.entries.search-x.apiKey "xai-YOUR-KEY"
+bot config set skills.entries.search-x.apiKey "xai-YOUR-KEY"
 ```
 
 Or set environment variable:
@@ -54,7 +54,7 @@ node scripts/search.js --json "topic"         # Full JSON
 
 ## Chat Examples
 
-Just tell your Clawdbot:
+Just tell your Bot:
 - "Search X for what people are saying about Claude"
 - "Find tweets about Remotion in the last week"
 - "What's trending on Twitter about AI today?"
