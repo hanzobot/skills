@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Kraken Portfolio CLI - Smart Wrapper for Clawdbot
+Kraken Portfolio CLI - Smart Wrapper for Hanzo Bot
 
 High-level commands with accurate portfolio calculations.
 For raw API access, use kraken_api.py directly.

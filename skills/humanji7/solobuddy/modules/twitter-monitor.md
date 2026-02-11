@@ -18,7 +18,7 @@ twitter-analyze.sh
   → picks top 5 by engagement
   → sends to bot agent --deliver
        ↓
-ClawdBot analyzes:
+Hanzo Bot analyzes:
   • Resonance with voice profile
   • Tweet freshness
   • Engagement potential
@@ -54,7 +54,7 @@ In `~/.bot/bot.json`:
 ```
 ~/.bot/scripts/
 ├── twitter-monitor.sh     # Fetches tweets via bird CLI
-└── twitter-analyze.sh     # Sends to ClawdBot for analysis
+└── twitter-analyze.sh     # Sends to Hanzo Bot for analysis
 
 ~/Library/LaunchAgents/
 └── com.bot.twitter-monitor.plist  # Runs on interval
@@ -86,7 +86,7 @@ jq '.twitter.watchlist += ["newhandle"]' ~/.bot/bot.json > tmp && mv tmp ~/.bot/
 
 ## Telegram Triggers
 
-In chat with ClawdBot:
+In chat with Hanzo Bot:
 - "check twitter" / "проверь твиттер" — manual scan
 - "watchlist" — show current watchlist
 

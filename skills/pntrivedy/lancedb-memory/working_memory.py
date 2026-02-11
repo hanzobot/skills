@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Working LanceDB Memory Integration for Clawdbot
+Working LanceDB Memory Integration for Hanzo Bot
 Simple, functional implementation that works with current LanceDB version
 """
 

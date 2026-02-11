@@ -107,7 +107,7 @@ def _get_who_emblem_img():
         print(f"Downloading WHO emblem...", file=sys.stderr)
         ctx = ssl.create_default_context()
         req = urllib.request.Request(WHO_EMBLEM_URL, headers={
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Clawdbot/1.0'
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) HanzoBot/1.0'
         })
         try:
             with urllib.request.urlopen(req, context=ctx, timeout=30) as response:
@@ -160,7 +160,7 @@ def ensure_who_data(metric: str, sex: str, age_range: str) -> Path:
     # Download with User-Agent header (required by WHO CDN)
     ctx = ssl.create_default_context()
     req = urllib.request.Request(url, headers={
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Clawdbot/1.0'
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) HanzoBot/1.0'
     })
     try:
         with urllib.request.urlopen(req, context=ctx, timeout=30) as response:

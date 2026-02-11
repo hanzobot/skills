@@ -56,7 +56,7 @@ else:
         sys.exit(1)
 
 def _default_state_dir() -> Path:
-    return Path.home() / ".clawdbot" / "george"
+    return Path.home() / ".hanzo-bot" / "george"
 
 
 # Runtime state dir (override via --dir or GEORGE_DIR)
@@ -587,7 +587,7 @@ def login(page, timeout_seconds: int = 300) -> bool:
         print("[login] ⚠️ Could not extract code - CHECK BROWSER WINDOW", flush=True)
     
     # NOTE: No macOS-specific notifications. Code is printed to stdout for the caller
-    # (Clawdbot session) to forward via Telegram.
+    # (Hanzo Bot session) to forward via Telegram.
     return wait_for_login_approval(page, timeout_seconds=timeout_seconds)
 
 
@@ -1226,7 +1226,7 @@ def _resolve_user_id(args, config: dict) -> str:
         raise ValueError(
             "No user_id configured. Set one of:\n"
             "- pass --user-id <your-user-number-or-username>\n"
-            "- set GEORGE_USER_ID (or put it in ~/.clawdbot/george/.env)\n"
+            "- set GEORGE_USER_ID (or put it in ~/.bot/george/.env)\n"
             "- add user_id to config.json"
         )
 
@@ -1257,7 +1257,7 @@ def cmd_setup(args):
     else:
         print("Your George user ID can be found in the George app.")
         print("It can be an 8–9 digit Verfügernummer or a custom username.")
-        print("Tip: you can also set GEORGE_USER_ID in ~/.clawdbot/george/.env")
+        print("Tip: you can also set GEORGE_USER_ID in ~/.bot/george/.env")
         print()
         user_id = input("User ID: ").strip()
     
@@ -1582,7 +1582,7 @@ Examples:
     
     # Global options
     parser.add_argument("--visible", action="store_true", help="Show browser window")
-    parser.add_argument("--dir", default=None, help="State directory (default: ~/.clawdbot/george; override via GEORGE_DIR)")
+    parser.add_argument("--dir", default=None, help="State directory (default: ~/.bot/george; override via GEORGE_DIR)")
     parser.add_argument("--login-timeout", type=int, default=DEFAULT_LOGIN_TIMEOUT, help="Seconds to wait for phone approval")
     parser.add_argument("--user-id", default=None, help="Override George user number/username (or set GEORGE_USER_ID)")
     

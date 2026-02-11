@@ -58,7 +58,7 @@ class KreaAPI:
             secret = secret or self._get_config("secret")
         
         if not key_id or not secret:
-            raise ValueError("API credentials required. Set via args or clawdbot config.")
+            raise ValueError("API credentials required. Set via args or hanzo-bot config.")
         
         self.token = f"{key_id}:{secret}"
         self.headers = {
@@ -69,11 +69,11 @@ class KreaAPI:
         }
     
     def _get_config(self, key: str) -> Optional[str]:
-        """Get config from clawdbot config if available."""
+        """Get config from hanzo-bot config if available."""
         try:
             import subprocess
             result = subprocess.run(
-                ["clawdbot", "config", "get", f"skill.krea_api.{key}"],
+                ["hanzo-bot", "config", "get", f"skill.krea_api.{key}"],
                 capture_output=True, text=True
             )
             return result.stdout.strip() if result.returncode == 0 else None

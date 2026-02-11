@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * AssemblyAI helper CLI for Clawdbot.
+ * AssemblyAI helper CLI for Hanzo Bot.
  *
  * No external deps.
  * Uses AssemblyAI REST API:

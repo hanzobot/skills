@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Timer script for Clawdbot
+ * Timer script for Hanzo Bot
  * 
  * Usage: node timer.js <duration> [label]
  * 

@@ -330,7 +330,7 @@ def cmd_add(name_override: str | None = None):
     - Otherwise: save a new file named from the email local-part (or --name).
 
     Interactive (TTY): can repeat.
-    Non-interactive (Clawdbot): single-shot.
+    Non-interactive (Hanzo Bot): single-shot.
     """
     ensure_dirs()
 

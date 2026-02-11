@@ -31,7 +31,7 @@ touch ~/projects/my-bip-folder/ideas/backlog.md
 
 ## Placeholders
 
-ClawdBot automatically replaces these in commands:
+Hanzo Bot automatically replaces these in commands:
 - `{dataPath}` → your configured `solobuddy.dataPath`
 - `{baseDir}` → skill installation folder
 

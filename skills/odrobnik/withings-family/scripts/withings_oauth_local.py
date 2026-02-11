@@ -18,7 +18,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 from typing import Optional, Tuple
 
-BASE_DIR = Path.home() / '.clawdbot' / 'withings-family'
+BASE_DIR = Path.home() / '.hanzo-bot' / 'withings-family'
 
 # Load .env if present
 env_file = BASE_DIR / '.env'

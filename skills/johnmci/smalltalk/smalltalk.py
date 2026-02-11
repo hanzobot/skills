@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Smalltalk CLI for Clawdbot
+Smalltalk CLI for Hanzo Bot
 
 Communicates with a Squeak/Cuis MCP server via stdio JSON-RPC.
 Requires xvfb-run for headless operation on Linux servers.
@@ -70,7 +70,7 @@ def get_paths() -> Tuple[str, str]:
 
 def check_setup() -> bool:
     """Verify all dependencies and paths are correct."""
-    print("🔍 Checking Clawdbot Smalltalk setup...\n")
+    print("🔍 Checking Hanzo Bot Smalltalk setup...\n")
     all_ok = True
 
     # Check xvfb-run
@@ -190,7 +190,7 @@ class MCPClient:
         response = self._send("initialize", {
             "protocolVersion": "2024-11-05",
             "capabilities": {},
-            "clientInfo": {"name": "clawdbot-smalltalk", "version": "1.0.0"}
+            "clientInfo": {"name": "hanzo-bot-smalltalk", "version": "1.0.0"}
         })
 
         if "error" in response:

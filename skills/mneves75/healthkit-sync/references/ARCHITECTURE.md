@@ -53,7 +53,7 @@ ai-health-sync-ios-bot/
 │           └── HealthSyncCLITests.swift
 └── DOCS/
     ├── GUIDELINES-REF/                       # Shared guidelines (symlink)
-    └── CLAWDBOT-SKILL-PLAN.md
+    └── BOT-SKILL-PLAN.md   
 ```
 
 ## Key Components

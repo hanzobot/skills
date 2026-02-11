@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-n8n API client for Clawdbot
+n8n API client for Hanzo Bot
 Manages workflows, executions, and credentials via n8n REST API
 """
 

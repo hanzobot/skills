@@ -9,7 +9,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-CLAWDBOT_CONFIG_PATH = Path.home() / ".clawdbot" / "clawdbot.json"
+BOT_CONFIG_PATH = Path.home() / ".hanzo-bot" / "bot.json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 API_BASE = "https://api.venice.ai/api/v1"
 
@@ -18,15 +18,15 @@ def get_api_key() -> str | None:
     """
     Get API key from multiple sources in order:
     1. VENICE_API_KEY environment variable
-    2. ~/.clawdbot/clawdbot.json at skills.entries.venice-ai-media.env.VENICE_API_KEY
+    2. ~/.bot/bot.json at skills.entries.venice-ai-media.env.VENICE_API_KEY
     """
     api_key = os.environ.get("VENICE_API_KEY", "").strip()
     if api_key:
         return api_key
 
-    if CLAWDBOT_CONFIG_PATH.exists():
+    if BOT_CONFIG_PATH.exists():
         try:
-            config = json.loads(CLAWDBOT_CONFIG_PATH.read_text(encoding="utf-8"))
+            config = json.loads(BOT_CONFIG_PATH.read_text(encoding="utf-8"))
             api_key = (
                 config.get("skills", {})
                 .get("entries", {})
@@ -47,7 +47,7 @@ def require_api_key() -> str:
     api_key = get_api_key()
     if not api_key:
         print("Error: VENICE_API_KEY not found", file=sys.stderr)
-        print("Set VENICE_API_KEY env var or configure in ~/.clawdbot/clawdbot.json", file=sys.stderr)
+        print("Set VENICE_API_KEY env var or configure in ~/.bot/bot.json", file=sys.stderr)
         print("Get your API key at: https://venice.ai/settings/api", file=sys.stderr)
         sys.exit(2)
     return api_key
@@ -183,7 +183,7 @@ def validate_model(api_key: str, model: str, model_type: str = "image") -> tuple
 
 
 def print_media_line(filepath: Path) -> None:
-    """Print MEDIA: line for Clawdbot auto-attach."""
+    """Print MEDIA: line for Hanzo Bot auto-attach."""
     print(f"\nMEDIA: {filepath.as_posix()}")
 
 

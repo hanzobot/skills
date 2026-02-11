@@ -2,7 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["click>=8.0.0"]
 # ///
-"""Backup Clawdbot media to a local folder (synced by Dropbox/iCloud/etc)."""
+"""Backup Hanzo Bot media to a local folder (synced by Dropbox/iCloud/etc)."""
 
 import os
 import sys
@@ -15,9 +15,9 @@ from datetime import datetime
 import click
 
 # Defaults
-DEFAULT_SOURCE = Path.home() / ".clawdbot" / "media" / "inbound"
-DEFAULT_DEST = Path.home() / "Dropbox" / "Clawdbot" / "media"
-STATE_FILE = Path.home() / ".clawdbot" / "media" / "backup-state.json"
+DEFAULT_SOURCE = Path.home() / ".hanzo-bot" / "media" / "inbound"
+DEFAULT_DEST = Path.home() / "Dropbox" / "Hanzo Bot" / "media"
+STATE_FILE = Path.home() / ".hanzo-bot" / "media" / "backup-state.json"
 
 MEDIA_EXTENSIONS = {
     '.jpg', '.jpeg', '.png', '.gif', '.webp', '.heic',
@@ -60,7 +60,7 @@ def file_hash(path: Path) -> str:
 @click.option("--dry-run", is_flag=True, help="Preview only, don't copy")
 @click.pass_context
 def cli(ctx, source, dest, dry_run):
-    """Backup Clawdbot media to a local folder."""
+    """Backup Hanzo Bot media to a local folder."""
     if ctx.invoked_subcommand is None:
         # Default action: run backup
         run_backup(source, dest, dry_run)

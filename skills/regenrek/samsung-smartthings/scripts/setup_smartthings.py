@@ -14,9 +14,9 @@ from shutil import which
 from urllib.parse import urlencode, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
-DEFAULT_DISPLAY_NAME = "smartthings-clawdbot"
-DEFAULT_APP_NAME = "smartthings-clawdbot"
-DEFAULT_DESCRIPTION = "Clawdbot SmartThings integration"
+DEFAULT_DISPLAY_NAME = "smartthings-hanzo-bot"
+DEFAULT_APP_NAME = "smartthings-hanzo-bot"
+DEFAULT_DESCRIPTION = "Hanzo Bot SmartThings integration"
 DEFAULT_REDIRECT_URI = "https://httpbin.org/get"
 DEFAULT_SCOPES = ["r:devices:*", "x:devices:*"]
 DEFAULT_AUTH_BASE = "https://api.smartthings.com/oauth"
@@ -35,10 +35,10 @@ TOKEN_ENV_KEYS = {
 
 
 def resolve_state_dir() -> Path:
-    state_dir = os.environ.get("CLAWDBOT_STATE_DIR")
+    state_dir = os.environ.get("BOT_STATE_DIR")
     if state_dir:
         return Path(state_dir).expanduser()
-    return Path.home() / ".clawdbot"
+    return Path.home() / ".hanzo-bot"
 
 
 def resolve_env_path(state_dir: Path) -> Path:
@@ -246,7 +246,7 @@ def build_payload(app_name: str) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Provision a SmartThings OAuth app for Clawdbot."
+        description="Provision a SmartThings OAuth app for Hanzo Bot."
     )
     parser.add_argument(
         "--force",

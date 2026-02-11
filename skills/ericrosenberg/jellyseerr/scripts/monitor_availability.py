@@ -59,7 +59,7 @@ def send_notification(title, media_type, channel='telegram', chat_id=None):
     # Print for logging
     print(f"NOTIFY: {message}")
     
-    # Write to notification queue file for Clawdbot to pick up
+    # Write to notification queue file for Hanzo Bot to pick up
     notify_file = Path.home() / ".cache" / "jellyseerr" / "pending_notifications.json"
     notify_file.parent.mkdir(parents=True, exist_ok=True)
     

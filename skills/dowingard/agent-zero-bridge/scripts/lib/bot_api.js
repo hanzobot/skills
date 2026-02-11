@@ -1,19 +1,19 @@
 /**
- * Clawdbot API Client Library
+ * Hanzo Bot API Client Library
  */
 
 const config = require('./config');
 
-class ClawdbotClient {
+class Hanzo BotClient {
     constructor(options = {}) {
         // Use Docker URL if running inside container, otherwise regular URL
         const isDocker = process.env.DOCKER_CONTAINER === 'true';
-        this.apiUrl = options.apiUrl || (isDocker ? config.clawdbot.apiUrlDocker : config.clawdbot.apiUrl);
-        this.apiToken = options.apiToken || config.clawdbot.apiToken;
-        this.defaultTimeout = options.timeout || config.clawdbot.defaultTimeout;
+        this.apiUrl = options.apiUrl || (isDocker ? config.hanzo-bot.apiUrlDocker : config.hanzo-bot.apiUrl);
+        this.apiToken = options.apiToken || config.hanzo-bot.apiToken;
+        this.defaultTimeout = options.timeout || config.hanzo-bot.defaultTimeout;
 
         if (!this.apiToken) {
-            console.warn("Warning: CLAWDBOT_API_TOKEN not set. Set it in .env or environment.");
+            console.warn("Warning: BOT_API_TOKEN not set. Set it in .env or environment.");
         }
     }
 
@@ -57,7 +57,7 @@ class ClawdbotClient {
     // Send message via OpenAI-compatible chat completions
     async sendMessage(message, options = {}) {
         const payload = {
-            model: "clawdbot:main",
+            model: "hanzo-bot:main",
             messages: [
                 {
                     role: "user",
@@ -71,7 +71,7 @@ class ClawdbotClient {
         return data.choices?.[0]?.message?.content || "No response";
     }
 
-    // Invoke a Clawdbot tool directly
+    // Invoke a Hanzo Bot tool directly
     async invokeTool(tool, args = {}, sessionKey = "main") {
         const payload = {
             tool,
@@ -97,4 +97,4 @@ class ClawdbotClient {
     }
 }
 
-module.exports = ClawdbotClient;
+module.exports = Hanzo BotClient;

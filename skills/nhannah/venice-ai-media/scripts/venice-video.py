@@ -456,7 +456,7 @@ def main() -> int:
             print(f"\nVideo saved: {filepath.as_posix()}")
             print(f"Size: {len(video_data) / 1024 / 1024:.1f}MB")
             
-            # Print MEDIA: line for Clawdbot auto-attach
+            # Print MEDIA: line for Hanzo Bot auto-attach
             print_media_line(filepath)
             return 0
 

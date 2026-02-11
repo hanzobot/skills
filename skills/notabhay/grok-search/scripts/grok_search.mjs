@@ -26,9 +26,9 @@ function usage(msg) {
   process.exit(2);
 }
 
-function readKeyFromClawdbotConfig() {
+function readKeyFromHanzo BotConfig() {
   try {
-    const p = path.join(os.homedir(), ".clawdbot", "clawdbot.json");
+    const p = path.join(os.homedir(), ".hanzo-bot", "bot.json");
     const raw = fs.readFileSync(p, "utf8");
     const j = JSON.parse(raw);
     // common places
@@ -76,10 +76,10 @@ const query = queryParts.join(" ").trim();
 if (!query) usage("Missing <query>");
 if (!mode) usage("Must specify --web or --x");
 
-const apiKey = readKeyFromClawdbotConfig();
+const apiKey = readKeyFromHanzo BotConfig();
 if (!apiKey) {
   console.error(
-    "Missing XAI_API_KEY. Set env var or add env.XAI_API_KEY in ~/.clawdbot/clawdbot.json"
+    "Missing XAI_API_KEY. Set env var or add env.XAI_API_KEY in ~/.bot/bot.json"
   );
   process.exit(1);
 }

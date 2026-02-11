@@ -41,9 +41,9 @@ def add_request(media_id, media_type, title, requested_at=None, channel=None, ch
     
     # Try to get channel info from environment if not provided
     if not channel:
-        channel = os.environ.get('CLAWDBOT_CHANNEL', 'telegram')
+        channel = os.environ.get('BOT_CHANNEL', 'telegram')
     if not chat_id:
-        chat_id = os.environ.get('CLAWDBOT_CHAT_ID', os.environ.get('TELEGRAM_CHAT_ID'))
+        chat_id = os.environ.get('BOT_CHAT_ID', os.environ.get('TELEGRAM_CHAT_ID'))
     
     new_request = {
         'media_id': media_id,

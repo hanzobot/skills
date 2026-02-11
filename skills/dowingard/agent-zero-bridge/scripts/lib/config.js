@@ -32,12 +32,12 @@ const config = {
         lifetimeHours: parseInt(process.env.A0_LIFETIME_HOURS) || 24
     },
     
-    // Clawdbot Gateway
-    clawdbot: {
-        apiUrl: process.env.CLAWDBOT_API_URL || "http://127.0.0.1:18789",
-        apiUrlDocker: process.env.CLAWDBOT_API_URL_DOCKER || process.env.CLAWDBOT_API_URL || "http://127.0.0.1:18789",
-        apiToken: process.env.CLAWDBOT_API_TOKEN || "",
-        defaultTimeout: parseInt(process.env.CLAWDBOT_TIMEOUT) || 60000
+    // Hanzo Bot Gateway
+    hanzo-bot: {
+        apiUrl: process.env.BOT_API_URL || "http://127.0.0.1:18789",
+        apiUrlDocker: process.env.BOT_API_URL_DOCKER || process.env.BOT_API_URL || "http://127.0.0.1:18789",
+        apiToken: process.env.BOT_API_TOKEN || "",
+        defaultTimeout: parseInt(process.env.BOT_TIMEOUT) || 60000
     },
     
     // Notebook
@@ -53,8 +53,8 @@ function validateConfig() {
     if (!config.a0.apiKey) {
         errors.push("A0_API_KEY is not set");
     }
-    if (!config.clawdbot.apiToken) {
-        errors.push("CLAWDBOT_API_TOKEN is not set");
+    if (!config.hanzo-bot.apiToken) {
+        errors.push("BOT_API_TOKEN is not set");
     }
     
     return errors;

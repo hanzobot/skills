@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Kraken Crypto CLI Tool for Clawdbot
+Kraken Crypto CLI Tool for Hanzo Bot
 A command-line interface for managing your Kraken account.
 
 Usage:

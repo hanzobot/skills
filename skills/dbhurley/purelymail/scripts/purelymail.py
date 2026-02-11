@@ -4,7 +4,7 @@
 # dependencies = ["rich", "typer"]
 # ///
 """
-PurelyMail Setup - Configure and test PurelyMail email for Clawdbot agents.
+PurelyMail Setup - Configure and test PurelyMail email for Hanzo Bot agents.
 """
 
 import email
@@ -21,7 +21,7 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
-app = typer.Typer(help="PurelyMail Setup - configure email for Clawdbot agents")
+app = typer.Typer(help="PurelyMail Setup - configure email for Hanzo Bot agents")
 console = Console()
 
 # PurelyMail server settings
@@ -39,7 +39,7 @@ def config(
     name: str = typer.Option("agent-email", "--name", "-n", help="Config entry name"),
     output: bool = typer.Option(False, "--output", "-o", help="Output raw JSON only"),
 ):
-    """Generate clawdbot.json config snippet for PurelyMail."""
+    """Generate bot.json config snippet for PurelyMail."""
     
     config_snippet = {
         "skills": {
@@ -61,7 +61,7 @@ def config(
         return
     
     console.print(Panel(
-        f"[bold]Add this to your clawdbot.json:[/bold]\n\n"
+        f"[bold]Add this to your bot.json:[/bold]\n\n"
         f"[cyan]{json.dumps(config_snippet, indent=2)}[/cyan]",
         title="PurelyMail Config"
     ))
@@ -117,7 +117,7 @@ def send_test(
     email_addr: str = typer.Option(..., "--email", "-e", help="Email address"),
     password: str = typer.Option(..., "--password", "-p", help="Email password"),
     to: str = typer.Option(..., "--to", "-t", help="Recipient email address"),
-    subject: str = typer.Option("Test from Clawdbot Agent", "--subject", "-s", help="Email subject"),
+    subject: str = typer.Option("Test from Hanzo Bot Agent", "--subject", "-s", help="Email subject"),
 ):
     """Send a test email."""
     
@@ -125,14 +125,14 @@ def send_test(
     
     msg = MIMEText(f"""Hello!
 
-This is a test email from your Clawdbot agent ({email_addr}).
+This is a test email from your Hanzo Bot agent ({email_addr}).
 
 If you received this, SMTP is working correctly!
 
 Sent at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 -- 
-Clawdbot Agent
+Hanzo Bot Agent
 """)
     
     msg["Subject"] = subject
@@ -250,7 +250,7 @@ def setup_guide():
     """Print full PurelyMail setup guide."""
     
     guide = """
-[bold cyan]PurelyMail Setup Guide for Clawdbot[/bold cyan]
+[bold cyan]PurelyMail Setup Guide for Hanzo Bot[/bold cyan]
 
 [bold]Step 1: Create PurelyMail Account[/bold]
   1. Go to https://purelymail.com
@@ -272,10 +272,10 @@ def setup_guide():
   4. Set a strong password
   5. Save the password securely
 
-[bold]Step 4: Configure Clawdbot[/bold]
+[bold]Step 4: Configure Hanzo Bot[/bold]
   Run: purelymail config --email agent@yourdomain.com --password "YourPassword"
   
-  Add the output to your ~/.clawdbot/clawdbot.json
+  Add the output to your ~/.bot/bot.json
 
 [bold]Step 5: Test Connection[/bold]
   Run: purelymail test --email agent@yourdomain.com --password "YourPassword"
@@ -299,11 +299,11 @@ def setup_guide():
 
 @app.command()
 def wizard():
-    """Interactive wizard to set up PurelyMail for your Clawdbot agent."""
+    """Interactive wizard to set up PurelyMail for your Hanzo Bot agent."""
     
     console.print(Panel(
         "[bold]Welcome to PurelyMail Setup Wizard![/bold]\n\n"
-        "This wizard will help you configure email for your Clawdbot agent.\n"
+        "This wizard will help you configure email for your Hanzo Bot agent.\n"
         "You'll need a PurelyMail account first - sign up at https://purelymail.com",
         title="📬 PurelyMail Wizard"
     ))
@@ -385,7 +385,7 @@ def wizard():
     }
     
     console.print(Panel(
-        f"[bold]Add this to your clawdbot.json under skills.entries:[/bold]\n\n"
+        f"[bold]Add this to your bot.json under skills.entries:[/bold]\n\n"
         f"[cyan]{json.dumps(config_snippet, indent=2)}[/cyan]",
         title="Configuration"
     ))
@@ -399,7 +399,7 @@ def wizard():
         
         msg = MIMEText(f"""Hello!
 
-This is a test email from your Clawdbot agent setup wizard.
+This is a test email from your Hanzo Bot agent setup wizard.
 
 Agent email: {email_addr}
 Sent at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
@@ -407,10 +407,10 @@ Sent at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 If you received this, your agent's email is working correctly! 🎉
 
 -- 
-Clawdbot Agent (via PurelyMail)
+Hanzo Bot Agent (via PurelyMail)
 """)
         
-        msg["Subject"] = "✓ Clawdbot Agent Email Test"
+        msg["Subject"] = "✓ Hanzo Bot Agent Email Test"
         msg["From"] = email_addr
         msg["To"] = test_to
         
@@ -427,14 +427,14 @@ Clawdbot Agent (via PurelyMail)
     console.print(Panel(
         f"""[bold green]Setup Complete! 🎉[/bold green]
 
-Your Clawdbot agent email is ready:
+Your Hanzo Bot agent email is ready:
   📧 Email: {email_addr}
   📥 IMAP: {IMAP_SERVER}:993
   📤 SMTP: {SMTP_SERVER}:465
 
 [bold]Next steps:[/bold]
-1. Add the config above to ~/.clawdbot/clawdbot.json
-2. Restart your Clawdbot gateway
+1. Add the config above to ~/.bot/bot.json
+2. Restart your Hanzo Bot gateway
 3. Your agent can now send and receive email!
 
 [dim]Use 'purelymail inbox' to check messages

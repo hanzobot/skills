@@ -36,7 +36,7 @@ async function initialize() {
     protocolVersion: '2024-11-05',
     capabilities: {},
     clientInfo: {
-      name: 'clawdbot-skill',
+      name: 'hanzo-bot-skill',
       version: '1.0.0'
     }
   });

@@ -22,8 +22,8 @@ function getApiKey() {
     return process.env.XAI_API_KEY;
   }
   
-  // Check clawdbot config
-  const configPath = path.join(process.env.HOME, '.clawdbot', 'clawdbot.json');
+  // Check hanzo-bot config
+  const configPath = path.join(process.env.HOME, '.hanzo-bot', 'bot.json');
   if (fs.existsSync(configPath)) {
     try {
       const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
@@ -97,7 +97,7 @@ function imageToBase64(imagePath) {
 async function chat(options) {
   const apiKey = getApiKey();
   if (!apiKey) {
-    console.error('❌ No API key found. Set XAI_API_KEY or configure in clawdbot.');
+    console.error('❌ No API key found. Set XAI_API_KEY or configure in hanzo-bot.');
     console.error('   Get your key at: https://console.x.ai');
     process.exit(1);
   }

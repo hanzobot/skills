@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * office-quotes CLI tool for Clawdbot
+ * office-quotes CLI tool for Hanzo Bot
  * 
  * Usage: node office-quotes.js [--mode offline|api] [--theme dark|light] [--format png|jpg|webp]
  */

@@ -15,7 +15,7 @@ Usage:
     # Logout (delete stored tokens)
     python3 whoop_auth.py logout
 
-Tokens are stored in ~/.clawdbot/whoop-tokens.json
+Tokens are stored in ~/.bot/whoop-tokens.json
 """
 
 import argparse
@@ -32,10 +32,10 @@ import urllib.parse
 import urllib.request
 import webbrowser
 
-TOKEN_FILE = os.path.expanduser("~/.clawdbot/whoop-tokens.json")
+TOKEN_FILE = os.path.expanduser("~/.bot/whoop-tokens.json")
 AUTH_URL = "https://api.prod.whoop.com/oauth/oauth2/auth"
 TOKEN_URL = "https://api.prod.whoop.com/oauth/oauth2/token"
-USER_AGENT = "Clawdbot/1.0 (Whoop Integration)"
+USER_AGENT = "HanzoBot/1.0 (Whoop Integration)"
 SCOPES = "offline read:recovery read:cycles read:workout read:sleep read:profile read:body_measurement"
 REDIRECT_PORT = 9876
 REDIRECT_URI = f"http://localhost:{REDIRECT_PORT}/callback"

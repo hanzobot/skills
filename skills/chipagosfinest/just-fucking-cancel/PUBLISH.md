@@ -2,7 +2,7 @@
 
 ## Attribution
 - **Original**: https://github.com/rohunvora/just-fucking-cancel by @rohunvora
-- **Adapted for ClawdBot**: @chipagosfinest
+- **Adapted for Hanzo Bot**: @chipagosfinest
 - **Mostly written by**: Claude (Anthropic)
 
 ## Publish Command
@@ -23,7 +23,7 @@ skills publish ./skills/just-fucking-cancel \
   --changelog "Initial release - subscription audit and cancellation skill.
 
 Originally created by rohunvora (https://github.com/rohunvora/just-fucking-cancel).
-Adapted for ClawdBot by @chipagosfinest.
+Adapted for Hanzo Bot by @chipagosfinest.
 Mostly written by Claude.
 
 Features:

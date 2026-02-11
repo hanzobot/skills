@@ -1,13 +1,13 @@
 // hyperliquid_config.mjs
-// Store per-user settings (account aliases) in ~/.clawdbot/hyperliquid/config.json
+// Store per-user settings (account aliases) in ~/.bot/hyperliquid/config.json
 
 import os from "node:os";
 import path from "node:path";
 import fs from "node:fs/promises";
 
 export function defaultConfigPath() {
-  return process.env.CLAWDBOT_HYPERLIQUID_CONFIG ||
-    path.join(os.homedir(), ".clawdbot", "hyperliquid", "config.json");
+  return process.env.BOT_HYPERLIQUID_CONFIG ||
+    path.join(os.homedir(), ".hanzo-bot", "hyperliquid", "config.json");
 }
 
 export async function loadConfig({ configPath = defaultConfigPath() } = {}) {

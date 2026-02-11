@@ -352,7 +352,7 @@ async function createAttestation({
   const schemaUid = requireSchemaUid(schemas, chainKey);
 
   const recipientAddr = recipient ? normalizeAddress(recipient) : zeroAddress();
-  const agent = agentId || process.env.CLAWDBOT_AGENT_ID || process.env.AGENT_ID || 'clawdbot';
+  const agent = agentId || process.env.BOT_AGENT_ID || process.env.AGENT_ID || 'hanzo-bot';
   const metadataStr = metadata ?? '{}';
 
   const schemaEncoder = new SchemaEncoder(schemaString);
@@ -677,7 +677,7 @@ async function main() {
 
   program
     .name('attest')
-    .description('Create and verify EAS attestations (opinionated defaults for Clawdbot)')
+    .description('Create and verify EAS attestations (opinionated defaults for Hanzo Bot)')
     .showHelpAfterError(true);
 
   program
@@ -763,7 +763,7 @@ async function main() {
     .option('--rpc <url>', 'RPC URL (overrides EAS_RPC_URL)')
     .option('--private-key <hex>', 'private key (overrides EAS_PRIVATE_KEY)')
     .option('--recipient <address>', 'recipient address (default zero address)')
-    .option('--agent-id <id>', 'agent id (default env CLAWDBOT_AGENT_ID or "clawdbot")')
+    .option('--agent-id <id>', 'agent id (default env BOT_AGENT_ID or "hanzo-bot")')
     .option('--metadata <string>', 'metadata string or JSON')
     .option('--metadata-file <path>', 'read metadata from file')
     .option('--hash-algo <algo>', 'sha256 or keccak256', 'sha256')

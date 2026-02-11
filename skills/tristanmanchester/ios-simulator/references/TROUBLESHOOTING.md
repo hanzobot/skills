@@ -37,7 +37,7 @@ python3 -m pip install --upgrade fb-idb
   - or `node {baseDir}/scripts/ios-sim.mjs ui tree` and search the JSON for `AXLabel` / `title`.
 - If there are multiple matches, narrow the query (e.g. “Log in” vs “Log”).
 
-## ClawdBot gateway not on macOS
+## Hanzo Bot gateway not on macOS
 You must run commands on a macOS environment (gateway or node) where Xcode tools exist.
 
-Use ClawdBot’s node execution so the command runs on the macOS node.
+Use Hanzo Bot’s node execution so the command runs on the macOS node.

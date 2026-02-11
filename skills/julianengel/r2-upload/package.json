@@ -11,7 +11,7 @@
     "onboard": "tsx src/onboard.ts"
   },
   "keywords": ["r2", "s3", "cloudflare", "storage", "mcp", "bot", "upload", "presigned-url"],
-  "author": "ClawdBot Community",
+  "author": "Hanzo Bot Community",
   "license": "MIT",
   "repository": {
     "type": "git",

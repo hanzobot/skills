@@ -1,6 +1,6 @@
 #!/usr/bin/env osascript -l JavaScript
 /**
- * OmniFocus CLI - Omni Automation wrapper for Clawdbot
+ * OmniFocus CLI - Omni Automation wrapper for Hanzo Bot
  * Usage: osascript omnifocus.js <command> [args...]
  */
 

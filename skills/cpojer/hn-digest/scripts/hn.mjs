@@ -157,7 +157,7 @@ async function fetchFrontPage() {
   const res = await fetch(url, {
     headers: {
       "accept": "application/json",
-      "user-agent": "clawdbot-hn-digest/1.0",
+      "user-agent": "hanzo-bot-hn-digest/1.0",
     },
   });
   if (!res.ok) throw new Error(`HN request failed: ${res.status} ${res.statusText}`);

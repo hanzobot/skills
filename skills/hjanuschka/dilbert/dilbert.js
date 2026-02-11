@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Dilbert Skill for Clawdbot
+ * Dilbert Skill for Hanzo Bot
  * Fetches and sends random Dilbert comics
  */
 
@@ -50,8 +50,8 @@ async function fetchDilbertComic() {
 }
 
 /**
- * Main skill handler - called by Clawdbot
- * @param {Object} args - Arguments from Clawdbot (may include context, message info, etc.)
+ * Main skill handler - called by Hanzo Bot
+ * @param {Object} args - Arguments from Hanzo Bot (may include context, message info, etc.)
  * @returns {Promise<Object>} Result object with image path and metadata
  */
 async function skillHandler(args) {
@@ -79,7 +79,7 @@ async function skillHandler(args) {
     }
 }
 
-// Export for Clawdbot
+// Export for Hanzo Bot
 module.exports = {
     name: SKILL_NAME,
     handler: skillHandler,

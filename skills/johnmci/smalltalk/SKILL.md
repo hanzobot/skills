@@ -18,13 +18,13 @@ git clone https://github.com/CorporateSmalltalkConsultingLtd/ClaudeSmalltalk.git
 
 This repo contains:
 - MCP server code for Squeak (`MCP-Server-Squeak.st`)
-- Setup documentation (`SQUEAK-SETUP.md`, `CLAWDBOT-SETUP.md`)
+- Setup documentation (`SQUEAK-SETUP.md`, `BOT-SETUP.md`)
 - This Bot skill (`bot/`)
 
 ## Setup
 
 1. **Set up Squeak with MCP server** — see [SQUEAK-SETUP.md](https://github.com/CorporateSmalltalkConsultingLtd/ClaudeSmalltalk/blob/main/SQUEAK-SETUP.md)
-2. **Configure Bot** — see [CLAWDBOT-SETUP.md](https://github.com/CorporateSmalltalkConsultingLtd/ClaudeSmalltalk/blob/main/CLAWDBOT-SETUP.md)
+2. **Configure Bot** — see [BOT-SETUP.md](https://github.com/CorporateSmalltalkConsultingLtd/ClaudeSmalltalk/blob/main/BOT-SETUP.md)
 
 ## Usage
 

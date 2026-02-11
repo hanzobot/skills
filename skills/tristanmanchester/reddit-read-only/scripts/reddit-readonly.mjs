@@ -16,7 +16,7 @@ const DEFAULTS = {
   minDelayMs: parseInt(process.env.REDDIT_RO_MIN_DELAY_MS || '500', 10),
   maxDelayMs: parseInt(process.env.REDDIT_RO_MAX_DELAY_MS || '1500', 10),
   timeoutMs: parseInt(process.env.REDDIT_RO_TIMEOUT_MS || '20000', 10),
-  userAgent: process.env.REDDIT_RO_USER_AGENT || 'script:clawdbot-reddit-readonly:v1.0.0',
+  userAgent: process.env.REDDIT_RO_USER_AGENT || 'script:hanzo-bot-reddit-readonly:v1.0.0',
   maxChars: 1000,
 };
 

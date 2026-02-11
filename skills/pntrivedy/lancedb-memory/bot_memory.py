@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Clawdbot Memory Integration using LanceDB
-This module provides memory search capabilities for Clawdbot
+Hanzo Bot Memory Integration using LanceDB
+This module provides memory search capabilities for Hanzo Bot
 """
 
 import sys
@@ -10,8 +10,8 @@ sys.path.append('/Users/prerak/clawd/skills/lancedb-memory')
 
 from final_memory import search_memories, add_memory, get_all_memories
 
-class ClawdbotMemoryProvider:
-    """Memory provider for Clawdbot using LanceDB"""
+class Hanzo BotMemoryProvider:
+    """Memory provider for Hanzo Bot using LanceDB"""
     
     def __init__(self):
         pass
@@ -42,11 +42,11 @@ class ClawdbotMemoryProvider:
             return []
 
 # Create provider instance
-memory_provider = ClawdbotMemoryProvider()
+memory_provider = Hanzo BotMemoryProvider()
 
 # Test the integration
 if __name__ == "__main__":
-    print("Testing Clawdbot Memory Integration...")
+    print("Testing Hanzo Bot Memory Integration...")
     
     # Test search
     results = memory_provider.search("test")
@@ -54,9 +54,9 @@ if __name__ == "__main__":
     
     # Test add
     memory_id = memory_provider.add(
-        "This is a test memory from Clawdbot",
+        "This is a test memory from Hanzo Bot",
         {"type": "clawbot_test", "importance": 7}
     )
     print(f"Added memory ID: {memory_id}")
     
-    print("✅ Clawdbot integration ready!")
+    print("✅ Hanzo Bot integration ready!")

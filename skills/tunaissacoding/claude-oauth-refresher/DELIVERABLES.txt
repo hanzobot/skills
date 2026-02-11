@@ -54,13 +54,13 @@
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
-│ 6. CLAWDBOT CONTROL                                    ✅   │
+│ 6. BOT CONTROL                                        ✅   │
 ├─────────────────────────────────────────────────────────────┤
 │ • Examples in SKILL.md                                      │
 │ • "disable Claude refresh start notifications"             │
 │ • "show Claude refresh notification settings"              │
 │ • "enable all Claude refresh notifications"                │
-│ • Explains Clawdbot can edit config                         │
+│ • Explains Hanzo Bot can edit config                         │
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
@@ -132,7 +132,7 @@ New Users:
 User Experience:
   ✓ Interactive setup with smart defaults
   ✓ Config changes apply automatically
-  ✓ Natural language control via Clawdbot
+  ✓ Natural language control via Hanzo Bot
   ✓ Clear one-time installation workflow
 
 Error Handling:

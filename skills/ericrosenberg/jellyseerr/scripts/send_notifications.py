@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Process pending notifications and send them via configured method.
-This script is meant to be called from Clawdbot context with message tool access.
+This script is meant to be called from Hanzo Bot context with message tool access.
 """
 import json
 from pathlib import Path

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Analyze a Strava ride and send notification via Clawdbot message tool.
+Analyze a Strava ride and send notification via Hanzo Bot message tool.
 Usage: analyze_and_notify.py <activity_id> [--telegram-chat-id CHAT_ID]
 """
 import json
@@ -188,7 +188,7 @@ def generate_analysis_message(activity, hr_zones_data, ftp=192):
     return message
 
 def send_telegram_message(message, chat_id=None):
-    """Send message via Clawdbot."""
+    """Send message via Hanzo Bot."""
     # Try to get chat ID from environment or config
     if not chat_id:
         chat_id = os.environ.get('STRAVA_TELEGRAM_CHAT_ID')
@@ -199,8 +199,8 @@ def send_telegram_message(message, chat_id=None):
         print(message)
         return
     
-    # Use clawdbot message tool via subprocess
-    # This assumes the skill is running within Clawdbot context
+    # Use hanzo-bot message tool via subprocess
+    # This assumes the skill is running within Hanzo Bot context
     print(f"Sending message to chat ID: {chat_id}")
     print(message)
 

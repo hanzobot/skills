@@ -28,7 +28,7 @@ REDDIT_SEARCH_PROMPT = """Find Reddit discussion threads about: {topic}
 STEP 1: EXTRACT THE CORE SUBJECT
 Get the MAIN NOUN/PRODUCT/TOPIC:
 - "best nano banana prompting practices" → "nano banana"
-- "killer features of clawdbot" → "clawdbot"
+- "killer features of hanzo-bot" → "hanzo-bot"
 - "top Claude Code skills" → "Claude Code"
 DO NOT include "best", "top", "tips", "practices", "features" in your search.
 

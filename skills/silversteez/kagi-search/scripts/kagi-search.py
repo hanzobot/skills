@@ -35,7 +35,7 @@ def get_api_key() -> str:
     # Check common .env file locations
     env_paths = [
         "/home/matt/clawd/.env",
-        "/home/matt/.clawdbot/.env",
+        "/home/matt/.bot/.env",
     ]
     
     for env_path in env_paths:
@@ -52,7 +52,7 @@ def get_api_key() -> str:
     
     raise EnvironmentError(
         "KAGI_API_KEY environment variable not set. "
-        "Set it via export or add to /home/matt/clawd/.env or /home/matt/.clawdbot/.env"
+        "Set it via export or add to /home/matt/clawd/.env or /home/matt/.bot/.env"
     )
 
 

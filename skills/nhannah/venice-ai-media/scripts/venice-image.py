@@ -389,7 +389,7 @@ def main() -> int:
         write_gallery(out_dir, items)
         print(f"\nGallery: {(out_dir / 'index.html').as_posix()}")
         
-        # Print MEDIA: line for Clawdbot auto-attach (first image)
+        # Print MEDIA: line for Hanzo Bot auto-attach (first image)
         first_file = out_dir / items[0]["file"]
         print_media_line(first_file)
 

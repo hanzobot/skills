@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 MS365 CLI - Command-line interface for Microsoft 365 via MCP server.
-Wraps the @softeria/ms-365-mcp-server for use with Clawdbot skills.
+Wraps the @softeria/ms-365-mcp-server for use with Hanzo Bot skills.
 """
 
 import subprocess
@@ -199,7 +199,7 @@ def cmd_contacts_search(args):
     format_output(result)
 
 def main():
-    parser = argparse.ArgumentParser(description="MS365 CLI for Clawdbot")
+    parser = argparse.ArgumentParser(description="MS365 CLI for Hanzo Bot")
     subparsers = parser.add_subparsers(dest='command', help='Commands')
 
     # Auth commands

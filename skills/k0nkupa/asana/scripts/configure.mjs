@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Configure local-only Asana OAuth credentials for the Clawdbot Asana skill.
+ * Configure local-only Asana OAuth credentials for the Hanzo Bot Asana skill.
  *
- * Writes to: ~/.clawdbot/asana/credentials.json
+ * Writes to: ~/.bot/asana/credentials.json
  *
  * Usage:
  *   node skills/asana/scripts/configure.mjs --client-id "..." --client-secret "..."
@@ -41,7 +41,7 @@ const clientSecret = flags['client-secret'] || process.env.ASANA_CLIENT_SECRET;
 if (!clientId) die('Missing --client-id (or ASANA_CLIENT_ID)');
 if (!clientSecret) die('Missing --client-secret (or ASANA_CLIENT_SECRET)');
 
-const outPath = path.join(os.homedir(), '.clawdbot', 'asana', 'credentials.json');
+const outPath = path.join(os.homedir(), '.hanzo-bot', 'asana', 'credentials.json');
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, JSON.stringify({ client_id: String(clientId), client_secret: String(clientSecret) }, null, 2));
 console.log(`Saved Asana OAuth credentials to: ${outPath}`);

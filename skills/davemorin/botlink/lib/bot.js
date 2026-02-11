@@ -1,7 +1,7 @@
 /**
- * ClawdLink Clawdbot Integration
+ * ClawdLink Hanzo Bot Integration
  * 
- * Functions for integrating ClawdLink with Clawdbot:
+ * Functions for integrating ClawdLink with Hanzo Bot:
  * - Poll and format messages for chat delivery
  * - Handle friend requests in conversation
  * - Send messages from natural language
@@ -13,7 +13,7 @@ import { join } from 'path';
 import relay from './relay.js';
 import requests from './requests.js';
 
-const DATA_DIR = join(homedir(), '.clawdbot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.hanzo-bot', 'clawdlink');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 const FRIENDS_FILE = join(DATA_DIR, 'friends.json');
 const CONFIG_FILE = join(DATA_DIR, 'config.json');
@@ -38,7 +38,7 @@ function loadConfig() {
 
 /**
  * Check for new messages and friend requests
- * Returns formatted output for Clawdbot to relay to user
+ * Returns formatted output for Hanzo Bot to relay to user
  */
 export async function checkMessages() {
   if (!isSetup()) {

@@ -1,16 +1,16 @@
 # Testing the HealthKit Sync Skill
 
-This guide explains how to test the `healthkit-sync` Agent Skill in ClawdBot.
+This guide explains how to test the `healthkit-sync` Agent Skill in Hanzo Bot.
 
 ## Prerequisites
 
-- ClawdBot CLI installed (`bot --version`)
-- ClawdBot gateway configured (`~/.bot/bot.json`)
+- Hanzo Bot CLI installed (`bot --version`)
+- Hanzo Bot gateway configured (`~/.bot/bot.json`)
 - Active messaging provider (WhatsApp, Telegram, or Discord)
 
 ## Step 1: Link the Skill
 
-ClawdBot loads skills from `~/.bot/skills/`. Create a symlink to keep the skill in sync with the repo:
+Hanzo Bot loads skills from `~/.bot/skills/`. Create a symlink to keep the skill in sync with the repo:
 
 ```bash
 # Check if already linked
@@ -138,7 +138,7 @@ Message 4: "What's the full project architecture?"
 ### Skill Not Loading
 
 ```bash
-# Check ClawdBot recognizes the skills directory
+# Check Hanzo Bot recognizes the skills directory
 cat ~/.bot/bot.json | jq '.skills'
 
 # Verify skill is readable
@@ -169,7 +169,7 @@ If wrong: Skill not loaded, check steps 1-3.
 ## Step 7: Monitor Logs
 
 ```bash
-# Watch ClawdBot logs in real-time
+# Watch Hanzo Bot logs in real-time
 tail -f ~/.bot/logs/*.log
 
 # Filter for skill-related messages
@@ -202,5 +202,5 @@ After making changes to the skill files:
 ## References
 
 - [Agent Skills Specification](https://agentskills.io/specification)
-- [ClawdBot Skills Documentation](https://docs.hanzo.bot/tools/skills)
-- [ClawdBot Skills Config](https://docs.hanzo.bot/tools/skills-config)
+- [Hanzo Bot Skills Documentation](https://github.com/hanzoai/bot/tools/skills)
+- [Hanzo Bot Skills Config](https://github.com/hanzoai/bot/tools/skills-config)

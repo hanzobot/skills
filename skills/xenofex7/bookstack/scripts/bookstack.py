@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BookStack API Integration for Clawdbot
+BookStack API Integration for Hanzo Bot
 Full CRUD for books, chapters, pages, shelves + search
 """
 
@@ -21,7 +21,7 @@ def api_call(method, endpoint, data=None, params=None):
     """Make API call to BookStack"""
     if not BASE_URL or not TOKEN_ID or not TOKEN_SECRET:
         print("❌ Error: BOOKSTACK_URL, BOOKSTACK_TOKEN_ID, and BOOKSTACK_TOKEN_SECRET required!")
-        print("   Set them in environment or ~/.clawdbot/clawdbot.json")
+        print("   Set them in environment or ~/.bot/bot.json")
         sys.exit(1)
     
     url = f"{BASE_URL}/api/{endpoint}"

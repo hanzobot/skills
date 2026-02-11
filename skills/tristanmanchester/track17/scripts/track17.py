@@ -3,7 +3,7 @@
 
 A small, dependency-free CLI for tracking parcels via the 17TRACK Tracking API v2.2.
 
-Designed to be used by Clawdbot as a "skill" helper script.
+Designed to be used by Hanzo Bot as a "skill" helper script.
 
 Key features
 - Stores tracked packages in a local SQLite database.
@@ -76,13 +76,13 @@ def resolve_workspace_dir() -> pathlib.Path:
 
     Priority:
       1) TRACK17_WORKSPACE_DIR (explicit override)
-      2) CLAWDBOT_WORKSPACE_DIR (if your host environment sets it)
+      2) BOT_WORKSPACE_DIR (if your host environment sets it)
       3) Walk upwards from this script to find a parent directory named "skills".
          The workspace is the parent of that "skills" directory.
       4) Current working directory.
     """
 
-    env_override = os.environ.get("TRACK17_WORKSPACE_DIR") or os.environ.get("CLAWDBOT_WORKSPACE_DIR")
+    env_override = os.environ.get("TRACK17_WORKSPACE_DIR") or os.environ.get("BOT_WORKSPACE_DIR")
     if env_override:
         return pathlib.Path(_expand(env_override)).resolve()
 
@@ -255,7 +255,7 @@ def _api_token(required: bool = True) -> Optional[str]:
     tok = os.environ.get("TRACK17_TOKEN")
     if required and not tok:
         raise Track17Error(
-            "TRACK17_TOKEN is not set. Configure it in clawdbot.json under skills.entries.track17.apiKey "
+            "TRACK17_TOKEN is not set. Configure it in bot.json under skills.entries.track17.apiKey "
             "(or export it in your shell)."
         )
     return tok

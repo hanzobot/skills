@@ -6,7 +6,7 @@
 
 """
 Harvey Delayed Response - Schedules delayed messages for restaurant mode.
-Uses a simple file-based queue that Clawdbot can check.
+Uses a simple file-based queue that Hanzo Bot can check.
 """
 
 import argparse

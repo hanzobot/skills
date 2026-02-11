@@ -2,7 +2,7 @@
 /**
  * Minimal Asana API CLI with OAuth refresh.
  *
- * Reads token from ~/.clawdbot/asana/token.json
+ * Reads token from ~/.bot/asana/token.json
  * Requires ASANA_CLIENT_ID + ASANA_CLIENT_SECRET for refresh.
  */
 
@@ -19,11 +19,11 @@ function die(msg) {
 }
 
 function tokenPath() {
-  return path.join(os.homedir(), '.clawdbot', 'asana', 'token.json');
+  return path.join(os.homedir(), '.hanzo-bot', 'asana', 'token.json');
 }
 
 function configPath() {
-  return path.join(os.homedir(), '.clawdbot', 'asana', 'config.json');
+  return path.join(os.homedir(), '.hanzo-bot', 'asana', 'config.json');
 }
 
 function loadConfig() {
@@ -90,9 +90,9 @@ async function ensureAccessToken(token) {
   let clientId = process.env.ASANA_CLIENT_ID;
   let clientSecret = process.env.ASANA_CLIENT_SECRET;
   if (!clientId || !clientSecret) {
-    // Fallback to ~/.clawdbot/asana/credentials.json
+    // Fallback to ~/.bot/asana/credentials.json
     try {
-      const credPath = path.join(os.homedir(), '.clawdbot', 'asana', 'credentials.json');
+      const credPath = path.join(os.homedir(), '.hanzo-bot', 'asana', 'credentials.json');
       const creds = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
       clientId = clientId || creds.client_id;
       clientSecret = clientSecret || creds.client_secret;
@@ -102,7 +102,7 @@ async function ensureAccessToken(token) {
   }
   if (!clientId || !clientSecret) {
     die(
-      'Token needs refresh but ASANA_CLIENT_ID/ASANA_CLIENT_SECRET are not set, and ~/.clawdbot/asana/credentials.json is missing. Run: node skills/asana/scripts/configure.mjs --client-id ... --client-secret ...',
+      'Token needs refresh but ASANA_CLIENT_ID/ASANA_CLIENT_SECRET are not set, and ~/.bot/asana/credentials.json is missing. Run: node skills/asana/scripts/configure.mjs --client-id ... --client-secret ...',
     );
   }
 

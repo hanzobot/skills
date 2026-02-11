@@ -73,7 +73,7 @@ def get_default_location() -> str | None:
     workspace_paths = [
         Path.home() / "clawd" / "TOOLS.md",
         Path.cwd() / "TOOLS.md",
-        Path(os.environ.get("CLAWDBOT_WORKSPACE", "")) / "TOOLS.md",
+        Path(os.environ.get("BOT_WORKSPACE", "")) / "TOOLS.md",
     ]
     
     for tools_path in workspace_paths:
@@ -155,7 +155,7 @@ def search(engine: str, query: str, **kwargs) -> dict:
     url = f"{SERPAPI_BASE}?{urlencode(params)}"
     
     try:
-        req = Request(url, headers={"User-Agent": "SerpAPI-Clawdbot/1.0"})
+        req = Request(url, headers={"User-Agent": "SerpAPI-HanzoBot/1.0"})
         with urlopen(req, timeout=30) as response:
             return json.loads(response.read().decode())
     except HTTPError as e:

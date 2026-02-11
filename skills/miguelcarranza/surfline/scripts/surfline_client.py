@@ -26,7 +26,7 @@ class SurflineError(RuntimeError):
 
 
 def _http_get_json(url: str, timeout: int = 20) -> Any:
-    req = urllib.request.Request(url, headers={"User-Agent": "clawdbot-surfline-skill/0.1"})
+    req = urllib.request.Request(url, headers={"User-Agent": "hanzo-bot-surfline-skill/0.1"})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         data = resp.read().decode("utf-8", errors="replace")
     try:

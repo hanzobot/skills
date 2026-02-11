@@ -15,7 +15,7 @@ It is designed for **AI agents**: minimal, structured output by default, with op
 ## Important constraints
 
 - **Must run on macOS** with Xcode Command Line Tools (or Xcode) available.
-- If the ClawdBot gateway is not macOS, run these commands on a connected **macOS node** (see “Remote macOS node” below).  
+- If the Hanzo Bot gateway is not macOS, run these commands on a connected **macOS node** (see “Remote macOS node” below).  
 - `idb` is optional, but required for UI tree / semantic tapping. (Install steps below.)
 
 ## Quick start
@@ -45,7 +45,7 @@ node {baseDir}/scripts/ios-sim.mjs screenshot --out artifacts/screen.png
 
 ## Remote macOS node
 
-If you are not on macOS, run the same commands on the macOS node using ClawdBot’s node execution (e.g. `exec` with `host: node` / node tools). Ensure the skill folder exists on that node, or copy it there.
+If you are not on macOS, run the same commands on the macOS node using Hanzo Bot’s node execution (e.g. `exec` with `host: node` / node tools). Ensure the skill folder exists on that node, or copy it there.
 
 ## Output conventions (token-efficient)
 

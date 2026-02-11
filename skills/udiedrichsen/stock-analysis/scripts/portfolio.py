@@ -41,8 +41,8 @@ SUPPORTED_CRYPTOS = {
 
 def get_storage_path() -> Path:
     """Get the portfolio storage path."""
-    # Use ~/.clawdbot/skills/stock-analysis/portfolios.json
-    state_dir = os.environ.get("CLAWDBOT_STATE_DIR", os.path.expanduser("~/.clawdbot"))
+    # Use ~/.bot/skills/stock-analysis/portfolios.json
+    state_dir = os.environ.get("BOT_STATE_DIR", os.path.expanduser("~/.hanzo-bot"))
     portfolio_dir = Path(state_dir) / "skills" / "stock-analysis"
     portfolio_dir.mkdir(parents=True, exist_ok=True)
     return portfolio_dir / "portfolios.json"

@@ -1,41 +1,41 @@
 #!/usr/bin/env node
 /**
- * Clawdbot Client - For Agent Zero to call Clawdbot
+ * Hanzo Bot Client - For Agent Zero to call Hanzo Bot
  * 
  * Usage:
- *   node clawdbot_client.js <message>
- *   node clawdbot_client.js message <text>
- *   node clawdbot_client.js notify <text>
- *   node clawdbot_client.js tool <name> <json>
+ *   node hanzo-bot_client.js <message>
+ *   node hanzo-bot_client.js message <text>
+ *   node hanzo-bot_client.js notify <text>
+ *   node hanzo-bot_client.js tool <name> <json>
  * 
  * Environment:
- *   CLAWDBOT_API_URL   - Gateway URL (default: http://127.0.0.1:18789)
- *   CLAWDBOT_API_TOKEN - Gateway auth token (required)
+ *   BOT_API_URL   - Gateway URL (default: http://127.0.0.1:18789)
+ *   BOT_API_TOKEN - Gateway auth token (required)
  *   DOCKER_CONTAINER   - Set to "true" if running inside Docker
  */
 
-const ClawdbotClient = require('./lib/clawdbot_api');
+const Hanzo BotClient = require('./lib/hanzo-bot_api');
 const { parseArgs } = require('./lib/cli');
 
 const HELP = `
-Clawdbot Client (Agent Zero → Clawdbot)
+Hanzo Bot Client (Agent Zero → Hanzo Bot)
 
 Usage:
-  node clawdbot_client.js <message>
-  node clawdbot_client.js message <text>    - Send message, get response
-  node clawdbot_client.js notify <text>     - Send notification
-  node clawdbot_client.js tool <name> <json> - Invoke a Clawdbot tool
+  node hanzo-bot_client.js <message>
+  node hanzo-bot_client.js message <text>    - Send message, get response
+  node hanzo-bot_client.js notify <text>     - Send notification
+  node hanzo-bot_client.js tool <name> <json> - Invoke a Hanzo Bot tool
 
 Environment:
-  CLAWDBOT_API_URL       - Gateway URL (default: http://127.0.0.1:18789)
-  CLAWDBOT_API_URL_DOCKER - URL when running in Docker (use host IP)
-  CLAWDBOT_API_TOKEN     - Gateway auth token (required)
+  BOT_API_URL       - Gateway URL (default: http://127.0.0.1:18789)
+  BOT_API_URL_DOCKER - URL when running in Docker (use host IP)
+  BOT_API_TOKEN     - Gateway auth token (required)
   DOCKER_CONTAINER       - Set to "true" if running inside Docker
 
 Examples:
-  node clawdbot_client.js "Task complete!"
-  node clawdbot_client.js notify "Progress: 50%"
-  node clawdbot_client.js tool sessions_list '{}'
+  node hanzo-bot_client.js "Task complete!"
+  node hanzo-bot_client.js notify "Progress: 50%"
+  node hanzo-bot_client.js tool sessions_list '{}'
 `;
 
 async function main() {
@@ -53,7 +53,7 @@ async function main() {
         return;
     }
 
-    const client = new ClawdbotClient();
+    const client = new Hanzo BotClient();
 
     try {
         let result;

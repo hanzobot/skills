@@ -12,8 +12,8 @@ def load_gemini_key() -> str | None:
     if env_key:
         return env_key
 
-    # Fall back to Clawdbot config (local machine).
-    cfg_path = Path.home() / ".clawdbot" / "clawdbot.json"
+    # Fall back to Hanzo Bot config (local machine).
+    cfg_path = Path.home() / ".hanzo-bot" / "bot.json"
     try:
         raw = cfg_path.read_text(encoding="utf-8")
         cfg = json.loads(raw)
@@ -37,7 +37,7 @@ def main() -> int:
 
     api_key = load_gemini_key()
     if not api_key:
-        print("Missing GEMINI_API_KEY (env or ~/.clawdbot/clawdbot.json skills.entries.nano-banana-pro.apiKey)", file=sys.stderr)
+        print("Missing GEMINI_API_KEY (env or ~/.bot/bot.json skills.entries.nano-banana-pro.apiKey)", file=sys.stderr)
         return 2
 
     out_path = Path(args.out).expanduser().resolve()
@@ -88,7 +88,7 @@ def main() -> int:
         return 1
 
     print(out_path.as_posix())
-    # Clawdbot can auto-attach files when it sees MEDIA tokens.
+    # Hanzo Bot can auto-attach files when it sees MEDIA tokens.
     print(f"MEDIA: {out_path.as_posix()}")
     return 0
 

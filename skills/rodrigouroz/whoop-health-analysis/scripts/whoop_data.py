@@ -41,7 +41,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from whoop_auth import get_valid_token
 
 API_BASE = "https://api.prod.whoop.com/developer/v2"
-USER_AGENT = "Clawdbot/1.0 (Whoop Integration)"
+USER_AGENT = "HanzoBot/1.0 (Whoop Integration)"
 
 
 def api_get(endpoint, params=None):

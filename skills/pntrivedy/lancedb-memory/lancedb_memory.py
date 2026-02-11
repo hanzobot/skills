@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-LanceDB Memory Integration for Clawdbot
-Integrates LanceDB with Clawdbot's memory search system
+LanceDB Memory Integration for Hanzo Bot
+Integrates LanceDB with Hanzo Bot's memory search system
 """
 
 import os
@@ -13,8 +13,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
-class ClawdbotLanceMemory:
-    """LanceDB memory integration for Clawdbot"""
+class Hanzo BotLanceMemory:
+    """LanceDB memory integration for Hanzo Bot"""
     
     def __init__(self, db_path: str = "/Users/prerak/clawd/memory/lancedb"):
         self.db_path = Path(db_path)
@@ -22,11 +22,11 @@ class ClawdbotLanceMemory:
         self.db = lancedb.connect(self.db_path)
         
         # Ensure memory table exists
-        if "clawdbot_memory" not in self.db.list_tables():
+        if "hanzo-bot_memory" not in self.db.list_tables():
             self._create_memory_table()
     
     def _create_memory_table(self):
-        """Create the memory table with Clawdbot-compatible schema"""
+        """Create the memory table with Hanzo Bot-compatible schema"""
         # Create initial empty table with proper schema
         initial_data = []
         schema = pa.schema([
@@ -38,13 +38,13 @@ class ClawdbotLanceMemory:
         ])
         
         table = pa.Table.from_pylist(initial_data, schema=schema)
-        self.db.create_table("clawdbot_memory", data=table)
+        self.db.create_table("hanzo-bot_memory", data=table)
     
     async def search_memories(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
         """Search memories using semantic similarity"""
         try:
             # For now, use text-based search since we don't have embeddings
-            table = self.db.open_table("clawdbot_memory")
+            table = self.db.open_table("hanzo-bot_memory")
             
             # Use simple text filtering as fallback
             results = table.search(query).limit(limit).to_list()
@@ -57,7 +57,7 @@ class ClawdbotLanceMemory:
     
     async def add_memory(self, content: str, metadata: Dict[str, Any] = None) -> int:
         """Add a memory to LanceDB"""
-        table = self.db.open_table("clawdbot_memory")
+        table = self.db.open_table("hanzo-bot_memory")
         
         # Get next ID
         max_id = table.to_pandas()["id"].max() if len(table) > 0 else 0
@@ -77,20 +77,20 @@ class ClawdbotLanceMemory:
     
     async def get_recent_memories(self, limit: int = 50) -> List[Dict[str, Any]]:
         """Get recent memories"""
-        table = self.db.open_table("clawdbot_memory")
+        table = self.db.open_table("hanzo-bot_memory")
         df = table.to_pandas()
         recent = df.sort_values("timestamp", ascending=False).head(limit)
         return recent.to_dict("records")
 
 # Global instance
-clawdbot_lance_memory = ClawdbotLanceMemory()
+hanzo-bot_lance_memory = Hanzo BotLanceMemory()
 
-# Clawdbot memory search provider
+# Hanzo Bot memory search provider
 class LanceMemoryProvider:
-    """Memory search provider for Clawdbot"""
+    """Memory search provider for Hanzo Bot"""
     
     def __init__(self):
-        self.memory_db = clawdbot_lance_memory
+        self.memory_db = hanzo-bot_lance_memory
     
     async def search(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
         """Search memories"""

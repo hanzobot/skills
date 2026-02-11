@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Initialize ranking criteria from USER.md profile
-Creates the initial sorting algorithm optimized for Clawdbot reading
+Creates the initial sorting algorithm optimized for Hanzo Bot reading
 """
 import json
 import sys

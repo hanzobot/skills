@@ -20,8 +20,8 @@ from datetime import datetime
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 # --- Config ---
-GATEWAY_URL = os.environ.get('CLAWDBOT_GATEWAY_URL', 'http://localhost:18789')
-HOOKS_TOKEN = os.environ.get('CLAWDBOT_HOOKS_TOKEN', '')
+GATEWAY_URL = os.environ.get('BOT_GATEWAY_URL', 'http://localhost:18789')
+HOOKS_TOKEN = os.environ.get('BOT_HOOKS_TOKEN', '')
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '8294369833')
 
@@ -272,8 +272,8 @@ def send_telegram_message(text):
         return False
 
 
-def send_clawdbot_hook(message):
-    """Notify Clawdbot via hook (for awareness, not primary delivery)."""
+def send_hanzo-bot_hook(message):
+    """Notify Hanzo Bot via hook (for awareness, not primary delivery)."""
     if not HOOKS_TOKEN:
         return
 
@@ -368,8 +368,8 @@ class NestWebhookHandler(BaseHTTPRequestHandler):
                 # Non-camera event, just text
                 send_telegram_message(f"{description}\n🕐 {timestamp}")
 
-            # Notify Clawdbot for awareness (non-blocking)
-            send_clawdbot_hook(description)
+            # Notify Hanzo Bot for awareness (non-blocking)
+            send_hanzo-bot_hook(description)
 
         # Log trait updates silently
         traits = resource_update.get('traits', {})

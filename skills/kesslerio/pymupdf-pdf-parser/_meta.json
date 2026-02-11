@@ -1,0 +1,11 @@
+{
+  "owner": "kesslerio",
+  "slug": "pymupdf-pdf-parser-bot-skill",
+  "displayName": "PyMuPDF PDF Parser Bot Skill",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1769196431096,
+    "commit": "https://github.com/bot/skills/commit/fb4209469405e434a07e8b3c035e2b02cbd5a0d9"
+  },
+  "history": []
+}

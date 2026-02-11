@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Therapy Mode Session Manager CLI
-Manages therapy session notes for Clawdbot
+Manages therapy session notes for Hanzo Bot
 
 Usage:
     therapy-notes new              - Start a new session
@@ -24,7 +24,7 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-NOTES_DIR = Path("/Users/sethrose/.clawdbot/workspace/therapy-notes")
+NOTES_DIR = Path("/Users/sethrose/.bot/workspace/therapy-notes")
 ACTIVE_DIR = NOTES_DIR / "active"
 ARCHIVED_DIR = NOTES_DIR / "archived"
 SESSIONS_FILE = NOTES_DIR / "sessions.json"

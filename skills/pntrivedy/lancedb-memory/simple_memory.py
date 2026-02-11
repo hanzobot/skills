@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple LanceDB Memory Integration for Clawdbot
+Simple LanceDB Memory Integration for Hanzo Bot
 Works with basic data insertion and search
 """
 

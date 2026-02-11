@@ -111,7 +111,7 @@ import zlib
 import base64
 import json
 
-def generate_scl_link(grid, size, title="Sudoku", author="Clawdbot"):
+def generate_scl_link(grid, size, title="Sudoku", author="Hanzo Bot"):
     """
     Generate a SudokuPad SCL link (native format).
     Pipeline: JSON -> Deflate -> Base64URL -> Strip Padding
@@ -154,7 +154,7 @@ def generate_scl_link(grid, size, title="Sudoku", author="Clawdbot"):
 
 import subprocess
 
-def generate_puzzle_link(grid, size, title="Sudoku", author="Clawdbot"):
+def generate_puzzle_link(grid, size, title="Sudoku", author="Hanzo Bot"):
     """
     Generate a SudokuPad /puzzle/ link (LZString compressed).
     Uses SCL-style JSON payload but compressed with LZString.
@@ -220,7 +220,7 @@ def generate_native_link(grid, size, title="Sudoku"):
     except Exception as e:
         return f"Error generating native link: {e}"
 
-def generate_fpuzzles_link(grid, size, title="Sudoku", author="Clawdbot"):
+def generate_fpuzzles_link(grid, size, title="Sudoku", author="Hanzo Bot"):
     """
     Generate a SudokuPad link using F-Puzzles format (fallback).
     """

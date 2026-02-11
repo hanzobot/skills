@@ -18,7 +18,7 @@ except ImportError:
     print("Install with: pip3 install garminconnect", file=sys.stderr)
     sys.exit(1)
 
-TOKEN_DIR = Path.home() / ".clawdbot" / "garmin"
+TOKEN_DIR = Path.home() / ".hanzo-bot" / "garmin"
 CONFIG_FILE = Path(__file__).parent.parent / "config.json"
 
 
@@ -154,7 +154,7 @@ def main():
             print("  1. CLI: --email and --password", file=sys.stderr)
             print("  2. Config: create config.json from config.example.json", file=sys.stderr)
             print("  3. Env vars: GARMIN_EMAIL and GARMIN_PASSWORD", file=sys.stderr)
-            print("  4. Clawdbot config: skills.entries.garmin-health-analysis.env", file=sys.stderr)
+            print("  4. Hanzo Bot config: skills.entries.garmin-health-analysis.env", file=sys.stderr)
             sys.exit(1)
         
         success = login(email, password)

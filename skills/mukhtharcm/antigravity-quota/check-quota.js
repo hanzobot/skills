@@ -2,7 +2,7 @@
 /**
  * Antigravity Quota Checker
  * 
- * Check quota status for all Antigravity accounts configured in Clawdbot.
+ * Check quota status for all Antigravity accounts configured in Hanzo Bot.
  * 
  * Usage: 
  *   node check-quota.js [options]
@@ -23,9 +23,9 @@
  *   - Quotas are per-account
  * 
  * Requires:
- *   - Clawdbot with Antigravity accounts configured
- *   - Auth profiles at ~/.clawdbot/agents/main/agent/auth-profiles.json
- *     or ~/.clawdbot/agent/auth-profiles.json
+ *   - Hanzo Bot with Antigravity accounts configured
+ *   - Auth profiles at ~/.bot/agents/main/agent/auth-profiles.json
+ *     or ~/.bot/agent/auth-profiles.json
  */
 
 const fs = require('fs');
@@ -154,8 +154,8 @@ function getQuotaEmoji(pct) {
 
 function findAuthProfiles() {
   const possiblePaths = [
-    path.join(process.env.HOME, '.clawdbot/agents/main/agent/auth-profiles.json'),
-    path.join(process.env.HOME, '.clawdbot/agent/auth-profiles.json'),
+    path.join(process.env.HOME, '.bot/agents/main/agent/auth-profiles.json'),
+    path.join(process.env.HOME, '.bot/agent/auth-profiles.json'),
   ];
   
   for (const p of possiblePaths) {
@@ -173,8 +173,8 @@ async function main() {
   
   if (!profilesPath) {
     console.error('❌ No Antigravity auth profiles found.');
-    console.error('   Expected at: ~/.clawdbot/agents/main/agent/auth-profiles.json');
-    console.error('   Run `clawdbot configure` to add accounts.');
+    console.error('   Expected at: ~/.bot/agents/main/agent/auth-profiles.json');
+    console.error('   Run `hanzo-bot configure` to add accounts.');
     process.exit(1);
   }
   
@@ -196,7 +196,7 @@ async function main() {
   
   if (accounts.length === 0) {
     console.error('❌ No Antigravity accounts found in auth profiles.');
-    console.error('   Run `clawdbot configure` to add accounts.');
+    console.error('   Run `hanzo-bot configure` to add accounts.');
     process.exit(1);
   }
   

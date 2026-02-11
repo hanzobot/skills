@@ -1,0 +1,6 @@
+{
+  "name": "bot-macos-build",
+  "version": "1.0.0",
+  "description": "Build the Bot macOS menu bar app from source",
+  "private": true
+}

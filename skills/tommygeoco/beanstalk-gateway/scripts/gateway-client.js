@@ -2,7 +2,7 @@
 /**
  * Beanstalk Gateway Client
  * 
- * Connects local Clawdbot to beans.talk relay server.
+ * Connects local Hanzo Bot to beans.talk relay server.
  * Reads config from .beanstalk/gateway.json or environment variables.
  */
 
@@ -18,15 +18,15 @@ function loadConfig() {
     return {
       url: process.env.GATEWAY_URL,
       token: process.env.GATEWAY_TOKEN,
-      clawdbotUrl: process.env.CLAWDBOT_URL || 'http://localhost:18789',
+      hanzo-botUrl: process.env.BOT_URL || 'http://localhost:18789',
     };
   }
   
   // Try workspace config
   const workspacePaths = [
     process.cwd(),
-    process.env.CLAWDBOT_WORKSPACE,
-    path.join(os.homedir(), '.clawdbot'),
+    process.env.BOT_WORKSPACE,
+    path.join(os.homedir(), '.hanzo-bot'),
     path.join(os.homedir(), 'clawd'),
   ].filter(Boolean);
   
@@ -39,7 +39,7 @@ function loadConfig() {
         return {
           url: config.url,
           token: config.token,
-          clawdbotUrl: config.clawdbotUrl || 'http://localhost:18789',
+          hanzo-botUrl: config.hanzo-botUrl || 'http://localhost:18789',
         };
       } catch (err) {
         console.error(`[Gateway] Failed to parse ${configPath}:`, err.message);
@@ -73,14 +73,14 @@ let statusTimer = null;
 let authenticated = false;
 
 /**
- * Fetch status from local Clawdbot
+ * Fetch status from local Hanzo Bot
  */
-async function getClawdbotStatus() {
+async function getHanzo BotStatus() {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 5000);
     
-    const response = await fetch(`${config.clawdbotUrl}/status`, {
+    const response = await fetch(`${config.hanzo-botUrl}/status`, {
       signal: controller.signal,
     });
     clearTimeout(timeout);
@@ -93,7 +93,7 @@ async function getClawdbotStatus() {
       timestamp: new Date().toISOString(),
       agents: [{
         id: 'main',
-        name: data.agent?.name || 'Clawdbot',
+        name: data.agent?.name || 'Hanzo Bot',
         status: 'running',
         model: data.agent?.model,
         sessions: data.sessions?.active || 0,
@@ -110,14 +110,14 @@ async function getClawdbotStatus() {
   } catch {
     return {
       timestamp: new Date().toISOString(),
-      agents: [{ id: 'main', name: 'Clawdbot', status: 'stopped' }],
+      agents: [{ id: 'main', name: 'Hanzo Bot', status: 'stopped' }],
       channels: [],
     };
   }
 }
 
 /**
- * Execute command on local Clawdbot
+ * Execute command on local Hanzo Bot
  */
 async function executeCommand(commandId, action, payload) {
   console.log(`[Gateway] Executing: ${action}`, payload || '');
@@ -134,7 +134,7 @@ async function executeCommand(commandId, action, payload) {
     const method = action === 'status' ? 'GET' : 'POST';
     const body = endpoints[action] ? null : JSON.stringify({ action, ...payload });
     
-    const response = await fetch(`${config.clawdbotUrl}${endpoint}`, {
+    const response = await fetch(`${config.hanzo-botUrl}${endpoint}`, {
       method,
       headers: body ? { 'Content-Type': 'application/json' } : undefined,
       body,
@@ -211,12 +211,12 @@ function stopStatusUpdates() {
 
 async function sendStatus() {
   if (!ws || ws.readyState !== WebSocket.OPEN || !authenticated) return;
-  ws.send(JSON.stringify({ type: 'status', payload: await getClawdbotStatus() }));
+  ws.send(JSON.stringify({ type: 'status', payload: await getHanzo BotStatus() }));
 }
 
 process.on('SIGINT', () => { console.log('\n[Gateway] Shutting down...'); stopStatusUpdates(); if (ws) ws.close(); process.exit(0); });
 process.on('SIGTERM', () => { stopStatusUpdates(); if (ws) ws.close(); process.exit(0); });
 
 console.log('[Gateway] Beanstalk Gateway Client v1.0.0');
-console.log(`[Gateway] Clawdbot: ${config.clawdbotUrl}`);
+console.log(`[Gateway] Hanzo Bot: ${config.hanzo-botUrl}`);
 connect();

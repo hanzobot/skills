@@ -4,8 +4,8 @@
 # Where to save markdown snapshots
 VAULT_DIR="/root/ObsidianVault/Clawd Markdowns"
 
-# Where Clawdbot session files are stored
-SESSION_DIR="/root/.clawdbot/agents/main/sessions"
+# Where Hanzo Bot session files are stored
+SESSION_DIR="/root/.bot/agents/main/sessions"
 
 # Where to store tracking files (.last_save_line_count, etc.)
 TRACKING_DIR="/root/clawd"
