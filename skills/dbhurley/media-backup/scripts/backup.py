@@ -15,9 +15,9 @@ from datetime import datetime
 import click
 
 # Defaults
-DEFAULT_SOURCE = Path.home() / ".hanzo-bot" / "media" / "inbound"
+DEFAULT_SOURCE = Path.home() / ".bot" / "media" / "inbound"
 DEFAULT_DEST = Path.home() / "Dropbox" / "Hanzo Bot" / "media"
-STATE_FILE = Path.home() / ".hanzo-bot" / "media" / "backup-state.json"
+STATE_FILE = Path.home() / ".bot" / "media" / "backup-state.json"
 
 MEDIA_EXTENSIONS = {
     '.jpg', '.jpeg', '.png', '.gif', '.webp', '.heic',

@@ -24,7 +24,7 @@ from urllib.parse import quote_plus, urljoin
 from urllib.request import Request, urlopen
 
 # Data directory
-DATA_DIR = Path(os.environ.get("CONTENT_ADVISORY_DATA_DIR", Path.home() / ".hanzo-bot" / "content-advisory"))
+DATA_DIR = Path(os.environ.get("CONTENT_ADVISORY_DATA_DIR", Path.home() / ".bot" / "content-advisory"))
 CACHE_FILE = DATA_DIR / "cache.json"
 
 # Kids-In-Mind base URL

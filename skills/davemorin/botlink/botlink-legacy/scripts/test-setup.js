@@ -9,7 +9,7 @@ import { homedir } from 'os';
 import { join } from 'path';
 
 const TEST_DIR = '/tmp/clawdlink-test';
-const REAL_DATA_DIR = join(homedir(), '.hanzo-bot', 'clawdlink');
+const REAL_DATA_DIR = join(homedir(), '.bot', 'clawdlink');
 
 // Create test identity
 mkdirSync(TEST_DIR, { recursive: true });

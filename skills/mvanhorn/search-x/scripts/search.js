@@ -19,8 +19,8 @@ function getApiKey() {
     return process.env.XAI_API_KEY;
   }
   
-  // Check hanzo-bot config (search-x skill)
-  const configPath = path.join(process.env.HOME, '.hanzo-bot', 'bot.json');
+  // Check bot config (search-x skill)
+  const configPath = path.join(process.env.HOME, '.bot', 'bot.json');
   if (fs.existsSync(configPath)) {
     try {
       const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
@@ -120,7 +120,7 @@ async function searchX(options) {
   const apiKey = getApiKey();
   if (!apiKey) {
     console.error('❌ No API key found.');
-    console.error('   Set XAI_API_KEY or run: hanzo-bot config set skills.entries.search-x.apiKey "xai-YOUR-KEY"');
+    console.error('   Set XAI_API_KEY or run: bot config set skills.entries.search-x.apiKey "xai-YOUR-KEY"');
     console.error('   Get your key at: https://console.x.ai');
     process.exit(1);
   }

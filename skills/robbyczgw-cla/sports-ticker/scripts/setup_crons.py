@@ -89,11 +89,11 @@ If no match today, ensure live-ticker and reminder crons are disabled."""
 
 
 def create_cron_via_bot(cron_config: dict) -> bool:
-    """Attempt to create cron via hanzo-bot CLI."""
+    """Attempt to create cron via bot CLI."""
     try:
-        # Try using hanzo-bot cron create
+        # Try using bot cron create
         cmd = [
-            "hanzo-bot", "cron", "create",
+            "bot", "cron", "create",
             "--name", cron_config["name"],
             "--schedule", json.dumps(cron_config["schedule"]),
             "--channel", json.dumps(cron_config["channel"]),
@@ -172,8 +172,8 @@ def main():
     
     crons = get_cron_configs(telegram_id, timezone)
     
-    # Try hanzo-bot CLI first
-    print("Attempting to create crons via hanzo-bot CLI...")
+    # Try bot CLI first
+    print("Attempting to create crons via bot CLI...")
     success_count = 0
     
     for cron in crons:

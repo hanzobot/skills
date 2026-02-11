@@ -17,7 +17,7 @@ log="$LOGDIR/$skill.log"
 
 # Skip if repo already exists
 if gh repo view "$ORG/$skill" >/dev/null 2>&1; then
-  echo "SKIP $skill (exists)"
+  echo "SKIP $skill"
   exit 0
 fi
 
@@ -35,12 +35,24 @@ git checkout -q -b main
 git add -A
 git commit -q -m "Initial import of $skill skill (author: $author)"
 
-# Create GitHub repo and push
-if gh repo create "$ORG/$skill" --public --description "Hanzo Bot skill: $skill (by $author)" --source . --push >"$log" 2>&1; then
-  echo "OK   $skill"
-else
-  echo "FAIL $skill"
-fi
+# Create GitHub repo and push with retry
+MAX_RETRIES=3
+for attempt in $(seq 1 $MAX_RETRIES); do
+  if gh repo create "$ORG/$skill" --public --description "Hanzo Bot skill: $skill (by $author)" --source . --push >"$log" 2>&1; then
+    echo "OK   $skill"
+    cd /
+    rm -rf "$tmp"
+    exit 0
+  fi
 
+  # Check if rate limited
+  if grep -q "too many repositories\|rate limit\|secondary rate" "$log" 2>/dev/null; then
+    sleep $((10 * attempt))
+  else
+    break
+  fi
+done
+
+echo "FAIL $skill"
 cd /
 rm -rf "$tmp"

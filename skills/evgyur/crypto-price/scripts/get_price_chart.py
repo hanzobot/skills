@@ -65,7 +65,7 @@ def _write_cache(path, payload):
 def _fetch_json(url):
     req = urllib.request.Request(
         url,
-        headers={"User-Agent": "hanzo-bot-crypto-price/1.0"},
+        headers={"User-Agent": "bot-crypto-price/1.0"},
     )
     retry_codes = {429, 502, 503, 504}
     last_error = None
@@ -96,7 +96,7 @@ def _post_json(url, payload):
     req = urllib.request.Request(
         url,
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json", "User-Agent": "hanzo-bot-crypto-price/1.0"},
+        headers={"Content-Type": "application/json", "User-Agent": "bot-crypto-price/1.0"},
     )
     retry_codes = {429, 502, 503, 504}
     last_error = None
@@ -127,7 +127,7 @@ def _post_json(url, payload):
     req = urllib.request.Request(
         url,
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json", "User-Agent": "hanzo-bot-crypto-price/1.0"},
+        headers={"Content-Type": "application/json", "User-Agent": "bot-crypto-price/1.0"},
     )
     retry_codes = {429, 502, 503, 504}
     last_error = None

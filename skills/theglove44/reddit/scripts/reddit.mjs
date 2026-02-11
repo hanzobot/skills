@@ -15,7 +15,7 @@ import { exec } from 'child_process';
 
 const BASE_URL = 'https://www.reddit.com';
 const OAUTH_URL = 'https://oauth.reddit.com';
-const USER_AGENT = 'script:hanzo-bot-reddit:v1.0.0';
+const USER_AGENT = 'script:bot-reddit:v1.0.0';
 const TOKEN_FILE = join(homedir(), '.reddit-token.json');
 const REDIRECT_URI = 'http://localhost:8080/callback';
 const SCOPES = 'read submit edit identity mysubreddits modposts modcontributors modmail modconfig modlog modself flair';

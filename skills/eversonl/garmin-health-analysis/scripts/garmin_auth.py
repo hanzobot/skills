@@ -18,7 +18,7 @@ except ImportError:
     print("Install with: pip3 install garminconnect", file=sys.stderr)
     sys.exit(1)
 
-TOKEN_DIR = Path.home() / ".hanzo-bot" / "garmin"
+TOKEN_DIR = Path.home() / ".bot" / "garmin"
 CONFIG_FILE = Path(__file__).parent.parent / "config.json"
 
 

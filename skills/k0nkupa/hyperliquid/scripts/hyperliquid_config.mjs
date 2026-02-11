@@ -7,7 +7,7 @@ import fs from "node:fs/promises";
 
 export function defaultConfigPath() {
   return process.env.BOT_HYPERLIQUID_CONFIG ||
-    path.join(os.homedir(), ".hanzo-bot", "hyperliquid", "config.json");
+    path.join(os.homedir(), ".bot", "hyperliquid", "config.json");
 }
 
 export async function loadConfig({ configPath = defaultConfigPath() } = {}) {

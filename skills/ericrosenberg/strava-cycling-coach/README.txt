@@ -53,4 +53,4 @@ Automatically track and analyze your Strava cycling rides with detailed power, h
 
 ## Support
 
-For issues or questions, visit: https://github.com/hanzo-bot/hanzo-bot
+For issues or questions, visit: https://github.com/bot/bot

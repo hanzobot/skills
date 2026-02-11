@@ -14,8 +14,8 @@ from shutil import which
 from urllib.parse import urlencode, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
-DEFAULT_DISPLAY_NAME = "smartthings-hanzo-bot"
-DEFAULT_APP_NAME = "smartthings-hanzo-bot"
+DEFAULT_DISPLAY_NAME = "smartthings-bot"
+DEFAULT_APP_NAME = "smartthings-bot"
 DEFAULT_DESCRIPTION = "Hanzo Bot SmartThings integration"
 DEFAULT_REDIRECT_URI = "https://httpbin.org/get"
 DEFAULT_SCOPES = ["r:devices:*", "x:devices:*"]
@@ -38,7 +38,7 @@ def resolve_state_dir() -> Path:
     state_dir = os.environ.get("BOT_STATE_DIR")
     if state_dir:
         return Path(state_dir).expanduser()
-    return Path.home() / ".hanzo-bot"
+    return Path.home() / ".bot"
 
 
 def resolve_env_path(state_dir: Path) -> Path:

@@ -20,7 +20,7 @@ function getApiKey() {
     return process.env.XAI_API_KEY;
   }
   
-  const configPath = path.join(process.env.HOME, '.hanzo-bot', 'bot.json');
+  const configPath = path.join(process.env.HOME, '.bot', 'bot.json');
   if (fs.existsSync(configPath)) {
     try {
       const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
@@ -83,7 +83,7 @@ function getDateRange(days) {
 async function searchX(options) {
   const apiKey = getApiKey();
   if (!apiKey) {
-    console.error('❌ No API key found. Set XAI_API_KEY or configure in hanzo-bot.');
+    console.error('❌ No API key found. Set XAI_API_KEY or configure in bot.');
     process.exit(1);
   }
   

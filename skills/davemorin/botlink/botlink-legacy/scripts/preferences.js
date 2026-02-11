@@ -10,7 +10,7 @@ import { homedir } from 'os';
 import { join } from 'path';
 import prefs from '../lib/preferences.js';
 
-const DATA_DIR = join(homedir(), '.hanzo-bot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.bot', 'clawdlink');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 
 const args = process.argv.slice(2);

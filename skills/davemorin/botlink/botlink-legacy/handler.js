@@ -7,7 +7,7 @@
  * Output: JSON result
  */
 
-import hanzo-bot from './lib/hanzo-bot.js';
+import bot from './lib/bot.js';
 import prefs from './lib/preferences.js';
 
 const args = process.argv.slice(2);
@@ -39,7 +39,7 @@ async function main() {
   switch (action) {
     case 'check':
       // Check for new messages and friend requests
-      result = await hanzo-bot.checkMessages();
+      result = await bot.checkMessages();
       break;
 
     case 'send':
@@ -52,7 +52,7 @@ async function main() {
           context: flags.context || 'personal',
           respondBy: flags.respondBy || null
         };
-        result = await hanzo-bot.sendToFriend(args[1], args[2], options);
+        result = await bot.sendToFriend(args[1], args[2], options);
       }
       break;
 
@@ -61,7 +61,7 @@ async function main() {
       if (!args[1]) {
         result = { success: false, error: 'Usage: add <friend-link> [message]' };
       } else {
-        result = await hanzo-bot.addFriend(args[1], args[2] || '');
+        result = await bot.addFriend(args[1], args[2] || '');
       }
       break;
 
@@ -70,23 +70,23 @@ async function main() {
       if (!args[1]) {
         result = { success: false, error: 'Usage: accept <friend-name>' };
       } else {
-        result = await hanzo-bot.acceptFriend(args[1]);
+        result = await bot.acceptFriend(args[1]);
       }
       break;
 
     case 'link':
       // Get friend link
-      result = hanzo-bot.getFriendLink();
+      result = bot.getFriendLink();
       break;
 
     case 'friends':
       // List friends
-      result = hanzo-bot.listFriends();
+      result = bot.listFriends();
       break;
 
     case 'status':
       // Get status
-      result = await hanzo-bot.getStatus();
+      result = await bot.getStatus();
       break;
 
     case 'preferences':

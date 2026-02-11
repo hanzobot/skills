@@ -28,7 +28,7 @@ function usage(msg) {
 
 function readKeyFromHanzo BotConfig() {
   try {
-    const p = path.join(os.homedir(), ".hanzo-bot", "bot.json");
+    const p = path.join(os.homedir(), ".bot", "bot.json");
     const raw = fs.readFileSync(p, "utf8");
     const j = JSON.parse(raw);
     // common places

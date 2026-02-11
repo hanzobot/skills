@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = 18795;
-const FRAME_PATH = '/tmp/hanzo-bot-screen-latest.png';
-const META_PATH = '/tmp/hanzo-bot-screen-latest.json';
+const FRAME_PATH = '/tmp/bot-screen-latest.png';
+const META_PATH = '/tmp/bot-screen-latest.json';
 
 const server = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

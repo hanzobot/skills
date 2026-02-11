@@ -56,7 +56,7 @@ else:
         sys.exit(1)
 
 def _default_state_dir() -> Path:
-    return Path.home() / ".hanzo-bot" / "george"
+    return Path.home() / ".bot" / "george"
 
 
 # Runtime state dir (override via --dir or GEORGE_DIR)

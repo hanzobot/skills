@@ -25,7 +25,7 @@ from urllib.error import HTTPError, URLError
 
 def load_config() -> dict:
     """Load Homebridge config from credentials file."""
-    config_path = Path.home() / ".hanzo-bot" / "credentials" / "homebridge.json"
+    config_path = Path.home() / ".bot" / "credentials" / "homebridge.json"
     
     if not config_path.exists():
         print(f"Error: Config file not found at {config_path}", file=sys.stderr)

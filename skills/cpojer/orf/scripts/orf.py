@@ -36,7 +36,7 @@ def fetch(url: str) -> bytes:
         url,
         headers={
             "accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
-            "user-agent": "hanzo-bot-orf-digest/1.0",
+            "user-agent": "bot-orf-digest/1.0",
         },
     )
     with urllib.request.urlopen(req, timeout=30) as resp:

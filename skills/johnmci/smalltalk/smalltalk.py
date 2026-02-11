@@ -190,7 +190,7 @@ class MCPClient:
         response = self._send("initialize", {
             "protocolVersion": "2024-11-05",
             "capabilities": {},
-            "clientInfo": {"name": "hanzo-bot-smalltalk", "version": "1.0.0"}
+            "clientInfo": {"name": "bot-smalltalk", "version": "1.0.0"}
         })
 
         if "error" in response:

@@ -174,7 +174,7 @@ async function main() {
   if (!profilesPath) {
     console.error('❌ No Antigravity auth profiles found.');
     console.error('   Expected at: ~/.bot/agents/main/agent/auth-profiles.json');
-    console.error('   Run `hanzo-bot configure` to add accounts.');
+    console.error('   Run `bot configure` to add accounts.');
     process.exit(1);
   }
   
@@ -196,7 +196,7 @@ async function main() {
   
   if (accounts.length === 0) {
     console.error('❌ No Antigravity accounts found in auth profiles.');
-    console.error('   Run `hanzo-bot configure` to add accounts.');
+    console.error('   Run `bot configure` to add accounts.');
     process.exit(1);
   }
   

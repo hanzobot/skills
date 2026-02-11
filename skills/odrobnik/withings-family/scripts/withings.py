@@ -13,7 +13,7 @@ import urllib.request
 from pathlib import Path
 from datetime import datetime, timedelta
 
-BASE_DIR = Path.home() / '.hanzo-bot' / 'withings-family'
+BASE_DIR = Path.home() / '.bot' / 'withings-family'
 
 # Load .env if present
 env_file = BASE_DIR / '.env'

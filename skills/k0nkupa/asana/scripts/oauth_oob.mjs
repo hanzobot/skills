@@ -35,7 +35,7 @@ function parseArgs(argv) {
 }
 
 function tokenPath() {
-  return path.join(os.homedir(), '.hanzo-bot', 'asana', 'token.json');
+  return path.join(os.homedir(), '.bot', 'asana', 'token.json');
 }
 
 function ensureDir(p) {
@@ -86,7 +86,7 @@ async function main() {
 
   // Optional fallback to ~/.bot/asana/credentials.json
   try {
-    const credPath = path.join(os.homedir(), '.hanzo-bot', 'asana', 'credentials.json');
+    const credPath = path.join(os.homedir(), '.bot', 'asana', 'credentials.json');
     const creds = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
     clientId = clientId || creds.client_id;
     clientSecret = clientSecret || creds.client_secret;

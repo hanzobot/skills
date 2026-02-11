@@ -199,7 +199,7 @@ def send_telegram_message(message, chat_id=None):
         print(message)
         return
     
-    # Use hanzo-bot message tool via subprocess
+    # Use bot message tool via subprocess
     # This assumes the skill is running within Hanzo Bot context
     print(f"Sending message to chat ID: {chat_id}")
     print(message)

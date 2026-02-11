@@ -352,7 +352,7 @@ async function createAttestation({
   const schemaUid = requireSchemaUid(schemas, chainKey);
 
   const recipientAddr = recipient ? normalizeAddress(recipient) : zeroAddress();
-  const agent = agentId || process.env.BOT_AGENT_ID || process.env.AGENT_ID || 'hanzo-bot';
+  const agent = agentId || process.env.BOT_AGENT_ID || process.env.AGENT_ID || 'bot';
   const metadataStr = metadata ?? '{}';
 
   const schemaEncoder = new SchemaEncoder(schemaString);
@@ -763,7 +763,7 @@ async function main() {
     .option('--rpc <url>', 'RPC URL (overrides EAS_RPC_URL)')
     .option('--private-key <hex>', 'private key (overrides EAS_PRIVATE_KEY)')
     .option('--recipient <address>', 'recipient address (default zero address)')
-    .option('--agent-id <id>', 'agent id (default env BOT_AGENT_ID or "hanzo-bot")')
+    .option('--agent-id <id>', 'agent id (default env BOT_AGENT_ID or "bot")')
     .option('--metadata <string>', 'metadata string or JSON')
     .option('--metadata-file <path>', 'read metadata from file')
     .option('--hash-algo <algo>', 'sha256 or keccak256', 'sha256')

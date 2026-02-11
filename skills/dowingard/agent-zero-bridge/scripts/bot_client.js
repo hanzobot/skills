@@ -3,10 +3,10 @@
  * Hanzo Bot Client - For Agent Zero to call Hanzo Bot
  * 
  * Usage:
- *   node hanzo-bot_client.js <message>
- *   node hanzo-bot_client.js message <text>
- *   node hanzo-bot_client.js notify <text>
- *   node hanzo-bot_client.js tool <name> <json>
+ *   node bot_client.js <message>
+ *   node bot_client.js message <text>
+ *   node bot_client.js notify <text>
+ *   node bot_client.js tool <name> <json>
  * 
  * Environment:
  *   BOT_API_URL   - Gateway URL (default: http://127.0.0.1:18789)
@@ -14,17 +14,17 @@
  *   DOCKER_CONTAINER   - Set to "true" if running inside Docker
  */
 
-const Hanzo BotClient = require('./lib/hanzo-bot_api');
+const Hanzo BotClient = require('./lib/bot_api');
 const { parseArgs } = require('./lib/cli');
 
 const HELP = `
 Hanzo Bot Client (Agent Zero → Hanzo Bot)
 
 Usage:
-  node hanzo-bot_client.js <message>
-  node hanzo-bot_client.js message <text>    - Send message, get response
-  node hanzo-bot_client.js notify <text>     - Send notification
-  node hanzo-bot_client.js tool <name> <json> - Invoke a Hanzo Bot tool
+  node bot_client.js <message>
+  node bot_client.js message <text>    - Send message, get response
+  node bot_client.js notify <text>     - Send notification
+  node bot_client.js tool <name> <json> - Invoke a Hanzo Bot tool
 
 Environment:
   BOT_API_URL       - Gateway URL (default: http://127.0.0.1:18789)
@@ -33,9 +33,9 @@ Environment:
   DOCKER_CONTAINER       - Set to "true" if running inside Docker
 
 Examples:
-  node hanzo-bot_client.js "Task complete!"
-  node hanzo-bot_client.js notify "Progress: 50%"
-  node hanzo-bot_client.js tool sessions_list '{}'
+  node bot_client.js "Task complete!"
+  node bot_client.js notify "Progress: 50%"
+  node bot_client.js tool sessions_list '{}'
 `;
 
 async function main() {

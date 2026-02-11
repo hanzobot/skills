@@ -13,7 +13,7 @@ def load_gemini_key() -> str | None:
         return env_key
 
     # Fall back to Hanzo Bot config (local machine).
-    cfg_path = Path.home() / ".hanzo-bot" / "bot.json"
+    cfg_path = Path.home() / ".bot" / "bot.json"
     try:
         raw = cfg_path.read_text(encoding="utf-8")
         cfg = json.loads(raw)

@@ -15,7 +15,7 @@ const path = require('path');
  */
 function getSessionStorePath(agentId = 'main') {
   const homeDir = process.env.HOME || process.env.USERPROFILE;
-  return path.join(homeDir, '.hanzo-bot', 'agents', agentId, 'sessions', 'sessions.json');
+  return path.join(homeDir, '.bot', 'agents', agentId, 'sessions', 'sessions.json');
 }
 
 /**
@@ -147,7 +147,7 @@ function readTokensFromTranscript(transcriptPath) {
  */
 function getTranscriptPath(sessionId, agentId = 'main') {
   const homeDir = process.env.HOME || process.env.USERPROFILE;
-  return path.join(homeDir, '.hanzo-bot', 'agents', agentId, 'sessions', `${sessionId}.jsonl`);
+  return path.join(homeDir, '.bot', 'agents', agentId, 'sessions', `${sessionId}.jsonl`);
 }
 
 /**

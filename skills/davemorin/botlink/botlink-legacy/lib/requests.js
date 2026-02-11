@@ -15,7 +15,7 @@ import { join } from 'path';
 import crypto from './crypto.js';
 import relay from './relay.js';
 
-const DATA_DIR = join(homedir(), '.hanzo-bot', 'clawdlink');
+const DATA_DIR = join(homedir(), '.bot', 'clawdlink');
 const IDENTITY_FILE = join(DATA_DIR, 'identity.json');
 const FRIENDS_FILE = join(DATA_DIR, 'friends.json');
 const CONFIG_FILE = join(DATA_DIR, 'config.json');

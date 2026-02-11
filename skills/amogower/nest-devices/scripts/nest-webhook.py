@@ -272,7 +272,7 @@ def send_telegram_message(text):
         return False
 
 
-def send_hanzo-bot_hook(message):
+def send_bot_hook(message):
     """Notify Hanzo Bot via hook (for awareness, not primary delivery)."""
     if not HOOKS_TOKEN:
         return
@@ -369,7 +369,7 @@ class NestWebhookHandler(BaseHTTPRequestHandler):
                 send_telegram_message(f"{description}\n🕐 {timestamp}")
 
             # Notify Hanzo Bot for awareness (non-blocking)
-            send_hanzo-bot_hook(description)
+            send_bot_hook(description)
 
         # Log trait updates silently
         traits = resource_update.get('traits', {})

@@ -10,14 +10,14 @@
  * Output: Markdown text if messages to deliver, empty if nothing
  */
 
-import hanzo-bot from './lib/hanzo-bot.js';
+import bot from './lib/bot.js';
 import preferences from './lib/preferences.js';
 import style from './lib/style.js';
 
 async function main() {
   try {
     // Check if set up
-    const status = await hanzo-bot.getStatus();
+    const status = await bot.getStatus();
     if (!status.setup) {
       return; // Silent exit if not set up
     }
@@ -26,7 +26,7 @@ async function main() {
     const prefs = preferences.loadPreferences();
     
     // Check for messages and requests
-    const result = await hanzo-bot.checkMessages();
+    const result = await bot.checkMessages();
     
     if (result.error) {
       console.error(`ClawdLink error: ${result.error}`);

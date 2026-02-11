@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Any
 
 # Default data directory
-DATA_DIR = Path(os.environ.get("GROCERY_DATA_DIR", Path.home() / ".hanzo-bot" / "grocery-list"))
+DATA_DIR = Path(os.environ.get("GROCERY_DATA_DIR", Path.home() / ".bot" / "grocery-list"))
 DATA_FILE = DATA_DIR / "data.json"
 
 # Category auto-detection keywords

@@ -22,7 +22,7 @@ skills install garmin-health-analysis
 
 # Or manually
 cd ~/.bot/skills
-git clone https://github.com/eversonl/hanzo-bot-garmin-health-analysis.git garmin-health-analysis
+git clone https://github.com/eversonl/bot-garmin-health-analysis.git garmin-health-analysis
 
 # Install dependencies
 pip3 install garminconnect fitparse gpxpy

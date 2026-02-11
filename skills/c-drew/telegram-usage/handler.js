@@ -41,11 +41,11 @@ function getQuotaIndicator(percentage) {
 }
 
 /**
- * Get real quota data from hanzo-bot models status
+ * Get real quota data from bot models status
  */
 function getRealQuotaData() {
   try {
-    const output = execSync('hanzo-bot models status', { encoding: 'utf-8' });
+    const output = execSync('bot models status', { encoding: 'utf-8' });
 
     // Parse the line like: "- anthropic usage: 5h 58% left ⏱1h 1m"
     const usageMatch = output.match(/usage:\s+\d+h\s+(\d+)%\s+left\s+⏱(.+)/);
@@ -99,7 +99,7 @@ function parseTimeToMs(timeStr) {
  */
 function getQuotaTrackerPath() {
   const homeDir = process.env.HOME || process.env.USERPROFILE;
-  return path.join(homeDir, '.hanzo-bot', 'quota-tracker.json');
+  return path.join(homeDir, '.bot', 'quota-tracker.json');
 }
 
 /**
@@ -205,7 +205,7 @@ async function main() {
   const args = process.argv.slice(2);
   const command = args[0] || 'report';
 
-  // Get real quota data from hanzo-bot
+  // Get real quota data from bot
   const quotaData = getRealQuotaData();
 
   // Default session statistics

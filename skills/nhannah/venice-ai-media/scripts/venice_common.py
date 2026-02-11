@@ -9,7 +9,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-BOT_CONFIG_PATH = Path.home() / ".hanzo-bot" / "bot.json"
+BOT_CONFIG_PATH = Path.home() / ".bot" / "bot.json"
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 API_BASE = "https://api.venice.ai/api/v1"
 

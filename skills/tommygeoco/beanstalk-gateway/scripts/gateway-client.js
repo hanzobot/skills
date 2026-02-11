@@ -18,7 +18,7 @@ function loadConfig() {
     return {
       url: process.env.GATEWAY_URL,
       token: process.env.GATEWAY_TOKEN,
-      hanzo-botUrl: process.env.BOT_URL || 'http://localhost:18789',
+      botUrl: process.env.BOT_URL || 'http://localhost:18789',
     };
   }
   
@@ -26,7 +26,7 @@ function loadConfig() {
   const workspacePaths = [
     process.cwd(),
     process.env.BOT_WORKSPACE,
-    path.join(os.homedir(), '.hanzo-bot'),
+    path.join(os.homedir(), '.bot'),
     path.join(os.homedir(), 'clawd'),
   ].filter(Boolean);
   
@@ -39,7 +39,7 @@ function loadConfig() {
         return {
           url: config.url,
           token: config.token,
-          hanzo-botUrl: config.hanzo-botUrl || 'http://localhost:18789',
+          botUrl: config.botUrl || 'http://localhost:18789',
         };
       } catch (err) {
         console.error(`[Gateway] Failed to parse ${configPath}:`, err.message);
@@ -80,7 +80,7 @@ async function getHanzo BotStatus() {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 5000);
     
-    const response = await fetch(`${config.hanzo-botUrl}/status`, {
+    const response = await fetch(`${config.botUrl}/status`, {
       signal: controller.signal,
     });
     clearTimeout(timeout);
@@ -134,7 +134,7 @@ async function executeCommand(commandId, action, payload) {
     const method = action === 'status' ? 'GET' : 'POST';
     const body = endpoints[action] ? null : JSON.stringify({ action, ...payload });
     
-    const response = await fetch(`${config.hanzo-botUrl}${endpoint}`, {
+    const response = await fetch(`${config.botUrl}${endpoint}`, {
       method,
       headers: body ? { 'Content-Type': 'application/json' } : undefined,
       body,
@@ -218,5 +218,5 @@ process.on('SIGINT', () => { console.log('\n[Gateway] Shutting down...'); stopSt
 process.on('SIGTERM', () => { stopStatusUpdates(); if (ws) ws.close(); process.exit(0); });
 
 console.log('[Gateway] Beanstalk Gateway Client v1.0.0');
-console.log(`[Gateway] Hanzo Bot: ${config.hanzo-botUrl}`);
+console.log(`[Gateway] Hanzo Bot: ${config.botUrl}`);
 connect();

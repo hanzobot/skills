@@ -8,9 +8,9 @@ class Hanzo BotClient {
     constructor(options = {}) {
         // Use Docker URL if running inside container, otherwise regular URL
         const isDocker = process.env.DOCKER_CONTAINER === 'true';
-        this.apiUrl = options.apiUrl || (isDocker ? config.hanzo-bot.apiUrlDocker : config.hanzo-bot.apiUrl);
-        this.apiToken = options.apiToken || config.hanzo-bot.apiToken;
-        this.defaultTimeout = options.timeout || config.hanzo-bot.defaultTimeout;
+        this.apiUrl = options.apiUrl || (isDocker ? config.bot.apiUrlDocker : config.bot.apiUrl);
+        this.apiToken = options.apiToken || config.bot.apiToken;
+        this.defaultTimeout = options.timeout || config.bot.defaultTimeout;
 
         if (!this.apiToken) {
             console.warn("Warning: BOT_API_TOKEN not set. Set it in .env or environment.");
@@ -57,7 +57,7 @@ class Hanzo BotClient {
     // Send message via OpenAI-compatible chat completions
     async sendMessage(message, options = {}) {
         const payload = {
-            model: "hanzo-bot:main",
+            model: "bot:main",
             messages: [
                 {
                     role: "user",

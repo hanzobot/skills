@@ -22,7 +22,7 @@ class Hanzo BotLanceMemory:
         self.db = lancedb.connect(self.db_path)
         
         # Ensure memory table exists
-        if "hanzo-bot_memory" not in self.db.list_tables():
+        if "bot_memory" not in self.db.list_tables():
             self._create_memory_table()
     
     def _create_memory_table(self):
@@ -38,13 +38,13 @@ class Hanzo BotLanceMemory:
         ])
         
         table = pa.Table.from_pylist(initial_data, schema=schema)
-        self.db.create_table("hanzo-bot_memory", data=table)
+        self.db.create_table("bot_memory", data=table)
     
     async def search_memories(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
         """Search memories using semantic similarity"""
         try:
             # For now, use text-based search since we don't have embeddings
-            table = self.db.open_table("hanzo-bot_memory")
+            table = self.db.open_table("bot_memory")
             
             # Use simple text filtering as fallback
             results = table.search(query).limit(limit).to_list()
@@ -57,7 +57,7 @@ class Hanzo BotLanceMemory:
     
     async def add_memory(self, content: str, metadata: Dict[str, Any] = None) -> int:
         """Add a memory to LanceDB"""
-        table = self.db.open_table("hanzo-bot_memory")
+        table = self.db.open_table("bot_memory")
         
         # Get next ID
         max_id = table.to_pandas()["id"].max() if len(table) > 0 else 0
@@ -77,20 +77,20 @@ class Hanzo BotLanceMemory:
     
     async def get_recent_memories(self, limit: int = 50) -> List[Dict[str, Any]]:
         """Get recent memories"""
-        table = self.db.open_table("hanzo-bot_memory")
+        table = self.db.open_table("bot_memory")
         df = table.to_pandas()
         recent = df.sort_values("timestamp", ascending=False).head(limit)
         return recent.to_dict("records")
 
 # Global instance
-hanzo-bot_lance_memory = Hanzo BotLanceMemory()
+bot_lance_memory = Hanzo BotLanceMemory()
 
 # Hanzo Bot memory search provider
 class LanceMemoryProvider:
     """Memory search provider for Hanzo Bot"""
     
     def __init__(self):
-        self.memory_db = hanzo-bot_lance_memory
+        self.memory_db = bot_lance_memory
     
     async def search(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
         """Search memories"""
